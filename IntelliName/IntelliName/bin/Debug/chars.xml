@@ -2305,4 +2305,15 @@
     <Char Name="阶">1</Char>
     <Char Name="兄">1</Char>
   </CharCount>
+  <GeneralChars>
+		鸿思方旭云子华明君永涵亦
+	</GeneralChars>
+  <BoyChars>
+		宏鹏麟德怀良振宁博
+	</BoyChars>
+  <GirlChars>
+		雯敏玲艳宁媛琴菲燕
+	</GirlChars>
+  <BadChars></BadChars>
+  <MaxChars></MaxChars>
 </root>
