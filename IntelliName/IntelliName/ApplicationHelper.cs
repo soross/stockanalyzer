@@ -8,6 +8,7 @@ namespace IntelliName
 {
     class ApplicationHelper
     {
+        // 得到应用程序所在路径，不包含最后的\\ 
         public static string GetAppPath()
         {
             // Get application path

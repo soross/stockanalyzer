@@ -48,7 +48,10 @@ namespace IntelliName.DB
 
         public void Close()
         {
-            _Doc.Save(ApplicationHelper.GetAppPath() + "\\chars.xml");
+            if (_Doc != null)
+            {
+                _Doc.Save(ApplicationHelper.GetAppPath() + "\\chars.xml");
+            }            
         }
 
         public void SaveNameChars(NameChars val)

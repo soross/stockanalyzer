@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using IntelliName.DB;
 using IntelliName.Business;
 using IntelliName.UI;
+using System.IO;
 
 namespace IntelliName
 {
@@ -26,7 +27,7 @@ namespace IntelliName
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void SaveLastNames()
@@ -94,5 +95,81 @@ namespace IntelliName
 
         private ListViewColumnSorter lvwColumnSorter;
 
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.DefaultExt = "txt";
+            dlg.Filter = "Text files (*.txt)|*.txt";
+            DialogResult result = dlg.ShowDialog();
+
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            if (listViewNames.Items.Count <= 0)
+            {
+                return;
+            }
+
+            SaveNameChars2(dlg.FileName);
+        }
+
+        private void SaveNameChars(string fileName)
+        {
+            using (StreamWriter sr = new StreamWriter(fileName))
+            {
+                foreach (ListViewItem item in listViewNames.Items)
+                {
+                    string line = string.Format("{0} {1}", item.SubItems[0].Text, item.SubItems[1].Text);
+                    sr.WriteLine(line);
+                }
+
+                sr.Close();
+            }
+        }
+
+        private void SaveNameChars2(string fileName)
+        {
+            using (StreamWriter sr = new StreamWriter(fileName))
+            {
+                string line = "";
+                string line2 = "";
+                string line3 = "";
+                string line4 = "";
+
+                foreach (ListViewItem item in listViewNames.Items)
+                {
+                    int count = int.Parse(item.SubItems[1].Text);
+                    if (count >= 50)
+                    {
+                        line += item.SubItems[0].Text;
+                    }
+                    else if (count >= 10)
+                    {
+                        line2 += item.SubItems[0].Text;
+                    }
+                    else if (count > 1)
+                    {
+                        line3 += item.SubItems[0].Text;
+                    }
+                    else
+                    {
+                        line4 += item.SubItems[0].Text;
+                    }
+                }
+
+                sr.WriteLine("Very often used (Count >= 50): ");
+                sr.WriteLine(line);
+                sr.WriteLine("Often used (Count >= 10): ");
+                sr.WriteLine(line2);
+                sr.WriteLine("Rarely used (Count < 10): ");
+                sr.WriteLine(line3);
+                sr.WriteLine("Very rarely used (Count = 1): ");
+                sr.WriteLine(line4);
+
+                sr.Close();
+            }
+        }
     }
 }
