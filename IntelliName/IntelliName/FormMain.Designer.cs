@@ -34,6 +34,8 @@
             this.columnHeaderChar = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderCount = new System.Windows.Forms.ColumnHeader();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonGen = new System.Windows.Forms.Button();
+            this.listBoxName = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonExec
@@ -64,7 +66,7 @@
             this.columnHeaderCount});
             this.listViewNames.Location = new System.Drawing.Point(17, 21);
             this.listViewNames.Name = "listViewNames";
-            this.listViewNames.Size = new System.Drawing.Size(351, 319);
+            this.listViewNames.Size = new System.Drawing.Size(351, 160);
             this.listViewNames.TabIndex = 2;
             this.listViewNames.UseCompatibleStateImageBehavior = false;
             this.listViewNames.View = System.Windows.Forms.View.Details;
@@ -88,11 +90,32 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // buttonGen
+            // 
+            this.buttonGen.Location = new System.Drawing.Point(393, 154);
+            this.buttonGen.Name = "buttonGen";
+            this.buttonGen.Size = new System.Drawing.Size(83, 27);
+            this.buttonGen.TabIndex = 4;
+            this.buttonGen.Text = "Generate";
+            this.buttonGen.UseVisualStyleBackColor = true;
+            this.buttonGen.Click += new System.EventHandler(this.buttonGen_Click);
+            // 
+            // listBoxName
+            // 
+            this.listBoxName.FormattingEnabled = true;
+            this.listBoxName.ItemHeight = 12;
+            this.listBoxName.Location = new System.Drawing.Point(17, 201);
+            this.listBoxName.Name = "listBoxName";
+            this.listBoxName.Size = new System.Drawing.Size(350, 136);
+            this.listBoxName.TabIndex = 5;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 358);
+            this.Controls.Add(this.listBoxName);
+            this.Controls.Add(this.buttonGen);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listViewNames);
             this.Controls.Add(this.buttonLoad);
@@ -113,6 +136,8 @@
         private System.Windows.Forms.ColumnHeader columnHeaderChar;
         private System.Windows.Forms.ColumnHeader columnHeaderCount;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonGen;
+        private System.Windows.Forms.ListBox listBoxName;
     }
 }
 

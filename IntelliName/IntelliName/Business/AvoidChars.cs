@@ -9,7 +9,7 @@ namespace IntelliName.Business
     {
         public bool IsAvoidChars(char c1)
         {
-            return false;
+            return AvoidChars.Contains(c1);
         }
 
         char[] AvoidChars

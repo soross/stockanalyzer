@@ -6,6 +6,7 @@ using System.Collections;
 
 namespace IntelliName.UI
 {
+    // 首先当成数字比较，如果不对，当作字符比较 
     class NumberComparer : IComparer
     {
         public int Compare(object x, object y)

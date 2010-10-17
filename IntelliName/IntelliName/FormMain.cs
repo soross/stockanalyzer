@@ -171,5 +171,10 @@ namespace IntelliName
                 sr.Close();
             }
         }
+
+        private void buttonGen_Click(object sender, EventArgs e)
+        {
+             
+        }
     }
 }
