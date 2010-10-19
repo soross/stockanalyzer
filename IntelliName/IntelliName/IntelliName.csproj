@@ -63,9 +63,12 @@
   <ItemGroup>
     <Compile Include="ApplicationHelper.cs" />
     <Compile Include="Business\AvoidChars.cs" />
+    <Compile Include="Business\CandidateChars.cs" />
     <Compile Include="Business\CharCount.cs" />
     <Compile Include="Business\ChineseLastName.cs" />
+    <Compile Include="Business\ICandidateChars.cs" />
     <Compile Include="Business\NameChars.cs" />
+    <Compile Include="Business\NameGenerator.cs" />
     <Compile Include="Business\PersonName.cs" />
     <Compile Include="Business\PersonNames.cs" />
     <Compile Include="DB\DatabaseFactory.cs" />

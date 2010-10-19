@@ -27,7 +27,7 @@ namespace IntelliName
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            DatabaseFactory.GetDB().Init();
         }
 
         private void SaveLastNames()
@@ -38,8 +38,6 @@ namespace IntelliName
 
         private void buttonExec_Click(object sender, EventArgs e)
         {
-            DatabaseFactory.GetDB().Init();
-
             PersonNames names = new PersonNames();
             names.Init();
 
@@ -48,13 +46,10 @@ namespace IntelliName
 
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            DatabaseFactory.GetDB().Init();
-
             ICollection<CharCount> arr = DatabaseFactory.GetDB().LoadAllNameCharsByOrder();
             foreach (CharCount item in arr)
             {
                 ListViewItem listItem = new ListViewItem(item.CharVal);
-                //listItem.SubItems.Add(item.CharVal);
                 listItem.SubItems.Add(item.Count.ToString());
 
                 listViewNames.Items.Add(listItem);
