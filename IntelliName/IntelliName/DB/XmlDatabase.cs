@@ -95,6 +95,21 @@ namespace IntelliName.DB
             
         }
 
+        public void LoadAllChars(ICandidateChars chars)
+        {
+            var item = _Doc.XPathSelectElement("//GeneralChars");
+            chars.SetGeneralChars(item.Value);
+
+            item = _Doc.XPathSelectElement("//BoyChars");
+            chars.SetBoyChars(item.Value);
+
+            item = _Doc.XPathSelectElement("//GirlChars");
+            chars.SetGirlChars(item.Value);
+
+            item = _Doc.XPathSelectElement("//AvoidChars");
+            chars.SetAvoidChars(item.Value);
+        }
+
         XDocument _Doc;
     }
 }

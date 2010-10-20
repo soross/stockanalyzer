@@ -23,5 +23,7 @@ namespace IntelliName.DB
         ICollection<CharCount> LoadAllNameCharsByOrder();
 
         void SavePersonNames(ICollection<PersonName> arr);
+
+        void LoadAllChars(ICandidateChars chars);
     }
 }

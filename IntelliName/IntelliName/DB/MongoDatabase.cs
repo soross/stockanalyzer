@@ -144,6 +144,10 @@ namespace IntelliName.DB
             }
         }
 
+        public void LoadAllChars(ICandidateChars chars)
+        {
+        }
+
         Mongo _instance;
         IMongoDatabase _db;
         // Create a logger for use in this class
