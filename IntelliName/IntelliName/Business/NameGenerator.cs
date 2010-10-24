@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using IntelliName.DB;
 using Microsoft.International.Converters.PinYinConverter;
+using System.Threading;
+using IntelliName.Log;
 
 namespace IntelliName.Business
 {
@@ -22,7 +24,7 @@ namespace IntelliName.Business
         {
             List<string> arr = new List<string>();
 
-            for (int i = 0; i < count; i++ )
+            for (int i = 0; i < count; i++)
             {
                 arr.Add(GenerateOne());
             }
@@ -50,7 +52,9 @@ namespace IntelliName.Business
 
         char RandomChar(ICollection<char> arr)
         {
-            Random rnd = new Random();
+            Thread.Sleep(100);
+
+            Random rnd = new Random((int)DateTime.Now.Ticks);
 
             int pos = rnd.Next(arr.Count);
             char ch = arr.ElementAt(pos);
@@ -70,19 +74,34 @@ namespace IntelliName.Business
 
         private bool IsInvalidChar(char para)
         {
-            ChineseChar chChar = new ChineseChar(para);
-
-            foreach (string pron in chChar.Pinyins)
+            if (INVALIDCHARS.Contains(para))
             {
-                if (_AllPinyins.Contains(pron))
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
+
+            try
+            {
+                ChineseChar chChar = new ChineseChar(para);
+
+                foreach (string pron in chChar.Pinyins)
+                {
+                    if (_AllPinyins.Contains(pron))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (NotSupportedException ex)
+            {
+                LogFactory.Instance().Log.Log(ex.StackTrace);
+                return true;
+            }
         }
 
         IEnumerable<string> _AllChars;
+
+        const string INVALIDCHARS = " \t\n";
 
         ICandidateChars _Chars = new CandidateChars();
 

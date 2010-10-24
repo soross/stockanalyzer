@@ -10,6 +10,7 @@ using IntelliName.DB;
 using IntelliName.Business;
 using IntelliName.UI;
 using System.IO;
+using IntelliName.Log;
 
 namespace IntelliName
 {
@@ -28,6 +29,11 @@ namespace IntelliName
         private void Form1_Load(object sender, EventArgs e)
         {
             DatabaseFactory.GetDB().Init();
+
+            UiLog log = new UiLog();
+            log.SetListBox(listBoxName);
+
+            LogFactory.Instance().Log = log;
         }
 
         private void SaveLastNames()
@@ -169,6 +175,8 @@ namespace IntelliName
 
         private void buttonGen_Click(object sender, EventArgs e)
         {
+            listBoxName.Items.Clear();
+
             NameGenerator gen = new NameGenerator();
 
             ICollection<string> arr = gen.Generate(10);

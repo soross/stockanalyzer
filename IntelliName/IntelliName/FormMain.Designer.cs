@@ -36,6 +36,8 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonGen = new System.Windows.Forms.Button();
             this.listBoxName = new System.Windows.Forms.ListBox();
+            this.listBoxLog = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonExec
@@ -109,11 +111,31 @@
             this.listBoxName.Size = new System.Drawing.Size(350, 136);
             this.listBoxName.TabIndex = 5;
             // 
+            // listBoxLog
+            // 
+            this.listBoxLog.FormattingEnabled = true;
+            this.listBoxLog.ItemHeight = 12;
+            this.listBoxLog.Location = new System.Drawing.Point(17, 361);
+            this.listBoxLog.Name = "listBoxLog";
+            this.listBoxLog.Size = new System.Drawing.Size(457, 52);
+            this.listBoxLog.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 343);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 12);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Status:";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 358);
+            this.ClientSize = new System.Drawing.Size(513, 416);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listBoxLog);
             this.Controls.Add(this.listBoxName);
             this.Controls.Add(this.buttonGen);
             this.Controls.Add(this.buttonSave);
@@ -125,6 +147,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,6 +161,8 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonGen;
         private System.Windows.Forms.ListBox listBoxName;
+        private System.Windows.Forms.ListBox listBoxLog;
+        private System.Windows.Forms.Label label1;
     }
 }
 

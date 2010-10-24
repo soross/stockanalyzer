@@ -77,6 +77,9 @@
     <Compile Include="DB\MongoDatabase.cs" />
     <Compile Include="DB\XmlDatabase.cs" />
     <Compile Include="DB\Xml\InvalidChars.cs" />
+    <Compile Include="Log\ILog.cs" />
+    <Compile Include="Log\LogFactory.cs" />
+    <Compile Include="Log\UiLog.cs" />
     <Compile Include="UI\NumberComparer.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
