@@ -92,7 +92,6 @@ namespace IntelliName.DB
 
         public void SavePersonNames(ICollection<PersonName> arr)
         {
-            
         }
 
         public void LoadAllChars(ICandidateChars chars)

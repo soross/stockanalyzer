@@ -169,7 +169,14 @@ namespace IntelliName
 
         private void buttonGen_Click(object sender, EventArgs e)
         {
-             
+            NameGenerator gen = new NameGenerator();
+
+            ICollection<string> arr = gen.Generate(10);
+
+            foreach (string item in arr)
+            {
+                listBoxName.Items.Add(item);
+            }
         }
     }
 }

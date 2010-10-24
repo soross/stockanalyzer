@@ -9,38 +9,47 @@ namespace IntelliName.Business
     {
         public ICollection<char> GetGeneralChars()
         {
-            return null;
+            return _GeneralChars.ToCharArray();
         }
 
         public void SetGeneralChars(string para)
         {
+            _GeneralChars = para;
         }
 
         public ICollection<char> GetBoyChars()
         {
-            return null;
+            return _BoyChars.ToCharArray();
         }
 
         public void SetBoyChars(string para)
         {
+            _BoyChars = para;
         }
 
         public ICollection<char> GetGirlChars()
         {
-            return null;
+            return _GirlChars.ToCharArray();
         }
 
         public void SetGirlChars(string para)
         {
+            _GirlChars = para;
         }
 
         public ICollection<char> GetAvoidChars()
         {
-            return null;
+            return _AvoidChars.ToCharArray();
         }
 
         public void SetAvoidChars(string para)
         {
+            _AvoidChars = para;
         }
+
+        string _GeneralChars;
+        string _BoyChars;
+        string _GirlChars;
+        string _AvoidChars;
     }
 }
