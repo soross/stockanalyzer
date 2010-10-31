@@ -26,10 +26,32 @@ namespace IntelliName.Business
 
             for (int i = 0; i < count; i++)
             {
-                arr.Add(GenerateOne());
+                arr.Add(GenerateOneBoy());
             }
 
             return arr;
+        }
+
+        private string GenerateOneBoy()
+        {
+            List<char> arr = new List<char>();
+            arr.AddRange(_Chars.GetGeneralChars());
+            arr.AddRange(_Chars.GetBoyChars());
+
+            char c1 = RandomChar(arr);
+
+            while (IsInvalidChar(c1))
+            {
+                c1 = RandomChar(arr);
+            }
+
+            char c2 = RandomChar(arr);
+            while (IsInvalidChar(c2))
+            {
+                c2 = RandomChar(arr);
+            }
+
+            return c1.ToString() + c2.ToString();
         }
 
         private string GenerateOne()
@@ -52,9 +74,11 @@ namespace IntelliName.Business
 
         char RandomChar(ICollection<char> arr)
         {
-            Thread.Sleep(100);
+            Thread.Sleep(125);
 
             Random rnd = new Random((int)DateTime.Now.Ticks);
+
+            Thread.Sleep(rnd.Next(100));
 
             int pos = rnd.Next(arr.Count);
             char ch = arr.ElementAt(pos);
