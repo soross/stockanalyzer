@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using FinanceAnalyzer.Strategy.Rise;
+using FinanceAnalyzer.DB;
+
+namespace FinanceAnalyzer.Strategy.Impl
+{
+    class StrategyFourday : IFinanceStrategy
+    {
+        public override string Name
+        {
+            get
+            {
+                return "FourDay: " + _Judger.Name;
+            }
+        }
+
+        public StrategyFourday(IStockJudger judger)
+        {
+            _Judger = judger;
+        }
+
+        public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
+        {
+            StockData curProp = _StockHistory.GetStock(day);
+            StockData stockYesterdayProp = _StockHistory.GetPrevDayStock(day);
+
+            DateTime prevDate = _StockHistory.GetPrevDay(day);
+            StockData stockprevProp = _StockHistory.GetPrevDayStock(prevDate);
+            DateTime prevNextDate = _StockHistory.GetPrevDay(prevDate);
+
+            if (!CheckStock(curProp, day) || !CheckStock(stockYesterdayProp, prevDate)
+                || !CheckStock(stockprevProp, prevNextDate))
+            {
+                return null;
+            }
+
+            ICollection<StockOper> opers = new List<StockOper>();
+            if (_Judger.FulFil(stockprevProp, stockYesterdayProp, curProp))
+            {
+                if (_StockHolder.HasStock())
+                {
+                    StockOper oper = new StockOper(curProp.EndPrice, _StockHolder.StockCount(), OperType.Sell);
+                    opers.Add(oper);
+                    return opers;
+                }
+            }
+            else if (_Judger.ReverseFulFil(stockprevProp, stockYesterdayProp, curProp))
+            {
+                int stockCount = Transaction.GetCanBuyStockCount(account.BankRoll,
+                    curProp.EndPrice);
+                if (stockCount > 0)
+                {
+                    StockOper oper = new StockOper(curProp.EndPrice, stockCount, OperType.Buy);
+                    opers.Add(oper);
+                    return opers;
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+            return null;
+        }
+
+        protected override void HolderInit()
+        {
+        }
+
+        private IStockJudger _Judger;
+    }
+}
