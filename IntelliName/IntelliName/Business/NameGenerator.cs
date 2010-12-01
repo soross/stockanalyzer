@@ -9,6 +9,12 @@ using IntelliName.Log;
 
 namespace IntelliName.Business
 {
+    enum NameType
+    {
+        Boy,
+        Girl
+    }
+
     class NameGenerator
     {
         public NameGenerator()
@@ -18,6 +24,8 @@ namespace IntelliName.Business
             _AllChars = from item in arr select item.CharVal;
 
             DatabaseFactory.GetDB().LoadAllChars(_Chars);
+
+            InitPinyins();
         }
 
         public ICollection<string> Generate(int count)
@@ -26,17 +34,25 @@ namespace IntelliName.Business
 
             for (int i = 0; i < count; i++)
             {
-                arr.Add(GenerateOneBoy());
+                arr.Add(GenerateOne(NameType.Girl));
             }
 
             return arr;
         }
 
-        private string GenerateOneBoy()
+        private string GenerateOne(NameType para)
         {
             List<char> arr = new List<char>();
             arr.AddRange(_Chars.GetGeneralChars());
-            arr.AddRange(_Chars.GetBoyChars());
+
+            if (para == NameType.Boy)
+            {
+                arr.AddRange(_Chars.GetBoyChars());
+            }
+            else if (para == NameType.Girl)
+            {
+                arr.AddRange(_Chars.GetGirlChars());
+            }
 
             char c1 = RandomChar(arr);
 
@@ -54,7 +70,7 @@ namespace IntelliName.Business
             return c1.ToString() + c2.ToString();
         }
 
-        private string GenerateOne()
+        private string GenerateOne2()
         {
             char c1 = RandomChar(_Chars.GetGeneralChars());
 
@@ -74,7 +90,7 @@ namespace IntelliName.Business
 
         char RandomChar(ICollection<char> arr)
         {
-            Thread.Sleep(125);
+            Thread.Sleep(126);
 
             Random rnd = new Random((int)DateTime.Now.Ticks);
 
