@@ -25,11 +25,11 @@ namespace FinanceAnalyzer.Strategy.Impl
         // 得到操作指令
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            StockData curProp = _StockHistory.GetStock(day);
-            StockData stockYesterdayProp = _StockHistory.GetPrevDayStock(day);
+            IStockData curProp = _StockHistory.GetStock(day);
+            IStockData stockYesterdayProp = _StockHistory.GetPrevDayStock(day);
 
             DateTime prevDate = _StockHistory.GetPrevDay(day);
-            StockData stockprevProp = _StockHistory.GetPrevDayStock(prevDate);
+            IStockData stockprevProp = _StockHistory.GetPrevDayStock(prevDate);
             DateTime prevNextDate = _StockHistory.GetPrevDay(prevDate);
 
             if (!CheckStock(curProp, day) || !CheckStock(stockYesterdayProp, prevDate)

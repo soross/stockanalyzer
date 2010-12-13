@@ -18,7 +18,7 @@ namespace FinanceAnalyzer.Strategy.Impl
         {
             DateTime yesterday = _StockHistory.GetPrevDay(dt);
 
-            StockData curProp = _StockHistory.GetStock(dt);
+            IStockData curProp = _StockHistory.GetStock(dt);
             if (curProp == null)
             {
                 return null;

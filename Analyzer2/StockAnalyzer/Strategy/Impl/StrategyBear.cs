@@ -12,8 +12,8 @@ namespace FinanceAnalyzer.Strategy.Impl
         // 指令为如果没有股票，当日开盘买入，否则涨跌幅达到x%卖出（止盈止损策略）
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            StockData prevStockProp = _StockHistory.GetPrevDayStock(day);
-            StockData curStockProp = _StockHistory.GetStock(day);
+            IStockData prevStockProp = _StockHistory.GetPrevDayStock(day);
+            IStockData curStockProp = _StockHistory.GetStock(day);
             if ((prevStockProp == null) || (curStockProp == null))
             {
                 return null;

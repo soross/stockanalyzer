@@ -10,7 +10,7 @@ namespace FinanceAnalyzer.Strategy.Impl
     {
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            StockData curStockProp = _StockHistory.GetStock(day);
+            IStockData curStockProp = _StockHistory.GetStock(day);
             if (curStockProp == null)
             {
                 return null;

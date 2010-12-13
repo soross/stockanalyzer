@@ -40,7 +40,7 @@ namespace FinanceAnalyzer
             set;
         }
 
-        private void AddStock(DateTime dt, StockData stock)
+        private void AddStock(DateTime dt, IStockData stock)
         {
             if (!_DailyStocks.ContainsKey(dt))
             {
@@ -62,7 +62,7 @@ namespace FinanceAnalyzer
 
             StockId = stockId;
 
-            foreach (StockData val in arr)
+            foreach (IStockData val in arr)
             {
                 AddStock(val.TradeDate, val);
             }
@@ -79,7 +79,7 @@ namespace FinanceAnalyzer
         }
                 
         // 得到某一天的股票属性
-        public StockData GetStock(DateTime dt)
+        public IStockData GetStock(DateTime dt)
         {
             if (!_DailyStocks.ContainsKey(dt))
             {
@@ -92,10 +92,10 @@ namespace FinanceAnalyzer
         }
 
         // 得到第一天的股票属性
-        public StockData GetFirstStock()
+        public IStockData GetFirstStock()
         {
             DateTime firstDate = MinDate;
-            StockData val = GetStock(firstDate);
+            IStockData val = GetStock(firstDate);
 
             while (val == null)
             {
@@ -107,7 +107,7 @@ namespace FinanceAnalyzer
             return val;
         }
 
-        public StockData GetPrevDayStock(DateTime dt)
+        public IStockData GetPrevDayStock(DateTime dt)
         {
             return GetStock(GetPrevDay(dt));
         }
@@ -122,7 +122,7 @@ namespace FinanceAnalyzer
 
             DateTime prevDay = DateFunc.GetPrevWorkday(dt);
 
-            StockData stock = GetStock(prevDay);
+            IStockData stock = GetStock(prevDay);
             while (stock == null)
             {
                 prevDay = DateFunc.GetPrevWorkday(prevDay);
@@ -154,7 +154,7 @@ namespace FinanceAnalyzer
                 return false;
             }
 
-            StockData stock = _DailyStocks[dt];
+            IStockData stock = _DailyStocks[dt];
             switch (oper.Type)
             {
             case OperType.Buy:
@@ -184,7 +184,7 @@ namespace FinanceAnalyzer
             drawer.MaxDate = m_MaxDate;
             drawer.MinDate = m_MinDate;
 
-            foreach (KeyValuePair<DateTime, StockData> entry in _DailyStocks)
+            foreach (KeyValuePair<DateTime, IStockData> entry in _DailyStocks)
             {
                 drawer.AddDayStock(entry.Key, entry.Value);
             }
@@ -210,10 +210,10 @@ namespace FinanceAnalyzer
             DateTime startDate = MaxDate;
             while (startDate > MinDate)
             {
-                StockData curStock = GetStock(startDate);
+                IStockData curStock = GetStock(startDate);
 
                 DateTime prevDate = GetPrevDay(startDate);
-                StockData prevStock = GetStock(prevDate);
+                IStockData prevStock = GetStock(prevDate);
 
                 if ((curStock == null) || (prevStock == null))
                 {
@@ -237,7 +237,7 @@ namespace FinanceAnalyzer
             int tTypeCount = 0;
             int revTTypeCount = 0;
             int crossTypeCount = 0;
-            foreach (KeyValuePair<DateTime, StockData> entry in _DailyStocks)
+            foreach (KeyValuePair<DateTime, IStockData> entry in _DailyStocks)
             {
                 if (ShapeJudger.IsCross(entry.Value))
                 {
@@ -278,7 +278,7 @@ namespace FinanceAnalyzer
 
         private const double COMPRATIO = 0.1; // 表示每日上涨或者下跌的最大允许值 
 
-        private Dictionary<DateTime, StockData> _DailyStocks = new Dictionary<DateTime, StockData>();
+        private Dictionary<DateTime, IStockData> _DailyStocks = new Dictionary<DateTime, IStockData>();
         private DateTime m_MaxDate = new DateTime(1900, 1, 1);
         private DateTime m_MinDate = new DateTime(2100, 1, 1);
     }

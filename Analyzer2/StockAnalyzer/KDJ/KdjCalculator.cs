@@ -16,7 +16,7 @@ namespace FinanceAnalyzer.KDJ
             int curPos = 1;
             while (startDate < endDate)
             {
-                StockData stock = hist.GetStock(startDate);
+                IStockData stock = hist.GetStock(startDate);
                 if (stock == null)
                 {
                     yesterday = startDate;

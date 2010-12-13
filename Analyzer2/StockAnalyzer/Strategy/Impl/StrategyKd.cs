@@ -25,7 +25,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            StockData curProp = _StockHistory.GetStock(day);
+            IStockData curProp = _StockHistory.GetStock(day);
             double k = _Storage.GetK(day);
             double d = _Storage.GetD(day);
 

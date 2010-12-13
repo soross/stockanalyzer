@@ -27,7 +27,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
             while (startDate < endDate)
             {
-                StockData stock = hist.GetStock(startDate);
+                IStockData stock = hist.GetStock(startDate);
                 if (stock == null)
                 {
                     startDate = DateFunc.GetNextWorkday(startDate);
@@ -35,7 +35,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 }
 
                 DateTime prevDate = DateFunc.GetPrevWorkday(startDate);
-                StockData prevStock = hist.GetStock(prevDate);
+                IStockData prevStock = hist.GetStock(prevDate);
 
                 if (prevStock == null)
                 {

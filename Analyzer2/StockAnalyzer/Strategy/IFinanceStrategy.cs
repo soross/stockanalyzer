@@ -32,7 +32,7 @@ namespace FinanceAnalyzer.Strategy
         {
         }
 
-        protected static bool CheckStock(StockData stock, DateTime day)
+        protected static bool CheckStock(IStockData stock, DateTime day)
         {
             if (stock == null)
             {

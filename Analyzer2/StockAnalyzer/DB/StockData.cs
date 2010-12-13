@@ -5,7 +5,7 @@ using System.Text;
 namespace FinanceAnalyzer.DB
 {
     // 保存股票交易某只股票某一天的信息
-    public class StockData
+    public class StockData : IStockData
     {
         // 股票代码
         public int Id

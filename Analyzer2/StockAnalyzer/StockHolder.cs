@@ -67,7 +67,7 @@ namespace FinanceAnalyzer
         // ¹ÉÆ±ÊÐÖµ
         public double MarketValue(DateTime day)
         {
-            StockData stockProp = History.GetStock(day);
+            IStockData stockProp = History.GetStock(day);
             if (stockProp == null)
             {
                 stockProp = History.GetPrevDayStock(day);

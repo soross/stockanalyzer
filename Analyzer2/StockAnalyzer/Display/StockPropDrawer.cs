@@ -47,7 +47,7 @@ namespace FinanceAnalyzer.Display
         }
 
         // 添加某一天的股票信息
-        public void AddDayStock(DateTime dt, StockData stock)
+        public void AddDayStock(DateTime dt, IStockData stock)
         {
             StockPoint pt = new StockPoint(dt, stock.MaxPrice, stock.MinPrice,
                 stock.StartPrice, stock.EndPrice, stock.VolumeHand);

@@ -21,13 +21,13 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
             while (startDate < endDate)
             {
-                StockData currentstock = hist.GetStock(startDate);
+                IStockData currentstock = hist.GetStock(startDate);
 
                 DateTime prevDate = DateFunc.GetPrevWorkday(startDate);
-                StockData prevStock = hist.GetStock(prevDate);
+                IStockData prevStock = hist.GetStock(prevDate);
 
                 DateTime prev2Date = DateFunc.GetPrevWorkday(prevDate);
-                StockData prev2Stock = hist.GetStock(prev2Date);
+                IStockData prev2Stock = hist.GetStock(prev2Date);
 
                 if ((currentstock == null) || (prevStock == null) || (prev2Stock == null))
                 {

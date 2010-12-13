@@ -20,12 +20,12 @@ namespace FinanceAnalyzer
         }
 
         // 得到第一天的股票属性
-        StockData GetFirstStock();
+        IStockData GetFirstStock();
 
         // 得到某一天的股票属性
-        StockData GetStock(DateTime dt);
+        IStockData GetStock(DateTime dt);
 
-        StockData GetPrevDayStock(DateTime dt);
+        IStockData GetPrevDayStock(DateTime dt);
 
         // 得到前一个工作日
         DateTime GetPrevDay(DateTime dt);

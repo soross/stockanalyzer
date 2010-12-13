@@ -11,7 +11,7 @@ namespace FinanceAnalyzer.Strategy.Impl
         // 最简单的算法，指令为前一日最低值买入，最高值卖出
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            StockData prevStock = _StockHistory.GetPrevDayStock(day);
+            IStockData prevStock = _StockHistory.GetPrevDayStock(day);
             if (prevStock == null)
             {
                 Debug.WriteLine("StrategyMinMax -- GetPrevDayStock ERROR: Cur Day: " + day.ToLongDateString());

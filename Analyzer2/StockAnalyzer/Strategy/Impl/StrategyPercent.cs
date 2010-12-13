@@ -17,7 +17,7 @@ namespace FinanceAnalyzer.Strategy.Impl
         // 指令为前一日最低值买入，赚x%卖出
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            StockData prevStockProp = _StockHistory.GetPrevDayStock(day);
+            IStockData prevStockProp = _StockHistory.GetPrevDayStock(day);
             if (prevStockProp == null)
             {
                 Debug.WriteLine("StrategyPercent -- GetPrevDayStock ERROR: Cur Day: " + day.ToLongDateString());

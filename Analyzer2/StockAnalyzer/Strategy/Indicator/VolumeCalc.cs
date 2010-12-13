@@ -27,7 +27,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
             while (startDate < endDate)
             {
-                StockData currentstock = hist.GetStock(startDate);
+                IStockData currentstock = hist.GetStock(startDate);
 
                 if (currentstock == null)
                 {

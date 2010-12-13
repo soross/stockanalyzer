@@ -31,13 +31,13 @@ namespace FinanceAnalyzer
         }
 
         // 得到第一天的股票属性
-        public StockData GetFirstStock()
+        public IStockData GetFirstStock()
         {
             return GetStock(MinDate);
         }
 
         // 得到某一天的股票属性
-        public StockData GetStock(DateTime dt)
+        public IStockData GetStock(DateTime dt)
         {
             if (_DailyStocks.ContainsKey(dt))
             {
@@ -46,7 +46,7 @@ namespace FinanceAnalyzer
             return null;
         }
 
-        public StockData GetPrevDayStock(DateTime dt)
+        public IStockData GetPrevDayStock(DateTime dt)
         {
             DateTime prev = dt.AddDays(-1);
             return GetStock(prev);

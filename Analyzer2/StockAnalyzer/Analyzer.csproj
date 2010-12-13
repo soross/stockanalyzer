@@ -87,6 +87,7 @@
     <Compile Include="DB\BonusReader.cs" />
     <Compile Include="DB\Bonus.cs" />
     <Compile Include="DB\IDataChecker.cs" />
+    <Compile Include="DB\IStockData.cs" />
     <Compile Include="DB\IStockSaver.cs" />
     <Compile Include="DB\StockData.cs" />
     <Compile Include="DB\StockDBReader.cs" />

@@ -16,8 +16,8 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
             while (startDate < endDate)
             {
-                StockData stock = hist.GetStock(startDate);
-                StockData prevStock = hist.GetPrevDayStock(startDate);
+                IStockData stock = hist.GetStock(startDate);
+                IStockData prevStock = hist.GetPrevDayStock(startDate);
                 if ((stock == null) || (prevStock == null))
                 {
                     startDate = DateFunc.GetNextWorkday(startDate);
@@ -105,7 +105,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        private static double GetTypicalPrice(StockData val)
+        private static double GetTypicalPrice(IStockData val)
         {
             return (val.MaxPrice + val.MinPrice + val.EndPrice) / 3;
         }
