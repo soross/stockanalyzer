@@ -16,9 +16,9 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         public override ICollection<StockOper> GetOper(DateTime dt, IAccount account)
         {
-            DateTime yesterday = _StockHistory.GetPrevDay(dt);
+            DateTime yesterday = stockHistory.GetPrevDay(dt);
 
-            IStockData curProp = _StockHistory.GetStock(dt);
+            IStockData curProp = stockHistory.GetStock(dt);
             if (curProp == null)
             {
                 return null;
@@ -41,13 +41,13 @@ namespace FinanceAnalyzer.Strategy.Impl
             }
             else if (operType == OperType.Sell)
             {
-                if (!_StockHolder.HasStock())
+                if (!stockHolder.HasStock())
                 {
                     return null;
                 }
 
                 ICollection<StockOper> opers = new List<StockOper>();
-                StockOper oper = new StockOper(curProp.EndPrice, _StockHolder.StockCount(), OperType.Sell);
+                StockOper oper = new StockOper(curProp.EndPrice, stockHolder.StockCount(), OperType.Sell);
                 opers.Add(oper);
                 return opers;
             }
@@ -64,7 +64,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         protected override void HolderInit()
         {
-            _Calc.Calc(_StockHistory);
+            _Calc.Calc(stockHistory);
         }
 
         IIndicatorCalc _Calc;

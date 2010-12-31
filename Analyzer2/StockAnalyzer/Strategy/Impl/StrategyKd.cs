@@ -25,11 +25,11 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            IStockData curProp = _StockHistory.GetStock(day);
+            IStockData curProp = stockHistory.GetStock(day);
             double k = _Storage.GetK(day);
             double d = _Storage.GetD(day);
 
-            DateTime yesterday = _StockHistory.GetPrevDay(day);
+            DateTime yesterday = stockHistory.GetPrevDay(day);
             double prevK = _Storage.GetK(yesterday);
             double prevD = _Storage.GetD(yesterday);
 
@@ -52,7 +52,7 @@ namespace FinanceAnalyzer.Strategy.Impl
             // 高位K下穿D线
             if (KDownCrossD(k, d, prevK, prevD))
             {
-                StockOper oper = new StockOper(curProp.EndPrice, _StockHolder.StockCount(), OperType.Sell);
+                StockOper oper = new StockOper(curProp.EndPrice, stockHolder.StockCount(), OperType.Sell);
                 opers.Add(oper);
                 return opers;
             }
@@ -72,7 +72,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         protected override void HolderInit()
         {
-            _KdjCalc.Calc(_StockHistory);
+            _KdjCalc.Calc(stockHistory);
 
             _Storage = _KdjCalc.GetStorage();
         }

@@ -10,7 +10,7 @@ namespace FinanceAnalyzer.Strategy.Impl
     {
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            IStockData curStockProp = _StockHistory.GetStock(day);
+            IStockData curStockProp = stockHistory.GetStock(day);
             if (curStockProp == null)
             {
                 return null;
@@ -38,8 +38,8 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         protected override void HolderInit()
         {
-            DateTime startDate = _StockHistory.MinDate;
-            while (startDate < _StockHistory.MaxDate)
+            DateTime startDate = stockHistory.MinDate;
+            while (startDate < stockHistory.MaxDate)
             {
                 _AllBuyDays.Add(startDate);
 

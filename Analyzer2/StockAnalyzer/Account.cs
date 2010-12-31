@@ -149,7 +149,7 @@ namespace FinanceAnalyzer
             get { return _SellTransactionCount; }
         }
 
-        public BonusProcessor Processor
+        public IBonusProcessor Processor
         {
             get;
             set;

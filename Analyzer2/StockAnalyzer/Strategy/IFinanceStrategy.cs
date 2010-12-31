@@ -22,8 +22,8 @@ namespace FinanceAnalyzer.Strategy
         {            
             set
             {
-                _StockHolder = value;
-                _StockHistory = _StockHolder.History;
+                stockHolder = value;
+                stockHistory = stockHolder.History;
                 HolderInit();
             }
         }
@@ -48,7 +48,7 @@ namespace FinanceAnalyzer.Strategy
         // Create a logger for use in this class
         protected static readonly log4net.ILog StrategyLog = log4net.LogManager.GetLogger(typeof(IFinanceStrategy));
 
-        protected IStockHolder _StockHolder;
-        protected IStockHistory _StockHistory;
+        protected IStockHolder stockHolder;
+        protected IStockHistory stockHistory;
     }    
 }

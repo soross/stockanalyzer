@@ -84,6 +84,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="Business\BonusInfo.cs" />
     <Compile Include="Business\BonusProcessor.cs" />
+    <Compile Include="Business\IBonusProcessor.cs" />
     <Compile Include="DB\BonusReader.cs" />
     <Compile Include="DB\Bonus.cs" />
     <Compile Include="DB\IDataChecker.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Strategy\Factory\KdAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\RiseDownAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\VolumeAdjustFactory.cs" />
+    <Compile Include="Strategy\Impl\StrategyPriceAmountDeviation.cs" />
     <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\HoldCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Strategy\Indicator\MacdCalculator.cs" />
     <Compile Include="Strategy\Result\IStrategyResults.cs" />
     <Compile Include="Strategy\Rise\IStockJudger.cs" />
+    <Compile Include="Strategy\Rise\PriceAmountDeviationJudger.cs" />
     <Compile Include="Strategy\Rise\ReverseVolumeJudger.cs" />
     <Compile Include="Strategy\Rise\RiseJudgerOptim.cs" />
     <Compile Include="Strategy\Rise\TwoDaysUpVolJudger.cs" />

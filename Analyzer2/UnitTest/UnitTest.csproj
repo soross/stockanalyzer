@@ -14,6 +14,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +36,9 @@
   <ItemGroup>
     <Reference Include="nunit.framework, Version=2.5.5.10112, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
@@ -43,9 +47,8 @@
     <Compile Include="AccountTest.cs" />
     <Compile Include="Business\BonusProcessorTest.cs" />
     <Compile Include="DateFuncTest.cs" />
-    <Compile Include="DB\BonusReaderTest.cs" />
     <Compile Include="DB\FakeBonusReader.cs" />
-    <Compile Include="DB\StockDBReaderTest.cs" />
+    <Compile Include="DB\FakeIBonusReader.cs" />
     <Compile Include="Display\StockPropDrawerTest.cs" />
     <Compile Include="FakeStockDataCreator.cs" />
     <Compile Include="FakeStockHistory.cs" />

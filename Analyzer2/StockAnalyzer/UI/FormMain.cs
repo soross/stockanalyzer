@@ -1,20 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using FinanceAnalyzer.Log;
-using FinanceAnalyzer.DB;
-using FinanceAnalyzer.UI;
 using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
+using FinanceAnalyzer.Business;
+using FinanceAnalyzer.DB;
+using FinanceAnalyzer.Log;
 using FinanceAnalyzer.Strategy;
-using FinanceAnalyzer.Strategy.Result;
-using FinanceAnalyzer.Judger;
-using FinanceAnalyzer.Judger.Validation;
 using FinanceAnalyzer.Strategy.Factory;
+using FinanceAnalyzer.Strategy.Result;
+using FinanceAnalyzer.UI;
+using IBatisNet.DataMapper;
 
 namespace FinanceAnalyzer
 {
@@ -101,7 +97,9 @@ namespace FinanceAnalyzer
                 return;
             }
 
-            FinanceRunner runner = new FinanceRunner();
+            FinanceRunner runner = new FinanceRunner();            
+            runner.CurrentBounsProcessor = _BonusProcessor;
+
             runner.Go(_History, frm.Factory);
 
             _results = runner.Results;
@@ -144,13 +142,15 @@ namespace FinanceAnalyzer
         private void FormMain_Load(object sender, EventArgs e)
         {            
             // Load from DB
-            IList<int> allStockId = StockDBReader.LoadId();
+            IList<int> allStockId = _DbReader.LoadId();
             _log.Info("Form loaded. Stock Count: " + allStockId.Count);
 
             foreach (int id in allStockId)
             {
                 comboBoxStockId.Items.Add(id);
             }
+
+            _BonusProcessor.Load(_History.StockId, new BonusReader());
         }
 
         private void buttonImport_Click(object sender, EventArgs e)
@@ -168,7 +168,7 @@ namespace FinanceAnalyzer
         private void comboBoxStockId_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = int.Parse(comboBoxStockId.Text, CultureInfo.CurrentCulture);
-            IList<StockData> stocks = StockDBReader.Load(id);
+            IList<StockData> stocks = _DbReader.Load(id);
 
             _History.InitAllStocks(id, stocks);
 
@@ -204,7 +204,7 @@ namespace FinanceAnalyzer
             StrategyFactory factory = new StrategyFactory();
             factory.Init();
 
-            ScoresCalculator.Calc(_History, factory);
+            ScoresCalculator.Calc(_History, factory, _BonusProcessor);
 
             _History.JudgeShape(LogMgr.Logger);
         }
@@ -225,7 +225,11 @@ namespace FinanceAnalyzer
             StrategyFactory factory = new KdAdjustFactory();
             factory.Init();
 
-            ScoresCalculator.Calc(_History, factory);
+            ScoresCalculator.Calc(_History, factory, _BonusProcessor);
         }
+
+        StockDBReader _DbReader = new StockDBReader(Mapper.Instance());
+        
+        BonusProcessor _BonusProcessor = new BonusProcessor();
     }
 }

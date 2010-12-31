@@ -48,10 +48,8 @@ namespace FinanceAnalyzer
             acc.Holder = holder;
             strategy.Holder = holder;
             HolderManager.Instance().Holder = holder;
-
-            BonusProcessor processor = new BonusProcessor();
-            processor.Load(_History.StockId, new BonusReader());
-            acc.Processor = processor;
+            
+            acc.Processor = CurrentBounsProcessor;
 
             DateTime startDate = _History.MinDate;
             DateTime endDate = _History.MaxDate;
@@ -100,5 +98,11 @@ namespace FinanceAnalyzer
 
         StrategyResults _results = new StrategyResults();
         IStockHistory _History;
+
+        public IBonusProcessor CurrentBounsProcessor
+        {
+            get;
+            set;
+        }
     }
 }

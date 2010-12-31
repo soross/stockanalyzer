@@ -10,7 +10,7 @@ namespace FinanceAnalyzer.Strategy.Impl
     {
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            IStockData curStockProp = _StockHistory.GetStock(day);
+            IStockData curStockProp = stockHistory.GetStock(day);
             if (curStockProp == null)
             {
                 return null;
@@ -18,7 +18,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
             ICollection<StockOper> opers = new List<StockOper>();
 
-            if (!_StockHolder.HasStock())
+            if (!stockHolder.HasStock())
             {
                 // 无股票则买入10% 
                 int stockCount = Transaction.GetCanBuyStockCount(account.BankRoll * BAMBOOPERCENT,
@@ -31,7 +31,7 @@ namespace FinanceAnalyzer.Strategy.Impl
             }
             else
             {
-                double unitCost = _StockHolder.UnitPrice; // 持仓成本
+                double unitCost = stockHolder.UnitPrice; // 持仓成本
                 if (unitCost > 0)
                 {
                     double expectedMinPrice = unitCost * (1 - BAMBOOPERCENT);
@@ -53,7 +53,7 @@ namespace FinanceAnalyzer.Strategy.Impl
                     if (curStockProp.MaxPrice >= expectedMaxPrice)
                     {
                         // 卖出持仓股票的10%
-                        double sellCount = _StockHolder.StockCount() * BAMBOOPERCENT;
+                        double sellCount = stockHolder.StockCount() * BAMBOOPERCENT;
                         if (sellCount >= STOCKHAND)
                         {
                             opers.Add(new StockOper(expectedMaxPrice, Convert.ToInt32(sellCount), OperType.Sell));

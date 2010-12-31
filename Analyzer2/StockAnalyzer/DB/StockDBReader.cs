@@ -7,17 +7,22 @@ namespace FinanceAnalyzer.DB
 {
     public class StockDBReader
     {
+        public StockDBReader(ISqlMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         public void LoadAll()
         {
             _Stocks = _mapper.QueryForList<StockData>("SelectAllStock", null);
         }
 
-        public static IList<StockData> Load(int stockId)
+        public IList<StockData> Load(int stockId)
         {
             return _mapper.QueryForList<StockData>("SelectStockByStockId", stockId);
         }
 
-        public static IList<int> LoadId()
+        public IList<int> LoadId()
         {
             return _mapper.QueryForList<int>("selectItemCount", null);
         }
@@ -40,6 +45,6 @@ namespace FinanceAnalyzer.DB
 
         IList<StockData> _Stocks;
 
-        private static ISqlMapper _mapper = Mapper.Instance(); // iBatis数据库操作
+        private ISqlMapper _mapper; // iBatis数据库操作
     }
 }

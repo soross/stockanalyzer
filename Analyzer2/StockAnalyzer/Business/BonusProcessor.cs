@@ -5,7 +5,7 @@ using FinanceAnalyzer.DB;
 
 namespace FinanceAnalyzer.Business
 {
-    public class BonusProcessor
+    public class BonusProcessor : IBonusProcessor
     {
         public void Load(int stockId, IBonusReader reader)
         {
@@ -22,19 +22,19 @@ namespace FinanceAnalyzer.Business
         }
 
         // 是否是除权除息日
-        public Boolean IsExexDividendDate(DateTime date)
+        public bool IsExexDividendDate(DateTime date)
         {
             return _ExexDividendDate.Contains(date);
         }
 
         // 是否是分红日
-        public Boolean IsDividendDate(DateTime date)
+        public bool IsDividendDate(DateTime date)
         {
             return _DividendDate.Contains(date);
         }
 
         // 是否是红股上市日
-        public Boolean IsBonusListOnDate(DateTime date)
+        public bool IsBonusListOnDate(DateTime date)
         {
             return _BonusListOnDate.Contains(date);
         }

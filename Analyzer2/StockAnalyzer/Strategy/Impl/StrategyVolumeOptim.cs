@@ -17,7 +17,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            IStockData curProp = _StockHistory.GetStock(day);
+            IStockData curProp = stockHistory.GetStock(day);
             if (!CheckStock(curProp, day))
             {
                 return null;
@@ -52,9 +52,9 @@ namespace FinanceAnalyzer.Strategy.Impl
             else if ((curProp.Amount > avgMaxAmount) && _SlopeCalc.IsRisePeriod())
             {
                 // 上涨过程，成交天量，卖出
-                if (_StockHolder.HasStock())
+                if (stockHolder.HasStock())
                 {
-                    StockOper oper = new StockOper(curProp.EndPrice, _StockHolder.StockCount(), OperType.Sell);
+                    StockOper oper = new StockOper(curProp.EndPrice, stockHolder.StockCount(), OperType.Sell);
                     opers.Add(oper);
                     return opers;
                 }
@@ -63,9 +63,9 @@ namespace FinanceAnalyzer.Strategy.Impl
             if (judger.IsReverseT())
             {
                 // 倒T型，卖出
-                if (_StockHolder.HasStock())
+                if (stockHolder.HasStock())
                 {
-                    StockOper oper = new StockOper(curProp.EndPrice, _StockHolder.StockCount(), OperType.Sell);
+                    StockOper oper = new StockOper(curProp.EndPrice, stockHolder.StockCount(), OperType.Sell);
                     opers.Add(oper);
                     return opers;
                 }

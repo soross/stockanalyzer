@@ -6,14 +6,17 @@ using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.Judger;
 using FinanceAnalyzer.Judger.Validation;
 using FinanceAnalyzer.UI;
+using FinanceAnalyzer.DB;
+using FinanceAnalyzer.Business;
 
 namespace FinanceAnalyzer
 {
     class ScoresCalculator
     {
-        public static void Calc(IStockHistory history, IStrategyFactory factory)
+        public static void Calc(IStockHistory history, IStrategyFactory factory, IBonusProcessor reader)
         {
             FinanceRunner runner = new FinanceRunner();
+            runner.CurrentBounsProcessor = reader;
             runner.Go(history, factory);
 
             IStrategyJudger judger = new StrategyJudger();

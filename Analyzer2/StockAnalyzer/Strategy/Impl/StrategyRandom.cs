@@ -23,7 +23,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
             double val = rnd.NextDouble();
 
-            IStockData stockProp = _StockHistory.GetStock(day);
+            IStockData stockProp = stockHistory.GetStock(day);
             if (stockProp == null)
             {
                 return null;

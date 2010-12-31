@@ -12,8 +12,8 @@ namespace FinanceAnalyzer.Strategy.Impl
         // 指令为如果没有股票，当日开盘买入，否则涨跌幅达到x%卖出（止盈止损策略）
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
-            IStockData prevStockProp = _StockHistory.GetPrevDayStock(day);
-            IStockData curStockProp = _StockHistory.GetStock(day);
+            IStockData prevStockProp = stockHistory.GetPrevDayStock(day);
+            IStockData curStockProp = stockHistory.GetStock(day);
             if ((prevStockProp == null) || (curStockProp == null))
             {
                 return null;
@@ -21,7 +21,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
             ICollection<StockOper> opers = new List<StockOper>();
 
-            if (!_StockHolder.HasStock())
+            if (!stockHolder.HasStock())
             {                
                 int stockCount = Transaction.GetCanBuyStockCount(account.BankRoll,
                         curStockProp.StartPrice); // 如果没有股票，当天开盘买入
@@ -34,13 +34,13 @@ namespace FinanceAnalyzer.Strategy.Impl
             }            
             else
             {
-                double unitCost = _StockHolder.UnitPrice;
+                double unitCost = stockHolder.UnitPrice;
                 if (unitCost > 0)
                 {
                     if (curStockProp.MaxPrice >= (unitCost * (1 + winPercent)))
                     {
                         // 止盈
-                        StockOper oper2 = new StockOper(unitCost * (1 + winPercent), _StockHolder.StockCount(), OperType.Sell);
+                        StockOper oper2 = new StockOper(unitCost * (1 + winPercent), stockHolder.StockCount(), OperType.Sell);
                         opers.Add(oper2);
                         return opers;
                     }
@@ -48,7 +48,7 @@ namespace FinanceAnalyzer.Strategy.Impl
                     if (curStockProp.MinPrice <= (unitCost * (1 - winPercent)))
                     {
                         // 止损
-                        StockOper oper1 = new StockOper(unitCost * (1 - winPercent), _StockHolder.StockCount(), OperType.Sell);
+                        StockOper oper1 = new StockOper(unitCost * (1 - winPercent), stockHolder.StockCount(), OperType.Sell);
                         opers.Add(oper1);
                         return opers;
                     }                    
