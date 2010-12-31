@@ -8,6 +8,7 @@ using FinanceAnalyzer.Strategy.Rise;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.DB;
+using FinanceAnalyzer.Business;
 
 namespace FinanceAnalyzer
 {
@@ -23,6 +24,7 @@ namespace FinanceAnalyzer
             LogMgr.Logger = new DummyLog();
 
             FinanceRunner runner = new FinanceRunner();
+            runner.CurrentBounsProcessor = new FakeIBonusProcessor();
             StrategyFactory factory = new StrategyFactory();
             factory.Init();
             runner.Go(hist, factory);

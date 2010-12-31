@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AccountTest.cs" />
     <Compile Include="Business\BonusProcessorTest.cs" />
+    <Compile Include="Business\FakeIBonusProcessor.cs" />
     <Compile Include="DateFuncTest.cs" />
     <Compile Include="DB\FakeBonusReader.cs" />
     <Compile Include="DB\FakeIBonusReader.cs" />

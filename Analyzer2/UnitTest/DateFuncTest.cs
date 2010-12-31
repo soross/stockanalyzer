@@ -69,7 +69,7 @@ namespace UnitTest
 
             Assert.IsTrue(DateFunc.IsHoliday(new DateTime(2008, 10, 1)));
             Assert.IsTrue(DateFunc.IsHoliday(new DateTime(2008, 10, 3)));
-            Assert.IsTrue(DateFunc.IsHoliday(new DateTime(2008, 10, 7)));
+            Assert.IsFalse(DateFunc.IsHoliday(new DateTime(2008, 10, 7)));
         }
 
         [Test]
