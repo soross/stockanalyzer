@@ -214,7 +214,7 @@ namespace FinanceAnalyzer
             _log.Info("==>AutoCompare start. Start Date = " + _History.MinDate.ToLongDateString()
                 + ", End Date = " + _History.MaxDate.ToLongDateString());
 
-            StrategyFactory factory = new KdAdjustFactory();
+            StrategyFactory factory = new StrategyFactory();
             factory.Init();
 
             ScoresCalculator calc = new ScoresCalculator();
