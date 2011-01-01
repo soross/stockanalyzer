@@ -50,6 +50,15 @@ namespace FinanceAnalyzer
             Assert.IsTrue(acc.Holder.StockCount() == BUYCOUNT + (BUYCOUNT * 0.1));
         }
 
+        [Test]
+        public void DoBusiness()
+        {
+            Account acc = new Account();
+            acc.BankRoll = 50000;
+
+            Assert.IsFalse(acc.DoBusiness(null));
+        }
+
         private const double UNITPRICE = 5.25;
         private const int BUYCOUNT = 6000;
     }

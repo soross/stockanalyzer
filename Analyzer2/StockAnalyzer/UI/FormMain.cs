@@ -197,14 +197,7 @@ namespace FinanceAnalyzer
 
         private void buttonAutoComp_Click(object sender, EventArgs e)
         {
-            SetUserDefinedDate();
-            _log.Info("==>AutoCompare start. Start Date = " + _History.MinDate.ToLongDateString()
-                + ", End Date = " + _History.MaxDate.ToLongDateString());
-
-            StrategyFactory factory = new StrategyFactory();
-            factory.Init();
-
-            ScoresCalculator.Calc(_History, factory, _BonusProcessor);
+            buttonCalcAdjust_Click(sender, e);
 
             _History.JudgeShape(LogMgr.Logger);
         }
@@ -221,11 +214,12 @@ namespace FinanceAnalyzer
             _log.Info("==>AutoCompare start. Start Date = " + _History.MinDate.ToLongDateString()
                 + ", End Date = " + _History.MaxDate.ToLongDateString());
 
-            //VolumeAdjustFactory factory = new VolumeAdjustFactory();
             StrategyFactory factory = new KdAdjustFactory();
             factory.Init();
 
-            ScoresCalculator.Calc(_History, factory, _BonusProcessor);
+            ScoresCalculator calc = new ScoresCalculator();
+            calc.Calc(_History, factory, _BonusProcessor);
+            calc.ShowResult();
         }
 
         StockDBReader _DbReader = new StockDBReader(Mapper.Instance());

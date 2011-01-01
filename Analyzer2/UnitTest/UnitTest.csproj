@@ -54,11 +54,13 @@
     <Compile Include="FakeStockDataCreator.cs" />
     <Compile Include="FakeStockHistory.cs" />
     <Compile Include="FinanceRunnerTest.cs" />
+    <Compile Include="ScoresCalculatorTest.cs" />
     <Compile Include="StategyResultsTest.cs" />
     <Compile Include="StockTest.cs" />
     <Compile Include="StockValuesTest.cs" />
     <Compile Include="TransactionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ApplicationHelperTest.cs" />
     <Compile Include="Utility\EMACalculatorTest.cs" />
   </ItemGroup>
   <ItemGroup>

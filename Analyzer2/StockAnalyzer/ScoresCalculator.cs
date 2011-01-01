@@ -11,9 +11,9 @@ using FinanceAnalyzer.Business;
 
 namespace FinanceAnalyzer
 {
-    class ScoresCalculator
+    public class ScoresCalculator
     {
-        public static void Calc(IStockHistory history, IStrategyFactory factory, IBonusProcessor reader)
+        public void Calc(IStockHistory history, IStrategyFactory factory, IBonusProcessor reader)
         {
             FinanceRunner runner = new FinanceRunner();
             runner.CurrentBounsProcessor = reader;
@@ -25,17 +25,22 @@ namespace FinanceAnalyzer
             IStrategyJudger judger2 = new ValidationJudger();
             judger2.Judge(runner.Results);
 
-            FormScores scoresForm = new FormScores();
-
-            ICollection<IStrategyScores> arr = judger.ScoresArr;
+            allScores = judger.ScoresArr;
 
             foreach (IStrategyScores scores in judger2.ScoresArr)
             {
-                arr.Add(scores);
-            }
+                allScores.Add(scores);
+            }            
+        }
 
-            scoresForm.ScoresArr = arr;
+        public void ShowResult()
+        {
+            FormScores scoresForm = new FormScores();
+
+            scoresForm.ScoresArr = allScores;
             scoresForm.ShowDialog();
         }
+
+        ICollection<IStrategyScores> allScores;
     }
 }

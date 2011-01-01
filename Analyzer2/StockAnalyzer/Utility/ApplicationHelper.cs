@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace FinanceAnalyzer.Utility
 {
-    class ApplicationHelper
+    public class ApplicationHelper
     {
         public static string GetAppPath()
         {

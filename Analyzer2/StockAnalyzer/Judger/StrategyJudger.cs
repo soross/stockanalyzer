@@ -56,20 +56,6 @@ namespace FinanceAnalyzer.Judger
             return delta * 100;
         }
 
-        // ??
-        private static double CalcScore(double holderToday, double holderTomorrow, double valToday, double valTomorrow)
-        {
-            double holderPercent = calcPercent(holderToday, holderTomorrow);
-            double valPercent = calcPercent(valToday, valTomorrow);
-            return (valPercent - holderPercent) * 100;
-        }
-
-        private static double calcPercent(double holderToday, double holderTomorrow)
-        {
-            double holderPercent = (holderTomorrow - holderToday) / holderToday;
-            return holderPercent;
-        }
-
         IStrategyScores _Scores = new StrategyScores("Daily Prices Sigma");
     }
 }

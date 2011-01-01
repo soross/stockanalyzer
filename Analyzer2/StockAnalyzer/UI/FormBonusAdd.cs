@@ -21,7 +21,7 @@ namespace FinanceAnalyzer.UI
         {
             if (!CheckInput())
             {                
-                listBoxLog.Items.Add(DateTime.Now.ToShortTimeString() + ": 数据不正确，请检查！");                
+                listBoxLog.Items.Add(DateTime.Now.ToShortTimeString() + ": data error, please check!");                
                 return;
             }
 
