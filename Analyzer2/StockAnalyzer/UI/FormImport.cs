@@ -26,6 +26,7 @@ namespace FinanceAnalyzer.UI
             if (radioButtonYahoo.Checked)
             {
                 _DbImporter.ImportYahoo(textBoxPath.Text);
+                MessageBox.Show("Import file: " + textBoxPath.Text + " complete!", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
