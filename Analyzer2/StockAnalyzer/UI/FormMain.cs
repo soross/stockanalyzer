@@ -214,6 +214,11 @@ namespace FinanceAnalyzer
             _log.Info("==>AutoCompare start. Start Date = " + _History.MinDate.ToLongDateString()
                 + ", End Date = " + _History.MaxDate.ToLongDateString());
 
+            if (_History.MinDate >= _History.MaxDate)
+            {
+                return;
+            }
+
             StrategyFactory factory = new StrategyFactory();
             factory.Init();
 
