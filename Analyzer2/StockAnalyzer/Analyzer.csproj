@@ -104,6 +104,7 @@
     <Compile Include="Judger\StrategyJudger.cs" />
     <Compile Include="Judger\StrategyScores.cs" />
     <Compile Include="Judger\Validation\SignalValidationCalc.cs" />
+    <Compile Include="Judger\Validation\SignalValidationCalc2.cs" />
     <Compile Include="Judger\Validation\ValidationJudger.cs" />
     <Compile Include="ScoresCalculator.cs" />
     <Compile Include="Strategy\Factory\KdAdjustFactory.cs" />

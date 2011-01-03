@@ -73,9 +73,8 @@ namespace FinanceAnalyzer
                         if (_History.IsOperSuccess(startDate, oper))
                         {
                             acc.DoBusiness(oper);
-                        }
-
-                        values.SetOperationSignal(startDate, oper.Type);
+                            values.SetOperationSignal(startDate, oper.Type);
+                        }                        
                     }
                 }
 
@@ -87,7 +86,6 @@ namespace FinanceAnalyzer
             LogMgr.Logger.LogInfo("Strategy " + strategy.Name 
                 + ": Buys: " + acc.BuyTransactionCount
                 + ", Sells: " + acc.SellTransactionCount);
-
             LogMgr.Logger.LogInfo("<== End With Strategy: " + strategy.Name);
         }
 

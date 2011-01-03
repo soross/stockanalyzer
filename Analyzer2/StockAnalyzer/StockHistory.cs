@@ -77,7 +77,7 @@ namespace FinanceAnalyzer
 
             StockId = -1;
         }
-                
+
         // 得到某一天的股票属性
         public IStockData GetStock(DateTime dt)
         {
@@ -157,20 +157,20 @@ namespace FinanceAnalyzer
             IStockData stock = _DailyStocks[dt];
             switch (oper.Type)
             {
-            case OperType.Buy:
+                case OperType.Buy:
                     if (oper.UnitPrice >= stock.MinPrice)
-                {
-                    return true;
-                }
-                break;
-            case OperType.Sell:
-                if (oper.UnitPrice <= stock.MaxPrice)
-                {
-                    return true;
-                }
-                break;
-            default:
-                break;
+                    {
+                        return true;
+                    }
+                    break;
+                case OperType.Sell:
+                    if (oper.UnitPrice <= stock.MaxPrice)
+                    {
+                        return true;
+                    }
+                    break;
+                default:
+                    break;
             }
 
             return false;
@@ -255,9 +255,9 @@ namespace FinanceAnalyzer
                 }
             }
 
-            log.LogInfo("Total Count = " + _DailyStocks.Count 
-                + ", Cross = " + crossTypeCount 
-                + ", T = " + tTypeCount 
+            log.LogInfo("Total Count = " + _DailyStocks.Count
+                + ", Cross = " + crossTypeCount
+                + ", T = " + tTypeCount
                 + ", Rev T = " + revTTypeCount);
         }
 
