@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections;
 using System.Diagnostics;
 using FinanceAnalyzer.Log;
+using System.Linq;
 
 namespace FinanceAnalyzer
 {
@@ -66,6 +67,12 @@ namespace FinanceAnalyzer
                 //LogMgr.Logger.LogInfo("StockValues: GetOperationSignal error at: " + dt.ToLongDateString());
                 return OperType.NoOper;
             }
+        }
+
+        public int GetOperCount(OperType oper)
+        {
+            var result = from item in _Signals.Values where item == oper select item;
+            return result.Count();
         }
 
         private SortedDictionary<DateTime, double> _DateValues = new SortedDictionary<DateTime, double>();

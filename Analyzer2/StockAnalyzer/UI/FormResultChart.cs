@@ -142,7 +142,7 @@ namespace FinanceAnalyzer.UI
         private void buttonDetail_Click(object sender, EventArgs e)
         {
             FormStrategyDetail frm = new FormStrategyDetail();
-
+            frm.Results = _Results;
             frm.ShowDialog();
         }
     }

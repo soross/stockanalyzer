@@ -21,5 +21,8 @@ namespace FinanceAnalyzer
 
         // 获取当日操作类型
         OperType GetOperationSignal(DateTime dt);
+
+        // Get the total count of specified opertype 
+        int GetOperCount(OperType oper);
     }
 }
