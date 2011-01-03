@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace FinanceAnalyzer.Judger
 {
+    // Compare stock total value of each days to the hold strategy, and accumulate it to the total score. 
     class StrategyJudger : IStrategyJudger
     {
         public void Judge(IStrategyResults res)
@@ -53,7 +54,7 @@ namespace FinanceAnalyzer.Judger
         private static double CalcSimpleScore(double holderToday, double valToday)
         {
             double delta = (valToday - holderToday) / holderToday;
-            return delta * 100;
+            return delta;
         }
 
         IStrategyScores _Scores = new StrategyScores("Daily Prices Sigma");

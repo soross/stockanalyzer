@@ -25,6 +25,7 @@ namespace FinanceAnalyzer.Judger.Validation
                 _BuyPrice = HoldValues.GetTotalValue(dt);
                 _HasStock = true;
 
+                // Valid last sell operation 
                 if (_SellPrice > 0)
                 {
                     _BuyScore += CalcScore();
@@ -79,7 +80,7 @@ namespace FinanceAnalyzer.Judger.Validation
             set;
         }
 
-        const double MULTIPLYVAL = 10; // 放大倍数
+        const double MULTIPLYVAL = 1; // 放大倍数
         bool _HasStock;
         double _BuyPrice;
         double _SellPrice;

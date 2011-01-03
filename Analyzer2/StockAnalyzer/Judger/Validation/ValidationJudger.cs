@@ -7,6 +7,9 @@ using System.Diagnostics;
 
 namespace FinanceAnalyzer.Judger.Validation
 {
+    // Calculate the validation of each buy and sell signal
+    // If stock trend was down during a sell and a buy signal, or up during a buy and sell signal, 
+    // then added this percent as a positive score. 
     class ValidationJudger : IStrategyJudger
     {
         public void Judge(IStrategyResults res)
