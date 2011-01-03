@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Judger.Validation;
 using FinanceAnalyzer.Judger;
+using System.Globalization;
 
 namespace FinanceAnalyzer.UI
 {
@@ -57,6 +58,8 @@ namespace FinanceAnalyzer.UI
             listViewStrategy.Columns.Add("Buy Score");
             listViewStrategy.Columns.Add("Sell Score");
             listViewStrategy.Columns.Add("Total Score");
+
+            listViewStrategy.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         void InitScoresMapping(IStrategyJudger judger)
@@ -82,7 +85,7 @@ namespace FinanceAnalyzer.UI
                 return "-";
             }
 
-            return scores.GetScore(strategyName).ToString();
+            return scores.GetScore(strategyName).ToString("F03", CultureInfo.CurrentCulture);
         }
 
         Dictionary<string, IStrategyScores> _ScoresMapping;

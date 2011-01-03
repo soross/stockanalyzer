@@ -27,6 +27,10 @@ namespace FinanceAnalyzer.Strategy.Indicator
             {
                 return OperType.Buy;
             }
+            else if (prev < _MinDate)
+            {
+                return OperType.Buy;
+            }
 
             return OperType.NoOper;
         }
