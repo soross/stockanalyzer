@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinanceAnalyzer.Strategy.Result
 {
-    interface IStrategyResults
+    public interface IStrategyResults
     {
         IStockValues GetResult(string strategyName);
 

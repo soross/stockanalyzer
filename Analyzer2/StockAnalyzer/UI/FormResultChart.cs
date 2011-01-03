@@ -125,12 +125,12 @@ namespace FinanceAnalyzer.UI
             }
         }        
 
-        public void SetStrategyResults(StrategyResults results)
+        public void SetStrategyResults(IStrategyResults results)
         {
             _Results = results;
         }
 
-        StrategyResults _Results;
+        IStrategyResults _Results;
 
         public void SetStockDrawer(IStockDrawer stockDrawer)
         {
@@ -138,5 +138,12 @@ namespace FinanceAnalyzer.UI
         }
 
         IStockDrawer _StockDrawer;
+
+        private void buttonDetail_Click(object sender, EventArgs e)
+        {
+            FormStrategyDetail frm = new FormStrategyDetail();
+
+            frm.ShowDialog();
+        }
     }
 }

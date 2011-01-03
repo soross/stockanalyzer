@@ -182,6 +182,7 @@ namespace FinanceAnalyzer
             _History.Check(LogMgr.Logger);
         }
 
+        // Display Japanese type chart for a stock
         private void buttonChart_Click(object sender, EventArgs e)
         {
             FormMSChart chart = new FormMSChart();
