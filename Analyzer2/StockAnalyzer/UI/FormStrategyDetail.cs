@@ -32,7 +32,11 @@ namespace FinanceAnalyzer.UI
 
             ValidationJudger judger = new ValidationJudger();
             judger.Judge(Results);
-            InitScoresMapping(judger);
+
+            StrategyJudger strategyJudger = new StrategyJudger();
+            strategyJudger.Judge(Results);
+
+            InitScoresMapping(judger, strategyJudger);
 
             foreach (string strategyName in Results.AllStrategyNames)
             {
@@ -44,6 +48,7 @@ namespace FinanceAnalyzer.UI
                 listItem.SubItems.Add(FindScore("Buy Signal", strategyName));
                 listItem.SubItems.Add(FindScore("Sell Signal", strategyName));
                 listItem.SubItems.Add(FindScore("Buy and Sell Signal", strategyName));
+                listItem.SubItems.Add(FindScore("Daily Prices Sigma", strategyName));
 
                 listViewStrategy.Items.Add(listItem);
             }
@@ -59,14 +64,21 @@ namespace FinanceAnalyzer.UI
             listViewStrategy.Columns.Add("Sell Score");
             listViewStrategy.Columns.Add("Total Score");
 
+            listViewStrategy.Columns.Add("Daily Prices Score");
+
             listViewStrategy.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        void InitScoresMapping(IStrategyJudger judger)
+        void InitScoresMapping(IStrategyJudger judger, IStrategyJudger judger2)
         {
             _ScoresMapping = new Dictionary<string, IStrategyScores>();
 
             foreach (var item in judger.ScoresArr)
+            {
+                _ScoresMapping.Add(item.Name, item);
+            }
+
+            foreach (var item in judger2.ScoresArr)
             {
                 _ScoresMapping.Add(item.Name, item);
             }
@@ -85,9 +97,14 @@ namespace FinanceAnalyzer.UI
                 return "-";
             }
 
-            return scores.GetScore(strategyName).ToString("F03", CultureInfo.CurrentCulture);
+            return scores.GetScore(strategyName).ToString("F02", CultureInfo.CurrentCulture);
         }
 
         Dictionary<string, IStrategyScores> _ScoresMapping;
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

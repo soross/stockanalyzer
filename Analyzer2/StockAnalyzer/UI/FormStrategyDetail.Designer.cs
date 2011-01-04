@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.listViewStrategy = new System.Windows.Forms.ListView();
+            this.buttonOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewStrategy
@@ -40,11 +41,22 @@
             this.listViewStrategy.UseCompatibleStateImageBehavior = false;
             this.listViewStrategy.View = System.Windows.Forms.View.Details;
             // 
+            // buttonOk
+            // 
+            this.buttonOk.Location = new System.Drawing.Point(469, 337);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(79, 25);
+            this.buttonOk.TabIndex = 1;
+            this.buttonOk.Text = "OK";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
+            // 
             // FormStrategyDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 369);
+            this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.listViewStrategy);
             this.Name = "FormStrategyDetail";
             this.Text = "Strategy Detail";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.ListView listViewStrategy;
+        private System.Windows.Forms.Button buttonOk;
     }
 }
