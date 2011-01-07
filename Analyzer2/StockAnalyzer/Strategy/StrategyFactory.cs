@@ -27,8 +27,8 @@ namespace FinanceAnalyzer.Strategy
             AddStrategy(new StrategyThreeDay(new UpJudgerOptim()));
 
             IMixedCalc mixedCalc = new IMixedCalc();
-            mixedCalc.SetIndicator(new ThreeDayCalc(new UpJudger()), IndicatorMixedType.BuyAndSell);
-            mixedCalc.SetIndicator(new MoneyFlowIndexCalc(), IndicatorMixedType.BuyAndSell);
+            mixedCalc.AddIndicator(new ThreeDayCalc(new UpJudger()), IndicatorMixedType.BuyAndSell);
+            mixedCalc.AddIndicator(new MoneyFlowIndexCalc(), IndicatorMixedType.BuyAndSell);
             AddStrategyByIndicator(mixedCalc);
 
             IIndicatorCalc calc = new ThreeDayCalc(new UpJudger());

@@ -28,7 +28,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        public void SetIndicator(IIndicatorCalc calc, IndicatorMixedType type)
+        public void AddIndicator(IIndicatorCalc calc, IndicatorMixedType type)
         {
             _CalcArr.Add(calc);
             _IndicatorTypes.Add(calc.Name, type);
