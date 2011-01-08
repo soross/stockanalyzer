@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FinanceAnalyzer.Log;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
@@ -66,6 +67,8 @@ namespace FinanceAnalyzer.Strategy.Indicator
                         else
                         {
                             // 同一天出现了多次指示，暂时只考虑第一次  
+                            LogMgr.Logger.LogInfo("Calc Name: {0}, Indicator: {1}, ignored in Date: {2}!", 
+                                calc.Name, tp.ToString(), startDate.ToShortDateString());
                         }
                     }
                 }
