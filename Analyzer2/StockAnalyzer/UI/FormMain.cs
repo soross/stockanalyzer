@@ -7,7 +7,6 @@ using FinanceAnalyzer.Business;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Log;
 using FinanceAnalyzer.Strategy;
-using FinanceAnalyzer.Strategy.Factory;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
 using IBatisNet.DataMapper;
@@ -217,6 +216,7 @@ namespace FinanceAnalyzer
 
             if (_History.MinDate >= _History.MaxDate)
             {
+                _log.Error("Stock histroy not correct!");
                 return;
             }
 

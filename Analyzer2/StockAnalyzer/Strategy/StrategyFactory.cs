@@ -17,19 +17,16 @@ namespace FinanceAnalyzer.Strategy
 
             AddStrategy(new StrategyVolumeOptim(0.4, 0.3));
 
-            AddStrategy(new StrategyPeriodicity());
+            //AddStrategy(new StrategyPeriodicity());
 
             AddStrategy(new StrategyThreeDay(new RiseJudger()));
             AddStrategy(new StrategyThreeDay(new UpJudger()));
             AddStrategy(new StrategyThreeDay(new VolumeJudger()));
-            AddStrategy(new StrategyThreedayOpti(new TwoDaysUpJudger()));
-            AddStrategy(new StrategyThreeDay(new RiseJudgerOptim()));
-            AddStrategy(new StrategyThreeDay(new UpJudgerOptim()));
+            //AddStrategy(new StrategyThreedayOpti(new TwoDaysUpJudger()));
+            //AddStrategy(new StrategyThreeDay(new RiseJudgerOptim()));
+            //AddStrategy(new StrategyThreeDay(new UpJudgerOptim()));
 
-            IMixedCalc mixedCalc = new IMixedCalc();
-            mixedCalc.AddIndicator(new ThreeDayCalc(new UpJudger()), IndicatorMixedType.BuyAndSell);
-            mixedCalc.AddIndicator(new MoneyFlowIndexCalc(), IndicatorMixedType.BuyAndSell);
-            AddStrategyByIndicator(mixedCalc);
+            AddMixedIndicators(new ThreeDayCalc(new UpJudger()), new MoneyFlowIndexCalc());
 
             IIndicatorCalc calc = new ThreeDayCalc(new UpJudger());
             AddStrategyByIndicator(calc);
@@ -42,6 +39,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new KdCalc(25, 75));
 
             AddStrategyByIndicator(new SimpleShapeCalc());
+            AddMixedIndicators(new SimpleShapeCalc(), new MacdCalculator());
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
@@ -65,8 +63,12 @@ namespace FinanceAnalyzer.Strategy
             AddStrategy(new StrategyIndicator(calc));
         }
 
-        private void AddMixedStrategy()
+        private void AddMixedIndicators(IIndicatorCalc calc1, IIndicatorCalc calc2)
         {
+            IMixedCalc mixedCalc = new IMixedCalc();
+            mixedCalc.AddIndicator(calc1, IndicatorMixedType.BuyAndSell);
+            mixedCalc.AddIndicator(calc2, IndicatorMixedType.BuyAndSell);
+            AddStrategyByIndicator(mixedCalc);
         }
 
         public IFinanceStrategy GetStrategy(string strategyName)
