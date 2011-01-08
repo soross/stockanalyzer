@@ -7,6 +7,7 @@ using FinanceAnalyzer.DB;
 
 namespace FinanceAnalyzer.Strategy.Impl
 {
+    // Given the previous three days, use the specific judger to generate the trade rule 
     public class StrategyThreeDay : IFinanceStrategy
     {
         public override string Name

@@ -60,9 +60,13 @@ namespace FinanceAnalyzer.Strategy
             _AllStrategies.Add(strategy.Name, strategy);
         }
 
-        public void AddStrategyByIndicator(IIndicatorCalc calc)
+        private void AddStrategyByIndicator(IIndicatorCalc calc)
         {
             AddStrategy(new StrategyIndicator(calc));
+        }
+
+        private void AddMixedStrategy()
+        {
         }
 
         public IFinanceStrategy GetStrategy(string strategyName)

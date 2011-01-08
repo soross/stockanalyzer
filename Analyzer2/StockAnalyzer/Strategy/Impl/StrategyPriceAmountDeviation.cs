@@ -6,6 +6,7 @@ using FinanceAnalyzer.DB;
 
 namespace FinanceAnalyzer.Strategy.Impl
 {
+    // 量价背离，未完成
     class StrategyPriceAmountDeviation : IFinanceStrategy
     {
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)

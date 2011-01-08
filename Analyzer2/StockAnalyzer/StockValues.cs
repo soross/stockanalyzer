@@ -48,7 +48,6 @@ namespace FinanceAnalyzer
         {
             if (_Signals.ContainsKey(dt))
             {
-                //throw new InvalidOperationException("Multiple signals in one day not supported now!");
                 return;
             }
             _Signals.Add(dt, val);
@@ -64,7 +63,6 @@ namespace FinanceAnalyzer
             }
             else
             {
-                //LogMgr.Logger.LogInfo("StockValues: GetOperationSignal error at: " + dt.ToLongDateString());
                 return OperType.NoOper;
             }
         }
