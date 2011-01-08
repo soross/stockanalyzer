@@ -113,7 +113,7 @@
     <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\HoldCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
-    <Compile Include="Strategy\Indicator\IMixedCalc.cs" />
+    <Compile Include="Strategy\Indicator\MixedCalc.cs" />
     <Compile Include="Strategy\Indicator\KdCalc.cs" />
     <Compile Include="Strategy\Indicator\MoneyFlowIndexCalc.cs" />
     <Compile Include="Strategy\Indicator\RiseDownCalc.cs" />
