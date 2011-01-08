@@ -40,19 +40,17 @@
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(16, 18);
-            this.chart1.Margin = new System.Windows.Forms.Padding(4);
+            this.chart1.Location = new System.Drawing.Point(12, 14);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(927, 536);
+            this.chart1.Size = new System.Drawing.Size(695, 429);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chartMain";
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(821, 561);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonClose.Location = new System.Drawing.Point(616, 449);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(121, 35);
+            this.buttonClose.Size = new System.Drawing.Size(91, 28);
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -60,14 +58,14 @@
             // 
             // FormScores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 611);
+            this.ClientSize = new System.Drawing.Size(719, 489);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.chart1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormScores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Strategy Scores";
             this.Load += new System.EventHandler(this.FormScores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

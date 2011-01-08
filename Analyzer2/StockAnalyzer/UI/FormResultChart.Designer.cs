@@ -93,6 +93,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormResultChart";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Result Compare";
             this.Load += new System.EventHandler(this.FormResultChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

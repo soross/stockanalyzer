@@ -35,17 +35,19 @@
             // 
             // listViewBonus
             // 
-            this.listViewBonus.Location = new System.Drawing.Point(13, 13);
+            this.listViewBonus.Location = new System.Drawing.Point(10, 10);
+            this.listViewBonus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewBonus.Name = "listViewBonus";
-            this.listViewBonus.Size = new System.Drawing.Size(692, 351);
+            this.listViewBonus.Size = new System.Drawing.Size(520, 282);
             this.listViewBonus.TabIndex = 0;
             this.listViewBonus.UseCompatibleStateImageBehavior = false;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(379, 379);
+            this.buttonAdd.Location = new System.Drawing.Point(284, 303);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(94, 31);
+            this.buttonAdd.Size = new System.Drawing.Size(70, 25);
             this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Text = "Add...";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -53,13 +55,15 @@
             // 
             // FormBonus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 431);
+            this.ClientSize = new System.Drawing.Size(542, 345);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listViewBonus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormBonus";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bonus View";
             this.ResumeLayout(false);
 

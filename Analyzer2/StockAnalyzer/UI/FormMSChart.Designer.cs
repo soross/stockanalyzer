@@ -87,6 +87,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMSChart";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Stocks";
             this.Load += new System.EventHandler(this.FormMSChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

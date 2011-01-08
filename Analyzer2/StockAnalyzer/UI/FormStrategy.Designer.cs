@@ -39,25 +39,28 @@
             // checkedListBoxStrategy
             // 
             this.checkedListBoxStrategy.FormattingEnabled = true;
-            this.checkedListBoxStrategy.Location = new System.Drawing.Point(15, 37);
+            this.checkedListBoxStrategy.Location = new System.Drawing.Point(11, 30);
+            this.checkedListBoxStrategy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkedListBoxStrategy.Name = "checkedListBoxStrategy";
-            this.checkedListBoxStrategy.Size = new System.Drawing.Size(617, 364);
+            this.checkedListBoxStrategy.Size = new System.Drawing.Size(464, 292);
             this.checkedListBoxStrategy.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 15);
+            this.label1.Size = new System.Drawing.Size(131, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "Available Strategies:";
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(412, 409);
+            this.buttonOk.Location = new System.Drawing.Point(309, 327);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(108, 35);
+            this.buttonOk.Size = new System.Drawing.Size(81, 28);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -65,9 +68,10 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(526, 409);
+            this.buttonCancel.Location = new System.Drawing.Point(394, 327);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(108, 35);
+            this.buttonCancel.Size = new System.Drawing.Size(81, 28);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -75,9 +79,10 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(298, 409);
+            this.buttonClear.Location = new System.Drawing.Point(224, 327);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(108, 35);
+            this.buttonClear.Size = new System.Drawing.Size(81, 28);
             this.buttonClear.TabIndex = 4;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -85,16 +90,18 @@
             // 
             // FormStrategy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 456);
+            this.ClientSize = new System.Drawing.Size(484, 365);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkedListBoxStrategy);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormStrategy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Strategy Settings";
             this.Load += new System.EventHandler(this.FormStrategy_Load);
             this.ResumeLayout(false);

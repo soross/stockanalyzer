@@ -52,6 +52,11 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 {
                     OperType tp = calc.MatchSignal(startDate, prev);
 
+                    if (tp == OperType.NoOper)
+                    {
+                        continue;
+                    }
+
                     if (IsSignalValid(calc.Name, tp))
                     {
                         if (!_DateToOpers.ContainsKey(startDate))
