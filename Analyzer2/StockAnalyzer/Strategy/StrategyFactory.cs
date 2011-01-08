@@ -65,7 +65,7 @@ namespace FinanceAnalyzer.Strategy
 
         private void AddMixedIndicators(IIndicatorCalc calc1, IIndicatorCalc calc2)
         {
-            IMixedCalc mixedCalc = new IMixedCalc();
+            MixedCalc mixedCalc = new MixedCalc();
             mixedCalc.AddIndicator(calc1, IndicatorMixedType.BuyAndSell);
             mixedCalc.AddIndicator(calc2, IndicatorMixedType.BuyAndSell);
             AddStrategyByIndicator(mixedCalc);

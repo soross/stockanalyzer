@@ -13,7 +13,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
         BuyAndSell
     }
 
-    class IMixedCalc : IIndicatorCalc
+    class MixedCalc : IIndicatorCalc
     {
         public string Name
         {
