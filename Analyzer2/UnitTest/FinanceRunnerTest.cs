@@ -24,7 +24,7 @@ namespace FinanceAnalyzer
             LogMgr.Logger = new DummyLog();
 
             FinanceRunner runner = new FinanceRunner();
-            runner.CurrentBounsProcessor = new FakeIBonusProcessor();
+            runner.CurrentBonusProcessor = new FakeIBonusProcessor();
             StrategyFactory factory = new StrategyFactory();
             factory.Init();
             runner.Go(hist, factory);

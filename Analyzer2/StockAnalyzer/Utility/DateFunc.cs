@@ -10,7 +10,7 @@ namespace FinanceAnalyzer
     public sealed class DateFunc
     {
         // 前一个工作日
-        public static DateTime GetPrevWorkday(DateTime day)
+        public static DateTime GetPreviousWorkday(DateTime day)
         {
             day = day.AddDays(-1); 
 
@@ -75,9 +75,9 @@ namespace FinanceAnalyzer
         }
 
         // 处理"20080320"类似的字符串
-        public static DateTime ParseString(object str)
+        public static DateTime ParseString(object param)
         {
-            return ParseString(str.ToString());
+            return ParseString(param.ToString());
         }
 
         private DateFunc()

@@ -16,7 +16,7 @@ namespace FinanceAnalyzer
         public void Calc(IStockHistory history, IStrategyFactory factory, IBonusProcessor reader)
         {
             FinanceRunner runner = new FinanceRunner();
-            runner.CurrentBounsProcessor = reader;
+            runner.CurrentBonusProcessor = reader;
             runner.Go(history, factory);
 
             IStrategyJudger judger = new StrategyJudger();

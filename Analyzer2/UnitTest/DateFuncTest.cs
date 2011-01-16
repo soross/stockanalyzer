@@ -13,7 +13,7 @@ namespace UnitTest
         public void GetPrevWorkDay()
         {
             DateTime dt = new DateTime(2009, 3, 21);
-            DateTime prev = DateFunc.GetPrevWorkday(dt);
+            DateTime prev = DateFunc.GetPreviousWorkday(dt);
 
             Assert.AreEqual(prev, new DateTime(2009, 3, 20));
         }
@@ -22,7 +22,7 @@ namespace UnitTest
         public void GetPrevWorkDay2()
         {
             DateTime dt = new DateTime(2009, 3, 22);
-            DateTime prev = DateFunc.GetPrevWorkday(dt);
+            DateTime prev = DateFunc.GetPreviousWorkday(dt);
 
             Assert.AreEqual(prev, new DateTime(2009, 3, 20));
         }

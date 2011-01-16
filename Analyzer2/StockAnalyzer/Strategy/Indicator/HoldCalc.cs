@@ -23,7 +23,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             {
                 return OperType.Buy;
             }
-            else if (DateFunc.IsHoliday(_MinDate) && (DateFunc.GetPrevWorkday(dt) <= _MinDate))
+            else if (DateFunc.IsHoliday(_MinDate) && (DateFunc.GetPreviousWorkday(dt) <= _MinDate))
             {
                 return OperType.Buy;
             }

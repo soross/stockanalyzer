@@ -34,7 +34,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                     continue;
                 }
 
-                DateTime prevDate = DateFunc.GetPrevWorkday(startDate);
+                DateTime prevDate = DateFunc.GetPreviousWorkday(startDate);
                 IStockData prevStock = hist.GetStock(prevDate);
 
                 if (prevStock == null)

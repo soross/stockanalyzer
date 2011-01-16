@@ -97,7 +97,7 @@ namespace FinanceAnalyzer
             }
 
             FinanceRunner runner = new FinanceRunner();            
-            runner.CurrentBounsProcessor = _BonusProcessor;
+            runner.CurrentBonusProcessor = _BonusProcessor;
 
             runner.Go(_History, frm.Factory);
 

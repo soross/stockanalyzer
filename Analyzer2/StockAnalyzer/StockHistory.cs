@@ -120,12 +120,12 @@ namespace FinanceAnalyzer
                 return m_MinDate;
             }
 
-            DateTime prevDay = DateFunc.GetPrevWorkday(dt);
+            DateTime prevDay = DateFunc.GetPreviousWorkday(dt);
 
             IStockData stock = GetStock(prevDay);
             while (stock == null)
             {
-                prevDay = DateFunc.GetPrevWorkday(prevDay);
+                prevDay = DateFunc.GetPreviousWorkday(prevDay);
                 if (prevDay <= m_MinDate)
                 {
                     return new DateTime(0);

@@ -14,9 +14,9 @@ namespace FinanceAnalyzer.Strategy.Indicator
         BuyAndSell
     }
 
-    class MixedCalc : IIndicatorCalc
+    class MixedCalc : BasicIndicatorCalc
     {
-        public string Name
+        public override string Name
         {
             get 
             { 
@@ -35,7 +35,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             _IndicatorTypes.Add(calc.Name, type);
         }
 
-        public void Calc(IStockHistory hist)
+        public override void Calc(IStockHistory hist)
         {
             foreach (IIndicatorCalc calc in _CalcArr)
             {
@@ -47,7 +47,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
             while (startDate < endDate)
             {
-                DateTime prev = DateFunc.GetPrevWorkday(startDate);
+                DateTime prev = DateFunc.GetPreviousWorkday(startDate);
 
                 foreach (IIndicatorCalc calc in _CalcArr)
                 {
@@ -101,19 +101,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        // 指令为
-        public OperType MatchSignal(DateTime dt, DateTime prev)
-        {
-            if (!_DateToOpers.ContainsKey(dt))
-            {
-                return OperType.NoOper;
-            }
-
-            return _DateToOpers[dt];
-        }
-
         List<IIndicatorCalc> _CalcArr = new List<IIndicatorCalc>();
         Dictionary<string, IndicatorMixedType> _IndicatorTypes = new Dictionary<string, IndicatorMixedType>();
-        Dictionary<DateTime, OperType> _DateToOpers = new Dictionary<DateTime, OperType>();
     }
 }

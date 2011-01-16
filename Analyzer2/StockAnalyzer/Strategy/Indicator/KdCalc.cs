@@ -36,7 +36,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 double k = kdStorage.GetK(startDate);
                 double d = kdStorage.GetD(startDate);
 
-                DateTime yesterday = DateFunc.GetPrevWorkday(startDate);
+                DateTime yesterday = DateFunc.GetPreviousWorkday(startDate);
                 double prevK = kdStorage.GetK(yesterday);
                 double prevD = kdStorage.GetD(yesterday);
 
