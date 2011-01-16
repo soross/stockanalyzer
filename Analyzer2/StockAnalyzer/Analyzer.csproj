@@ -1,0 +1,339 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3BE55C7C-6C37-4A3C-8220-FB95AB02A7FE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinanceAnalyzer</RootNamespace>
+    <AssemblyName>StockAnalyzer</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <ApplicationIcon>01.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>StockAnalyzerKey.pfx</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IBatisNet.Common, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\Ibatis.DataMapper\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\Ibatis.DataMapper\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="Business\BonusInfo.cs" />
+    <Compile Include="Business\BonusProcessor.cs" />
+    <Compile Include="Business\IBonusProcessor.cs" />
+    <Compile Include="DB\BonusReader.cs" />
+    <Compile Include="DB\Bonus.cs" />
+    <Compile Include="DB\IDataChecker.cs" />
+    <Compile Include="DB\IStockData.cs" />
+    <Compile Include="DB\IStockSaver.cs" />
+    <Compile Include="DB\StockData.cs" />
+    <Compile Include="DB\StockDBReader.cs" />
+    <Compile Include="DB\StockDBSaver.cs" />
+    <Compile Include="DB\StockImporter2.cs" />
+    <Compile Include="DB\StockJudger.cs" />
+    <Compile Include="Display\StockPoint.cs" />
+    <Compile Include="HolderManager.cs" />
+    <Compile Include="IStockHistory.cs" />
+    <Compile Include="Judger\Fitness\ContinuousReturnCalc.cs" />
+    <Compile Include="Judger\IStrategyJudger.cs" />
+    <Compile Include="Judger\IStrategyScores.cs" />
+    <Compile Include="Judger\StrategyJudger.cs" />
+    <Compile Include="Judger\StrategyScores.cs" />
+    <Compile Include="Judger\Validation\SignalValidationCalc.cs" />
+    <Compile Include="Judger\Validation\ValidationJudger.cs" />
+    <Compile Include="ScoresCalculator.cs" />
+    <Compile Include="Strategy\Factory\KdAdjustFactory.cs" />
+    <Compile Include="Strategy\Factory\RiseDownAdjustFactory.cs" />
+    <Compile Include="Strategy\Factory\VolumeAdjustFactory.cs" />
+    <Compile Include="Strategy\Impl\StrategyPriceAmountDeviation.cs" />
+    <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
+    <Compile Include="Strategy\Indicator\HoldCalc.cs" />
+    <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
+    <Compile Include="Strategy\Indicator\MixedCalc.cs" />
+    <Compile Include="Strategy\Indicator\KdCalc.cs" />
+    <Compile Include="Strategy\Indicator\MoneyFlowIndexCalc.cs" />
+    <Compile Include="Strategy\Indicator\RiseDownCalc.cs" />
+    <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
+    <Compile Include="Strategy\Indicator\SimpleShapeCalc.cs" />
+    <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
+    <Compile Include="Strategy\Indicator\VolumeCalc.cs" />
+    <Compile Include="Strategy\IStrategyFactory.cs" />
+    <Compile Include="Strategy\Indicator\MacdCalculator.cs" />
+    <Compile Include="Strategy\Result\IStrategyResults.cs" />
+    <Compile Include="Strategy\Judger\IStockJudger.cs" />
+    <Compile Include="Strategy\Judger\PriceAmountDeviationJudger.cs" />
+    <Compile Include="Strategy\Judger\ReverseVolumeJudger.cs" />
+    <Compile Include="Strategy\Judger\RiseJudgerOptim.cs" />
+    <Compile Include="Strategy\Judger\TwoDaysUpVolJudger.cs" />
+    <Compile Include="Strategy\Judger\UpJudgerOptim.cs" />
+    <Compile Include="Strategy\Judger\VolumeJudger.cs" />
+    <Compile Include="Strategy\Rule\IRule.cs" />
+    <Compile Include="Strategy\Impl\StrategyBamboo.cs" />
+    <Compile Include="Strategy\StrategyFactory.cs" />
+    <Compile Include="Strategy\Impl\StrategyFourday.cs" />
+    <Compile Include="Strategy\Impl\StrategyIndicator.cs" />
+    <Compile Include="Strategy\Impl\StrategyPeriodicity.cs" />
+    <Compile Include="Strategy\Impl\StrategyRandom.cs" />
+    <Compile Include="Strategy\Impl\StrategyThreeDayReverse.cs" />
+    <Compile Include="Strategy\Impl\StrategyVolume.cs" />
+    <Compile Include="Strategy\Impl\StrategyVolumeOptim.cs" />
+    <Compile Include="Strategy\TradeRule\RiseDownRule.cs" />
+    <Compile Include="Trace\ITracer.cs" />
+    <Compile Include="UI\FormBonus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormBonus.Designer.cs">
+      <DependentUpon>FormBonus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormBonusAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormBonusAdd.Designer.cs">
+      <DependentUpon>FormBonusAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormImport.Designer.cs">
+      <DependentUpon>FormImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormMSChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormMSChart.Designer.cs">
+      <DependentUpon>FormMSChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormResultChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormResultChart.Designer.cs">
+      <DependentUpon>FormResultChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormScores.Designer.cs">
+      <DependentUpon>FormScores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormStrategy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormStrategy.Designer.cs">
+      <DependentUpon>FormStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormStrategyDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormStrategyDetail.Designer.cs">
+      <DependentUpon>FormStrategyDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ApplicationHelper.cs" />
+    <Compile Include="Utility\DateFunc.cs" />
+    <Compile Include="FinanceRunner.cs" />
+    <Compile Include="KDJ\IKdjCalculator.cs" />
+    <Compile Include="KDJ\IKdjStorage.cs" />
+    <Compile Include="KDJ\KdjCalculator.cs" />
+    <Compile Include="KDJ\KdjStorage.cs" />
+    <Compile Include="Log\DummyLog.cs" />
+    <Compile Include="Log\ILog.cs" />
+    <Compile Include="Log\UITraceLog.cs" />
+    <Compile Include="Strategy\Judger\RiseJudger.cs" />
+    <Compile Include="Strategy\Judger\TwoDaysUpJudger.cs" />
+    <Compile Include="Strategy\Judger\UpJudger.cs" />
+    <Compile Include="Strategy\Impl\StrategyBear.cs" />
+    <Compile Include="Strategy\Impl\StrategyKd.cs" />
+    <Compile Include="Strategy\Impl\StrategyThreeDay.cs" />
+    <Compile Include="Strategy\Impl\StrategyThreedayOpti.cs" />
+    <Compile Include="UI\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display\IStockDrawer.cs" />
+    <Compile Include="IStockHolder.cs" />
+    <Compile Include="IStockValues.cs" />
+    <Compile Include="Log\LogMgr.cs" />
+    <Compile Include="Strategy\Result\StrategyResults.cs" />
+    <Compile Include="Strategy\IFinanceStrategy.cs" />
+    <Compile Include="Strategy\Impl\StrategyMinMax.cs" />
+    <Compile Include="Strategy\Impl\StrategyPercent.cs" />
+    <Compile Include="Stock.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\FormBonus.resx">
+      <DependentUpon>FormBonus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormBonusAdd.resx">
+      <DependentUpon>FormBonusAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormImport.resx">
+      <DependentUpon>FormImport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormMSChart.resx">
+      <DependentUpon>FormMSChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormResultChart.resx">
+      <DependentUpon>FormResultChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormScores.resx">
+      <DependentUpon>FormScores.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormStrategy.resx">
+      <DependentUpon>FormStrategy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormStrategyDetail.resx">
+      <DependentUpon>FormStrategyDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Config\providers.config" />
+    <None Include="Config\SqlMap.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StockAnalyzerKey.pfx" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="StockHistory.cs" />
+    <Compile Include="StockHolder.cs" />
+    <Compile Include="StockOper.cs" />
+    <Compile Include="Display\StockPropDrawer.cs" />
+    <Compile Include="StockValues.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="Log\UIFileLog.cs" />
+    <Compile Include="Log\UILabelLog.cs" />
+    <Compile Include="Utility\ShapeJudger.cs" />
+    <Compile Include="Utility\EMACalculator.cs" />
+    <Compile Include="Utility\FixedContainer.cs" />
+    <Compile Include="Utility\Holidays.cs" />
+    <Compile Include="Utility\ShapeScanner.cs" />
+    <Compile Include="Utility\SimpleAverager.cs" />
+    <Compile Include="Utility\SlopeCalculator.cs" />
+    <Compile Include="Utility\ValueAverager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="01.ico" />
+    <Content Include="Config\Readme.txt" />
+    <Content Include="Config\sqlxml\Bonus.xml" />
+    <Content Include="Config\sqlxml\Stock.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Strategy\Indicator\Mixed\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
