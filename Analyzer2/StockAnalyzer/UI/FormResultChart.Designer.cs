@@ -60,8 +60,6 @@
             title1.Name = "TitleMain";
             title1.Text = "Strategy Results";
             this.chart1.Titles.Add(title1);
-            this.chart1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chart1_KeyUp);
-            this.chart1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.chart1_KeyDown);
             // 
             // buttonOk
             // 
@@ -101,8 +99,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Result Compare";
             this.Load += new System.EventHandler(this.FormResultChart_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormResultChart_KeyUp);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormResultChart_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
