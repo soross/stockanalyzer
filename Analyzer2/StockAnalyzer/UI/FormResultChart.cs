@@ -145,5 +145,45 @@ namespace FinanceAnalyzer.UI
             frm.Results = _Results;
             frm.ShowDialog();
         }
+
+        private void chart1_KeyUp(object sender, KeyEventArgs e)
+        {
+            System.Windows.Forms.DataVisualization.Charting.Cursor curCursor = chart1.ChartAreas["Price"].CursorX;
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    curCursor.SetCursorPosition(curCursor.Position - curCursor.Interval);
+                    break;
+                case Keys.Right:
+                    curCursor.SetCursorPosition(curCursor.Position + curCursor.Interval);
+                    break;
+                default:
+                    break;
+            }
+
+            e.Handled = true;
+        }
+
+        private void chart1_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void FormResultChart_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!chart1.Focused)
+            {
+                //chart1.Focus();                
+                this.ActiveControl = chart1;
+            }
+
+            chart1_KeyUp(sender, e);
+            e.Handled = true;
+        }
+
+        private void FormResultChart_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

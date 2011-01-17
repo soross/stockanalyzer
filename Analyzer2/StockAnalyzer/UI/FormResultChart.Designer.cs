@@ -46,56 +46,63 @@
             legend1.DockedToChartArea = "Price";
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(10, 10);
-            this.chart1.Margin = new System.Windows.Forms.Padding(2);
+            this.chart1.Location = new System.Drawing.Point(13, 12);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             series1.ChartArea = "Price";
             series1.Legend = "Legend1";
             series1.Name = "Price";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(788, 532);
+            this.chart1.Size = new System.Drawing.Size(1051, 665);
             this.chart1.TabIndex = 0;
+            this.chart1.TabStop = false;
             this.chart1.Text = "chart1";
             title1.Name = "TitleMain";
             title1.Text = "Strategy Results";
             this.chart1.Titles.Add(title1);
+            this.chart1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chart1_KeyUp);
+            this.chart1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.chart1_KeyDown);
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(720, 546);
-            this.buttonOk.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonOk.Location = new System.Drawing.Point(960, 682);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(78, 24);
+            this.buttonOk.Size = new System.Drawing.Size(104, 30);
             this.buttonOk.TabIndex = 1;
+            this.buttonOk.TabStop = false;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonDetail
             // 
-            this.buttonDetail.Location = new System.Drawing.Point(638, 546);
-            this.buttonDetail.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonDetail.Location = new System.Drawing.Point(851, 682);
+            this.buttonDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDetail.Name = "buttonDetail";
-            this.buttonDetail.Size = new System.Drawing.Size(78, 24);
+            this.buttonDetail.Size = new System.Drawing.Size(104, 30);
             this.buttonDetail.TabIndex = 2;
+            this.buttonDetail.TabStop = false;
             this.buttonDetail.Text = "Detail..";
             this.buttonDetail.UseVisualStyleBackColor = true;
             this.buttonDetail.Click += new System.EventHandler(this.buttonDetail_Click);
             // 
             // FormResultChart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 581);
+            this.ClientSize = new System.Drawing.Size(1079, 726);
             this.Controls.Add(this.buttonDetail);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.chart1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormResultChart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Result Compare";
             this.Load += new System.EventHandler(this.FormResultChart_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormResultChart_KeyUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormResultChart_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
