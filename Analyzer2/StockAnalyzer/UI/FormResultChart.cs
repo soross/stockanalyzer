@@ -145,5 +145,24 @@ namespace FinanceAnalyzer.UI
             frm.Results = _Results;
             frm.ShowDialog();
         }
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            System.Windows.Forms.DataVisualization.Charting.Cursor curCursor = chart1.ChartAreas["Price"].CursorX;
+
+            switch (keyData)
+            {
+                case Keys.Left:
+                    curCursor.SetCursorPosition(curCursor.Position - curCursor.Interval);
+                    break;
+                case Keys.Right:
+                    curCursor.SetCursorPosition(curCursor.Position + curCursor.Interval);
+                    break;
+                default:
+                    break;
+            }
+
+            return true;
+        }
     }
 }
