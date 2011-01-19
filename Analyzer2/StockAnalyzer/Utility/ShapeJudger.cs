@@ -30,7 +30,7 @@ namespace FinanceAnalyzer.Utility
 
         public static bool IsCross(IStockData data)
         {
-            double deltapercent = (data.EndPrice - data.StartPrice) / data.StartPrice;
+            double deltapercent = StockDataCalc.GetRisePercent(data);
             return ((Math.Abs(deltapercent) < CROSSDELTAPERCENT)
                 && (data.MaxPrice > data.StartPrice)
                 && (data.MinPrice < data.EndPrice));
@@ -38,7 +38,7 @@ namespace FinanceAnalyzer.Utility
 
         public static bool IsUpCross(IStockData data)
         {
-            double deltapercent = (data.EndPrice - data.StartPrice) / data.StartPrice;
+            double deltapercent = StockDataCalc.GetRisePercent(data);
             bool isCross = ((Math.Abs(deltapercent) < CROSSDELTAPERCENT)
                 && (data.MaxPrice > data.StartPrice)
                 && (data.MinPrice < data.EndPrice));
@@ -48,7 +48,7 @@ namespace FinanceAnalyzer.Utility
 
         public static bool IsDownCross(IStockData data)
         {
-            double deltapercent = (data.EndPrice - data.StartPrice) / data.StartPrice;
+            double deltapercent = StockDataCalc.GetRisePercent(data);
             bool isCross = ((Math.Abs(deltapercent) < CROSSDELTAPERCENT)
                 && (data.MaxPrice > data.StartPrice)
                 && (data.MinPrice < data.EndPrice));

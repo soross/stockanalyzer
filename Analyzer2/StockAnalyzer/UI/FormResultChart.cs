@@ -164,5 +164,10 @@ namespace FinanceAnalyzer.UI
 
             return true;
         }
+
+        private void chart1_AxisViewChanged(object sender, ViewEventArgs e)
+        {
+
+        }
     }
 }

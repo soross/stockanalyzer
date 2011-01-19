@@ -6,13 +6,13 @@ using FinanceAnalyzer.DB;
 
 namespace FinanceAnalyzer.Utility
 {
-    class ShapeScanner
+    class ShapeScanner : IShapeScanner
     {
-        public static OperType Analyse(IStockData stock, IStockData prevStock)
+        public OperType Analyse(IStockData stock, IStockData prevStock)
         {
-            double deltapercent = (stock.EndPrice - stock.StartPrice) / stock.StartPrice;
+            double deltapercent = StockDataCalc.GetRisePercent(stock);
 
-            double prevPercent = (prevStock.EndPrice - prevStock.StartPrice) / prevStock.StartPrice;
+            double prevPercent = StockDataCalc.GetRisePercent(prevStock);
 
             if ((deltapercent * prevPercent) >= 0)
             {

@@ -4,6 +4,7 @@ using System.Text;
 using FinanceAnalyzer.Strategy.Rise;
 using FinanceAnalyzer.Strategy.Indicator;
 using FinanceAnalyzer.Strategy.Impl;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Strategy
 {
@@ -17,15 +18,9 @@ namespace FinanceAnalyzer.Strategy
 
             AddStrategy(new StrategyVolumeOptim(0.4, 0.3));
 
-            //AddStrategy(new StrategyPeriodicity());
-
             AddStrategy(new StrategyThreeDay(new RiseJudger()));
             AddStrategy(new StrategyThreeDay(new UpJudger()));
             AddStrategy(new StrategyThreeDay(new VolumeJudger()));
-            //AddStrategy(new StrategyThreedayOpti(new TwoDaysUpJudger()));
-            //AddStrategy(new StrategyThreeDay(new RiseJudgerOptim()));
-            //AddStrategy(new StrategyThreeDay(new UpJudgerOptim()));
-
             AddMixedIndicators(new ThreeDayCalc(new UpJudger()), new MoneyFlowIndexCalc());
 
             IIndicatorCalc calc = new ThreeDayCalc(new UpJudger());
@@ -39,7 +34,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new KdCalc(25, 75));
 
             AddStrategyByIndicator(new SimpleShapeCalc());
-            AddStrategyByIndicator(new WaysShapeCalc());
+            AddStrategyByIndicator(new WaysShapeCalc(new ShapeScanner()));
             AddMixedIndicators(new SimpleShapeCalc(), new MacdCalculator());
 
             const double BUYMARGINPERCENT = 0.3; // 门限
