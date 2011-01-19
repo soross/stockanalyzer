@@ -294,13 +294,13 @@
     <Compile Include="Transaction.cs" />
     <Compile Include="Log\UIFileLog.cs" />
     <Compile Include="Log\UILabelLog.cs" />
-    <Compile Include="Utility\IShapeScanner.cs" />
-    <Compile Include="Utility\ITripleShapeScanner.cs" />
-    <Compile Include="Utility\ShapeJudger.cs" />
+    <Compile Include="Business\Shape\IShapeScanner.cs" />
+    <Compile Include="Business\Shape\ITripleShapeScanner.cs" />
+    <Compile Include="Business\Shape\ShapeJudger.cs" />
     <Compile Include="Utility\EMACalculator.cs" />
     <Compile Include="Utility\FixedContainer.cs" />
     <Compile Include="Utility\Holidays.cs" />
-    <Compile Include="Utility\ShapeScanner.cs" />
+    <Compile Include="Business\Shape\ShapeScanner.cs" />
     <Compile Include="Utility\SimpleAverager.cs" />
     <Compile Include="Utility\SlopeCalculator.cs" />
     <Compile Include="Utility\StockDataCalc.cs" />

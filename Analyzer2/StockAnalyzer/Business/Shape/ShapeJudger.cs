@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FinanceAnalyzer.DB;
+using FinanceAnalyzer.Utility;
 
-namespace FinanceAnalyzer.Utility
+namespace FinanceAnalyzer.Business.Shape
 {
     class ShapeJudger
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.DB;
 
-namespace FinanceAnalyzer.Utility
+namespace FinanceAnalyzer.Business.Shape
 {
     interface ITripleShapeScanner
     {
