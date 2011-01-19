@@ -39,6 +39,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new KdCalc(25, 75));
 
             AddStrategyByIndicator(new SimpleShapeCalc());
+            AddStrategyByIndicator(new WaysShapeCalc());
             AddMixedIndicators(new SimpleShapeCalc(), new MacdCalculator());
 
             const double BUYMARGINPERCENT = 0.3; // 门限
