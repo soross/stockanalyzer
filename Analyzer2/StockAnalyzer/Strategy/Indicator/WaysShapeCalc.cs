@@ -9,6 +9,11 @@ namespace FinanceAnalyzer.Strategy.Indicator
 {
     class WaysShapeCalc : BasicIndicatorCalc
     {
+        public WaysShapeCalc(IShapeScanner scanner)
+        {
+            _Scanner = scanner;
+        }
+
         public override string Name
         {
             get { return "WaysShape"; }
@@ -35,7 +40,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                     continue;
                 }
 
-                OperType tp = ShapeScanner.Analyse(stock, prevData);
+                OperType tp = _Scanner.Analyse(stock, prevData);
                 if (tp != OperType.NoOper)
                 {
                     _DateToOpers.Add(startDate, tp);
@@ -44,5 +49,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 startDate = DateFunc.GetNextWorkday(startDate);
             }
         }
+
+        IShapeScanner _Scanner;
     }
 }
