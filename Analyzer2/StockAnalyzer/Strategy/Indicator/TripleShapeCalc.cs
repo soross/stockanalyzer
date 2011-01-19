@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FinanceAnalyzer.DB;
-using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Business.Shape;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
-    class WaysShapeCalc : BasicIndicatorCalc
+    class TripleShapeCalc : BasicIndicatorCalc
     {
-        public WaysShapeCalc(IShapeScanner scanner)
+        public TripleShapeCalc(ITripleShapeScanner scanner)
         {
             _Scanner = scanner;
         }
 
         public override string Name
         {
-            get { return "WaysShape"; }
+            get { return "TripleShape"; }
         }
 
         public override void Calc(IStockHistory hist)
@@ -28,10 +27,10 @@ namespace FinanceAnalyzer.Strategy.Indicator
             while (startDate < endDate)
             {
                 IStockData stock = hist.GetStock(startDate);
-
                 IStockData prevData = hist.GetPrevDayStock(startDate);
+                IStockData prev2Data = hist.GetPrevDayStock(hist.GetPrevDay(startDate));
 
-                OperType tp = _Scanner.Analyse(stock, prevData);
+                OperType tp = _Scanner.Analyse(prev2Data, prevData, stock);
                 if (tp != OperType.NoOper)
                 {
                     _DateToOpers.Add(startDate, tp);
@@ -41,6 +40,6 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        IShapeScanner _Scanner;
+        ITripleShapeScanner _Scanner;
     }
 }
