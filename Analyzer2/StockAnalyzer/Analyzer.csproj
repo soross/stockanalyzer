@@ -85,6 +85,7 @@
     <Compile Include="Business\BonusInfo.cs" />
     <Compile Include="Business\BonusProcessor.cs" />
     <Compile Include="Business\IBonusProcessor.cs" />
+    <Compile Include="Business\Shape\TripleShapeScanner.cs" />
     <Compile Include="DB\BonusReader.cs" />
     <Compile Include="DB\Bonus.cs" />
     <Compile Include="DB\IDataChecker.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
     <Compile Include="Strategy\Indicator\SimpleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
+    <Compile Include="Strategy\Indicator\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\VolumeCalc.cs" />
     <Compile Include="Strategy\Indicator\WaysShapeCalc.cs" />
     <Compile Include="Strategy\IStrategyFactory.cs" />
@@ -301,6 +303,7 @@
     <Compile Include="Utility\FixedContainer.cs" />
     <Compile Include="Utility\Holidays.cs" />
     <Compile Include="Business\Shape\ShapeScanner.cs" />
+    <Compile Include="Utility\NumbericHelper.cs" />
     <Compile Include="Utility\SimpleAverager.cs" />
     <Compile Include="Utility\SlopeCalculator.cs" />
     <Compile Include="Utility\StockDataCalc.cs" />

@@ -11,11 +11,16 @@ namespace FinanceAnalyzer.Business.Shape
     {
         public OperType Analyse(IStockData stock, IStockData prevStock)
         {
+            if ((stock == null) || (prevStock == null))
+            {
+                return OperType.NoOper;
+            }
+
             double deltapercent = StockDataCalc.GetRisePercent(stock);
 
             double prevPercent = StockDataCalc.GetRisePercent(prevStock);
 
-            if ((deltapercent * prevPercent) >= 0)
+            if (NumbericHelper.IsSameSign(deltapercent, prevPercent))
             {
                 return OperType.NoOper;
             }

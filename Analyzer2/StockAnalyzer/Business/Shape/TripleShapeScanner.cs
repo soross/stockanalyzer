@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using FinanceAnalyzer.Utility;
+using FinanceAnalyzer.DB;
+
+namespace FinanceAnalyzer.Business.Shape
+{
+    class TripleShapeScanner : ITripleShapeScanner
+    {
+        public OperType Analyse(IStockData prevStock, IStockData stock, IStockData nextStock)
+        {
+            if ((stock == null) || (prevStock == null) || (nextStock == null))
+            {
+                return OperType.NoOper;
+            }
+
+            double deltapercent = StockDataCalc.GetRisePercent(stock);
+            double prevPercent = StockDataCalc.GetRisePercent(prevStock);
+            double nextPercent = StockDataCalc.GetRisePercent(nextStock);
+
+            if (NumbericHelper.IsSameSign(deltapercent, nextPercent) 
+                || NumbericHelper.IsSameSign(nextPercent, prevPercent)
+                || !NumbericHelper.IsSameSign(deltapercent, prevPercent))
+            {
+                return OperType.NoOper;
+            }
+
+            if ((nextPercent > 0.02) && (nextStock.EndPrice > prevStock.StartPrice)
+                && (nextStock.EndPrice > stock.StartPrice))
+            {
+                return OperType.Buy;
+            }
+
+            if ((nextPercent < -0.02) && (nextStock.EndPrice < prevStock.StartPrice)
+                 && (nextStock.EndPrice < stock.StartPrice))
+            {
+                return OperType.Sell;
+            }
+
+            return OperType.NoOper;
+        }        
+    }    
+}
