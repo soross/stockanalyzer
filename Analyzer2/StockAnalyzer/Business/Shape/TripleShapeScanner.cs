@@ -20,20 +20,18 @@ namespace FinanceAnalyzer.Business.Shape
             double prevPercent = StockDataCalc.GetRisePercent(prevStock);
             double nextPercent = StockDataCalc.GetRisePercent(nextStock);
 
-            if (NumbericHelper.IsSameSign(deltapercent, nextPercent) 
-                || NumbericHelper.IsSameSign(nextPercent, prevPercent)
-                || !NumbericHelper.IsSameSign(deltapercent, prevPercent))
+            if (NumbericHelper.IsSameSign(deltapercent, nextPercent))
             {
                 return OperType.NoOper;
             }
 
-            if ((nextPercent > 0.02) && (nextStock.EndPrice > prevStock.StartPrice)
+            if ((nextPercent > 0.03) && (nextStock.EndPrice > prevStock.StartPrice)
                 && (nextStock.EndPrice > stock.StartPrice))
             {
                 return OperType.Buy;
             }
 
-            if ((nextPercent < -0.02) && (nextStock.EndPrice < prevStock.StartPrice)
+            if ((nextPercent < -0.03) && (nextStock.EndPrice < prevStock.StartPrice)
                  && (nextStock.EndPrice < stock.StartPrice))
             {
                 return OperType.Sell;
