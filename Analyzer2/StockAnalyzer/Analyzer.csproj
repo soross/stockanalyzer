@@ -117,6 +117,7 @@
     <Compile Include="Strategy\Indicator\MixedCalc.cs" />
     <Compile Include="Strategy\Indicator\KdCalc.cs" />
     <Compile Include="Strategy\Indicator\MoneyFlowIndexCalc.cs" />
+    <Compile Include="Strategy\Indicator\MovingAvgCalc.cs" />
     <Compile Include="Strategy\Indicator\RiseDownCalc.cs" />
     <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
     <Compile Include="Strategy\Indicator\SimpleShapeCalc.cs" />
