@@ -92,6 +92,18 @@ namespace FinanceAnalyzer.UI
             chart1.ChartAreas["Price"].CursorX.IsUserEnabled = true;
             chart1.ChartAreas["Price"].CursorX.IsUserSelectionEnabled = true;
 
+            chart1.Series.Add("PriceMA5");
+            chart1.Series["PriceMA5"].ChartArea = "Price";
+            chart1.Series["PriceMA5"].ChartType = SeriesChartType.Line;
+
+            chart1.Series.Add("PriceMA10");
+            chart1.Series["PriceMA10"].ChartArea = "Price";
+            chart1.Series["PriceMA10"].ChartType = SeriesChartType.Line;
+
+            chart1.Series.Add("PriceMA20");
+            chart1.Series["PriceMA20"].ChartArea = "Price";
+            chart1.Series["PriceMA20"].ChartType = SeriesChartType.Line;
+
             chart1.ChartAreas.Add("Result");
             chart1.ChartAreas["Result"].AlignWithChartArea = "Price";
             chart1.ChartAreas["Result"].AxisX.ScaleView.Zoomable = true;
@@ -123,6 +135,10 @@ namespace FinanceAnalyzer.UI
                     startDate = startDate.AddDays(1);
                 }
             }
+
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "5", chart1.Series["Price"], chart1.Series["PriceMA5"]);
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "10", chart1.Series["Price"], chart1.Series["PriceMA10"]);
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "20", chart1.Series["Price"], chart1.Series["PriceMA20"]);
         }        
 
         public void SetStrategyResults(IStrategyResults results)
