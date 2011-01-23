@@ -56,6 +56,10 @@ namespace FinanceAnalyzer
 
             double price = _CurrentStock.Sell(count, unitPrice);
             double cash = price - Transaction.GetDutyCharge(price);
+
+            LogMgr.Logger.LogInfo("Action: Sell Stock Count: {0}, Unit Price: {1}",
+                    count,
+                    unitPrice);
             return cash;
         }
 
