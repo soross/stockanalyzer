@@ -48,6 +48,18 @@ namespace FinanceAnalyzer.UI
             chart1.ChartAreas["Price"].CursorX.IsUserEnabled = true;
             chart1.ChartAreas["Price"].CursorX.IsUserSelectionEnabled = true;
 
+            chart1.Series.Add("PriceMA5");
+            chart1.Series["PriceMA5"].ChartArea = "Price";
+            chart1.Series["PriceMA5"].ChartType = SeriesChartType.Line;
+
+            chart1.Series.Add("PriceMA10");
+            chart1.Series["PriceMA10"].ChartArea = "Price";
+            chart1.Series["PriceMA10"].ChartType = SeriesChartType.Line;
+
+            chart1.Series.Add("PriceMA20");
+            chart1.Series["PriceMA20"].ChartArea = "Price";
+            chart1.Series["PriceMA20"].ChartType = SeriesChartType.Line;
+
             chart1.ChartAreas.Add("Volume");
             chart1.ChartAreas["Volume"].AlignWithChartArea = "Price";
             chart1.ChartAreas["Volume"].AxisX.ScaleView.Zoomable = true;
@@ -57,7 +69,7 @@ namespace FinanceAnalyzer.UI
             chart1.Series.Add("Volume");
             chart1.Series["Volume"].ChartArea = "Volume";
             chart1.Series["Volume"].ChartType = SeriesChartType.Column;
-            chart1.Series["Volume"].XValueType = ChartValueType.DateTime;
+            chart1.Series["Volume"].XValueType = ChartValueType.DateTime;            
         }
 
         private void FillData()
@@ -93,6 +105,10 @@ namespace FinanceAnalyzer.UI
             {
                 chart1.ChartAreas["Price"].AxisY.Minimum = (int)minYValue - 1; // 最小值设置
             }
+
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "5", chart1.Series["Price"], chart1.Series["PriceMA5"]);
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "10", chart1.Series["Price"], chart1.Series["PriceMA10"]);
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "20", chart1.Series["Price"], chart1.Series["PriceMA20"]);
         }
 
         public void SetStockDrawer(IStockDrawer stockDrawer)
