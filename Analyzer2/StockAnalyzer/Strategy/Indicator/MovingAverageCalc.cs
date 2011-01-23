@@ -61,12 +61,19 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 return OperType.NoOper;
             }
 
+            if ((_LastOperDate != DateTime.MinValue) && ((dt - _LastOperDate).Days <= IGNOREDAYS))
+            {
+                return OperType.NoOper;
+            }
+
             if ((this.GetIndicatorValue(dt) > 0) && (this.GetIndicatorValue(prev) < 0))
             {
+                _LastOperDate = dt;
                 return OperType.Buy;
             }
             else if ((this.GetIndicatorValue(dt) < 0) && (this.GetIndicatorValue(prev) > 0))
             {
+                _LastOperDate = dt;
                 return OperType.Sell;
             }
             else
@@ -75,6 +82,8 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
+        DateTime _LastOperDate = DateTime.MinValue;
         MovingAveragePrediction _Prediction = new MovingAveragePrediction();
+        const int IGNOREDAYS = 3;
     }
 }
