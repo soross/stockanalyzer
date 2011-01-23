@@ -12,5 +12,10 @@ namespace FinanceAnalyzer.Utility
         {
             return (stock.EndPrice - stock.StartPrice) / stock.StartPrice;
         }
+
+        public static bool PriceInRange(IStockData stock, double price)
+        {
+            return (price >= stock.MinPrice) && (price <= stock.MaxPrice);
+        }
     }
 }

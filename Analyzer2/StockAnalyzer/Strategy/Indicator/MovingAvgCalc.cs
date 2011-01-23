@@ -8,12 +8,10 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
-    class MovingAvgCalc : HistoricalValuesCalc
+    class MovingAvgCalc : BasicIndicatorCalc
     {
         public MovingAvgCalc()
         {
-            _Prediction.LongDays = 10;
-            _Prediction.ShortDays = 5;
         }
 
         public override string Name
@@ -23,10 +21,12 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         public override void Calc(IStockHistory hist)
         {
-            _History = hist;
-
             DateTime startDate = hist.MinDate;
             DateTime endDate = hist.MaxDate;
+
+            MovingAveragePrediction prediction = new MovingAveragePrediction();
+            prediction.LongDays = 10;
+            prediction.ShortDays = 5;
 
             while (startDate < endDate)
             {
@@ -37,48 +37,69 @@ namespace FinanceAnalyzer.Strategy.Indicator
                     continue;
                 }
 
-                _Prediction.AddPrice(stock.EndPrice);
+                prediction.AddPrice(stock.EndPrice);
 
-                if (!_Prediction.IsCountEnough())
+                if (!prediction.IsCountEnough())
                 {
                     startDate = DateFunc.GetNextWorkday(startDate);
                     continue;
                 }
 
                 // 长周期日线和短周期日线
-                double longEMA = _Prediction.GetLongAverage();
-                double shortEMA = _Prediction.GetShortAverage();
+                double longEMA = prediction.GetLongAverage();
+                double shortEMA = prediction.GetShortAverage();
 
                 double diff = shortEMA - longEMA; // 短周期均值-长周期均值
 
                 _DateIndicators.Add(startDate, diff);
+                
+                CalcIndicators(hist, stock, prediction);
 
                 startDate = DateFunc.GetNextWorkday(startDate);
             }
         }
 
-        public override OperType MatchSignal(DateTime dt, DateTime prev)
+        void CalcIndicators(IStockHistory hist, IStockData stock, MovingAveragePrediction prediction)
         {
-            if (double.IsNaN(GetIndicatorValue(dt)) || double.IsNaN(GetIndicatorValue(prev)))
+            DateTime prev = hist.GetPrevDay(stock.TradeDate);
+
+            double prevValue = GetIndicatorValue(prev);
+
+            if (double.IsNaN(prevValue))
             {
-                return OperType.NoOper;
+                return ;
             }
 
-            if (this.GetIndicatorValue(prev) < 0)
+            if (prevValue < 0)
             {
-                return OperType.Buy;
+                if (StockDataCalc.PriceInRange(stock, prediction.CalcNextPredictionValue()))
+                {
+                    _DateToOpers.Add(stock.TradeDate, OperType.Buy);
+                }
             }
-            else if (this.GetIndicatorValue(prev) > 0)
+
+            if (prevValue > 0)
             {
-                return OperType.Sell;
-            }
-            else
-            {
-                return OperType.NoOper;
+                if (StockDataCalc.PriceInRange(stock, prediction.CalcNextPredictionValue()))
+                {
+                    _DateToOpers.Add(stock.TradeDate, OperType.Sell);
+                }
             }
         }
 
-        IStockHistory _History;
-        MovingAveragePrediction _Prediction = new MovingAveragePrediction();
+        // 得到某天的指标值
+        double GetIndicatorValue(DateTime dt)
+        {
+            if (_DateIndicators.ContainsKey(dt))
+            {
+                return _DateIndicators[dt];
+            }
+            else
+            {
+                return double.NaN; // 默认返回NaN 
+            }
+        }
+
+        Dictionary<DateTime, double> _DateIndicators = new Dictionary<DateTime, double>();
     }
 }
