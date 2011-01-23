@@ -10,14 +10,14 @@ namespace FinanceAnalyzer.Strategy.Indicator
 {
     // 参考：http://en.wikipedia.org/wiki/MACD
     // 传统MACD计算方式 
-    class MacdCalculator : IIndicatorCalc
+    class MacdCalculator : HistoricalValuesCalc
     {
-        public string Name
+        public override string Name
         {
             get { return "MACD"; }
         }
 
-        public void Calc(IStockHistory hist)
+        public override void Calc(IStockHistory hist)
         {
             DateTime startDate = hist.MinDate;
             DateTime endDate = hist.MaxDate;
@@ -64,27 +64,19 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
                 double macd = diff - dea; // DIFF与均线之差
 
-                _DateMacd.Add(startDate, macd);
+                _DateIndicators.Add(startDate, macd);
 
                 startDate = DateFunc.GetNextWorkday(startDate);
             }
         }
 
-        // 得到某天的MACD指标值
-        public double GetIndicatorValue(DateTime dt)
+        public override OperType MatchSignal(DateTime dt, DateTime prev)
         {
-            if (_DateMacd.ContainsKey(dt))
+            if (double.IsNaN(GetIndicatorValue(dt)) || double.IsNaN(GetIndicatorValue(prev)))
             {
-                return _DateMacd[dt];
+                return OperType.NoOper;
             }
-            else
-            {
-                return 0.0; // 默认返回0 
-            }
-        }
 
-        public OperType MatchSignal(DateTime dt, DateTime prev)
-        {
             if ((this.GetIndicatorValue(dt) > 0) && (this.GetIndicatorValue(prev) < 0))
             {
                 return OperType.Buy;
@@ -122,8 +114,6 @@ namespace FinanceAnalyzer.Strategy.Indicator
         List<double> _LongPriceList = new List<double>();
         List<double> _ShortPriceList = new List<double>();
         List<double> _DiffPriceList = new List<double>();
-
-        private Dictionary<DateTime, double> _DateMacd = new Dictionary<DateTime, double>();
 
         private const int SHORTDAYS = 12;
         private const int LONGDAYS = 26;

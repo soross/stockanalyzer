@@ -7,9 +7,9 @@ using System.Diagnostics;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
-    class MoneyFlowIndexCalc : IIndicatorCalc
+    class MoneyFlowIndexCalc : HistoricalValuesCalc
     {
-        public void Calc(IStockHistory hist)
+        public override void Calc(IStockHistory hist)
         {
             DateTime startDate = hist.MinDate;
             DateTime endDate = hist.MaxDate;
@@ -55,20 +55,13 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        public double GetIndicatorValue(DateTime dt)
+        public override OperType MatchSignal(DateTime dt, DateTime prev)
         {
-            if (_DateIndicators.ContainsKey(dt))
+            if (double.IsNaN(GetIndicatorValue(dt)))
             {
-                return _DateIndicators[dt];
+                return OperType.NoOper;
             }
-            else
-            {
-                return 0.0; // 默认返回0 
-            }
-        }
 
-        public OperType MatchSignal(DateTime dt, DateTime prev)
-        {
             if (this.GetIndicatorValue(dt) < MFIBUYMARGIN)
             {
                 return OperType.Buy;
@@ -83,7 +76,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        public string Name
+        public override string Name
         {
             get
             {
@@ -111,7 +104,6 @@ namespace FinanceAnalyzer.Strategy.Indicator
         }
 
         List<PriceProp> _PriceList = new List<PriceProp>();
-        private Dictionary<DateTime, double> _DateIndicators = new Dictionary<DateTime, double>();
 
         private const int MFICALCDAYS = 14; // MFI计算周期 
         private const double MFIBUYMARGIN = 30; // 买入门限

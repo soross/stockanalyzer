@@ -23,14 +23,14 @@ namespace FinanceAnalyzer.Strategy.Indicator
     };
 
     // Reference: http://en.wikipedia.org/wiki/Relative_strength_index 
-    class RsiCalculator : IIndicatorCalc
+    class RsiCalculator : HistoricalValuesCalc
     {
-        public string Name
+        public override string Name
         {
             get { return "RSI"; }
         }
 
-        public void Calc(IStockHistory hist)
+        public override void Calc(IStockHistory hist)
         {
             DateTime startDate = hist.MinDate;
             DateTime endDate = hist.MaxDate;
@@ -77,21 +77,13 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        // 得到某天的RSI指标值
-        private double GetIndicatorValue(DateTime dt)
+        public override OperType MatchSignal(DateTime dt, DateTime prev)
         {
-            if (_DateIndicators.ContainsKey(dt))
+            if (double.IsNaN(GetIndicatorValue(dt)))
             {
-                return _DateIndicators[dt];
+                return OperType.NoOper;
             }
-            else
-            {
-                return 0.0; // 默认返回0 
-            }
-        }
 
-        public OperType MatchSignal(DateTime dt, DateTime prev)
-        {
             if (this.GetIndicatorValue(dt) < RSIBUYMARGIN)
             {
                 return OperType.Buy;
@@ -126,7 +118,5 @@ namespace FinanceAnalyzer.Strategy.Indicator
         private const int RSICALCDAYS = 14; // RSI计算周期 
 
         List<PriceProp> _PriceList = new List<PriceProp>();
-
-        private Dictionary<DateTime, double> _DateIndicators = new Dictionary<DateTime, double>();
     }
 }
