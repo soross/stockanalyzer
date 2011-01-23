@@ -34,6 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMSChart));
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonOk = new System.Windows.Forms.Button();
+            this.checkBoxMa = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,8 +51,8 @@
             legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(10, 11);
-            this.chart1.Margin = new System.Windows.Forms.Padding(2);
+            this.chart1.Location = new System.Drawing.Point(13, 14);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             series1.ChartArea = "Price";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
@@ -61,37 +62,50 @@
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series1.YValuesPerPoint = 4;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(682, 466);
+            this.chart1.Size = new System.Drawing.Size(909, 582);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(615, 482);
-            this.buttonOk.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonOk.Location = new System.Drawing.Point(820, 602);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(76, 27);
+            this.buttonOk.Size = new System.Drawing.Size(101, 34);
             this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
+            // checkBoxMa
+            // 
+            this.checkBoxMa.AutoSize = true;
+            this.checkBoxMa.Location = new System.Drawing.Point(12, 611);
+            this.checkBoxMa.Name = "checkBoxMa";
+            this.checkBoxMa.Size = new System.Drawing.Size(45, 19);
+            this.checkBoxMa.TabIndex = 2;
+            this.checkBoxMa.Text = "MA";
+            this.checkBoxMa.UseVisualStyleBackColor = true;
+            this.checkBoxMa.CheckedChanged += new System.EventHandler(this.checkBoxMa_CheckedChanged);
+            // 
             // FormMSChart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(701, 513);
+            this.ClientSize = new System.Drawing.Size(935, 641);
+            this.Controls.Add(this.checkBoxMa);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.chart1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMSChart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Stocks";
             this.Load += new System.EventHandler(this.FormMSChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,5 +113,6 @@
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.CheckBox checkBoxMa;
     }
 }

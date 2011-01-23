@@ -117,5 +117,17 @@ namespace FinanceAnalyzer.UI
         }
 
         IStockDrawer _StockDrawer;
+
+        private void checkBoxMa_CheckedChanged(object sender, EventArgs e)
+        {
+            DisplayMaLines(checkBoxMa.Checked);
+        }
+
+        private void DisplayMaLines(bool show)
+        {
+            chart1.Series["PriceMA5"].Enabled = show;
+            chart1.Series["PriceMA10"].Enabled = show;
+            chart1.Series["PriceMA20"].Enabled = show;
+        }
     }
 }
