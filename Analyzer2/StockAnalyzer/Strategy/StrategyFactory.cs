@@ -12,13 +12,8 @@ namespace FinanceAnalyzer.Strategy
     public class StrategyFactory : IStrategyFactory
     {
         public virtual void Init()
-        {
-            AddStrategy(new StrategyMinMax());
+        {            
             AddStrategy(new StrategyKD(25, 75));
-            AddStrategy(new StrategyBamboo());
-
-            AddStrategy(new StrategyVolumeOptim(0.4, 0.3));
-
             AddStrategy(new StrategyThreeDay(new RiseJudger()));
             AddStrategy(new StrategyThreeDay(new UpJudger()));
             AddStrategy(new StrategyThreeDay(new VolumeJudger()));
@@ -37,12 +32,18 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new SimpleShapeCalc());
             AddStrategyByIndicator(new WaysShapeCalc(new ShapeScanner()));
             AddStrategyByIndicator(new TripleShapeCalc(new TripleShapeScanner()));
+            AddStrategyByIndicator(new MovingAvgCalc());
+            AddStrategyByIndicator(new MovingAverageCalc());
 
             AddMixedIndicators(new SimpleShapeCalc(), new MacdCalculator());
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
             AddStrategyByIndicator(new VolumeCalc(BUYMARGINPERCENT, SELLMARGINPERCENT));
+
+            AddStrategy(new StrategyMinMax());
+            AddStrategy(new StrategyBamboo());
+            AddStrategy(new StrategyVolumeOptim(0.4, 0.3));
 
             StrategyPercent strategy = new StrategyPercent(0.1);
             AddStrategy(strategy);

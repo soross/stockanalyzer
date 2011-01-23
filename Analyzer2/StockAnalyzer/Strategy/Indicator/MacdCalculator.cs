@@ -93,6 +93,11 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         private void AddTodayPrice(double price)
         {
+            if (price < 0.01)
+            {
+                throw new ArgumentOutOfRangeException("MacdCalculator.AddTodayPrice: " + price.ToString());
+            }
+
             _LongPriceList.Add(price);
             if (_LongPriceList.Count > LONGDAYS)
             {

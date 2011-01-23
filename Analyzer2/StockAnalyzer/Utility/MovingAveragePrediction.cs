@@ -29,20 +29,20 @@ namespace FinanceAnalyzer.Utility
             double curLongAvg = _LongPriceList.Average();
             double curShortAvg = _ShortPriceList.Average();
 
-            if (curShortAvg > curLongAvg)
-            {
-                double val = (curLongAvg - curShortAvg) * LongDays * ShortDays / (LongDays - ShortDays);
-                return (val + 0.01);
-            }
-            else
-            {
-                double val = (curLongAvg - curShortAvg) * LongDays * ShortDays / (LongDays - ShortDays);
-                return (val - 0.01);
-            }
+            double val1 = (curLongAvg - _LongPriceList.First()) * ShortDays;
+            double val2 = (curShortAvg - _ShortPriceList.First()) * LongDays;
+
+            double val = (val1 - val2) / (LongDays - ShortDays);
+            return val;
         }
 
         public void AddPrice(double price)
         {
+            if (price < 0.01)
+            {
+                throw new ArgumentOutOfRangeException("MovingAveragePrediction.AddPrice: " + price.ToString());
+            }
+
             _LongPriceList.Add(price);
             if (_LongPriceList.Count > LongDays)
             {
