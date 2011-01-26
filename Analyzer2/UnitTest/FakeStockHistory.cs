@@ -53,7 +53,7 @@ namespace FinanceAnalyzer
         }
 
         // 得到前一个工作日
-        public DateTime GetPrevDay(DateTime dt)
+        public DateTime GetPreviousDay(DateTime dt)
         {
             return dt.AddDays(-1);
         }

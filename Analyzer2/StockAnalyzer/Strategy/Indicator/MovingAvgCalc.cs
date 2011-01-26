@@ -61,7 +61,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         void CalcIndicators(IStockHistory hist, IStockData stock, MovingAveragePrediction prediction)
         {
-            DateTime prev = hist.GetPrevDay(stock.TradeDate);
+            DateTime prev = hist.GetPreviousDay(stock.TradeDate);
 
             double prevValue = GetIndicatorValue(prev);
 

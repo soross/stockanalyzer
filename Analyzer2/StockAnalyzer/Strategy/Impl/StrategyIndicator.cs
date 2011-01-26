@@ -16,7 +16,7 @@ namespace FinanceAnalyzer.Strategy.Impl
 
         public override ICollection<StockOper> GetOper(DateTime dt, IAccount account)
         {
-            DateTime yesterday = stockHistory.GetPrevDay(dt);
+            DateTime yesterday = stockHistory.GetPreviousDay(dt);
 
             IStockData curProp = stockHistory.GetStock(dt);
             if (curProp == null)

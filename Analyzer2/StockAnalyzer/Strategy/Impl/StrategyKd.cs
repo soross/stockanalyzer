@@ -29,7 +29,7 @@ namespace FinanceAnalyzer.Strategy.Impl
             double k = _Storage.GetK(day);
             double d = _Storage.GetD(day);
 
-            DateTime yesterday = stockHistory.GetPrevDay(day);
+            DateTime yesterday = stockHistory.GetPreviousDay(day);
             double prevK = _Storage.GetK(yesterday);
             double prevD = _Storage.GetD(yesterday);
 

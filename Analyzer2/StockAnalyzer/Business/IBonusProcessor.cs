@@ -8,9 +8,9 @@ namespace FinanceAnalyzer.Business
 {
     public interface IBonusProcessor
     {
-        bool IsExexDividendDate(DateTime date);
-        bool IsDividendDate(DateTime date);
-        bool IsBonusListOnDate(DateTime date);
-        Bonus FindBonus(DateTime date);
+        bool IsExexDividendDate(DateTime currentDate);
+        bool IsDividendDate(DateTime currentDate);
+        bool IsBonusListOnDate(DateTime currentDate);
+        Bonus FindBonus(DateTime currentDate);
     }
 }

@@ -29,9 +29,9 @@ namespace FinanceAnalyzer.DB
             return _bonusList.Count;
         }
 
-        public static void InsertBonus(Bonus val)
+        public static void InsertBonus(Bonus bonus)
         {
-            _mapper.Insert("InsertBonus", val);
+            _mapper.Insert("InsertBonus", bonus);
         }
 
         IList<Bonus> _bonusList;

@@ -110,11 +110,11 @@ namespace FinanceAnalyzer
 
         public IStockData GetPrevDayStock(DateTime dt)
         {
-            return GetStock(GetPrevDay(dt));
+            return GetStock(GetPreviousDay(dt));
         }
 
         // 得到前一个工作日
-        public DateTime GetPrevDay(DateTime dt)
+        public DateTime GetPreviousDay(DateTime dt)
         {
             if (dt <= m_MinDate)
             {
@@ -203,33 +203,6 @@ namespace FinanceAnalyzer
                     log.LogInfo("Date: " + startDate.ToLongDateString() + ", has no stock data.");
                 }
                 startDate = startDate.AddDays(1);
-            }
-        }
-
-        private void Check2(ICustomLog log)
-        {
-            DateTime startDate = MaxDate;
-            while (startDate > MinDate)
-            {
-                IStockData curStock = GetStock(startDate);
-
-                DateTime prevDate = GetPrevDay(startDate);
-                IStockData prevStock = GetStock(prevDate);
-
-                if ((curStock == null) || (prevStock == null))
-                {
-                    startDate = prevDate;
-                    continue;
-                }
-
-                if (!IsInRange(curStock.StartPrice, prevStock.EndPrice))
-                {
-                    log.LogInfo("Today: " + startDate.ToShortDateString() +
-                        ", Yesterday : " + prevDate.ToShortDateString() +
-                        ", Today start price: " + curStock.StartPrice + ", Yesterday end price: " + prevStock.EndPrice);
-                }
-
-                startDate = prevDate;
             }
         }
 

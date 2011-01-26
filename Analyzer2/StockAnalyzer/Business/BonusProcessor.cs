@@ -22,28 +22,28 @@ namespace FinanceAnalyzer.Business
         }
 
         // 是否是除权除息日
-        public bool IsExexDividendDate(DateTime date)
+        public bool IsExexDividendDate(DateTime currentDate)
         {
-            return _ExexDividendDate.Contains(date);
+            return _ExexDividendDate.Contains(currentDate);
         }
 
         // 是否是分红日
-        public bool IsDividendDate(DateTime date)
+        public bool IsDividendDate(DateTime currentDate)
         {
-            return _DividendDate.Contains(date);
+            return _DividendDate.Contains(currentDate);
         }
 
         // 是否是红股上市日
-        public bool IsBonusListOnDate(DateTime date)
+        public bool IsBonusListOnDate(DateTime currentDate)
         {
-            return _BonusListOnDate.Contains(date);
+            return _BonusListOnDate.Contains(currentDate);
         }
 
-        public Bonus FindBonus(DateTime date)
+        public Bonus FindBonus(DateTime currentDate)
         {
-            if (_DateToBonus.ContainsKey(date))
+            if (_DateToBonus.ContainsKey(currentDate))
             {
-                return _DateToBonus[date];
+                return _DateToBonus[currentDate];
             }
             else
             {
