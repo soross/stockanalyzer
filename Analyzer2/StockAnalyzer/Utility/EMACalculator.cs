@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace FinanceAnalyzer.Utility
 {
@@ -14,7 +15,7 @@ namespace FinanceAnalyzer.Utility
 
             double ema = arr[0];
 
-            for (int i = 1; i < arr.Count; i++ )
+            for (int i = 1; i < arr.Count; i++)
             {
                 ema = ema * (1 - alpha) + arr[i] * alpha;
                 results.Add(ema);
