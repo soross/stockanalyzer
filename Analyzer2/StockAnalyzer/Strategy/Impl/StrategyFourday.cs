@@ -26,9 +26,9 @@ namespace FinanceAnalyzer.Strategy.Impl
             IStockData curProp = stockHistory.GetStock(day);
             IStockData stockYesterdayProp = stockHistory.GetPrevDayStock(day);
 
-            DateTime prevDate = stockHistory.GetPrevDay(day);
+            DateTime prevDate = stockHistory.GetPreviousDay(day);
             IStockData stockprevProp = stockHistory.GetPrevDayStock(prevDate);
-            DateTime prevNextDate = stockHistory.GetPrevDay(prevDate);
+            DateTime prevNextDate = stockHistory.GetPreviousDay(prevDate);
 
             if (!CheckStock(curProp, day) || !CheckStock(stockYesterdayProp, prevDate)
                 || !CheckStock(stockprevProp, prevNextDate))

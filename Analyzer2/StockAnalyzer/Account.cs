@@ -32,20 +32,20 @@ namespace FinanceAnalyzer
         /// </summary>
         /// <param name="oper">操作</param>
         /// <returns>操作是否成功</returns>
-        public bool DoBusiness(StockOper oper)
+        public bool DoBusiness(StockOper operation)
         {
-            if (oper == null)
+            if (operation == null)
             {
                 return false;
             }
             
-            if (oper.Type == OperType.Buy)
+            if (operation.Type == OperType.Buy)
             {
-                this.BuyStocks(oper);                
+                this.BuyStocks(operation);                
             }
-            else if (oper.Type == OperType.Sell)
+            else if (operation.Type == OperType.Sell)
             {
-                this.bankRoll += Holder.SellStock(oper.HandCount, oper.UnitPrice);
+                this.bankRoll += Holder.SellStock(operation.HandCount, operation.UnitPrice);
                 this._SellTransactionCount++;
             }
             else

@@ -28,7 +28,7 @@ namespace FinanceAnalyzer
         IStockData GetPrevDayStock(DateTime dt);
 
         // 得到前一个工作日
-        DateTime GetPrevDay(DateTime dt);
+        DateTime GetPreviousDay(DateTime dt);
 
         bool IsOperSuccess(DateTime dt, StockOper oper);
     }

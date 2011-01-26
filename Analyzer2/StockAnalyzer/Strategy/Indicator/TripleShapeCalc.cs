@@ -28,7 +28,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             {
                 IStockData stock = hist.GetStock(startDate);
                 IStockData prevData = hist.GetPrevDayStock(startDate);
-                IStockData prev2Data = hist.GetPrevDayStock(hist.GetPrevDay(startDate));
+                IStockData prev2Data = hist.GetPrevDayStock(hist.GetPreviousDay(startDate));
 
                 OperType tp = _Scanner.Analyse(prev2Data, prevData, stock);
                 if (tp != OperType.NoOper)
