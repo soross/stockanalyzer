@@ -112,6 +112,7 @@
     <Compile Include="Strategy\Factory\VolumeAdjustFactory.cs" />
     <Compile Include="Strategy\Impl\StrategyPriceAmountDeviation.cs" />
     <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
+    <Compile Include="Strategy\Indicator\CombinationCalc.cs" />
     <Compile Include="Strategy\Indicator\HistoricalValuesCalc.cs" />
     <Compile Include="Strategy\Indicator\HoldCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
