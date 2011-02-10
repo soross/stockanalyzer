@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    class Code
+    public class Code
     {
         private Code(String code)
         {

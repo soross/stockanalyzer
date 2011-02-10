@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    interface StockHistoryServer
+    public interface StockHistoryServer
     {
         Stock getStock(DateTime calendar);
         DateTime getCalendar(int index);

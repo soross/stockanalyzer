@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    enum Country
+    public enum Country
     {
         Australia,
         Austria,

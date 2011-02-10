@@ -2,8 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyzer", "StockAnalyzer\Analyzer.csproj", "{3BE55C7C-6C37-4A3C-8220-FB95AB02A7FE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A91513F2-4921-42C7-8CF9-C60C80076760} = {A91513F2-4921-42C7-8CF9-C60C80076760}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{AB35E4F6-82A9-4089-B9AF-B581E3E7AFE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetStock", "NetStock\NetStock.csproj", "{A91513F2-4921-42C7-8CF9-C60C80076760}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +78,30 @@ Global
 		{AB35E4F6-82A9-4089-B9AF-B581E3E7AFE8}.StockRelease|Mixed Platforms.Build.0 = Release|Any CPU
 		{AB35E4F6-82A9-4089-B9AF-B581E3E7AFE8}.StockRelease|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
 		{AB35E4F6-82A9-4089-B9AF-B581E3E7AFE8}.StockRelease|Win32.ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.Release|Win32.ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockDebug|Any CPU.Build.0 = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockDebug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockDebug|Win32.ActiveCfg = Debug|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockRelease|Any CPU.Build.0 = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockRelease|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockRelease|Mixed Platforms.Build.0 = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockRelease|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{A91513F2-4921-42C7-8CF9-C60C80076760}.StockRelease|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

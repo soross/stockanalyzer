@@ -86,6 +86,8 @@
     <Compile Include="Business\BonusProcessor.cs" />
     <Compile Include="Business\IBonusProcessor.cs" />
     <Compile Include="Business\Shape\TripleShapeScanner.cs" />
+    <Compile Include="DataAcquisition\ShDailyDownloader.cs" />
+    <Compile Include="DataAcquisition\IDailyDownloader.cs" />
     <Compile Include="DB\BonusReader.cs" />
     <Compile Include="DB\Bonus.cs" />
     <Compile Include="DB\IDataChecker.cs" />
@@ -336,6 +338,12 @@
       <ProductName>.NET Framework 3.5</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetStock\NetStock.csproj">
+      <Project>{A91513F2-4921-42C7-8CF9-C60C80076760}</Project>
+      <Name>NetStock</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Strategy\Indicator\Mixed\" />
