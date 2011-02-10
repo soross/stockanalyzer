@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    class Stock
+    public class Stock
     {
         // Builder pattern.
         // We are using a builder pattern when face with many constructor 

@@ -6,7 +6,7 @@ using FinanceAnalyzer.DB;
 
 namespace FinanceAnalyzer.DataAcquisition
 {
-    class IDailyDownloader
+    interface IDailyDownloader
     {
         void DownloadData(IStockSaver saver, List<int> stockIds);
     }

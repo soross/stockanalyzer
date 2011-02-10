@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    class Symbol
+    public class Symbol
     {
         private Symbol(String symbol)
         {
