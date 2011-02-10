@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A91513F2-4921-42C7-8CF9-C60C80076760}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetStock</RootNamespace>
+    <AssemblyName>NetStock</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapter\Calendar.cs" />
+    <Compile Include="Adapter\Jackson\ObjectMapper.cs" />
+    <Compile Include="Adapter\URL.cs" />
+    <Compile Include="Engine\AbstractYahooMarketServer.cs" />
+    <Compile Include="Engine\AbstractYahooStockHistoryServer.cs" />
+    <Compile Include="Engine\AbstractYahooStockServer.cs" />
+    <Compile Include="Engine\BoardHelper.cs" />
+    <Compile Include="Engine\BrazilYahooMarketServer.cs" />
+    <Compile Include="Engine\BrazilYahooStockHistoryServer.cs" />
+    <Compile Include="Engine\BrazilYahooStockServer.cs" />
+    <Compile Include="Engine\BrazilYahooStockServerFactory.cs" />
+    <Compile Include="Engine\Code.cs" />
+    <Compile Include="Engine\Country.cs" />
+    <Compile Include="Engine\Duration.cs" />
+    <Compile Include="Engine\Factories.cs" />
+    <Compile Include="Engine\GoogleMarketServer.cs" />
+    <Compile Include="Engine\GoogleStockServerFactory.cs" />
+    <Compile Include="Engine\IndexHelper.cs" />
+    <Compile Include="Engine\IndustryHelper.cs" />
+    <Compile Include="Engine\MalaysiaMarket.cs" />
+    <Compile Include="Engine\Market.cs" />
+    <Compile Include="Engine\MarketServer.cs" />
+    <Compile Include="Engine\SimpleDate.cs" />
+    <Compile Include="Engine\SingaporeYahooMarketServer.cs" />
+    <Compile Include="Engine\SingaporeYahooStockHistoryServer.cs" />
+    <Compile Include="Engine\SingaporeYahooStockServer.cs" />
+    <Compile Include="Engine\SingaporeYahooStockServerFactory.cs" />
+    <Compile Include="Engine\Stock.cs" />
+    <Compile Include="Engine\StockEx.cs" />
+    <Compile Include="Engine\StockFormat.cs" />
+    <Compile Include="Engine\StockHistoryMonitor.cs" />
+    <Compile Include="Engine\StockHistoryNotFoundException.cs" />
+    <Compile Include="Engine\StockHistoryServer.cs" />
+    <Compile Include="Engine\StockNameDatabase.cs" />
+    <Compile Include="Engine\StockNotFoundException.cs" />
+    <Compile Include="Engine\StockServer.cs" />
+    <Compile Include="Engine\StockServerFactory.cs" />
+    <Compile Include="Engine\Symbol.cs" />
+    <Compile Include="Engine\Utils.cs" />
+    <Compile Include="Engine\YahooMarketServer.cs" />
+    <Compile Include="Engine\YahooStockFormat.cs" />
+    <Compile Include="Engine\YahooStockHistoryServer.cs" />
+    <Compile Include="Engine\YahooStockServer.cs" />
+    <Compile Include="Engine\YahooStockServerFactory.cs" />
+    <Compile Include="Gui\Utils.cs" />
+    <Compile Include="Portfolio\AbstractSummary.cs" />
+    <Compile Include="Portfolio\Commentable.cs" />
+    <Compile Include="Portfolio\Dividend.cs" />
+    <Compile Include="Portfolio\Summary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
