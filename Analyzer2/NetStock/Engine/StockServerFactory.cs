@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    interface StockServerFactory
+    public interface StockServerFactory
     {
         StockServer getStockServer();
         StockHistoryServer getStockHistoryServer(Code code);
