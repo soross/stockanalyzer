@@ -31,7 +31,23 @@ namespace FinanceAnalyzer.DataAcquisition
 
         void DownloadOneStock(StockServerFactory fact, int stockId)
         {
-            StockHistoryServer history = fact.getStockHistoryServer(this.code, duration);
+            if (!StockMarketChecker.IsChinaShanghaiStock(stockId))
+            {
+                return;
+            }
+
+            Code curCode = Code.newInstance(StockMarketChecker.ToYahooStockId(stockId));
+
+            DateTime prevWeek = DateTime.Now.AddDays(-7);
+            Duration duration = new Duration(prevWeek, DateTime.Now);
+            StockHistoryServer history = fact.getStockHistoryServer(curCode, duration);
+
+            if (history == null)
+            {
+                return;
+            }
+
+
         }
 
         List<int> _stockIds;
