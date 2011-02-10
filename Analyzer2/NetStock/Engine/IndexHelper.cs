@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    enum Index
+    public enum Index
     {
         KLSE,
         Second,

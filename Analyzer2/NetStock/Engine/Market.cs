@@ -12,7 +12,7 @@ namespace DotNetStock.Engine
         Unchange
     }
 
-    interface Market
+    public interface Market
     {
         double getIndex(Index index);
         double getChange(Index index);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    interface MarketServer
+    public interface MarketServer
     {
         Market getMarket();
     }

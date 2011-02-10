@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    interface StockServer
+    public interface StockServer
     {
         Stock getStock(Symbol symbol);
         Stock getStock(Code code);
