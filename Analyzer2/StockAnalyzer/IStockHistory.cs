@@ -31,5 +31,7 @@ namespace FinanceAnalyzer
         DateTime GetPreviousDay(DateTime dt);
 
         bool IsOperSuccess(DateTime dt, StockOper oper);
+
+        void AddStock(DateTime dt, IStockData stock);
     }
 }

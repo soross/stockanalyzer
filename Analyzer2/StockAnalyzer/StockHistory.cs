@@ -41,7 +41,7 @@ namespace FinanceAnalyzer
             set;
         }
 
-        private void AddStock(DateTime dt, IStockData stock)
+        public void AddStock(DateTime dt, IStockData stock)
         {
             if (!_DailyStocks.ContainsKey(dt))
             {
