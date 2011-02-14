@@ -9,5 +9,6 @@ namespace FinanceAnalyzer.DataAcquisition
     interface IDailyDownloader
     {
         void DownloadData(IStockSaver saver, List<int> stockIds);
+        void DownloadData(IStockSaver saver, int stockId, DateTime startDate, DateTime endDate);
     }
 }

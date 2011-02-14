@@ -134,6 +134,10 @@ namespace FinanceAnalyzer
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 26), 101, 108, 100, 102, 1000));
         }
 
+        public void AddStock(DateTime dt, IStockData stock)
+        {
+        }
+
         private Dictionary<DateTime, StockData> _DailyStocks = new Dictionary<DateTime, StockData>();
     }
 }
