@@ -9,7 +9,7 @@ namespace FinanceAnalyzer.DataAcquisition
     {
         public static bool IsChinaShanghaiStock(int stockId)
         {
-            return (stockId / 100) == 600;
+            return (stockId / 1000) == 600;
         }
 
         public static String ToYahooStockId(int stockId)
