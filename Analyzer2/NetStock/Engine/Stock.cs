@@ -43,7 +43,7 @@ namespace DotNetStock.Engine
             public int _thirdSellQuantity = 0;
             // We suppose to provide a default value for calendar. However, it may
             // seem expensive. We will do it later during build.
-            public DateTime _calendar = DateTime.MinValue;
+            public SimpleDate _calendar = new SimpleDate();
             public bool _hasCalendarInitialized = false;
 
             public Builder(Code code, Symbol symbol)
@@ -271,7 +271,7 @@ namespace DotNetStock.Engine
             /**
              * @param calendar the calendar to set
              */
-            public Builder calendar(DateTime calendar)
+            public Builder calendar(SimpleDate calendar)
             {
                 this._calendar = calendar;
                 this._hasCalendarInitialized = true;
@@ -283,7 +283,7 @@ namespace DotNetStock.Engine
                 if (_hasCalendarInitialized == false)
                 {
                     // If we haven't initialized calendar before, do it right now.
-                    this._calendar = DateTime.Now;
+                    this._calendar = new SimpleDate();
                 }
                 return new Stock(this);
             }
@@ -351,7 +351,7 @@ namespace DotNetStock.Engine
             int thirdBuyQuantity,
             double thirdSellPrice,
             int thirdSellQuantity,
-            DateTime calendar
+            SimpleDate calendar
                     )
         {
             this.code = code;
@@ -547,7 +547,7 @@ namespace DotNetStock.Engine
             return thirdSellQuantity;
         }
 
-        public DateTime getCalendar()
+        public SimpleDate getCalendar()
         {
             return calendar;
         }
@@ -677,7 +677,7 @@ namespace DotNetStock.Engine
         private int thirdBuyQuantity;
         private double thirdSellPrice;
         private int thirdSellQuantity;
-        private DateTime calendar;
+        private SimpleDate calendar;
 
         public enum Board
         {

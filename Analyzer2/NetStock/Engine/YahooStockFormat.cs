@@ -133,7 +133,7 @@ namespace DotNetStock.Engine
                 int thirdBuyQuantity = 0;
                 double thirdSellPrice = 0.0;
                 int thirdSellQuantity = 0;
-                DateTime calendar = DateTime.Today;
+                SimpleDate calendar = new SimpleDate();
 
                 do
                 {
@@ -228,7 +228,7 @@ namespace DotNetStock.Engine
                     try
                     {
                         serverDate = DateTime.ParseExact(data_and_time, "MM/dd/yyyy hh:mmaa", CultureInfo.InvariantCulture);
-                        calendar = serverDate;
+                        calendar = new SimpleDate(serverDate);
                     }
                     catch (FormatException exp)
                     {
@@ -246,7 +246,7 @@ namespace DotNetStock.Engine
 
                 if (calendar == null)
                 {
-                    calendar = DateTime.Now;
+                    calendar = new SimpleDate();
                 }
 
                 Stock stock = new Stock(

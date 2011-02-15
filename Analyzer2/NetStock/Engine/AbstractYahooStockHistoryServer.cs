@@ -43,7 +43,7 @@ namespace DotNetStock.Engine
             historyDatabase.Clear();
             simpleDates.Clear();
 
-            DateTime calendar = DateTime.Now;
+            SimpleDate calendar = new SimpleDate();
 
             String[] stockDatas = respond.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -88,7 +88,8 @@ namespace DotNetStock.Engine
 
                 try
                 {
-                    calendar = DateTime.ParseExact(fields[0], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    DateTime curcalendar = DateTime.ParseExact(fields[0], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    calendar = new SimpleDate(curcalendar);
                 }
                 catch (FormatException ex)
                 {
@@ -124,7 +125,7 @@ namespace DotNetStock.Engine
                 double changePrice = (previousClosePrice == Double.MaxValue) ? 0 : closePrice - previousClosePrice;
                 double changePricePercentage = ((previousClosePrice == Double.MaxValue) || (previousClosePrice == 0.0)) ? 0 : changePrice / previousClosePrice * 100.0;
 
-                SimpleDate simpleDate = new SimpleDate(calendar);
+                SimpleDate simpleDate = calendar;
 
                 Stock stock = new Stock(
                         code,
@@ -153,7 +154,7 @@ namespace DotNetStock.Engine
                         0,
                         0.0,
                         0,
-                        simpleDate.getCalendar()
+                        simpleDate
                         );
 
                 historyDatabase.Add(simpleDate, stock);
@@ -209,15 +210,14 @@ namespace DotNetStock.Engine
             }
         }
 
-        public Stock getStock(DateTime calendar)
+        public Stock getStock(SimpleDate calendar)
         {
-            SimpleDate simpleDate = new SimpleDate(calendar);
-            return historyDatabase[simpleDate];
+            return historyDatabase[calendar];
         }
 
-        public DateTime getCalendar(int index)
+        public SimpleDate getCalendar(int index)
         {
-            return simpleDates[index].getCalendar();
+            return simpleDates[index];
         }
 
         public int getNumOfCalendar()

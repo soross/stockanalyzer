@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DotNetStock.Engine;
 
 namespace DotNetStock.Adapter
 {
     class Calendar
     {
-        public static DateTime getInstance()
+        public static SimpleDate getInstance()
         {
-            return DateTime.Now;
+            return new SimpleDate();
         }
     }
 }
