@@ -74,7 +74,7 @@ namespace FinanceAnalyzer.DataAcquisition
 
             for (int i = 0; i < numberOfDate; i++)
             {
-                DateTime dt = history.getCalendar(i);
+                SimpleDate dt = history.getCalendar(i);
 
                 DotNetStock.Engine.Stock stock = history.getStock(dt);
 

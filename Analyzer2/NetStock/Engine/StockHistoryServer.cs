@@ -7,8 +7,8 @@ namespace DotNetStock.Engine
 {
     public interface StockHistoryServer
     {
-        Stock getStock(DateTime calendar);
-        DateTime getCalendar(int index);
+        Stock getStock(SimpleDate calendar);
+        SimpleDate getCalendar(int index);
         int getNumOfCalendar();
 
         // Currently, we didn't see the need for sharesIssued and marketCapital to

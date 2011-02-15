@@ -5,12 +5,13 @@ using System.Text;
 
 namespace DotNetStock.Engine
 {
-    class SimpleDate
+    public class SimpleDate
     {
         /** Creates a new instance of SimpleDate */
+        // month: 0-based, 0 means Jan. 
         public SimpleDate(int year, int month, int date)
         {
-            CurrentDate = new DateTime(year, month, date);
+            CurrentDate = new DateTime(year, month + 1, date);
         }
 
         public SimpleDate()
@@ -30,12 +31,6 @@ namespace DotNetStock.Engine
         }
 
         // Helper
-        public DateTime getCalendar()
-        {
-            return CurrentDate;
-        }
-
-        // Helper
         public DateTime CurrentDate
         {
             get;
@@ -47,9 +42,10 @@ namespace DotNetStock.Engine
             return CurrentDate.Year;
         }
 
+        // 0-based
         public int getMonth()
         {
-            return CurrentDate.Month;
+            return CurrentDate.Month - 1;
         }
 
         public int getDate()
