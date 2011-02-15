@@ -13,15 +13,19 @@ namespace DotNetStock.Adapter
 
         public URL(string str)
         {
+            _UrlString = str;
         }
 
         public URL(URL baseUrl, string str)
         {
+            _UrlString = str;
         }
 
         public string toString()
         {
-            return "";
+            return _UrlString;
         }
+
+        string _UrlString;
     }
 }

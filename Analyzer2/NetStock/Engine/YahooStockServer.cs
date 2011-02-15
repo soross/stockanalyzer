@@ -26,11 +26,9 @@ namespace DotNetStock.Engine
             {
                 this.baseURL = null;
             }
-
-            InitServer();
         }
 
-        public void InitServer()
+        static YahooStockServer()
         {
             servers.Add(Country.Australia, new URL("http://uk.finsearch.yahoo.com/uk/index.php?s=uk_sort&nm=**&tp=S&r=AX&sub=Look+Up"));
             servers.Add(Country.Austria, new URL("http://uk.finsearch.yahoo.com/uk/index.php?s=uk_sort&nm=**&tp=S&r=VI&sub=Look+Up"));
