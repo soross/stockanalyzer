@@ -31,6 +31,13 @@ namespace FinanceAnalyzer.DataAcquisition
             }
         }
 
+        public void DownloadData(IStockSaver saver, int stockId)
+        {
+            DateTime prevWeek = DateTime.Now.AddDays(-7);
+
+            DownloadData(saver, stockId, prevWeek, DateTime.Now);
+        }
+
         public void DownloadData(IStockSaver saver, int stockId, DateTime startDate, DateTime endDate)
         {
             List<StockServerFactory> facts = Factories.GetInstance().getStockServerFactories(Country.China);
@@ -71,7 +78,7 @@ namespace FinanceAnalyzer.DataAcquisition
 
                 DotNetStock.Engine.Stock stock = history.getStock(dt);
 
-
+                IStockData data = StockDataAdapter.ToStockData(stock);
             }
         }
 

@@ -18,7 +18,14 @@ namespace DotNetStock.Engine
         public YahooStockServer(Country param)
             : base(param)
         {
-            this.baseURL = YahooStockServer.servers[param];
+            if (YahooStockServer.servers.ContainsKey(param))
+            {
+                this.baseURL = YahooStockServer.servers[param];
+            }
+            else
+            {
+                this.baseURL = null;
+            }
 
             InitServer();
         }

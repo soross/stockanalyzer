@@ -10,6 +10,7 @@ using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
 using IBatisNet.DataMapper;
+using FinanceAnalyzer.DataAcquisition;
 
 namespace FinanceAnalyzer
 {
@@ -150,6 +151,9 @@ namespace FinanceAnalyzer
             }
 
             _BonusProcessor.Load(_History.StockId, new BonusReader());
+
+            ShDailyDownloader downloader = new ShDailyDownloader();
+            downloader.DownloadData(null, 600036);
         }
 
         private void buttonImport_Click(object sender, EventArgs e)
