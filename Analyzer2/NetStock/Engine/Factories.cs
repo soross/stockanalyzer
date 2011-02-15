@@ -9,6 +9,8 @@ namespace DotNetStock.Engine
     {
         private Factories()
         {
+            _map = new Dictionary<Country, List<StockServerFactory>>();
+
             List<StockServerFactory> australiaList = new List<StockServerFactory>();
             List<StockServerFactory> austriaList = new List<StockServerFactory>();
             List<StockServerFactory> belgiumList = new List<StockServerFactory>();
@@ -130,6 +132,6 @@ namespace DotNetStock.Engine
 
         static Factories _Instance = new Factories();
 
-        private static Dictionary<Country, List<StockServerFactory>> _map = new Dictionary<Country, List<StockServerFactory>>();
+        private static Dictionary<Country, List<StockServerFactory>> _map;
     }
 }
