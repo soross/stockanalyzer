@@ -43,31 +43,37 @@
             this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.buttonResetStart = new System.Windows.Forms.Button();
             this.buttonResetEnd = new System.Windows.Forms.Button();
-            this.buttonImport = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxStockId = new System.Windows.Forms.ComboBox();
-            this.buttonAddBonus = new System.Windows.Forms.Button();
             this.buttonCheck = new System.Windows.Forms.Button();
             this.buttonChart = new System.Windows.Forms.Button();
             this.buttonAutoComp = new System.Windows.Forms.Button();
             this.buttonCalcAdjust = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importYahooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBounusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxLog
             // 
             this.listBoxLog.FormattingEnabled = true;
             this.listBoxLog.HorizontalScrollbar = true;
-            this.listBoxLog.ItemHeight = 12;
-            this.listBoxLog.Location = new System.Drawing.Point(8, 162);
+            this.listBoxLog.ItemHeight = 15;
+            this.listBoxLog.Location = new System.Drawing.Point(11, 472);
+            this.listBoxLog.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxLog.Name = "listBoxLog";
-            this.listBoxLog.Size = new System.Drawing.Size(552, 292);
+            this.listBoxLog.Size = new System.Drawing.Size(735, 94);
             this.listBoxLog.TabIndex = 1;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(472, 127);
+            this.buttonSave.Location = new System.Drawing.Point(629, 202);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(87, 24);
+            this.buttonSave.Size = new System.Drawing.Size(116, 30);
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -75,9 +81,10 @@
             // 
             // buttonCompare
             // 
-            this.buttonCompare.Location = new System.Drawing.Point(472, 97);
+            this.buttonCompare.Location = new System.Drawing.Point(629, 164);
+            this.buttonCompare.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCompare.Name = "buttonCompare";
-            this.buttonCompare.Size = new System.Drawing.Size(87, 24);
+            this.buttonCompare.Size = new System.Drawing.Size(116, 30);
             this.buttonCompare.TabIndex = 5;
             this.buttonCompare.Text = "View...";
             this.buttonCompare.UseVisualStyleBackColor = true;
@@ -85,9 +92,10 @@
             // 
             // buttonCalc
             // 
-            this.buttonCalc.Location = new System.Drawing.Point(359, 128);
+            this.buttonCalc.Location = new System.Drawing.Point(479, 203);
+            this.buttonCalc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCalc.Name = "buttonCalc";
-            this.buttonCalc.Size = new System.Drawing.Size(87, 24);
+            this.buttonCalc.Size = new System.Drawing.Size(116, 30);
             this.buttonCalc.TabIndex = 8;
             this.buttonCalc.Text = "Calculate...";
             this.buttonCalc.UseVisualStyleBackColor = true;
@@ -96,85 +104,79 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(322, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(87, 15);
             this.label1.TabIndex = 9;
             this.label1.Text = "Min Date: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 70);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(500, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(87, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "Max Date: ";
             // 
             // labelMinDate
             // 
             this.labelMinDate.AutoSize = true;
-            this.labelMinDate.Location = new System.Drawing.Point(111, 42);
-            this.labelMinDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMinDate.Location = new System.Drawing.Point(415, 61);
             this.labelMinDate.Name = "labelMinDate";
-            this.labelMinDate.Size = new System.Drawing.Size(59, 12);
+            this.labelMinDate.Size = new System.Drawing.Size(79, 15);
             this.labelMinDate.TabIndex = 11;
             this.labelMinDate.Text = "(Unknown)";
             // 
             // labelMaxDate
             // 
             this.labelMaxDate.AutoSize = true;
-            this.labelMaxDate.Location = new System.Drawing.Point(111, 70);
-            this.labelMaxDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMaxDate.Location = new System.Drawing.Point(593, 60);
             this.labelMaxDate.Name = "labelMaxDate";
-            this.labelMaxDate.Size = new System.Drawing.Size(65, 12);
+            this.labelMaxDate.Size = new System.Drawing.Size(87, 15);
             this.labelMaxDate.TabIndex = 12;
             this.labelMaxDate.Text = "(Unknown) ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 102);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(12, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.Size = new System.Drawing.Size(103, 15);
             this.label3.TabIndex = 13;
             this.label3.Text = "Start Date: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 130);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(12, 205);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(87, 15);
             this.label4.TabIndex = 14;
             this.label4.Text = "End Date: ";
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(113, 99);
-            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(151, 167);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(116, 21);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(153, 25);
             this.dateTimePickerStart.TabIndex = 15;
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(113, 128);
-            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(151, 203);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(116, 21);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(153, 25);
             this.dateTimePickerEnd.TabIndex = 16;
             // 
             // buttonResetStart
             // 
-            this.buttonResetStart.Location = new System.Drawing.Point(244, 97);
-            this.buttonResetStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonResetStart.Location = new System.Drawing.Point(325, 164);
+            this.buttonResetStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetStart.Name = "buttonResetStart";
-            this.buttonResetStart.Size = new System.Drawing.Size(59, 24);
+            this.buttonResetStart.Size = new System.Drawing.Size(79, 30);
             this.buttonResetStart.TabIndex = 17;
             this.buttonResetStart.Text = "Reset";
             this.buttonResetStart.UseVisualStyleBackColor = true;
@@ -182,32 +184,21 @@
             // 
             // buttonResetEnd
             // 
-            this.buttonResetEnd.Location = new System.Drawing.Point(244, 124);
-            this.buttonResetEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonResetEnd.Location = new System.Drawing.Point(325, 198);
+            this.buttonResetEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetEnd.Name = "buttonResetEnd";
-            this.buttonResetEnd.Size = new System.Drawing.Size(59, 24);
+            this.buttonResetEnd.Size = new System.Drawing.Size(79, 30);
             this.buttonResetEnd.TabIndex = 18;
             this.buttonResetEnd.Text = "Reset";
             this.buttonResetEnd.UseVisualStyleBackColor = true;
             this.buttonResetEnd.Click += new System.EventHandler(this.buttonResetEnd_Click);
             // 
-            // buttonImport
-            // 
-            this.buttonImport.Location = new System.Drawing.Point(472, 8);
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(87, 24);
-            this.buttonImport.TabIndex = 19;
-            this.buttonImport.Text = "Import...";
-            this.buttonImport.UseVisualStyleBackColor = true;
-            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 14);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(12, 61);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 12);
+            this.label5.Size = new System.Drawing.Size(119, 15);
             this.label5.TabIndex = 20;
             this.label5.Text = "Select Stock: ";
             // 
@@ -215,28 +206,19 @@
             // 
             this.comboBoxStockId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStockId.FormattingEnabled = true;
-            this.comboBoxStockId.Location = new System.Drawing.Point(113, 11);
-            this.comboBoxStockId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxStockId.Location = new System.Drawing.Point(151, 57);
+            this.comboBoxStockId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxStockId.Name = "comboBoxStockId";
-            this.comboBoxStockId.Size = new System.Drawing.Size(116, 20);
+            this.comboBoxStockId.Size = new System.Drawing.Size(153, 23);
             this.comboBoxStockId.TabIndex = 21;
             this.comboBoxStockId.SelectedIndexChanged += new System.EventHandler(this.comboBoxStockId_SelectedIndexChanged);
             // 
-            // buttonAddBonus
-            // 
-            this.buttonAddBonus.Location = new System.Drawing.Point(359, 8);
-            this.buttonAddBonus.Name = "buttonAddBonus";
-            this.buttonAddBonus.Size = new System.Drawing.Size(87, 24);
-            this.buttonAddBonus.TabIndex = 22;
-            this.buttonAddBonus.Text = "Add Bonus...";
-            this.buttonAddBonus.UseVisualStyleBackColor = true;
-            this.buttonAddBonus.Click += new System.EventHandler(this.buttonAddBonus_Click);
-            // 
             // buttonCheck
             // 
-            this.buttonCheck.Location = new System.Drawing.Point(359, 67);
+            this.buttonCheck.Location = new System.Drawing.Point(479, 127);
+            this.buttonCheck.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCheck.Name = "buttonCheck";
-            this.buttonCheck.Size = new System.Drawing.Size(87, 24);
+            this.buttonCheck.Size = new System.Drawing.Size(116, 30);
             this.buttonCheck.TabIndex = 23;
             this.buttonCheck.Text = "Check";
             this.buttonCheck.UseVisualStyleBackColor = true;
@@ -244,9 +226,10 @@
             // 
             // buttonChart
             // 
-            this.buttonChart.Location = new System.Drawing.Point(359, 97);
+            this.buttonChart.Location = new System.Drawing.Point(479, 164);
+            this.buttonChart.Margin = new System.Windows.Forms.Padding(4);
             this.buttonChart.Name = "buttonChart";
-            this.buttonChart.Size = new System.Drawing.Size(87, 24);
+            this.buttonChart.Size = new System.Drawing.Size(116, 30);
             this.buttonChart.TabIndex = 24;
             this.buttonChart.Text = "Chart...";
             this.buttonChart.UseVisualStyleBackColor = true;
@@ -254,9 +237,10 @@
             // 
             // buttonAutoComp
             // 
-            this.buttonAutoComp.Location = new System.Drawing.Point(472, 67);
+            this.buttonAutoComp.Location = new System.Drawing.Point(629, 127);
+            this.buttonAutoComp.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAutoComp.Name = "buttonAutoComp";
-            this.buttonAutoComp.Size = new System.Drawing.Size(87, 24);
+            this.buttonAutoComp.Size = new System.Drawing.Size(116, 30);
             this.buttonAutoComp.TabIndex = 25;
             this.buttonAutoComp.Text = "Auto Compare";
             this.buttonAutoComp.UseVisualStyleBackColor = true;
@@ -264,27 +248,66 @@
             // 
             // buttonCalcAdjust
             // 
-            this.buttonCalcAdjust.Location = new System.Drawing.Point(472, 38);
+            this.buttonCalcAdjust.Location = new System.Drawing.Point(629, 91);
+            this.buttonCalcAdjust.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCalcAdjust.Name = "buttonCalcAdjust";
-            this.buttonCalcAdjust.Size = new System.Drawing.Size(87, 24);
+            this.buttonCalcAdjust.Size = new System.Drawing.Size(116, 30);
             this.buttonCalcAdjust.TabIndex = 26;
             this.buttonCalcAdjust.Text = "Adjust Param";
             this.buttonCalcAdjust.UseVisualStyleBackColor = true;
             this.buttonCalcAdjust.Click += new System.EventHandler(this.buttonCalcAdjust_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(757, 28);
+            this.menuStrip1.TabIndex = 27;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importYahooToolStripMenuItem,
+            this.downloadToolStripMenuItem,
+            this.addBounusToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // importYahooToolStripMenuItem
+            // 
+            this.importYahooToolStripMenuItem.Name = "importYahooToolStripMenuItem";
+            this.importYahooToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.importYahooToolStripMenuItem.Text = "&Import Yahoo...";
+            this.importYahooToolStripMenuItem.Click += new System.EventHandler(this.importYahooToolStripMenuItem_Click);
+            // 
+            // downloadToolStripMenuItem
+            // 
+            this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.downloadToolStripMenuItem.Text = "&Download...";
+            // 
+            // addBounusToolStripMenuItem
+            // 
+            this.addBounusToolStripMenuItem.Name = "addBounusToolStripMenuItem";
+            this.addBounusToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.addBounusToolStripMenuItem.Text = "&Add Bonus...";
+            this.addBounusToolStripMenuItem.Click += new System.EventHandler(this.addBounusToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 466);
+            this.ClientSize = new System.Drawing.Size(757, 582);
             this.Controls.Add(this.buttonCalcAdjust);
             this.Controls.Add(this.buttonAutoComp);
             this.Controls.Add(this.buttonChart);
             this.Controls.Add(this.buttonCheck);
-            this.Controls.Add(this.buttonAddBonus);
             this.Controls.Add(this.comboBoxStockId);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.buttonResetEnd);
             this.Controls.Add(this.buttonResetStart);
             this.Controls.Add(this.dateTimePickerEnd);
@@ -299,12 +322,17 @@
             this.Controls.Add(this.buttonCompare);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listBoxLog);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockAnalyzer";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,14 +354,17 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.Button buttonResetStart;
         private System.Windows.Forms.Button buttonResetEnd;
-        private System.Windows.Forms.Button buttonImport;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxStockId;
-        private System.Windows.Forms.Button buttonAddBonus;
         private System.Windows.Forms.Button buttonCheck;
         private System.Windows.Forms.Button buttonChart;
         private System.Windows.Forms.Button buttonAutoComp;
         private System.Windows.Forms.Button buttonCalcAdjust;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importYahooToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBounusToolStripMenuItem;
     }
 }
 

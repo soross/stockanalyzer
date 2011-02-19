@@ -152,20 +152,8 @@ namespace FinanceAnalyzer
 
             _BonusProcessor.Load(_History.StockId, new BonusReader());
 
-            ShDailyDownloader downloader = new ShDailyDownloader();
-            downloader.DownloadData(null, 600036);
-        }
-
-        private void buttonImport_Click(object sender, EventArgs e)
-        {
-            FormImport frm = new FormImport();
-            frm.ShowDialog();
-        }
-
-        private void buttonAddBonus_Click(object sender, EventArgs e)
-        {
-            FormBonusAdd frm = new FormBonusAdd();
-            frm.Show();
+            //ShDailyDownloader downloader = new ShDailyDownloader();
+            //downloader.DownloadData(null, 600036);
         }
 
         private void comboBoxStockId_SelectedIndexChanged(object sender, EventArgs e)
@@ -235,5 +223,17 @@ namespace FinanceAnalyzer
         StockDBReader _DbReader = new StockDBReader(Mapper.Instance());
         
         BonusProcessor _BonusProcessor = new BonusProcessor();
+
+        private void importYahooToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormImport frm = new FormImport();
+            frm.ShowDialog();
+        }
+
+        private void addBounusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBonusAdd frm = new FormBonusAdd();
+            frm.Show();
+        }
     }
 }
