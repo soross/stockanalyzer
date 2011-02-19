@@ -167,24 +167,6 @@ namespace FinanceAnalyzer
             ShowStockInfo();
         }
 
-        private void buttonCheck_Click(object sender, EventArgs e)
-        {
-            // 检查数据库中的数据
-            _History.Check(LogMgr.Logger);
-        }
-
-        // Display Japanese type chart for a stock
-        private void buttonChart_Click(object sender, EventArgs e)
-        {
-            FormMSChart chart = new FormMSChart();
-
-            _History.MaxDate = dateTimePickerEnd.Value;
-            _History.MinDate = dateTimePickerStart.Value;
-            chart.SetStockDrawer(_History.GetStockDrawer());
-
-            chart.ShowDialog();
-        }
-
         StockHistory _History = new StockHistory();
 
         private void buttonAutoComp_Click(object sender, EventArgs e)
@@ -234,6 +216,24 @@ namespace FinanceAnalyzer
         {
             FormBonusAdd frm = new FormBonusAdd();
             frm.Show();
+        }
+
+        // Display Japanese type chart for a stock
+        private void stockChartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMSChart chart = new FormMSChart();
+
+            _History.MaxDate = dateTimePickerEnd.Value;
+            _History.MinDate = dateTimePickerStart.Value;
+            chart.SetStockDrawer(_History.GetStockDrawer());
+
+            chart.ShowDialog();
+        }
+
+        private void checkConsistencyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 检查数据库中的数据
+            _History.Check(LogMgr.Logger);
         }
     }
 }
