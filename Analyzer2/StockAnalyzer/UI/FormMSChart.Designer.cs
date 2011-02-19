@@ -64,7 +64,7 @@
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(909, 582);
             this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.chart1.Text = "chartStock";
             // 
             // buttonOk
             // 

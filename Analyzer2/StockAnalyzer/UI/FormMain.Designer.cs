@@ -45,16 +45,22 @@
             this.buttonResetEnd = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxStockId = new System.Windows.Forms.ComboBox();
-            this.buttonCheck = new System.Windows.Forms.Button();
-            this.buttonChart = new System.Windows.Forms.Button();
             this.buttonAutoComp = new System.Windows.Forms.Button();
             this.buttonCalcAdjust = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importYahooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBounusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkConsistencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingGroupBox = new System.Windows.Forms.GroupBox();
+            this.groupBoxAction = new System.Windows.Forms.GroupBox();
+            this.menuStripMain.SuspendLayout();
+            this.SettingGroupBox.SuspendLayout();
+            this.groupBoxAction.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxLog
@@ -62,40 +68,40 @@
             this.listBoxLog.FormattingEnabled = true;
             this.listBoxLog.HorizontalScrollbar = true;
             this.listBoxLog.ItemHeight = 15;
-            this.listBoxLog.Location = new System.Drawing.Point(11, 472);
+            this.listBoxLog.Location = new System.Drawing.Point(15, 337);
             this.listBoxLog.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxLog.Name = "listBoxLog";
-            this.listBoxLog.Size = new System.Drawing.Size(735, 94);
+            this.listBoxLog.Size = new System.Drawing.Size(697, 229);
             this.listBoxLog.TabIndex = 1;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(629, 202);
+            this.buttonSave.Location = new System.Drawing.Point(574, 65);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(116, 30);
             this.buttonSave.TabIndex = 3;
-            this.buttonSave.Text = "Save";
+            this.buttonSave.Text = "Save Log";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonCompare
             // 
-            this.buttonCompare.Location = new System.Drawing.Point(629, 164);
+            this.buttonCompare.Location = new System.Drawing.Point(16, 63);
             this.buttonCompare.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCompare.Name = "buttonCompare";
-            this.buttonCompare.Size = new System.Drawing.Size(116, 30);
+            this.buttonCompare.Size = new System.Drawing.Size(130, 30);
             this.buttonCompare.TabIndex = 5;
-            this.buttonCompare.Text = "View...";
+            this.buttonCompare.Text = "View Result...";
             this.buttonCompare.UseVisualStyleBackColor = true;
             this.buttonCompare.Click += new System.EventHandler(this.buttonCompare_Click);
             // 
             // buttonCalc
             // 
-            this.buttonCalc.Location = new System.Drawing.Point(479, 203);
+            this.buttonCalc.Location = new System.Drawing.Point(16, 25);
             this.buttonCalc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCalc.Name = "buttonCalc";
-            this.buttonCalc.Size = new System.Drawing.Size(116, 30);
+            this.buttonCalc.Size = new System.Drawing.Size(130, 30);
             this.buttonCalc.TabIndex = 8;
             this.buttonCalc.Text = "Calculate...";
             this.buttonCalc.UseVisualStyleBackColor = true;
@@ -140,7 +146,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 171);
+            this.label3.Location = new System.Drawing.Point(13, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 15);
             this.label3.TabIndex = 13;
@@ -149,7 +155,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 205);
+            this.label4.Location = new System.Drawing.Point(13, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 15);
             this.label4.TabIndex = 14;
@@ -157,7 +163,7 @@
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(151, 167);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(136, 28);
             this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(153, 25);
@@ -165,7 +171,7 @@
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(151, 203);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(136, 65);
             this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Size = new System.Drawing.Size(153, 25);
@@ -173,10 +179,10 @@
             // 
             // buttonResetStart
             // 
-            this.buttonResetStart.Location = new System.Drawing.Point(325, 164);
+            this.buttonResetStart.Location = new System.Drawing.Point(310, 28);
             this.buttonResetStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetStart.Name = "buttonResetStart";
-            this.buttonResetStart.Size = new System.Drawing.Size(79, 30);
+            this.buttonResetStart.Size = new System.Drawing.Size(79, 25);
             this.buttonResetStart.TabIndex = 17;
             this.buttonResetStart.Text = "Reset";
             this.buttonResetStart.UseVisualStyleBackColor = true;
@@ -184,10 +190,10 @@
             // 
             // buttonResetEnd
             // 
-            this.buttonResetEnd.Location = new System.Drawing.Point(325, 198);
+            this.buttonResetEnd.Location = new System.Drawing.Point(310, 62);
             this.buttonResetEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetEnd.Name = "buttonResetEnd";
-            this.buttonResetEnd.Size = new System.Drawing.Size(79, 30);
+            this.buttonResetEnd.Size = new System.Drawing.Size(79, 28);
             this.buttonResetEnd.TabIndex = 18;
             this.buttonResetEnd.Text = "Reset";
             this.buttonResetEnd.UseVisualStyleBackColor = true;
@@ -213,31 +219,9 @@
             this.comboBoxStockId.TabIndex = 21;
             this.comboBoxStockId.SelectedIndexChanged += new System.EventHandler(this.comboBoxStockId_SelectedIndexChanged);
             // 
-            // buttonCheck
-            // 
-            this.buttonCheck.Location = new System.Drawing.Point(479, 127);
-            this.buttonCheck.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonCheck.Name = "buttonCheck";
-            this.buttonCheck.Size = new System.Drawing.Size(116, 30);
-            this.buttonCheck.TabIndex = 23;
-            this.buttonCheck.Text = "Check";
-            this.buttonCheck.UseVisualStyleBackColor = true;
-            this.buttonCheck.Click += new System.EventHandler(this.buttonCheck_Click);
-            // 
-            // buttonChart
-            // 
-            this.buttonChart.Location = new System.Drawing.Point(479, 164);
-            this.buttonChart.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonChart.Name = "buttonChart";
-            this.buttonChart.Size = new System.Drawing.Size(116, 30);
-            this.buttonChart.TabIndex = 24;
-            this.buttonChart.Text = "Chart...";
-            this.buttonChart.UseVisualStyleBackColor = true;
-            this.buttonChart.Click += new System.EventHandler(this.buttonChart_Click);
-            // 
             // buttonAutoComp
             // 
-            this.buttonAutoComp.Location = new System.Drawing.Point(629, 127);
+            this.buttonAutoComp.Location = new System.Drawing.Point(154, 63);
             this.buttonAutoComp.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAutoComp.Name = "buttonAutoComp";
             this.buttonAutoComp.Size = new System.Drawing.Size(116, 30);
@@ -248,7 +232,7 @@
             // 
             // buttonCalcAdjust
             // 
-            this.buttonCalcAdjust.Location = new System.Drawing.Point(629, 91);
+            this.buttonCalcAdjust.Location = new System.Drawing.Point(154, 25);
             this.buttonCalcAdjust.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCalcAdjust.Name = "buttonCalcAdjust";
             this.buttonCalcAdjust.Size = new System.Drawing.Size(116, 30);
@@ -257,15 +241,17 @@
             this.buttonCalcAdjust.UseVisualStyleBackColor = true;
             this.buttonCalcAdjust.Click += new System.EventHandler(this.buttonCalcAdjust_Click);
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(757, 28);
-            this.menuStrip1.TabIndex = 27;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.dataToolStripMenuItem,
+            this.viewToolStripMenuItem});
+            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(724, 28);
+            this.menuStripMain.TabIndex = 27;
+            this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -297,42 +283,93 @@
             this.addBounusToolStripMenuItem.Text = "&Add Bonus...";
             this.addBounusToolStripMenuItem.Click += new System.EventHandler(this.addBounusToolStripMenuItem_Click);
             // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkConsistencyToolStripMenuItem});
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
+            this.dataToolStripMenuItem.Text = "&Data";
+            // 
+            // checkConsistencyToolStripMenuItem
+            // 
+            this.checkConsistencyToolStripMenuItem.Name = "checkConsistencyToolStripMenuItem";
+            this.checkConsistencyToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
+            this.checkConsistencyToolStripMenuItem.Text = "&Check Consistency";
+            this.checkConsistencyToolStripMenuItem.Click += new System.EventHandler(this.checkConsistencyToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stockChartToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.viewToolStripMenuItem.Text = "&View";
+            // 
+            // stockChartToolStripMenuItem
+            // 
+            this.stockChartToolStripMenuItem.Name = "stockChartToolStripMenuItem";
+            this.stockChartToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.stockChartToolStripMenuItem.Text = "&Stock Chart...";
+            this.stockChartToolStripMenuItem.Click += new System.EventHandler(this.stockChartToolStripMenuItem_Click);
+            // 
+            // SettingGroupBox
+            // 
+            this.SettingGroupBox.Controls.Add(this.label3);
+            this.SettingGroupBox.Controls.Add(this.dateTimePickerStart);
+            this.SettingGroupBox.Controls.Add(this.buttonResetStart);
+            this.SettingGroupBox.Controls.Add(this.label4);
+            this.SettingGroupBox.Controls.Add(this.dateTimePickerEnd);
+            this.SettingGroupBox.Controls.Add(this.buttonResetEnd);
+            this.SettingGroupBox.Location = new System.Drawing.Point(15, 106);
+            this.SettingGroupBox.Name = "SettingGroupBox";
+            this.SettingGroupBox.Size = new System.Drawing.Size(697, 102);
+            this.SettingGroupBox.TabIndex = 28;
+            this.SettingGroupBox.TabStop = false;
+            this.SettingGroupBox.Text = "Setting";
+            // 
+            // groupBoxAction
+            // 
+            this.groupBoxAction.Controls.Add(this.buttonAutoComp);
+            this.groupBoxAction.Controls.Add(this.buttonCalcAdjust);
+            this.groupBoxAction.Controls.Add(this.buttonCalc);
+            this.groupBoxAction.Controls.Add(this.buttonCompare);
+            this.groupBoxAction.Controls.Add(this.buttonSave);
+            this.groupBoxAction.Location = new System.Drawing.Point(15, 224);
+            this.groupBoxAction.Name = "groupBoxAction";
+            this.groupBoxAction.Size = new System.Drawing.Size(697, 102);
+            this.groupBoxAction.TabIndex = 29;
+            this.groupBoxAction.TabStop = false;
+            this.groupBoxAction.Text = "Action";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 582);
-            this.Controls.Add(this.buttonCalcAdjust);
-            this.Controls.Add(this.buttonAutoComp);
-            this.Controls.Add(this.buttonChart);
-            this.Controls.Add(this.buttonCheck);
+            this.ClientSize = new System.Drawing.Size(724, 582);
+            this.Controls.Add(this.groupBoxAction);
+            this.Controls.Add(this.SettingGroupBox);
             this.Controls.Add(this.comboBoxStockId);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.buttonResetEnd);
-            this.Controls.Add(this.buttonResetStart);
-            this.Controls.Add(this.dateTimePickerEnd);
-            this.Controls.Add(this.dateTimePickerStart);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.labelMaxDate);
             this.Controls.Add(this.labelMinDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonCalc);
-            this.Controls.Add(this.buttonCompare);
-            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listBoxLog);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStripMain;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockAnalyzer";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
+            this.SettingGroupBox.ResumeLayout(false);
+            this.SettingGroupBox.PerformLayout();
+            this.groupBoxAction.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,15 +393,19 @@
         private System.Windows.Forms.Button buttonResetEnd;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxStockId;
-        private System.Windows.Forms.Button buttonCheck;
-        private System.Windows.Forms.Button buttonChart;
         private System.Windows.Forms.Button buttonAutoComp;
         private System.Windows.Forms.Button buttonCalcAdjust;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importYahooToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBounusToolStripMenuItem;
+        private System.Windows.Forms.GroupBox SettingGroupBox;
+        private System.Windows.Forms.GroupBox groupBoxAction;
+        private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkConsistencyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockChartToolStripMenuItem;
     }
 }
 
