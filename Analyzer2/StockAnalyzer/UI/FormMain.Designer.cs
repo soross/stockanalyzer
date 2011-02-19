@@ -58,6 +58,7 @@
             this.stockChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBoxAction = new System.Windows.Forms.GroupBox();
+            this.buttonChart = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             this.SettingGroupBox.SuspendLayout();
             this.groupBoxAction.SuspendLayout();
@@ -315,6 +316,7 @@
             // 
             // SettingGroupBox
             // 
+            this.SettingGroupBox.Controls.Add(this.buttonChart);
             this.SettingGroupBox.Controls.Add(this.label3);
             this.SettingGroupBox.Controls.Add(this.dateTimePickerStart);
             this.SettingGroupBox.Controls.Add(this.buttonResetStart);
@@ -341,6 +343,17 @@
             this.groupBoxAction.TabIndex = 29;
             this.groupBoxAction.TabStop = false;
             this.groupBoxAction.Text = "Action";
+            // 
+            // buttonChart
+            // 
+            this.buttonChart.Location = new System.Drawing.Point(574, 62);
+            this.buttonChart.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonChart.Name = "buttonChart";
+            this.buttonChart.Size = new System.Drawing.Size(116, 30);
+            this.buttonChart.TabIndex = 27;
+            this.buttonChart.Text = "Show Chart";
+            this.buttonChart.UseVisualStyleBackColor = true;
+            this.buttonChart.Click += new System.EventHandler(this.buttonChart_Click);
             // 
             // FormMain
             // 
@@ -406,6 +419,7 @@
         private System.Windows.Forms.ToolStripMenuItem checkConsistencyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockChartToolStripMenuItem;
+        private System.Windows.Forms.Button buttonChart;
     }
 }
 

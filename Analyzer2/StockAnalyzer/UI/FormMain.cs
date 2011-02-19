@@ -221,6 +221,22 @@ namespace FinanceAnalyzer
         // Display Japanese type chart for a stock
         private void stockChartToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ShowChart();
+        }
+
+        private void checkConsistencyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 检查数据库中的数据
+            _History.Check(LogMgr.Logger);
+        }
+
+        private void buttonChart_Click(object sender, EventArgs e)
+        {
+            ShowChart();
+        }
+
+        private void ShowChart()
+        {
             FormMSChart chart = new FormMSChart();
 
             _History.MaxDate = dateTimePickerEnd.Value;
@@ -228,12 +244,6 @@ namespace FinanceAnalyzer
             chart.SetStockDrawer(_History.GetStockDrawer());
 
             chart.ShowDialog();
-        }
-
-        private void checkConsistencyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // 检查数据库中的数据
-            _History.Check(LogMgr.Logger);
         }
     }
 }
