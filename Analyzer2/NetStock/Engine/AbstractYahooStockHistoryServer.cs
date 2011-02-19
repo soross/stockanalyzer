@@ -173,10 +173,10 @@ namespace DotNetStock.Engine
 
             stringBuilder.Append(symbol);
 
-            int endMonth = duration.getEndDate().Month;
+            int endMonth = duration.getZeroBasedEndMonth();
             int endDate = duration.getEndDate().Day;
             int endYear = duration.getEndDate().Year;
-            int startMonth = duration.getStartDate().Month;
+            int startMonth = duration.getZeroBasedStartMonth();
             int startDate = duration.getStartDate().Day;
             int startYear = duration.getStartDate().Year;
 
