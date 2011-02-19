@@ -28,6 +28,18 @@ namespace DotNetStock.Engine
             return endDate;
         }
 
+        // Helper
+        public int getZeroBasedStartMonth()
+        {
+            return startDate.Month - 1;
+        }
+
+        // Helper
+        public int getZeroBasedEndMonth()
+        {
+            return endDate.Month - 1;
+        }
+
         public long getDurationInDays()
         {
             TimeSpan span = endDate - startDate;
