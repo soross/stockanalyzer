@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business.Shape;
-using System.Globalization;
+using FinanceAnalyzer.Business;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {
-    // Spike low means buy, spike high means sell
-    class SpikeShapeCalc : BasicIndicatorCalc
+    class SpikeVolumeShapeCalc : BasicIndicatorCalc
     {
-        public SpikeShapeCalc(double deltaratio)
+        public SpikeVolumeShapeCalc(double deltaratio)
         {
             _DeltaRatio = deltaratio;
         }
 
         public override string Name
         {
-            get { return "SpikeShape " + _DeltaRatio.ToString("F03", CultureInfo.CurrentCulture); }
+            get { return "SpikeVolumeShape " + _DeltaRatio.ToString("F03", CultureInfo.CurrentCulture); }
         }
 
         public override void Calc(IStockHistory hist)
@@ -29,13 +29,15 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
             while (startDate < endDate)
             {
                 IStockData stock = hist.GetStock(startDate);
-                if (stock == null)
+                IStockData prevData = hist.GetPrevDayStock(startDate);
+
+                if ((stock == null) || (prevData == null))
                 {
                     startDate = DateFunc.GetNextWorkday(startDate);
                     continue;
                 }
 
-                if (ShapeJudger.IsT2(stock, _DeltaRatio))
+                if (ShapeJudger.IsT2(stock, _DeltaRatio) && VolumeHelper.IsLargerThan(stock, prevData, 0.3))
                 {
                     _DateToOpers.Add(startDate, OperType.Buy);
                 }

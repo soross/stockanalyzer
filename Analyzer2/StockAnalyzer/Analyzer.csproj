@@ -86,6 +86,7 @@
     <Compile Include="Business\BonusProcessor.cs" />
     <Compile Include="Business\IBonusProcessor.cs" />
     <Compile Include="Business\Shape\TripleShapeScanner.cs" />
+    <Compile Include="Business\VolumeHelper.cs" />
     <Compile Include="DataAcquisition\ShDailyDownloader.cs" />
     <Compile Include="DataAcquisition\IDailyDownloader.cs" />
     <Compile Include="DataAcquisition\StockDataAdapter.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
     <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SpikeShapeCalc.cs" />
+    <Compile Include="Strategy\Indicator\Shape\SpikeVolumeShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\VolumeCalc.cs" />
