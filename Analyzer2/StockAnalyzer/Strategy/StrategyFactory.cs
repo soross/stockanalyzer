@@ -31,6 +31,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new KdCalc(25, 75));
 
             AddStrategyByIndicator(new SimpleShapeCalc());
+            AddStrategyByIndicator(new SpikeShapeCalc());
             AddStrategyByIndicator(new WaysShapeCalc(new ShapeScanner()));
             AddStrategyByIndicator(new TripleShapeCalc(new TripleShapeScanner()));
             AddStrategyByIndicator(new MovingAvgCalc());

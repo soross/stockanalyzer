@@ -77,6 +77,26 @@ namespace FinanceAnalyzer.Business.Shape
                 && (deltaMin <= 0.005));
         }
 
+        public static bool IsT2(IStockData data)
+        {
+            double deltaEndMin = (data.EndPrice - data.MinPrice) / data.MinPrice;
+            double deltaStartMin = (data.StartPrice - data.MinPrice) / data.MinPrice;
+            double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.MaxPrice;
+
+            return ((deltaEndMin >= 0.02)
+                && (deltaStartMin >= 0.02) && (deltaEndMax <= 0.015));
+        }
+
+        public static bool IsReverseT2(IStockData data)
+        {
+            double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.MaxPrice;
+            double deltaStartMax = (data.MaxPrice - data.StartPrice) / data.MaxPrice;
+            double deltaEndMin = (data.EndPrice - data.MinPrice) / data.MinPrice;
+
+            return ((deltaEndMax >= 0.02)
+                && (deltaStartMax >= 0.02) && (deltaEndMin <= 0.015));
+        }
+
         IStockData _StockData;
         const double CROSSDELTAPERCENT = 0.01;
     }

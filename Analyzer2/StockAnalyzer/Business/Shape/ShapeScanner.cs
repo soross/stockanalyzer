@@ -20,11 +20,13 @@ namespace FinanceAnalyzer.Business.Shape
 
             double prevPercent = StockDataCalc.GetRisePercent(prevStock);
 
+            // Only for converse
             if (NumbericHelper.IsSameSign(deltapercent, prevPercent))
             {
                 return OperType.NoOper;
             }
 
+            // ratio should be larger than yesterday
             if (Math.Abs(deltapercent) < Math.Abs(prevPercent))
             {
                 return OperType.NoOper;
