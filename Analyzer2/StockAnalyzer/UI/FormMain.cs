@@ -11,6 +11,7 @@ using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
 using IBatisNet.DataMapper;
 using FinanceAnalyzer.DataAcquisition;
+using FinanceAnalyzer.Strategy.Factory;
 
 namespace FinanceAnalyzer
 {
@@ -171,18 +172,15 @@ namespace FinanceAnalyzer
 
         private void buttonAutoComp_Click(object sender, EventArgs e)
         {
-            buttonCalcAdjust_Click(sender, e);
-
-            _History.JudgeShape(LogMgr.Logger);
-        }
-
-        private void SetUserDefinedDate()
-        {
-            _History.MaxDate = dateTimePickerEnd.Value;
-            _History.MinDate = dateTimePickerStart.Value;
+            RunStrategy(new StrategyFactory());
         }
 
         private void buttonCalcAdjust_Click(object sender, EventArgs e)
+        {
+            RunStrategy(new SpikeAdjustFactory());
+        }
+
+        private void RunStrategy(StrategyFactory factory)
         {
             SetUserDefinedDate();
             _log.Info("==>AutoCompare start. Start Date = " + _History.MinDate.ToLongDateString()
@@ -194,13 +192,18 @@ namespace FinanceAnalyzer
                 return;
             }
 
-            StrategyFactory factory = new StrategyFactory();
             factory.Init();
 
             ScoresCalculator calc = new ScoresCalculator();
             calc.Calc(_History, factory, _BonusProcessor);
             calc.ShowResult();
         }
+
+        private void SetUserDefinedDate()
+        {
+            _History.MaxDate = dateTimePickerEnd.Value;
+            _History.MinDate = dateTimePickerStart.Value;
+        }        
 
         StockDBReader _DbReader = new StockDBReader(Mapper.Instance());
         

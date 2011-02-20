@@ -19,7 +19,7 @@ namespace FinanceAnalyzer.Strategy.Factory
                 }
             }
 
-            AddStrategy(new StrategyIndicator(new HoldCalc()));
+            AddStrategyByIndicator(new HoldCalc());
         }
     }
 }

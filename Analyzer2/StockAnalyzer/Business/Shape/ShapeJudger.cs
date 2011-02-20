@@ -77,24 +77,24 @@ namespace FinanceAnalyzer.Business.Shape
                 && (deltaMin <= 0.005));
         }
 
-        public static bool IsT2(IStockData data)
+        public static bool IsT2(IStockData data, double ratio)
         {
             double deltaEndMin = (data.EndPrice - data.MinPrice) / data.MinPrice;
             double deltaStartMin = (data.StartPrice - data.MinPrice) / data.MinPrice;
             double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.MaxPrice;
 
-            return ((deltaEndMin >= 0.02)
-                && (deltaStartMin >= 0.02) && (deltaEndMax <= 0.015));
+            return ((deltaEndMin >= ratio)
+                && (deltaStartMin >= ratio) && (deltaEndMax <= ratio - 0.005));
         }
 
-        public static bool IsReverseT2(IStockData data)
+        public static bool IsReverseT2(IStockData data, double ratio)
         {
             double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.MaxPrice;
             double deltaStartMax = (data.MaxPrice - data.StartPrice) / data.MaxPrice;
             double deltaEndMin = (data.EndPrice - data.MinPrice) / data.MinPrice;
 
-            return ((deltaEndMax >= 0.02)
-                && (deltaStartMax >= 0.02) && (deltaEndMin <= 0.015));
+            return ((deltaEndMax >= ratio)
+                && (deltaStartMax >= ratio) && (deltaEndMin <= ratio - 0.005));
         }
 
         IStockData _StockData;
