@@ -5,7 +5,7 @@ using System.Text;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business.Shape;
 
-namespace FinanceAnalyzer.Strategy.Indicator
+namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {
     class TripleShapeCalc : BasicIndicatorCalc
     {

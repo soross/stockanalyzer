@@ -6,6 +6,7 @@ using FinanceAnalyzer.Strategy.Indicator;
 using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Business.Shape;
+using FinanceAnalyzer.Strategy.Indicator.Shape;
 
 namespace FinanceAnalyzer.Strategy
 {

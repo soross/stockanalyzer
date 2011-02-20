@@ -127,11 +127,11 @@
     <Compile Include="Strategy\Indicator\MovingAvgCalc.cs" />
     <Compile Include="Strategy\Indicator\RiseDownCalc.cs" />
     <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
-    <Compile Include="Strategy\Indicator\SimpleShapeCalc.cs" />
+    <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
-    <Compile Include="Strategy\Indicator\TripleShapeCalc.cs" />
+    <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\VolumeCalc.cs" />
-    <Compile Include="Strategy\Indicator\WaysShapeCalc.cs" />
+    <Compile Include="Strategy\Indicator\Shape\WaysShapeCalc.cs" />
     <Compile Include="Strategy\IStrategyFactory.cs" />
     <Compile Include="Strategy\Indicator\MacdCalculator.cs" />
     <Compile Include="Strategy\Result\IStrategyResults.cs" />
@@ -346,9 +346,6 @@
       <Project>{A91513F2-4921-42C7-8CF9-C60C80076760}</Project>
       <Name>NetStock</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Strategy\Indicator\Mixed\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
