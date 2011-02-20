@@ -6,7 +6,7 @@ using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Business.Shape;
 
-namespace FinanceAnalyzer.Strategy.Indicator
+namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {
     class SimpleShapeCalc : BasicIndicatorCalc
     {
