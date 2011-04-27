@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FinanceAnalyzer.DataAcquisition
+namespace Stock.Common.DataAcquisition
 {
     class StockMarketChecker
     {
