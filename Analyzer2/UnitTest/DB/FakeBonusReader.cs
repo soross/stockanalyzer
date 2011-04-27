@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.DB
 {

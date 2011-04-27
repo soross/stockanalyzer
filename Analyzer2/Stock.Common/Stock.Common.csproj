@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Bonus.cs" />
     <Compile Include="Data\IStockData.cs" />
     <Compile Include="Data\IStockSaver.cs" />
     <Compile Include="Data\StockData.cs" />

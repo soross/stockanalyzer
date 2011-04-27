@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using IBatisNet.DataMapper;
 using System.Collections;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.DB
 {

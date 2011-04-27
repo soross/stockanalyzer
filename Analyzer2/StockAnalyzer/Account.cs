@@ -5,6 +5,7 @@ using System.Collections;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Log;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer
 {
