@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.DB;
 using System.Diagnostics;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {

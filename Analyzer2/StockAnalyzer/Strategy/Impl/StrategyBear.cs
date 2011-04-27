@@ -4,6 +4,7 @@ using System.Text;
 using System.Diagnostics;
 using System.Globalization;
 using FinanceAnalyzer.DB;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Impl
 {

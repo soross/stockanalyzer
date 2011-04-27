@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FinanceAnalyzer.KDJ;
 using FinanceAnalyzer.DB;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Impl
 {
