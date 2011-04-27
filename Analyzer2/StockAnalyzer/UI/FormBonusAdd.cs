@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using FinanceAnalyzer.DB;
 using System.Globalization;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.UI
 {

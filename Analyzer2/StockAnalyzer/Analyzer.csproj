@@ -92,7 +92,6 @@
     <Compile Include="DataAcquisition\StockDataAdapter.cs" />
     <Compile Include="DataAcquisition\StockMarketChecker.cs" />
     <Compile Include="DB\BonusReader.cs" />
-    <Compile Include="DB\Bonus.cs" />
     <Compile Include="DB\IDataChecker.cs" />
     <Compile Include="DB\StockDBReader.cs" />
     <Compile Include="DB\StockDBSaver.cs" />
