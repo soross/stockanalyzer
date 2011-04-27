@@ -10,7 +10,6 @@ using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
 using IBatisNet.DataMapper;
-using FinanceAnalyzer.DataAcquisition;
 using FinanceAnalyzer.Strategy.Factory;
 using Stock.Common.Data;
 

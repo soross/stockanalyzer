@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FinanceAnalyzer.DB;
 using Stock.Common.Data;
 
-namespace FinanceAnalyzer.DataAcquisition
+namespace Stock.Common.DataAcquisition
 {
     interface IDailyDownloader
     {

@@ -87,10 +87,6 @@
     <Compile Include="Business\IBonusProcessor.cs" />
     <Compile Include="Business\Shape\TripleShapeScanner.cs" />
     <Compile Include="Business\VolumeHelper.cs" />
-    <Compile Include="DataAcquisition\ShDailyDownloader.cs" />
-    <Compile Include="DataAcquisition\IDailyDownloader.cs" />
-    <Compile Include="DataAcquisition\StockDataAdapter.cs" />
-    <Compile Include="DataAcquisition\StockMarketChecker.cs" />
     <Compile Include="DB\BonusReader.cs" />
     <Compile Include="DB\IDataChecker.cs" />
     <Compile Include="DB\StockDBReader.cs" />

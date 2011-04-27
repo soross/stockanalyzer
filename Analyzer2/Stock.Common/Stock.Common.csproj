@@ -48,11 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAcquisition\IDailyDownloader.cs" />
+    <Compile Include="DataAcquisition\ShDailyDownloader.cs" />
+    <Compile Include="DataAcquisition\StockDataAdapter.cs" />
+    <Compile Include="DataAcquisition\StockMarketChecker.cs" />
     <Compile Include="Data\Bonus.cs" />
     <Compile Include="Data\IStockData.cs" />
     <Compile Include="Data\IStockSaver.cs" />
     <Compile Include="Data\StockData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetStock\NetStock.csproj">
+      <Project>{A91513F2-4921-42C7-8CF9-C60C80076760}</Project>
+      <Name>NetStock</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

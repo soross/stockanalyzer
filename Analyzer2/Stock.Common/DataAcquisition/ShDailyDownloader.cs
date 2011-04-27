@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FinanceAnalyzer.DB;
-using DotNetStock.Engine;
 using Stock.Common.Data;
+using DotNetStock.Engine;
 
-namespace FinanceAnalyzer.DataAcquisition
+namespace Stock.Common.DataAcquisition
 {
     class ShDailyDownloader : IDailyDownloader
     {
