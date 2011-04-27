@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Xml.XPath;
+using Stock.Common.Data; 
 
 namespace FinanceAnalyzer.DB
 {
@@ -10,7 +11,7 @@ namespace FinanceAnalyzer.DB
     using System.Reflection;
     using System.Diagnostics;
     using System.Globalization;
-    using FinanceAnalyzer.Log; 
+    using FinanceAnalyzer.Log;    
 
     public class StockImporter2
     {

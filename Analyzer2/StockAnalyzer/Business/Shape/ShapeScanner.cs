@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Utility;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Business.Shape
 {

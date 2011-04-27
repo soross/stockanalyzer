@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinanceAnalyzer.DB
+namespace Stock.Common.Data
 {
     // 保存股票交易某只股票某一天的信息
     public class StockData : IStockData

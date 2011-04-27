@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinanceAnalyzer.DB
+namespace Stock.Common.Data
 {
     public interface IStockSaver
     {

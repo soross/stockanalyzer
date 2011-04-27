@@ -1,5 +1,6 @@
 ﻿using System;
 using FinanceAnalyzer.DB;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer
 {

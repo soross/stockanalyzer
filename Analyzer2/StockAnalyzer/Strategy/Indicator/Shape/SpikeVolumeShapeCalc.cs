@@ -6,6 +6,7 @@ using System.Globalization;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business.Shape;
 using FinanceAnalyzer.Business;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {
