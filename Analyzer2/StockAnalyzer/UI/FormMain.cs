@@ -14,7 +14,7 @@ using FinanceAnalyzer.Strategy.Factory;
 using Stock.Common.Data;
 
 namespace FinanceAnalyzer
-{
+{ 
     public partial class FormMain : Form
     {
         public FormMain()
