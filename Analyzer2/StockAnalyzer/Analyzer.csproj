@@ -348,10 +348,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NetStock\NetStock.csproj">
-      <Project>{A91513F2-4921-42C7-8CF9-C60C80076760}</Project>
-      <Name>NetStock</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Stock.Common\Stock.Common.csproj">
       <Project>{E095DC1D-422E-461B-BFE8-867B740C6690}</Project>
       <Name>Stock.Common</Name>
