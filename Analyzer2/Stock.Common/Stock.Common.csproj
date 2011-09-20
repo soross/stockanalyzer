@@ -78,7 +78,6 @@
     <Compile Include="Data\IStockData.cs" />
     <Compile Include="Data\IStockSaver.cs" />
     <Compile Include="Data\StockData.cs" />
-    <Compile Include="Data\StockMongodbSaver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

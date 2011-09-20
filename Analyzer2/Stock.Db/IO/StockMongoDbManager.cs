@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Stock.Db
+namespace Stock.Db.IO
 {
-    public class Class1
+    class StockMongoDbManager
     {
     }
 }

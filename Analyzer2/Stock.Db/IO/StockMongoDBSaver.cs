@@ -2,11 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Stock.Common.Data;
+using MongoDB.Driver;
 
-namespace Stock.Common.Data
+namespace Stock.Db.IO
 {
-    class StockMongodbSaver : IStockSaver
+    class StockMongoDBSaver : IStockSaver
     {
+        public void OpenDb()
+        {
+            MongoServer server = MongoServer.Create(); // connect to localhost
+            DB_ = server.GetDatabase("ChineseStock");
+        }
+
+        #region IStockSaver Members
+
         public void BeforeAdd()
         {
             throw new NotImplementedException();
@@ -21,5 +31,9 @@ namespace Stock.Common.Data
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
+        MongoDatabase DB_;
     }
 }
