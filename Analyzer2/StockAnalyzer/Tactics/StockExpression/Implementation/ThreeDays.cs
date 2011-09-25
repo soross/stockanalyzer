@@ -44,7 +44,7 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
         {
             get
             {
-                return "Three Days";
+                return StockExpressionNames.THREEDAYS;
             }
         }
 

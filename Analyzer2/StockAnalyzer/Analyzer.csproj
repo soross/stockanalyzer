@@ -161,6 +161,7 @@
     <Compile Include="Tactics\StockExpression\IStockExpression.cs" />
     <Compile Include="Tactics\ITactics.cs" />
     <Compile Include="Tactics\StockExpression\StockExpressionFactory.cs" />
+    <Compile Include="Tactics\StockExpression\StockExpressionNames.cs" />
     <Compile Include="Trace\ITracer.cs" />
     <Compile Include="UI\FormBonus.cs">
       <SubType>Form</SubType>

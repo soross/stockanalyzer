@@ -7,6 +7,9 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Business
 {
+    /// <summary>
+    /// 处理分红送配
+    /// </summary>
     public interface IBonusProcessor
     {
         bool IsExexDividendDate(DateTime currentDate);
