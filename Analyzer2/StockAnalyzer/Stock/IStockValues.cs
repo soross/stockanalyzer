@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     // 保存所有交易日每一天的市值（股票资产加现金） 
     public interface IStockValues

@@ -12,6 +12,11 @@ namespace FinanceAnalyzer.Business
     /// </summary>
     public interface IBonusProcessor
     {
+        /// <summary>
+        /// // 是否是除权除息日
+        /// </summary>
+        /// <param name="currentDate">日期</param>
+        /// <returns>是否是除权除息日</returns>
         bool IsExexDividendDate(DateTime currentDate);
         bool IsDividendDate(DateTime currentDate);
         bool IsBonusListOnDate(DateTime currentDate);

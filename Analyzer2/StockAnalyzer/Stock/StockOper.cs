@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     public enum OperType
     {
@@ -16,7 +16,7 @@ namespace FinanceAnalyzer
     {
         public StockOper(double price, int count, OperType type)
         {
-            Stock stock = new Stock();
+            MarketStock stock = new MarketStock();
             stock.UnitPrice = price;
             stock.Count = count;
 
@@ -48,7 +48,7 @@ namespace FinanceAnalyzer
             }
         }
 
-        private Stock TargetStock;
+        private MarketStock TargetStock;
         private OperType operType;
     }    
 }

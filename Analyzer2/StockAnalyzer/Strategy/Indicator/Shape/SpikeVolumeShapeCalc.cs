@@ -7,6 +7,7 @@ using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business.Shape;
 using FinanceAnalyzer.Business;
 using Stock.Common.Data;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {

@@ -2,7 +2,7 @@
 using FinanceAnalyzer.DB;
 using Stock.Common.Data;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     public interface IStockHistory
     {

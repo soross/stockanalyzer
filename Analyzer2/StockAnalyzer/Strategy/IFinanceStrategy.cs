@@ -6,6 +6,7 @@ using System.Globalization;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Log;
 using Stock.Common.Data;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy
 {

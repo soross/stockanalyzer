@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FinanceAnalyzer.DB;
 using Stock.Common.Data;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy.Rise
 {    

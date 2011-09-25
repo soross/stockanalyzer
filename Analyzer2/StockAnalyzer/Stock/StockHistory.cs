@@ -7,7 +7,7 @@ using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Business.Shape;
 using Stock.Common.Data;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     // 保存一只股票一段时间内的历史信息
     public class StockHistory : IStockHistory

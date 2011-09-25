@@ -10,6 +10,7 @@ using FinanceAnalyzer.DB;
 using System.Globalization;
 using FinanceAnalyzer.Log;
 using FinanceAnalyzer.Strategy.Result;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer
 {

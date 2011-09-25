@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Strategy;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer
 {

@@ -87,7 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
+    <Compile Include="Stock\Account.cs" />
     <Compile Include="Business\BonusInfo.cs" />
     <Compile Include="Business\BonusProcessor.cs" />
     <Compile Include="Business\IBonusProcessor.cs" />
@@ -100,8 +100,8 @@
     <Compile Include="DB\StockImporter2.cs" />
     <Compile Include="DB\StockJudger.cs" />
     <Compile Include="Display\StockPoint.cs" />
-    <Compile Include="HolderManager.cs" />
-    <Compile Include="IStockHistory.cs" />
+    <Compile Include="Stock\HolderManager.cs" />
+    <Compile Include="Stock\IStockHistory.cs" />
     <Compile Include="Judger\Fitness\ContinuousReturnCalc.cs" />
     <Compile Include="Judger\IStrategyJudger.cs" />
     <Compile Include="Judger\IStrategyScores.cs" />
@@ -109,7 +109,7 @@
     <Compile Include="Judger\StrategyScores.cs" />
     <Compile Include="Judger\Validation\SignalValidationCalc.cs" />
     <Compile Include="Judger\Validation\ValidationJudger.cs" />
-    <Compile Include="ScoresCalculator.cs" />
+    <Compile Include="Stock\ScoresCalculator.cs" />
     <Compile Include="Strategy\Factory\KdAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\RiseDownAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\SpikeAdjustFactory.cs" />
@@ -235,14 +235,14 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Display\IStockDrawer.cs" />
-    <Compile Include="IStockHolder.cs" />
-    <Compile Include="IStockValues.cs" />
+    <Compile Include="Stock\IStockHolder.cs" />
+    <Compile Include="Stock\IStockValues.cs" />
     <Compile Include="Log\LogMgr.cs" />
     <Compile Include="Strategy\Result\StrategyResults.cs" />
     <Compile Include="Strategy\IFinanceStrategy.cs" />
     <Compile Include="Strategy\Impl\StrategyMinMax.cs" />
     <Compile Include="Strategy\Impl\StrategyPercent.cs" />
-    <Compile Include="Stock.cs" />
+    <Compile Include="Stock\MarketStock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="UI\FormBonus.resx">
@@ -305,12 +305,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="StockHistory.cs" />
-    <Compile Include="StockHolder.cs" />
-    <Compile Include="StockOper.cs" />
+    <Compile Include="Stock\StockHistory.cs" />
+    <Compile Include="Stock\StockHolder.cs" />
+    <Compile Include="Stock\StockOper.cs" />
     <Compile Include="Display\StockPropDrawer.cs" />
-    <Compile Include="StockValues.cs" />
-    <Compile Include="Transaction.cs" />
+    <Compile Include="Stock\StockValues.cs" />
+    <Compile Include="Stock\Transaction.cs" />
     <Compile Include="Log\UIFileLog.cs" />
     <Compile Include="Log\UILabelLog.cs" />
     <Compile Include="Business\Shape\IShapeScanner.cs" />

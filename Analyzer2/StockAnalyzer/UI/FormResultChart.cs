@@ -10,6 +10,7 @@ using System.Diagnostics;
 using FinanceAnalyzer.Display;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Utility;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.UI
 {

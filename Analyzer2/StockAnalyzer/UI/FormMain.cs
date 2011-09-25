@@ -12,6 +12,7 @@ using FinanceAnalyzer.UI;
 using IBatisNet.DataMapper;
 using FinanceAnalyzer.Strategy.Factory;
 using Stock.Common.Data;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer
 { 

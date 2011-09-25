@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NCalc;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
 {

@@ -5,6 +5,7 @@ using System.Text;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Utility;
 using Stock.Common.Data;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy.Impl
 {

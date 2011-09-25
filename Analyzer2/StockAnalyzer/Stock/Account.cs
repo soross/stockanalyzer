@@ -7,7 +7,7 @@ using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Log;
 using Stock.Common.Data;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     /// <summary>
     /// µ±«∞’ ªß

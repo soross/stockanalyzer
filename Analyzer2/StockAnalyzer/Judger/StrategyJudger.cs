@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.Strategy.Result;
 using System.Diagnostics;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Judger
 {

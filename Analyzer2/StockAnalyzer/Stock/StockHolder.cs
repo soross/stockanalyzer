@@ -6,7 +6,7 @@ using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Log;
 using Stock.Common.Data;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     public class StockHolder : IStockHolder
     {
@@ -97,7 +97,7 @@ namespace FinanceAnalyzer
             }
         }
 
-        Stock _CurrentStock = new Stock();
+        MarketStock _CurrentStock = new MarketStock();
         private IStockHistory _StockHistory;
     }
 }
