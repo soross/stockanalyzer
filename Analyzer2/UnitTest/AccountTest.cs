@@ -6,6 +6,7 @@ using FinanceAnalyzer;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Log;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer
 {

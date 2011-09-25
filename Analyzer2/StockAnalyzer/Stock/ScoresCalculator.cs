@@ -9,7 +9,7 @@ using FinanceAnalyzer.UI;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     public class ScoresCalculator
     {

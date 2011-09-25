@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     // ½»Ò×
     public sealed class Transaction

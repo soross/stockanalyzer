@@ -4,11 +4,11 @@ using System.Text;
 
 [assembly: CLSCompliant(true)]
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
-    public class Stock
+    public class MarketStock
     {
-        public Stock()
+        public MarketStock()
         {
         }
 

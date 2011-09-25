@@ -74,7 +74,6 @@
     <Compile Include="FinanceRunnerTest.cs" />
     <Compile Include="ScoresCalculatorTest.cs" />
     <Compile Include="StategyResultsTest.cs" />
-    <Compile Include="StockTest.cs" />
     <Compile Include="StockValuesTest.cs" />
     <Compile Include="TransactionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

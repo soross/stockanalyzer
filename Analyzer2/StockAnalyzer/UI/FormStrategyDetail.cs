@@ -10,6 +10,7 @@ using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Judger.Validation;
 using FinanceAnalyzer.Judger;
 using System.Globalization;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.UI
 {

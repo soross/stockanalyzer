@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
 using FinanceAnalyzer;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer
 {

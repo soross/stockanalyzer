@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.KDJ;
 using FinanceAnalyzer.DB;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {

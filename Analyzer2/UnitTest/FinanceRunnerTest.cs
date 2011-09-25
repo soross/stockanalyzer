@@ -9,6 +9,7 @@ using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Business;
+using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer
 {
