@@ -9,5 +9,9 @@ namespace FinanceAnalyzer.Tactics.StockExpression
     {
         void InitParam(Dictionary<string, object> paramMap);
         OperType GetOper(DateTime dt);
+        string ExpressionName
+        {
+            get;
+        }
     }
 }

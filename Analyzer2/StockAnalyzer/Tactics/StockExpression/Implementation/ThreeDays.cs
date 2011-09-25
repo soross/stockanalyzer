@@ -40,12 +40,20 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
             return OperType.NoOper;
         }
 
+        public string ExpressionName
+        {
+            get
+            {
+                return "Three Days";
+            }
+        }
+
         #endregion
 
-        string IncreaseExpressionStr_ = "if(([BeforeYesterday] < [Yesterday]) && ([Yesterday] < [Today]), 1, 0)";
-        string DecreaseexpressionStr_ = "if(([BeforeYesterday] > [Yesterday]) && ([Yesterday] > [Today]), 1, 0)";
+        const string IncreaseExpressionStr_ = "if(([BeforeYesterday] < [Yesterday]) && ([Yesterday] < [Today]), 1, 0)";
+        const string DecreaseexpressionStr_ = "if(([BeforeYesterday] > [Yesterday]) && ([Yesterday] > [Today]), 1, 0)";
 
-        Expression IncreaseExpr_;
-        Expression DecreaseExpr_;
+        static Expression IncreaseExpr_;
+        static Expression DecreaseExpr_;
     }
 }
