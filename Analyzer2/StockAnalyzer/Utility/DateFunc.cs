@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using FinanceAnalyzer.Utility;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Utility
 {
     public sealed class DateFunc
     {

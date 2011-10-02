@@ -19,11 +19,6 @@ namespace FinanceAnalyzer.Strategy.Impl
             }
         }
 
-        public StrategyThreedayOpti(IStockJudger judger)
-        {
-            _Judger = judger;
-        }
-
         // 得到操作指令
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {

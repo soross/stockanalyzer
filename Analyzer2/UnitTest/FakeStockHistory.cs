@@ -141,5 +141,15 @@ namespace FinanceAnalyzer
         }
 
         private Dictionary<DateTime, StockData> _DailyStocks = new Dictionary<DateTime, StockData>();
+
+        #region IStockHistory Members
+
+
+        public DateTime GetPreviousNDay(DateTime dt, int n)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

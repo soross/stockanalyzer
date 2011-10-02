@@ -7,6 +7,7 @@ using System.Diagnostics;
 using FinanceAnalyzer.Strategy.Indicator;
 using Stock.Common.Data;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {

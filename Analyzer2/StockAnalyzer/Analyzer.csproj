@@ -45,7 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Xinway.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -158,6 +158,7 @@
     <Compile Include="Strategy\TradeRule\RiseDownRule.cs" />
     <Compile Include="Tactics\Implementation\CommonTactics.cs" />
     <Compile Include="Tactics\Implementation\TacticsFactory.cs" />
+    <Compile Include="Tactics\StockExpression\Implementation\BuySellExpression.cs" />
     <Compile Include="Tactics\StockExpression\Implementation\ThreeDays.cs" />
     <Compile Include="Tactics\StockExpression\IStockExpression.cs" />
     <Compile Include="Tactics\ITactics.cs" />

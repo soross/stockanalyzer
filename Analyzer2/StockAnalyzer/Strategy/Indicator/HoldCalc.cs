@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
