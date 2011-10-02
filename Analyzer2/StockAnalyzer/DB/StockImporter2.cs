@@ -11,7 +11,8 @@ namespace FinanceAnalyzer.DB
     using System.Reflection;
     using System.Diagnostics;
     using System.Globalization;
-    using FinanceAnalyzer.Log;    
+    using FinanceAnalyzer.Log;
+    using FinanceAnalyzer.Utility;    
 
     public class StockImporter2
     {

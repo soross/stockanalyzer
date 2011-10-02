@@ -14,12 +14,7 @@ namespace FinanceAnalyzer.Business.Shape
         {
             _StockData = data;
         }
-
-        public bool IsCross()
-        {
-            return IsCross(_StockData);
-        }
-
+        
         public bool IsT()
         {
             return IsT(_StockData);

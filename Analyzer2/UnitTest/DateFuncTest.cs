@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FinanceAnalyzer;
 using NUnit.Framework;
+using FinanceAnalyzer.Utility;
 
 namespace UnitTest
 {

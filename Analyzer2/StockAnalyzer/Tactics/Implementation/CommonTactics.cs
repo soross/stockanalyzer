@@ -28,6 +28,9 @@ namespace FinanceAnalyzer.Tactics.Implementation
 
         public void Run()
         {
+            IStockExpression expr = StockExpressionFactory.Instance().GetExpression(
+                StockExpressionNames.THREEDAYS);
+
         }
 
         #endregion

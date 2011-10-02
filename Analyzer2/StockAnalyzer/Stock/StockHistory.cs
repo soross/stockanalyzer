@@ -119,7 +119,7 @@ namespace FinanceAnalyzer.Stock
         {
             if (dt <= m_MinDate)
             {
-                return m_MinDate;
+                return DateTime.MinValue;
             }
 
             DateTime prevDay = DateFunc.GetPreviousWorkday(dt);
@@ -130,13 +130,19 @@ namespace FinanceAnalyzer.Stock
                 prevDay = DateFunc.GetPreviousWorkday(prevDay);
                 if (prevDay <= m_MinDate)
                 {
-                    return new DateTime(0);
+                    return DateTime.MinValue;
                 }
 
                 stock = GetStock(prevDay);
             }
 
             return prevDay;
+        }
+
+        // 得到前N个工作日
+        public DateTime GetPreviousNDay(DateTime dt, int n)
+        {
+            return DateTime.MinValue;
         }
 
         public bool IsOperSuccess(DateTime dt, StockOper oper)

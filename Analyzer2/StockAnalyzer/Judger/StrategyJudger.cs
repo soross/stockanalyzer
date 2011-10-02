@@ -5,6 +5,7 @@ using System.Text;
 using FinanceAnalyzer.Strategy.Result;
 using System.Diagnostics;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Judger
 {

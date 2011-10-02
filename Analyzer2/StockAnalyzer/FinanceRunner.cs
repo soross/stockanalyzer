@@ -11,6 +11,7 @@ using System.Globalization;
 using FinanceAnalyzer.Log;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer
 {

@@ -20,13 +20,7 @@ namespace FinanceAnalyzer.Strategy.TradeRule
             _Direction = StockDirection.Rise;
             _RiseDownPercent = percent;
         } 
-
-        public void Init(double maxPrice, double minPrice)
-        {
-            _CurMaxPrise = maxPrice;
-            _CurMinPrise = minPrice;
-        }
-
+        
         public OperType Execute(double curPrice, double prevPrice)
         {
             if (!JudgeSameDirection(curPrice, prevPrice))
@@ -62,14 +56,6 @@ namespace FinanceAnalyzer.Strategy.TradeRule
             }
 
             return OperType.NoOper;
-        }
-
-        public double RiseDownPercent
-        {
-            get
-            {
-                return _RiseDownPercent;
-            }
         }
 
         private bool JudgeSameDirection(double curPrice, double prevPrice)
