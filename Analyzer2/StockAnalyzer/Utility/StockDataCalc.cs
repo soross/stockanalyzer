@@ -9,6 +9,10 @@ namespace FinanceAnalyzer.Utility
 {
     class StockDataCalc
     {
+        private StockDataCalc()
+        {
+        }
+
         public static double GetRisePercent(IStockData stock)
         {
             return (stock.EndPrice - stock.StartPrice) / stock.StartPrice;

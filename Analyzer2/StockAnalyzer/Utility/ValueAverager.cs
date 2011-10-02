@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace FinanceAnalyzer.Utility
 {
@@ -14,7 +15,7 @@ namespace FinanceAnalyzer.Utility
 
         public override double GetValue()
         {
-            return _Values.Average(T => Convert.ToDouble(T));
+            return _Values.Average(T => Convert.ToDouble(T, CultureInfo.CurrentCulture));
         }
     }
 }
