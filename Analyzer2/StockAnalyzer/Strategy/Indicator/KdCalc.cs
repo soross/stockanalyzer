@@ -6,6 +6,7 @@ using FinanceAnalyzer.KDJ;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Utility;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {

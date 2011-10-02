@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
 {
@@ -15,7 +16,7 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
             throw new NotImplementedException();
         }
 
-        public Stock.OperType GetOper(DateTime dt)
+        public OperType GetOper(DateTime dt)
         {
             throw new NotImplementedException();
         }

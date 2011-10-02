@@ -1,16 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
-using FinanceAnalyzer.Strategy;
-using FinanceAnalyzer.Strategy.Rise;
-using FinanceAnalyzer.Business;
-using FinanceAnalyzer.DB;
 using System.Globalization;
+using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Log;
+using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.Strategy.Result;
-using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Stock

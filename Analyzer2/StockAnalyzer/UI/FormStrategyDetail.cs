@@ -11,6 +11,7 @@ using FinanceAnalyzer.Judger.Validation;
 using FinanceAnalyzer.Judger;
 using System.Globalization;
 using FinanceAnalyzer.Stock;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.UI
 {
