@@ -17,5 +17,9 @@ namespace FinanceAnalyzer.Utility
 
             return applicationPath;
         }
+
+        private ApplicationHelper()
+        {
+        }
     }
 }

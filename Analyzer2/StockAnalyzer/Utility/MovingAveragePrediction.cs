@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace FinanceAnalyzer.Utility
 {
@@ -40,7 +41,8 @@ namespace FinanceAnalyzer.Utility
         {
             if (price < 0.01)
             {
-                throw new ArgumentOutOfRangeException("MovingAveragePrediction.AddPrice: " + price.ToString());
+                throw new ArgumentOutOfRangeException("MovingAveragePrediction.AddPrice: " 
+                    + price.ToString(CultureInfo.CurrentCulture));
             }
 
             _LongPriceList.Add(price);
