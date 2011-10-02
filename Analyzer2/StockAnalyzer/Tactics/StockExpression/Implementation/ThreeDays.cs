@@ -24,6 +24,11 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
             DecreaseExpr_.Parameters = paramMap;
         }
 
+        public void Init()
+        {
+
+        }
+
         public OperType GetOper(DateTime dt)
         {
             IncreaseExpr_.Evaluate();
@@ -48,6 +53,12 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
             {
                 return StockExpressionNames.THREEDAYS;
             }
+        }
+
+        public IStockHistory History
+        {
+            get;
+            set;
         }
 
         #endregion

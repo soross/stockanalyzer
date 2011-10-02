@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.Tactics.StockExpression;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Tactics.Implementation
 {
@@ -31,6 +32,13 @@ namespace FinanceAnalyzer.Tactics.Implementation
             IStockExpression expr = StockExpressionFactory.Instance().GetExpression(
                 StockExpressionNames.THREEDAYS);
 
+            DateTime curDate = History_.MinDate;
+            while (curDate < History_.MaxDate)
+            {
+
+
+                curDate = DateFunc.GetNextWorkday(curDate);
+            }
         }
 
         #endregion

@@ -25,6 +25,15 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
         {
             get { throw new NotImplementedException(); }
         }
+        
+        public Stock.IStockHistory History
+        {
+            set { throw new NotImplementedException(); }
+        }
+
+        public void Init()
+        {
+        }
 
         #endregion
     }

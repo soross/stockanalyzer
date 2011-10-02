@@ -9,6 +9,13 @@ namespace FinanceAnalyzer.Tactics.StockExpression
 {
     interface IStockExpression
     {
+        IStockHistory History
+        {
+            set;
+        }
+
+        void Init();
+
         void InitParam(Dictionary<string, object> paramMap);
         OperType GetOper(DateTime dt);
         string ExpressionName
