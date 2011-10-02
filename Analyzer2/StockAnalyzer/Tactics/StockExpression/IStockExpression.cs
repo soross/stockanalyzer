@@ -14,13 +14,18 @@ namespace FinanceAnalyzer.Tactics.StockExpression
             set;
         }
 
-        void Init();
+        void Run();
 
         void InitParam(Dictionary<string, object> paramMap);
         OperType GetOper(DateTime dt);
         string ExpressionName
         {
             get;
+        }
+
+        IStockValues TotalAccountValue
+        {
+            set;
         }
     }
 }

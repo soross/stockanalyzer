@@ -5,6 +5,7 @@ using System.Text;
 using NCalc;
 using FinanceAnalyzer.Stock;
 using Stock.Common.Data;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
 {
@@ -24,9 +25,31 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
             DecreaseExpr_.Parameters = paramMap;
         }
 
-        public void Init()
+        public void Run()
         {
+            DateTime curDate = History.MinDate;
+            while (curDate < History.MaxDate)
+            {
+                DateTime prevDate = History.GetPreviousDay(curDate);
+                DateTime prev2Date = History.GetPreviousDay(prevDate);
 
+                Dictionary<string, object> stockValues = new Dictionary<string, object>();
+                stockValues.Add("BeforeYesterday", History.GetStock(prev2Date).EndPrice);
+                stockValues.Add("Yesterday", History.GetStock(prevDate).EndPrice);
+                stockValues.Add("Today", History.GetStock(curDate).EndPrice);
+
+                InitParam(stockValues);
+
+
+
+                curDate = DateFunc.GetNextWorkday(curDate);
+            }
+        }
+
+        public IStockValues TotalAccountValue
+        {
+            get;
+            set;
         }
 
         public OperType GetOper(DateTime dt)
