@@ -31,8 +31,13 @@ namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
             set { throw new NotImplementedException(); }
         }
 
-        public void Init()
+        public void Run()
         {
+        }
+        
+        public Stock.IStockValues TotalAccountValue
+        {
+            set { throw new NotImplementedException(); }
         }
 
         #endregion

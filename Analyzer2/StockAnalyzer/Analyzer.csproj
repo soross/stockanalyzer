@@ -159,6 +159,7 @@
     <Compile Include="Tactics\Implementation\CommonTactics.cs" />
     <Compile Include="Tactics\Implementation\TacticsFactory.cs" />
     <Compile Include="Tactics\StockExpression\Implementation\BuySellExpression.cs" />
+    <Compile Include="Tactics\StockExpression\Implementation\StockAccount.cs" />
     <Compile Include="Tactics\StockExpression\Implementation\ThreeDays.cs" />
     <Compile Include="Tactics\StockExpression\IStockExpression.cs" />
     <Compile Include="Tactics\ITactics.cs" />
