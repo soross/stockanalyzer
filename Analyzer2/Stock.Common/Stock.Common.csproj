@@ -78,6 +78,7 @@
     <Compile Include="Data\Bonus.cs" />
     <Compile Include="Data\IStockData.cs" />
     <Compile Include="Data\IStockSaver.cs" />
+    <Compile Include="Data\OperTypeDef.cs" />
     <Compile Include="Data\StockData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

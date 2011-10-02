@@ -6,6 +6,7 @@ using FinanceAnalyzer.Strategy.Result;
 using System.Diagnostics;
 using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Utility;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Judger.Validation
 {

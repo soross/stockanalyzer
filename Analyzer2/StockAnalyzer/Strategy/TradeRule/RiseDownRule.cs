@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using FinanceAnalyzer.Stock;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.TradeRule
 {

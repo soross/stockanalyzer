@@ -11,6 +11,7 @@ using FinanceAnalyzer.Display;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Stock;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.UI
 {

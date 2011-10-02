@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NCalc;
 using FinanceAnalyzer.Stock;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Tactics.StockExpression.Implementation
 {
