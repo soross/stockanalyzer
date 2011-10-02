@@ -13,7 +13,7 @@ using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Utility;
 
-namespace FinanceAnalyzer
+namespace FinanceAnalyzer.Stock
 {
     public class FinanceRunner
     {

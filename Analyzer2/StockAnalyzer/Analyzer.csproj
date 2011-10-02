@@ -215,7 +215,7 @@
     </Compile>
     <Compile Include="Utility\ApplicationHelper.cs" />
     <Compile Include="Utility\DateFunc.cs" />
-    <Compile Include="FinanceRunner.cs" />
+    <Compile Include="Stock\FinanceRunner.cs" />
     <Compile Include="KDJ\IKdjCalculator.cs" />
     <Compile Include="KDJ\IKdjStorage.cs" />
     <Compile Include="KDJ\KdjCalculator.cs" />
