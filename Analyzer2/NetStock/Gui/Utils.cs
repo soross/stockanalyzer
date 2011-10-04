@@ -44,20 +44,6 @@ namespace DotNetStock.Gui
 
         public static String getResponseBodyAsStringBasedOnProxyAuthOption(String request)
         {
-            /*
-             if(!"".Equals(txtProxy.Text))
-        {
-            WebProxy proxyObject = new WebProxy(proxy, 80);
-
-            // Disable proxy use when the host is local.
-            proxyObject.BypassProxyOnLocal = true;
-
-            // HTTP requests use this proxy information.
-            GlobalProxySelection.Select = proxyObject;
-
-        }
-             * */
-
             WebRequest req = WebRequest.Create(request);
             WebResponse result = req.GetResponse();
             Stream ReceiveStream = result.GetResponseStream();
