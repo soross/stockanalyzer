@@ -289,6 +289,8 @@ namespace DotNetStock.Engine
             }
         }
 
+        #region Constructors
+
         /** Creates a new instance of Stock */
         private Stock(Builder builder)
             : this(
@@ -415,6 +417,8 @@ namespace DotNetStock.Engine
             this.thirdSellQuantity = stock.thirdSellQuantity;
             this.calendar = stock.calendar;
         }
+
+        #endregion
 
         public Code getCode()
         {

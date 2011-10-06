@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Stock.Common.Data
 {
+    /// <summary>
+    /// 用于保存一只股票每一天的信息
+    /// </summary>
     public interface IStockData
     {
         int Id
