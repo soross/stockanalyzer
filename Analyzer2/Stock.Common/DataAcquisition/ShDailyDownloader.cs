@@ -7,11 +7,12 @@ using DotNetStock.Engine;
 
 namespace Stock.Common.DataAcquisition
 {
-    class ShDailyDownloader : IDailyDownloader
+    public class ShDailyDownloader : IDailyDownloader
     {
         public void DownloadData(IStockSaver saver, List<int> stockIds)
         {
             _stockIds = stockIds;
+            StockSaver_ = saver;
 
             List<StockServerFactory> facts = Factories.GetInstance().getStockServerFactories(Country.China);
 
@@ -31,15 +32,9 @@ namespace Stock.Common.DataAcquisition
             }
         }
 
-        public void DownloadData(IStockSaver saver, int stockId)
-        {
-            DateTime prevWeek = DateTime.Now.AddDays(-7);
-
-            DownloadData(saver, stockId, prevWeek, DateTime.Now);
-        }
-
         public void DownloadData(IStockSaver saver, int stockId, DateTime startDate, DateTime endDate)
         {
+            StockSaver_ = saver;
             List<StockServerFactory> facts = Factories.GetInstance().getStockServerFactories(Country.China);
 
             if (facts == null)
@@ -78,10 +73,14 @@ namespace Stock.Common.DataAcquisition
 
                 DotNetStock.Engine.Stock stock = history.getStock(dt);
 
-                IStockData data = StockDataAdapter.ToStockData(stock);
+                StockData data = StockDataAdapter.ToStockData(stock);
+
+                StockSaver_.Add(data);
             }
         }
 
         List<int> _stockIds;
+
+        IStockSaver StockSaver_;
     }
 }

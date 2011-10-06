@@ -19,17 +19,15 @@ namespace Stock.Db.IO
 
         public void BeforeAdd()
         {
-            throw new NotImplementedException();
         }
 
         public void Add(StockData data)
         {
-            throw new NotImplementedException();
+            DB_.GetCollection<StockData>("Shanghai").Insert(data);
         }
 
         public void AfterAdd()
         {
-            throw new NotImplementedException();
         }
 
         #endregion

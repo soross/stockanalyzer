@@ -10,7 +10,7 @@ namespace Stock.Common.DataAcquisition
     /// Download stock data from stock market
     /// 
     /// </summary>
-    interface IDailyDownloader
+    public interface IDailyDownloader
     {
         /// <summary>
         /// Download one week data of stocks
