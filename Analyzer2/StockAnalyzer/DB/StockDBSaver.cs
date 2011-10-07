@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using IBatisNet.DataMapper;
+using MyBatis.DataMapper;
 using Stock.Common.Data;
+using MyBatis.DataMapper.Configuration;
+using MyBatis.DataMapper.Session;
 
 namespace FinanceAnalyzer.DB
 {
@@ -11,29 +13,19 @@ namespace FinanceAnalyzer.DB
     {
         public void BeforeAdd()
         {
-            _Session = _mapper.BeginTransaction();
+            _mapper = MyBatisDataMapper.GetMapper();
+            ISessionFactory sessionFactory = ((IModelStoreAccessor)_mapper).ModelStore.SessionFactory;
         }
 
         public void Add(StockData data)
         {
-            if (_Session != null)
-            {
-                _Session.SqlMapper.Insert("InsertStock", data);
-            }
-            else
-            {
-                _mapper.Insert("InsertStock", data);
-            }
+            _mapper.Insert("InsertStock", data);
         }
 
         public void AfterAdd()
         {
-            _mapper.CommitTransaction();
-            _Session = null;
         }
-
-        private ISqlMapSession _Session; // 批量插入使用
-
-        private static ISqlMapper _mapper = Mapper.Instance(); // iBatis数据库操作
+        
+        private static IDataMapper _mapper = null; // iBatis数据库操作
     }
 }

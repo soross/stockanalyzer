@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using IBatisNet.DataMapper;
+using MyBatis.DataMapper;
 using Stock.Common.Data;
 
 namespace FinanceAnalyzer.DB
 {
     public class StockDBReader
     {
-        public StockDBReader(ISqlMapper mapper)
+        public StockDBReader(IDataMapper mapper)
         {
             _mapper = mapper;
         }
@@ -46,6 +46,6 @@ namespace FinanceAnalyzer.DB
 
         IList<StockData> _Stocks;
 
-        private ISqlMapper _mapper; // iBatis数据库操作
+        private IDataMapper _mapper; // iBatis数据库操作
     }
 }
