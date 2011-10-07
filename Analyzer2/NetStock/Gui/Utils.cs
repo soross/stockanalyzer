@@ -44,14 +44,22 @@ namespace DotNetStock.Gui
 
         public static String getResponseBodyAsStringBasedOnProxyAuthOption(String request)
         {
-            WebRequest req = WebRequest.Create(request);
-            WebResponse result = req.GetResponse();
-            Stream ReceiveStream = result.GetResponseStream();
-            Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-            StreamReader sr = new StreamReader(ReceiveStream, encode);
+            try
+            {
+                WebRequest req = WebRequest.Create(request);
+                WebResponse result = req.GetResponse();
+                Stream ReceiveStream = result.GetResponseStream();
+                Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+                StreamReader sr = new StreamReader(ReceiveStream, encode);
 
-            string response = sr.ReadToEnd();
-            return response;
+                string response = sr.ReadToEnd();
+                return response;
+            }
+            catch (WebException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }

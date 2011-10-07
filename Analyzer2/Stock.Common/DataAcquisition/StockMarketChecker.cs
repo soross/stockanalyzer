@@ -22,5 +22,31 @@ namespace Stock.Common.DataAcquisition
         {
             return stockId.ToString() + ".SS";
         }
+
+        public static int YahooStockIdToInt(string yahooId)
+        {
+            if (string.IsNullOrEmpty(yahooId))
+            {
+                return -1;
+            }
+
+            try
+            {
+                if (yahooId.Contains(".SS"))
+                {
+                    string s = yahooId.Replace(".SS", "");
+                    return int.Parse(s);
+                }
+                else
+                {
+                    return int.Parse(yahooId);
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+        }
     }
 }
