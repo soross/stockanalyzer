@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.textBoxStockIDs = new System.Windows.Forms.TextBox();
             this.labelStockId = new System.Windows.Forms.Label();
             this.labelPeriod = new System.Windows.Forms.Label();
@@ -130,6 +131,7 @@
             this.Controls.Add(this.labelPeriod);
             this.Controls.Add(this.labelStockId);
             this.Controls.Add(this.textBoxStockIDs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "StockImporter";
             this.Load += new System.EventHandler(this.FormMain_Load);
