@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Stock.Db.IO;
+
+namespace StockDownloader.Business
+{
+    class StocksDownloader
+    {
+        public void Download(List<int> stockIds)
+        {
+            StockMongoDbManager mgr = new StockMongoDbManager();
+            mgr.DownloadAllData(stockIds);
+        }
+    }
+}

@@ -11,7 +11,7 @@ namespace Stock.Common.DataAcquisition
     {
         public void DownloadData(IStockSaver saver, List<int> stockIds)
         {
-            _stockIds = stockIds;
+            //_stockIds = stockIds;
             StockSaver_ = saver;
 
             List<StockServerFactory> facts = Factories.GetInstance().getStockServerFactories(Country.China);
@@ -79,7 +79,7 @@ namespace Stock.Common.DataAcquisition
             }
         }
 
-        List<int> _stockIds;
+        //List<int> _stockIds;
 
         IStockSaver StockSaver_;
     }

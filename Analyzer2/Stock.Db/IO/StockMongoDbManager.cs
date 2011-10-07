@@ -6,17 +6,17 @@ using Stock.Common.DataAcquisition;
 
 namespace Stock.Db.IO
 {
-    class StockMongoDbManager
+    public class StockMongoDbManager
     {
-        public void DownloadAllData()
+        public void DownloadAllData(List<int> stockIds)
         {
             IDailyDownloader downloader = new ShDailyDownloader();
 
             StockMongoDBSaver dbsaver = new StockMongoDBSaver();
             dbsaver.OpenDb();
 
-            List<int> stocks = new List<int>{600000, 600001};
-            downloader.DownloadData(dbsaver, stocks);
+            //List<int> stocks = new List<int>{600000, 600001};
+            downloader.DownloadData(dbsaver, stockIds);
         }
     }
 }
