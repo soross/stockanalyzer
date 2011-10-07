@@ -8,7 +8,7 @@ namespace Stock.Common.Data
     public class StockData : IStockData
     {
         // 股票代码
-        public int Id
+        public int StockId
         {
             get { return _Id; }
             set { _Id = value; }

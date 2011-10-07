@@ -13,6 +13,7 @@ namespace Stock.Db.IO
         {
             MongoServer server = MongoServer.Create(); // connect to localhost
             DB_ = server.GetDatabase("ChineseStock");
+            Collection_ = DB_.GetCollection<StockData>("Shanghai");
         }
 
         #region IStockSaver Members
@@ -23,7 +24,7 @@ namespace Stock.Db.IO
 
         public void Add(StockData data)
         {
-            DB_.GetCollection<StockData>("Shanghai").Insert(data);
+            Collection_.Insert(data);
         }
 
         public void AfterAdd()
@@ -32,6 +33,7 @@ namespace Stock.Db.IO
 
         #endregion
 
+        MongoCollection<StockData> Collection_;
         MongoDatabase DB_;
     }
 }

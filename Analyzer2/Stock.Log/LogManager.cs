@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace StockDownloader.Log
+namespace Stock.Log
 {
-    class LogManager : ILogger
+    public class LogManager : IUILog
     {
         private LogManager()
         {
         }
 
-        public static ILogger GetInstance()
+        public static IUILog GetInstance()
         {
             return instance_;
         }

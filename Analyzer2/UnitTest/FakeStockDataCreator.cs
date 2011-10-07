@@ -13,7 +13,7 @@ namespace FinanceAnalyzer
         {
             StockData val = new StockData();
             val.Amount = 100000;
-            val.Id = 999999;
+            val.StockId = 999999;
 
             val.TradeDate = dt;
             val.StartPrice = startPrice;

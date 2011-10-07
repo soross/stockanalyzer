@@ -78,9 +78,7 @@ namespace Stock.Common.DataAcquisition
                 StockSaver_.Add(data);
             }
         }
-
-        //List<int> _stockIds;
-
+        
         IStockSaver StockSaver_;
     }
 }

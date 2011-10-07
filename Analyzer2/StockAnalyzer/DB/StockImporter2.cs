@@ -67,7 +67,7 @@ namespace FinanceAnalyzer.DB
                 for (int i = STARTVAL + 2; i < iRows; i++)
                 {
                     StockData data = new StockData();
-                    data.Id = Convert.ToInt32(valueArray[STARTVAL, STARTVAL + 1], CultureInfo.CurrentCulture);
+                    data.StockId = Convert.ToInt32(valueArray[STARTVAL, STARTVAL + 1], CultureInfo.CurrentCulture);
                     data.TradeDate = DateFunc.ParseString(valueArray[i, STARTVAL]);
                     data.StartPrice = Convert.ToDouble(valueArray[i, STARTVAL + 1], CultureInfo.CurrentCulture);
                     data.MaxPrice = Convert.ToDouble(valueArray[i, STARTVAL + 2], CultureInfo.CurrentCulture);
@@ -141,7 +141,7 @@ namespace FinanceAnalyzer.DB
                 {
 
                     StockData data = new StockData();
-                    data.Id = stockID;
+                    data.StockId = stockID;
 
                     GetStockData(item, ref data);
                     // 保存

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace StockDownloader.Log
+namespace Stock.Log
 {
-    interface ILogger
+    public interface IUILog : ILogger
     {
-        void Log(string info);
         ListBox UILog
         {
             set;

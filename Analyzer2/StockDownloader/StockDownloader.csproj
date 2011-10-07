@@ -53,8 +53,6 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Log\ILogger.cs" />
-    <Compile Include="Log\LogManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Business\StockDownloader.cs" />
@@ -86,6 +84,10 @@
     <ProjectReference Include="..\Stock.Db\Stock.Db.csproj">
       <Project>{6E9CC238-A81E-4CF6-A1AD-64EA9EEB59B5}</Project>
       <Name>Stock.Db</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stock.Log\Stock.Log.csproj">
+      <Project>{52916A33-E58F-4A4E-9399-D9D41BDB19CE}</Project>
+      <Name>Stock.Log</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

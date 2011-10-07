@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Stock.Db.IO;
+using Stock.Log;
 
 namespace StockDownloader.Business
 {
@@ -10,14 +11,15 @@ namespace StockDownloader.Business
     {
         public void Download(List<int> stockIds)
         {
-            StockMongoDbManager mgr = new StockMongoDbManager();
-            mgr.DownloadAllData(stockIds);
+            DateTime lastWeek = DateTime.Now.AddDays(-7);
+            Download(stockIds, lastWeek, DateTime.Now);
         }
 
         public void Download(List<int> stockIds, DateTime startDate, DateTime endDate)
         {
             StockMongoDbManager mgr = new StockMongoDbManager();
-            mgr.DownloadAllData(stockIds);
+            mgr.InitLog(LogManager.GetInstance());
+            mgr.DownloadAllData(stockIds, startDate, endDate);
         }
     }
 }
