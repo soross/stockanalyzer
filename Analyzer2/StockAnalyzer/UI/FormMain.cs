@@ -9,7 +9,7 @@ using FinanceAnalyzer.Log;
 using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
-using IBatisNet.DataMapper;
+using MyBatis.DataMapper;
 using FinanceAnalyzer.Strategy.Factory;
 using Stock.Common.Data;
 using FinanceAnalyzer.Stock;
@@ -142,7 +142,9 @@ namespace FinanceAnalyzer
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private void FormMain_Load(object sender, EventArgs e)
-        {            
+        {
+            _DbReader = new StockDBReader(MyBatisDataMapper.GetMapper());
+
             // Load from DB
             IList<int> allStockId = _DbReader.LoadId();
             _log.Info("Form loaded. Stock Count: " + allStockId.Count);
@@ -206,7 +208,7 @@ namespace FinanceAnalyzer
             _History.MinDate = dateTimePickerStart.Value;
         }        
 
-        StockDBReader _DbReader = new StockDBReader(Mapper.Instance());
+        StockDBReader _DbReader;
         
         BonusProcessor _BonusProcessor = new BonusProcessor();
 
