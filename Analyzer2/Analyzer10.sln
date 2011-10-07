@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.Common", "Stock.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockDownloader", "StockDownloader\StockDownloader.csproj", "{A1B57FA4-3717-4DF0-88B2-1793FF952C96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.Log", "Stock.Log\Stock.Log.csproj", "{52916A33-E58F-4A4E-9399-D9D41BDB19CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -208,6 +210,34 @@ Global
 		{A1B57FA4-3717-4DF0-88B2-1793FF952C96}.StockRelease|Win32.ActiveCfg = Release|x86
 		{A1B57FA4-3717-4DF0-88B2-1793FF952C96}.StockRelease|x86.ActiveCfg = Release|x86
 		{A1B57FA4-3717-4DF0-88B2-1793FF952C96}.StockRelease|x86.Build.0 = Release|x86
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Release|Win32.ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.Release|x86.ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockDebug|Any CPU.Build.0 = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockDebug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockDebug|Win32.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockDebug|x86.ActiveCfg = Debug|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockRelease|Any CPU.Build.0 = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockRelease|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockRelease|Mixed Platforms.Build.0 = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockRelease|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockRelease|Win32.ActiveCfg = Release|Any CPU
+		{52916A33-E58F-4A4E-9399-D9D41BDB19CE}.StockRelease|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

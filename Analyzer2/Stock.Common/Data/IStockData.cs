@@ -10,7 +10,7 @@ namespace Stock.Common.Data
     /// </summary>
     public interface IStockData
     {
-        int Id
+        int StockId
         {
             get;
         }

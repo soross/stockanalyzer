@@ -22,7 +22,7 @@ namespace Stock.Common.DataAcquisition
 
             data.Amount = stock.getVolume();
             data.EndPrice = stock.getLastPrice();
-            data.Id = ConvertStockId(stock.getSymbol().toString());
+            data.StockId = ConvertStockId(stock.getSymbol().toString());
             data.MaxPrice = stock.getHighPrice();
             data.MinPrice = stock.getLowPrice();
             data.StartPrice = stock.getOpenPrice();

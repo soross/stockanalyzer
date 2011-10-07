@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using StockDownloader.Log;
 using StockDownloader.Business;
+using Stock.Log;
 
 namespace StockDownloader
 {
@@ -37,7 +37,7 @@ namespace StockDownloader
             }
 
             StocksDownloader downloader = new StocksDownloader();
-            downloader.Download(stockIds);
+            downloader.Download(stockIds, dateTimePickerStart.Value, dateTimePickerEnd.Value);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
