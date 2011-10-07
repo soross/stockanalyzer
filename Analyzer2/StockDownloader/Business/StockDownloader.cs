@@ -13,5 +13,11 @@ namespace StockDownloader.Business
             StockMongoDbManager mgr = new StockMongoDbManager();
             mgr.DownloadAllData(stockIds);
         }
+
+        public void Download(List<int> stockIds, DateTime startDate, DateTime endDate)
+        {
+            StockMongoDbManager mgr = new StockMongoDbManager();
+            mgr.DownloadAllData(stockIds);
+        }
     }
 }

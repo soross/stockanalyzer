@@ -18,5 +18,18 @@ namespace Stock.Db.IO
             //List<int> stocks = new List<int>{600000, 600001};
             downloader.DownloadData(dbsaver, stockIds);
         }
+
+        public void DownloadAllData(List<int> stockIds, DateTime startDate, DateTime endDate)
+        {
+            IDailyDownloader downloader = new ShDailyDownloader();
+
+            StockMongoDBSaver dbsaver = new StockMongoDBSaver();
+            dbsaver.OpenDb();
+
+            foreach (int id in stockIds)
+            {
+                downloader.DownloadData(dbsaver, id, startDate, endDate);
+            }
+        }
     }
 }

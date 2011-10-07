@@ -33,7 +33,7 @@ namespace Stock.Common.DataAcquisition
 
         static int ConvertStockId(string symbol)
         {
-            return -1;
+            return StockMarketChecker.YahooStockIdToInt(symbol);
         }
     }
 }
