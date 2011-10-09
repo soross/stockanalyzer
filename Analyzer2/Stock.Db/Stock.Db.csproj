@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="IO\StockMongoDbManager.cs" />
     <Compile Include="IO\StockMongoDBSaver.cs" />
+    <Compile Include="IO\StockMongoReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
