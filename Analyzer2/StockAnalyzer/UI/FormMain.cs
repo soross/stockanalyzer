@@ -143,7 +143,8 @@ namespace FinanceAnalyzer
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            _DbReader = new StockDBReader(MyBatisDataMapper.GetMapper());
+            //_DbReader = new StockDBReader(MyBatisDataMapper.GetMapper());
+            _DbReader = new StockMongoDBReader();
 
             // Load from DB
             IEnumerable<int> allStockId = _DbReader.LoadAllIds();

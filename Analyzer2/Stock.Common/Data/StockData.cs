@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
 
 namespace Stock.Common.Data
 {
     // 保存股票交易某只股票某一天的信息
     public class StockData : IStockData
     {
+        public ObjectId Id { get; set; }
+
         // 股票代码
         public int StockId
         {
