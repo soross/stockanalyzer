@@ -40,11 +40,6 @@ namespace Stock.Db.IO
             Logger_.Log("Download all data finished!");
         }
 
-        public void LoadFromDB()
-        {
-
-        }
-
         ILogger Logger_;
     }
 }

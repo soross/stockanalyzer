@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Stock.Common.Data;
+using Stock.Db.IO;
 
 namespace FinanceAnalyzer.DB
 {
@@ -10,16 +11,18 @@ namespace FinanceAnalyzer.DB
     {
         #region IStockDBReader Members
 
-        public IList<StockData> Load(int stockId)
+        public IEnumerable<StockData> Load(int stockId)
         {
-            throw new NotImplementedException();
+            return Reader_.GetStockData(stockId);
         }
 
-        public IList<int> LoadAllIds()
+        public IEnumerable<int> LoadAllIds()
         {
-            throw new NotImplementedException();
+            return Reader_.AllIDs;
         }
 
         #endregion
+
+        StockMongoReader Reader_ = new StockMongoReader();
     }
 }

@@ -42,7 +42,7 @@ namespace FinanceAnalyzer.Stock
             set;
         }               
 
-        public void InitAllStocks(int stockId, IList<StockData> arr)
+        public void InitAllStocks(int stockId, IEnumerable<StockData> arr)
         {
             Clear();
 

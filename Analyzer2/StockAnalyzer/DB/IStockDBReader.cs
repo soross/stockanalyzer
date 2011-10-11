@@ -8,7 +8,7 @@ namespace FinanceAnalyzer.DB
 {
     interface IStockDBReader
     {
-        IList<StockData> Load(int stockId);
-        IList<int> LoadAllIds();
+        IEnumerable<StockData> Load(int stockId);
+        IEnumerable<int> LoadAllIds();
     }
 }
