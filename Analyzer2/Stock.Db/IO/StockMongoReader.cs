@@ -8,6 +8,11 @@ namespace Stock.Db.IO
 {
     public class StockMongoReader
     {
+        public StockMongoReader()
+        {
+            Load();
+        }
+
         public void Load()
         {
             stockIDs_.Clear();
