@@ -19,7 +19,6 @@ namespace Stock.Db.IO
             IDailyDownloader downloader = new ShDailyDownloader();
 
             StockMongoDBSaver dbsaver = new StockMongoDBSaver();
-            dbsaver.OpenDb();
 
             Logger_.Log("Open DB finished!");
             //List<int> stocks = new List<int>{600000, 600001};
@@ -31,7 +30,6 @@ namespace Stock.Db.IO
             IDailyDownloader downloader = new ShDailyDownloader();
 
             StockMongoDBSaver dbsaver = new StockMongoDBSaver();
-            dbsaver.OpenDb();
 
             foreach (int id in stockIds)
             {

@@ -10,9 +10,7 @@ namespace Stock.Db.IO
     {
         public void Load()
         {
-            DBSaver_.OpenDb();
-
-            foreach (var item in DBSaver_.GetAllStocks())
+            foreach (var item in StockMongoDB.GetInstance().GetAllStocks())
             {
                 stockIDs_.Add(item.StockId);
             }
@@ -31,7 +29,6 @@ namespace Stock.Db.IO
             return null;
         }
 
-        StockMongoDBSaver DBSaver_ = new StockMongoDBSaver();
         HashSet<int> stockIDs_ = new HashSet<int>();
     }
 }

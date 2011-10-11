@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO\StockMongoDB.cs" />
     <Compile Include="IO\StockMongoDbManager.cs" />
     <Compile Include="IO\StockMongoDBSaver.cs" />
     <Compile Include="IO\StockMongoReader.cs" />
