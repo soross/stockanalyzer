@@ -369,6 +369,10 @@
       <Project>{E095DC1D-422E-461B-BFE8-867B740C6690}</Project>
       <Name>Stock.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Stock.Db\Stock.Db.csproj">
+      <Project>{6E9CC238-A81E-4CF6-A1AD-64EA9EEB59B5}</Project>
+      <Name>Stock.Db</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

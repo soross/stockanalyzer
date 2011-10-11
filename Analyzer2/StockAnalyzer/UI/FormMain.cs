@@ -146,13 +146,15 @@ namespace FinanceAnalyzer
             _DbReader = new StockDBReader(MyBatisDataMapper.GetMapper());
 
             // Load from DB
-            IList<int> allStockId = _DbReader.LoadAllIds();
-            _log.Info("Form loaded. Stock Count: " + allStockId.Count);
+            IEnumerable<int> allStockId = _DbReader.LoadAllIds();
 
+            int totalStockCount = 0;
             foreach (int id in allStockId)
             {
                 comboBoxStockId.Items.Add(id);
+                totalStockCount++;
             }
+            _log.Info("Form loaded. Stock Count: " + totalStockCount);
 
             _BonusProcessor.Load(_History.StockId, new BonusReader());
 
@@ -163,7 +165,7 @@ namespace FinanceAnalyzer
         private void comboBoxStockId_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = int.Parse(comboBoxStockId.Text, CultureInfo.CurrentCulture);
-            IList<StockData> stocks = _DbReader.Load(id);
+            IEnumerable<StockData> stocks = _DbReader.Load(id);
 
             _History.InitAllStocks(id, stocks);
 

@@ -23,7 +23,7 @@ namespace FinanceAnalyzer.DB
         /// </summary>
         /// <param name="stockId">Stock ID</param>
         /// <returns>某一只股票的数据</returns>
-        public IList<StockData> Load(int stockId)
+        public IEnumerable<StockData> Load(int stockId)
         {
             return _mapper.QueryForList<StockData>("SelectStockByStockId", stockId);
         }
@@ -32,7 +32,7 @@ namespace FinanceAnalyzer.DB
         /// 获取数据库中所有的Stock ID
         /// </summary>
         /// <returns>数据库中所有的Stock ID</returns>
-        public IList<int> LoadAllIds()
+        public IEnumerable<int> LoadAllIds()
         {
             return _mapper.QueryForList<int>("selectItemCount", null);
         }

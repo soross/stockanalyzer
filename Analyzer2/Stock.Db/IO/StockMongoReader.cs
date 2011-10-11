@@ -6,14 +6,12 @@ using Stock.Common.Data;
 
 namespace Stock.Db.IO
 {
-    class StockMongoReader
+    public class StockMongoReader
     {
         public void Load()
         {
-            foreach (var item in StockMongoDB.GetInstance().GetAllStocks())
-            {
-                stockIDs_.Add(item.StockId);
-            }
+            stockIDs_.Clear();
+            stockIDs_.AddRange(StockMongoDB.GetInstance().GetAllStockIDs());
         }
 
         public ICollection<int> AllIDs
@@ -24,11 +22,11 @@ namespace Stock.Db.IO
             }
         }
 
-        public List<StockData> GetStockData(int id)
+        public IEnumerable<StockData> GetStockData(int id)
         {
-            return null;
+            return StockMongoDB.GetInstance().GetStock(id);
         }
 
-        HashSet<int> stockIDs_ = new HashSet<int>();
+        List<int> stockIDs_ = new List<int>();
     }
 }
