@@ -9,13 +9,6 @@ namespace Stock.Db.IO
 {
     class StockMongoDBSaver : IStockSaver
     {
-        public void OpenDb()
-        {
-            MongoServer server = MongoServer.Create(); // connect to localhost
-            DB_ = server.GetDatabase("ChineseStock");
-            Collection_ = DB_.GetCollection<StockData>("Shanghai");
-        }
-
         #region IStockSaver Members
 
         public void BeforeAdd()
@@ -24,7 +17,7 @@ namespace Stock.Db.IO
 
         public void Add(StockData data)
         {
-            Collection_.Insert(data);
+            StockMongoDB.GetInstance().AllStock.Insert(data);
         }
 
         public void AfterAdd()
@@ -32,13 +25,5 @@ namespace Stock.Db.IO
         }
 
         #endregion
-
-        public IEnumerable<StockData> GetAllStocks()
-        {
-            return Collection_.FindAll();
-        }
-
-        MongoCollection<StockData> Collection_;
-        MongoDatabase DB_;
     }
 }
