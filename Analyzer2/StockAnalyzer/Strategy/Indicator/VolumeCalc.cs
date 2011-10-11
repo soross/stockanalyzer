@@ -43,7 +43,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                     continue;
                 }
 
-                ICollection<StockOper> opers = new List<StockOper>();
+                //ICollection<StockOper> opers = new List<StockOper>();
                 double avgMinAmount = _Averager.GetValue() * (1 - _BuyMargin);
                 double avgMaxAmount = _Averager.GetValue() * (1 + _SellMargin);
 

@@ -14,11 +14,6 @@ namespace FinanceAnalyzer.Business.Shape
         {
             _StockData = data;
         }
-        
-        public bool IsT()
-        {
-            return IsT(_StockData);
-        }
 
         public bool IsReverseT()
         {
