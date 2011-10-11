@@ -33,6 +33,11 @@ namespace Stock.Db.IO
 
         #endregion
 
+        public IEnumerable<StockData> GetAllStocks()
+        {
+            return Collection_.FindAll();
+        }
+
         MongoCollection<StockData> Collection_;
         MongoDatabase DB_;
     }

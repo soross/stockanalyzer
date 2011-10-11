@@ -86,7 +86,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\IStockDBReader.cs" />
     <Compile Include="DB\MyBatisDataMapper.cs" />
+    <Compile Include="DB\StockMongoDBReader.cs" />
     <Compile Include="Stock\Account.cs" />
     <Compile Include="Business\BonusInfo.cs" />
     <Compile Include="Business\BonusProcessor.cs" />
