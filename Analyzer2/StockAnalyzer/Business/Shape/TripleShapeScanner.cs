@@ -19,7 +19,7 @@ namespace FinanceAnalyzer.Business.Shape
             }
 
             double deltapercent = StockDataCalc.GetRisePercent(stock);
-            double prevPercent = StockDataCalc.GetRisePercent(prevStock);
+            //double prevPercent = StockDataCalc.GetRisePercent(prevStock);
             double nextPercent = StockDataCalc.GetRisePercent(nextStock);
 
             if (NumbericHelper.IsSameSign(deltapercent, nextPercent))

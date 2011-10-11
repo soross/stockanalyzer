@@ -35,7 +35,7 @@ namespace Stock.Db.IO
 
         public IEnumerable<StockData> GetStock(int stockId)
         {
-            return StockMongoDB.GetInstance().AllStock.Find(new QueryDocument("StockId", (BsonValue)stockId));
+            return StockMongoDB.GetInstance().AllStock.Find(new QueryDocument("StockId", stockId));
         }
 
         public IEnumerable<int> GetAllStockIDs()
