@@ -146,7 +146,7 @@ namespace FinanceAnalyzer
             _DbReader = new StockDBReader(MyBatisDataMapper.GetMapper());
 
             // Load from DB
-            IList<int> allStockId = _DbReader.LoadId();
+            IList<int> allStockId = _DbReader.LoadAllIds();
             _log.Info("Form loaded. Stock Count: " + allStockId.Count);
 
             foreach (int id in allStockId)
@@ -206,9 +206,9 @@ namespace FinanceAnalyzer
         {
             _History.MaxDate = dateTimePickerEnd.Value;
             _History.MinDate = dateTimePickerStart.Value;
-        }        
+        }
 
-        StockDBReader _DbReader;
+        IStockDBReader _DbReader;
         
         BonusProcessor _BonusProcessor = new BonusProcessor();
 

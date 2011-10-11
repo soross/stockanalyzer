@@ -40,6 +40,18 @@ namespace FinanceAnalyzer.Stock
         {
             get;
             set;
+        }               
+
+        public void InitAllStocks(int stockId, IList<StockData> arr)
+        {
+            Clear();
+
+            StockId = stockId;
+
+            foreach (IStockData val in arr)
+            {
+                AddStock(val.TradeDate, val);
+            }
         }
 
         public void AddStock(DateTime dt, IStockData stock)
@@ -56,18 +68,6 @@ namespace FinanceAnalyzer.Stock
 
             MinDate = (MinDate > dt) ? dt : MinDate;
             MaxDate = (MaxDate < dt) ? dt : MaxDate;
-        }
-
-        public void InitAllStocks(int stockId, IList<StockData> arr)
-        {
-            Clear();
-
-            StockId = stockId;
-
-            foreach (IStockData val in arr)
-            {
-                AddStock(val.TradeDate, val);
-            }
         }
 
         public void Clear()

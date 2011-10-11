@@ -6,7 +6,7 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.DB
 {
-    public class StockDBReader
+    public class StockDBReader : IStockDBReader
     {
         public StockDBReader(IDataMapper mapper)
         {
@@ -18,12 +18,21 @@ namespace FinanceAnalyzer.DB
             _Stocks = _mapper.QueryForList<StockData>("SelectAllStock", null);
         }
 
+        /// <summary>
+        /// 获取某一只股票的数据
+        /// </summary>
+        /// <param name="stockId">Stock ID</param>
+        /// <returns>某一只股票的数据</returns>
         public IList<StockData> Load(int stockId)
         {
             return _mapper.QueryForList<StockData>("SelectStockByStockId", stockId);
         }
 
-        public IList<int> LoadId()
+        /// <summary>
+        /// 获取数据库中所有的Stock ID
+        /// </summary>
+        /// <returns>数据库中所有的Stock ID</returns>
+        public IList<int> LoadAllIds()
         {
             return _mapper.QueryForList<int>("selectItemCount", null);
         }
