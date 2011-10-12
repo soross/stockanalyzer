@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FinanceAnalyzer.Strategy.Rise;
+using FinanceAnalyzer.Strategy.Judger;
 using FinanceAnalyzer.DB;
 using Stock.Common.Data;
 using FinanceAnalyzer.Stock;

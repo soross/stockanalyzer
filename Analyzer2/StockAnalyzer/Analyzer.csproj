@@ -116,6 +116,7 @@
     <Compile Include="Strategy\Factory\SpikeAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\VolumeAdjustFactory.cs" />
     <Compile Include="Strategy\Impl\StrategyPriceAmountDeviation.cs" />
+    <Compile Include="Strategy\Impl\StrategyTwoDayPlusOne.cs" />
     <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\HistoricalValuesCalc.cs" />
     <Compile Include="Strategy\Indicator\HoldCalc.cs" />

@@ -5,7 +5,7 @@ using FinanceAnalyzer.DB;
 using Stock.Common.Data;
 using FinanceAnalyzer.Stock;
 
-namespace FinanceAnalyzer.Strategy.Rise
+namespace FinanceAnalyzer.Strategy.Judger
 {    
     public class UpJudgerOptim : IStockJudger
     {

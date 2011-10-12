@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using FinanceAnalyzer.Strategy.Rise;
+using FinanceAnalyzer.Strategy.Judger;
 using FinanceAnalyzer.Strategy.Indicator;
 using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.Utility;
@@ -15,9 +15,10 @@ namespace FinanceAnalyzer.Strategy
         public virtual void Init()
         {            
             AddStrategy(new StrategyKD(25, 75));
+            AddStrategy(new StrategyTwoDayPlusOne());
             AddStrategy(new StrategyThreeDay(new RiseJudger()));
             AddStrategy(new StrategyThreeDay(new UpJudger()));
-            AddStrategy(new StrategyThreeDay(new VolumeJudger()));
+            //AddStrategy(new StrategyThreeDay(new VolumeJudger()));
             AddMixedIndicators(new ThreeDayCalc(new UpJudger()), new MoneyFlowIndexCalc());
 
             IIndicatorCalc calc = new ThreeDayCalc(new UpJudger());
