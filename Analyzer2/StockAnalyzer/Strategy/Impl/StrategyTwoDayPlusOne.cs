@@ -1,25 +1,16 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using FinanceAnalyzer.Strategy.Judger;
-using FinanceAnalyzer.DB;
-using Stock.Common.Data;
 using FinanceAnalyzer.Stock;
+using Stock.Common.Data;
+using FinanceAnalyzer.DB;
+using FinanceAnalyzer.Strategy.Judger;
 
 namespace FinanceAnalyzer.Strategy.Impl
 {
-    // 策略描述：连续两天下跌，第三天开盘买入；连续两天上涨，第三天开盘卖出； 
-    class StrategyThreedayOpti : IFinanceStrategy
+    class StrategyTwoDayPlusOne : IFinanceStrategy
     {
-        public override string Name
-        {
-            get
-            {
-                return "3DayOpti: " + _Judger.Name;
-            }
-        }
-
-        // 得到操作指令
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
         {
             IStockData curProp = stockHistory.GetStock(day);
@@ -36,7 +27,11 @@ namespace FinanceAnalyzer.Strategy.Impl
             }
 
             ICollection<StockOper> opers = new List<StockOper>();
-            if (_Judger.FulFil(stockprevProp, stockYesterdayProp, curProp))
+
+            // IsRise? Condition questionable. 
+            if (StockJudger.IsRise(stockYesterdayProp, stockprevProp)
+                && StockJudger.IsUp(stockYesterdayProp)
+                && StockJudger.IsUp(stockprevProp))
             {
                 if (stockHolder.HasStock())
                 {
@@ -45,7 +40,9 @@ namespace FinanceAnalyzer.Strategy.Impl
                     return opers;
                 }
             }
-            else if (_Judger.ReverseFulFil(stockprevProp, stockYesterdayProp, curProp))
+            else if (!StockJudger.IsRise(stockYesterdayProp, stockprevProp)
+                && !StockJudger.IsUp(stockYesterdayProp)
+                && !StockJudger.IsUp(stockprevProp))
             {
                 int stockCount = Transaction.GetCanBuyStockCount(account.BankRoll,
                     curProp.StartPrice);
@@ -54,16 +51,15 @@ namespace FinanceAnalyzer.Strategy.Impl
                     StockOper oper = new StockOper(curProp.StartPrice, stockCount, OperType.Buy);
                     opers.Add(oper);
                     return opers;
-                }                
-            }
-            else
-            {
-                return null;
+                }
             }
 
             return null;
         }
 
-        private IStockJudger _Judger;
+        public override string Name
+        {
+            get { return "2Day Plus"; }
+        }
     }
 }

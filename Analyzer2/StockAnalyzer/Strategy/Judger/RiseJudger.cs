@@ -4,7 +4,7 @@ using System.Text;
 using FinanceAnalyzer.DB;
 using Stock.Common.Data;
 
-namespace FinanceAnalyzer.Strategy.Rise
+namespace FinanceAnalyzer.Strategy.Judger
 {
     public class RiseJudger : IStockJudger
     {

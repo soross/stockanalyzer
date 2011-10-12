@@ -4,7 +4,7 @@ using System.Text;
 using NUnit.Framework;
 using FinanceAnalyzer.Log;
 using FinanceAnalyzer.Strategy;
-using FinanceAnalyzer.Strategy.Rise;
+using FinanceAnalyzer.Strategy.Judger;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.DB;
