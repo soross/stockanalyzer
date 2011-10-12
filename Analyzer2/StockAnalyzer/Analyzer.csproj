@@ -148,7 +148,6 @@
     <Compile Include="Strategy\Impl\StrategyIndicator.cs" />
     <Compile Include="Strategy\Impl\StrategyPeriodicity.cs" />
     <Compile Include="Strategy\Impl\StrategyRandom.cs" />
-    <Compile Include="Strategy\Impl\StrategyThreeDayReverse.cs" />
     <Compile Include="Strategy\Impl\StrategyVolumeOptim.cs" />
     <Compile Include="Strategy\TradeRule\RiseDownRule.cs" />
     <Compile Include="Tactics\Implementation\CommonTactics.cs" />
@@ -223,7 +222,6 @@
     <Compile Include="Strategy\Impl\StrategyBear.cs" />
     <Compile Include="Strategy\Impl\StrategyKd.cs" />
     <Compile Include="Strategy\Impl\StrategyThreeDay.cs" />
-    <Compile Include="Strategy\Impl\StrategyThreedayOpti.cs" />
     <Compile Include="UI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
