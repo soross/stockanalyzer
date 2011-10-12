@@ -29,8 +29,10 @@ namespace FinanceAnalyzer.Strategy.Impl
             ICollection<StockOper> opers = new List<StockOper>();
 
             // IsRise? Condition questionable. 
-            if (StockJudger.IsRise(stockYesterdayProp, stockprevProp)
-                && StockJudger.IsUp(stockYesterdayProp)
+            if (
+                StockJudger.IsRise(stockYesterdayProp, stockprevProp)
+                && 
+                StockJudger.IsUp(stockYesterdayProp)
                 && StockJudger.IsUp(stockprevProp))
             {
                 if (stockHolder.HasStock())
@@ -40,8 +42,10 @@ namespace FinanceAnalyzer.Strategy.Impl
                     return opers;
                 }
             }
-            else if (!StockJudger.IsRise(stockYesterdayProp, stockprevProp)
-                && !StockJudger.IsUp(stockYesterdayProp)
+            else if (
+                !StockJudger.IsRise(stockYesterdayProp, stockprevProp)
+                && 
+                !StockJudger.IsUp(stockYesterdayProp)
                 && !StockJudger.IsUp(stockprevProp))
             {
                 int stockCount = Transaction.GetCanBuyStockCount(account.BankRoll,
