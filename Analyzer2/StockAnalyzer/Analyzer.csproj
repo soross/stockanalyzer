@@ -195,6 +195,12 @@
     <Compile Include="UI\FormScores.Designer.cs">
       <DependentUpon>FormScores.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormShapeStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormShapeStatistic.Designer.cs">
+      <DependentUpon>FormShapeStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormStrategy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +277,9 @@
     <EmbeddedResource Include="UI\FormScores.resx">
       <DependentUpon>FormScores.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormShapeStatistic.resx">
+      <DependentUpon>FormShapeStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormStrategy.resx">
       <DependentUpon>FormStrategy.cs</DependentUpon>
@@ -364,7 +373,9 @@
       <Name>Stock.Db</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Statistics\Shape\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
