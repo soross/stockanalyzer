@@ -82,13 +82,15 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\IStockDBReader.cs" />
     <Compile Include="DB\MyBatisDataMapper.cs" />
     <Compile Include="DB\StockMongoDBReader.cs" />
+    <Compile Include="Statistics\Shape\IStockShape.cs" />
+    <Compile Include="Statistics\Shape\ShapeStatistic.cs" />
     <Compile Include="Stock\Account.cs" />
     <Compile Include="Business\BonusInfo.cs" />
     <Compile Include="Business\BonusProcessor.cs" />
@@ -373,9 +375,7 @@
       <Name>Stock.Db</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Statistics\Shape\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
