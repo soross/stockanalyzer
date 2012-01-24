@@ -17,7 +17,7 @@ namespace Stock.Db.IO
 
         public void Add(StockData data)
         {
-            StockMongoDB.GetInstance().AllStock.Insert(data);
+            StockMongoDB.GetInstance().AddStockData(data);
         }
 
         public void AfterAdd()

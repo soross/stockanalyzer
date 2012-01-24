@@ -5,6 +5,7 @@ using System.Text;
 using MongoDB.Driver;
 using Stock.Common.Data;
 using MongoDB.Bson;
+using MongoDB.Driver.Builders;
 
 namespace Stock.Db.IO
 {
@@ -30,17 +31,23 @@ namespace Stock.Db.IO
 
         public IEnumerable<StockData> GetAllStocks()
         {
-            return StockMongoDB.GetInstance().AllStock.FindAll();
+            return AllStock.FindAll();
         }
 
         public IEnumerable<StockData> GetStock(int stockId)
         {
-            return StockMongoDB.GetInstance().AllStock.Find(new QueryDocument("StockId", stockId));
+            return AllStock.Find(new QueryDocument("StockId", stockId));
         }
 
-        public IEnumerable<int> GetAllStockIDs()
+        public void AddStockData(StockData sd)
         {
-            var result = StockMongoDB.GetInstance().AllStock.Distinct("StockId");
+            AllStock.Insert(sd);
+            FindHelper_.AddStockDay(sd.StockId, sd.TradeDate);
+        }
+
+        public IEnumerable<int> GetAllStockIDsInDB()
+        {
+            var result = AllStock.Distinct("StockId");
             List<int> arr = new List<int>();
             foreach (var item in result)
             {
@@ -50,16 +57,40 @@ namespace Stock.Db.IO
             return arr;
         }
 
+        public bool FindStockInDB(StockData dt)
+        {
+            var query = Query.And(
+                Query.EQ("StockId", dt.StockId),
+                Query.EQ("TradeDate", dt.TradeDate));
+
+            var res = Collection_.Find(query);
+            return (res.Count() != 0);
+        }
+
+        public IEnumerable<int> GetAllStockIDs()
+        {
+            return FindHelper_.GetAllStockIDs();
+        }
+
+        public bool FindStock(StockData dt)
+        {
+            return FindHelper_.FindStock(dt.StockId, dt.TradeDate);
+        }
+
         void Init()
         {
             MongoServer server = MongoServer.Create(); // connect to localhost
             DB_ = server.GetDatabase("ChineseStock");
             Collection_ = DB_.GetCollection<StockData>("Shanghai");
+
+            FindHelper_.Init(Collection_);
         }
 
         static StockMongoDB instance_ = new StockMongoDB();
 
         MongoCollection<StockData> Collection_;
         MongoDatabase DB_;
+
+        StockFindHelper FindHelper_ = new StockFindHelper();
     }
 }
