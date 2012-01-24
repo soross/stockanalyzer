@@ -41,6 +41,12 @@ namespace Stock.Db.IO
 
         public void AddStockData(StockData sd)
         {
+            if (FindHelper_.FindStock(sd.StockId, sd.TradeDate))
+            {
+                // Already exist
+                return;
+            }
+
             AllStock.Insert(sd);
             FindHelper_.AddStockDay(sd.StockId, sd.TradeDate);
         }
