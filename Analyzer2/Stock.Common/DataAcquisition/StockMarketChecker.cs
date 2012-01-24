@@ -14,8 +14,16 @@ namespace Stock.Common.DataAcquisition
         /// <returns></returns>
         public static bool IsChinaShanghaiStock(int stockId)
         {
-            // TODO: Questionable with funds
-            return (stockId / 1000) == 600;
+            int prefix = (stockId / 1000);
+
+            // 500 and 501 mean Shanghai Funds
+            if ((prefix == 600) || (prefix == 601)
+                || (prefix == 500) || (prefix == 501))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public static String ToYahooStockId(int stockId)

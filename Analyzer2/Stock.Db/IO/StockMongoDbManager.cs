@@ -14,17 +14,6 @@ namespace Stock.Db.IO
             Logger_ = logger;
         }
 
-        public void DownloadAllData(List<int> stockIds)
-        {
-            IDailyDownloader downloader = new ShDailyDownloader();
-
-            StockMongoDBSaver dbsaver = new StockMongoDBSaver();
-
-            Logger_.Log("Open DB finished!");
-            //List<int> stocks = new List<int>{600000, 600001};
-            downloader.DownloadData(dbsaver, stockIds);
-        }
-
         public void DownloadAllData(List<int> stockIds, DateTime startDate, DateTime endDate)
         {
             IDailyDownloader downloader = new ShDailyDownloader();

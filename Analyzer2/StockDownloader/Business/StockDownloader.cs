@@ -9,12 +9,6 @@ namespace StockDownloader.Business
 {
     class StocksDownloader
     {
-        public void Download(List<int> stockIds)
-        {
-            DateTime lastWeek = DateTime.Now.AddDays(-7);
-            Download(stockIds, lastWeek, DateTime.Now);
-        }
-
         public void Download(List<int> stockIds, DateTime startDate, DateTime endDate)
         {
             StockMongoDbManager mgr = new StockMongoDbManager();

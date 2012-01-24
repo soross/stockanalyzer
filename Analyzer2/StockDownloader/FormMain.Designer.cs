@@ -133,7 +133,7 @@
             this.Controls.Add(this.textBoxStockIDs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
-            this.Text = "StockImporter";
+            this.Text = "Stock Downloader";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
