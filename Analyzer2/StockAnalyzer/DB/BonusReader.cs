@@ -25,6 +25,11 @@ namespace FinanceAnalyzer.DB
 
         public IList<Bonus> Query(int stockId)
         {
+            if (_mapper == null)
+            {
+                _mapper = MyBatisDataMapper.GetMapper();
+            }
+
             return _mapper.QueryForList<Bonus>("SelectByStockId", stockId);
         }
 
