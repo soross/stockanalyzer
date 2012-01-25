@@ -156,7 +156,7 @@ namespace FinanceAnalyzer
             }
             _log.Info("Form loaded. Stock Count: " + totalStockCount);
 
-            _BonusProcessor.Load(_History.StockId, new BonusReader());
+            _BonusProcessor.Load(_History.StockId);
         }
 
         private void comboBoxStockId_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,6 +165,8 @@ namespace FinanceAnalyzer
             IEnumerable<StockData> stocks = _DbReader.Load(id);
 
             _History.InitAllStocks(id, stocks);
+
+            _BonusProcessor.Load(id);
 
             // 刷新界面显示
             ShowStockInfo();
