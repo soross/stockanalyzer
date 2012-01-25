@@ -8,8 +8,17 @@ namespace FinanceAnalyzer.Business
 {
     public class BonusProcessor : IBonusProcessor
     {
+        public void Load(int stockId)
+        {
+            IBonusReader reader = new BonusReader();
+
+            Load(stockId, reader);
+        }
+
         public void Load(int stockId, IBonusReader reader)
         {
+            Clear();
+
             _Bonuses = reader.Query(stockId);
 
             foreach (Bonus val in _Bonuses)
@@ -20,6 +29,14 @@ namespace FinanceAnalyzer.Business
 
                 _DateToBonus.Add(val.ExexDividend, val);
             }
+        }
+
+        private void Clear()
+        {
+            _BonusListOnDate.Clear();
+            _DividendDate.Clear();
+            _ExexDividendDate.Clear();
+            _DateToBonus.Clear();
         }
 
         // 是否是除权除息日
