@@ -7,7 +7,6 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.DB
 {
-    using Excel = Microsoft.Office.Interop.Excel;
     using System.Reflection;
     using System.Diagnostics;
     using System.Globalization;
@@ -23,78 +22,7 @@ namespace FinanceAnalyzer.DB
 
         private IStockSaver _StockDBSaver;
 
-        // 从文件加载
-        public void Import(string fileName)
-        {
-            if (_StockDBSaver == null)
-            {
-                _log.Error("File Import: Saver not init!!!");
-                return;
-            }
-
-            try
-            {
-                Excel.Application oXL = new Microsoft.Office.Interop.Excel.Application();
-                Excel.Workbook oWB = oXL.Workbooks.Open(fileName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value,
-                    Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, 
-                    Missing.Value, Missing.Value, Missing.Value, Missing.Value);
-
-                Excel._Worksheet sheet = (Excel._Worksheet)oWB.Sheets[1]; // 1-based
-
-                Excel.Range rge = sheet.UsedRange;
-                //
-                // Take the used range of the sheet. Finally, get an object array of all
-                // of the cells in the sheet (their values). You can do things with those
-                // values. See notes about compatibility.
-                //
-                object[,] valueArray = (object[,])rge.get_Value(
-                    Excel.XlRangeValueDataType.xlRangeValueDefault);
-
-                //Determine the dimensions of the array.
-                long iRows = valueArray.GetUpperBound(0);
-                long iCols = valueArray.GetUpperBound(1);
-
-                if ((iRows <= 2) || (iCols <= 8))
-                {
-                    oXL.Workbooks.Close();
-                    return;
-                }
-
-                _StockDBSaver.BeforeAdd();
-
-                const int STARTVAL = 1; // 数组或单元格的起始值
-
-                for (int i = STARTVAL + 2; i < iRows; i++)
-                {
-                    StockData data = new StockData();
-                    data.StockId = Convert.ToInt32(valueArray[STARTVAL, STARTVAL + 1], CultureInfo.CurrentCulture);
-                    data.TradeDate = DateFunc.ParseString(valueArray[i, STARTVAL]);
-                    data.StartPrice = Convert.ToDouble(valueArray[i, STARTVAL + 1], CultureInfo.CurrentCulture);
-                    data.MaxPrice = Convert.ToDouble(valueArray[i, STARTVAL + 2], CultureInfo.CurrentCulture);
-                    data.MinPrice = Convert.ToDouble(valueArray[i, STARTVAL + 3], CultureInfo.CurrentCulture);
-                    data.EndPrice = Convert.ToDouble(valueArray[i, STARTVAL + 4], CultureInfo.CurrentCulture);
-                    data.VolumeHand = Convert.ToInt32(valueArray[i, STARTVAL + 5], CultureInfo.CurrentCulture);
-                    data.Amount = Convert.ToDouble(valueArray[i, STARTVAL + 6], CultureInfo.CurrentCulture);
-
-                    // 保存
-                    _StockDBSaver.Add(data);
-                }
-
-                _StockDBSaver.AfterAdd();
-                _log.Info("Import complete!");
-            }
-            catch (Exception theException)
-            {
-                String errorMessage;
-                errorMessage = "Error: ";
-                errorMessage = String.Concat(errorMessage, theException.Message);
-                errorMessage = String.Concat(errorMessage, " Line: ");
-                errorMessage = String.Concat(errorMessage, theException.Source);
-
-                LogMgr.Logger.LogInfo(errorMessage, "Error");
-            }
-        }
-
+        
         // 从文件加载
         public void ImportYahoo(string fileName)
         {
