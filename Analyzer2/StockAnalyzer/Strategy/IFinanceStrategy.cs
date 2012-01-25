@@ -1,12 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
-using System.Globalization;
-using FinanceAnalyzer.DB;
-using FinanceAnalyzer.Log;
-using Stock.Common.Data;
 using FinanceAnalyzer.Stock;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy
 {
