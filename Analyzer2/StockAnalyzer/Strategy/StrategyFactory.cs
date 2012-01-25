@@ -75,6 +75,15 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(mixedCalc);
         }
 
+        private void AddMixedIndicators(IIndicatorCalc calc1, IndicatorMixedType type1,
+            IIndicatorCalc calc2, IndicatorMixedType type2)
+        {
+            MixedCalc mixedCalc = new MixedCalc();
+            mixedCalc.AddIndicator(calc1, type1);
+            mixedCalc.AddIndicator(calc2, type2);
+            AddStrategyByIndicator(mixedCalc);
+        }
+
         public IFinanceStrategy GetStrategy(string strategyName)
         {
             if (_AllStrategies.ContainsKey(strategyName))

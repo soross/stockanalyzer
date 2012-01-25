@@ -30,7 +30,7 @@ namespace FinanceAnalyzer.UI
             }
             else
             {
-                _DbImporter.Import(textBoxPath.Text);
+                //_DbImporter.Import(textBoxPath.Text);
             }
         }
 
