@@ -24,7 +24,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             get 
             { 
                 string calcnames = "";
-                foreach (IIndicatorCalc calc in _CalcArr)
+                foreach (IIndicatorCalc calc in IndicatorsArr_)
                 {
                     calcnames += calc.Name + ", ";
                 }
@@ -34,13 +34,13 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         public void AddIndicator(IIndicatorCalc calc, IndicatorMixedType type)
         {
-            _CalcArr.Add(calc);
-            _IndicatorTypes.Add(calc.Name, type);
+            IndicatorsArr_.Add(calc);
+            IndicatorTypes_.Add(calc.Name, type);
         }
 
         public override void Calc(IStockHistory hist)
         {
-            foreach (IIndicatorCalc calc in _CalcArr)
+            foreach (IIndicatorCalc calc in IndicatorsArr_)
             {
                 calc.Calc(hist);
             }
@@ -52,7 +52,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             {
                 DateTime prev = DateFunc.GetPreviousWorkday(startDate);
 
-                foreach (IIndicatorCalc calc in _CalcArr)
+                foreach (IIndicatorCalc calc in IndicatorsArr_)
                 {
                     OperType tp = calc.MatchSignal(startDate, prev);
 
@@ -82,12 +82,12 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         public bool IsSignalValid(string indicatorName, OperType operType)
         {
-            if (!_IndicatorTypes.ContainsKey(indicatorName))
+            if (!IndicatorTypes_.ContainsKey(indicatorName))
             {
                 return false;
             }
 
-            IndicatorMixedType tp = _IndicatorTypes[indicatorName];
+            IndicatorMixedType tp = IndicatorTypes_[indicatorName];
 
             switch (tp)
             {
@@ -104,7 +104,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        List<IIndicatorCalc> _CalcArr = new List<IIndicatorCalc>();
-        Dictionary<string, IndicatorMixedType> _IndicatorTypes = new Dictionary<string, IndicatorMixedType>();
+        List<IIndicatorCalc> IndicatorsArr_ = new List<IIndicatorCalc>();
+        Dictionary<string, IndicatorMixedType> IndicatorTypes_ = new Dictionary<string, IndicatorMixedType>();
     }
 }
