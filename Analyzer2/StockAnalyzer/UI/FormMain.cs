@@ -6,13 +6,12 @@ using System.Windows.Forms;
 using FinanceAnalyzer.Business;
 using FinanceAnalyzer.DB;
 using FinanceAnalyzer.Log;
+using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Strategy;
+using FinanceAnalyzer.Strategy.Factory;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
-using MyBatis.DataMapper;
-using FinanceAnalyzer.Strategy.Factory;
 using Stock.Common.Data;
-using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer
 { 
@@ -158,9 +157,6 @@ namespace FinanceAnalyzer
             _log.Info("Form loaded. Stock Count: " + totalStockCount);
 
             _BonusProcessor.Load(_History.StockId, new BonusReader());
-
-            //ShDailyDownloader downloader = new ShDailyDownloader();
-            //downloader.DownloadData(null, 600036);
         }
 
         private void comboBoxStockId_SelectedIndexChanged(object sender, EventArgs e)
