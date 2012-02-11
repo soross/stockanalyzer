@@ -30,10 +30,7 @@ namespace FinanceAnalyzer.Stock
 
         // 得到前一个工作日
         DateTime GetPreviousDay(DateTime dt);
-
-        // 得到前N个工作日
-        DateTime GetPreviousNDay(DateTime dt, int n);
-
+        
         bool IsOperSuccess(DateTime dt, StockOper oper);
 
         void AddStock(DateTime dt, IStockData stock);

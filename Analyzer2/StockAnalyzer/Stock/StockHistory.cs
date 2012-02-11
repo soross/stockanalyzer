@@ -139,12 +139,6 @@ namespace FinanceAnalyzer.Stock
             return prevDay;
         }
 
-        // 得到前N个工作日
-        public DateTime GetPreviousNDay(DateTime dt, int n)
-        {
-            return DateTime.MinValue;
-        }
-
         public bool IsOperSuccess(DateTime dt, StockOper oper)
         {
             if (oper == null)

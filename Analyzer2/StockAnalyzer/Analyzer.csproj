@@ -112,6 +112,7 @@
     <Compile Include="Judger\Validation\SignalValidationCalc.cs" />
     <Compile Include="Judger\Validation\ValidationJudger.cs" />
     <Compile Include="Stock\ScoresCalculator.cs" />
+    <Compile Include="Stock\StocksHistory.cs" />
     <Compile Include="Strategy\Factory\KdAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\RiseDownAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\SpikeAdjustFactory.cs" />
@@ -374,7 +375,9 @@
       <Name>Stock.Db</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Business\Similiarity\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
