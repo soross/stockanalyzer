@@ -5,6 +5,9 @@ using System.Text;
 
 namespace FinanceAnalyzer.Judger
 {
+    /// <summary>
+    /// Performance scores of each strategy
+    /// </summary>
     public interface IStrategyScores
     {
         void AddScore(string strategyName, double score);

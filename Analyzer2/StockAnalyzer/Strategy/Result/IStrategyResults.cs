@@ -12,7 +12,7 @@ namespace FinanceAnalyzer.Strategy.Result
     public interface IStrategyResults
     {
         /// <summary>
-        /// Get strategy performance of each day
+        /// Get strategy trade results of each day
         /// </summary>
         /// <param name="strategyName">strategy name</param>
         /// <returns>strategy performance</returns>
