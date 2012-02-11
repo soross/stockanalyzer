@@ -5,7 +5,9 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Stock
 {
-    // 保存所有交易日每一天的市值（股票资产加现金） 
+    /// <summary>
+    /// 保存所有交易日每一天的市值（股票资产加现金） 
+    /// </summary>
     public interface IStockValues
     {
         // 得到某天的市值
