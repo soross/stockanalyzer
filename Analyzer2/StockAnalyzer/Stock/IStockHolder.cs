@@ -4,6 +4,9 @@ using System.Text;
 
 namespace FinanceAnalyzer.Stock
 {
+    /// <summary>
+    /// manage buyed stocks and bonuses
+    /// </summary>
     public interface IStockHolder
     {
         bool HasStock();
