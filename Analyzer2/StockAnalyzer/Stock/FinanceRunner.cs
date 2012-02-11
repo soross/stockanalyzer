@@ -11,6 +11,9 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Stock
 {
+    /// <summary>
+    /// Calculate results using specified stock and strategies
+    /// </summary>
     public class FinanceRunner
     {
         private const double INITCASH = 100000; // 初始化的账户金额 

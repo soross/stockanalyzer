@@ -11,8 +11,18 @@ using FinanceAnalyzer.Business;
 
 namespace FinanceAnalyzer.Stock
 {
+    /// <summary>
+    /// Calculate score of each strategy
+    /// strategy comes from StrategyFactory
+    /// </summary>
     public class ScoresCalculator
     {
+        /// <summary>
+        /// Calculate score of each strategy
+        /// </summary>
+        /// <param name="history">One stock history</param>
+        /// <param name="factory">Strategy Factory</param>
+        /// <param name="reader">Bonus imformation</param>
         public void Calc(IStockHistory history, IStrategyFactory factory, IBonusProcessor reader)
         {
             FinanceRunner runner = new FinanceRunner();
