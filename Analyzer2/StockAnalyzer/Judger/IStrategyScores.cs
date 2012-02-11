@@ -10,6 +10,11 @@ namespace FinanceAnalyzer.Judger
     /// </summary>
     public interface IStrategyScores
     {
+        /// <summary>
+        /// add a score to exist score of one strategy
+        /// </summary>
+        /// <param name="strategyName">strategy name</param>
+        /// <param name="score">score</param>
         void AddScore(string strategyName, double score);
 
         void SetScore(string strategyName, double score);
