@@ -140,6 +140,11 @@ namespace FinanceAnalyzer
         {
         }
 
+        public IStockHistory GetPartStockHistory(DateTime startDate, DateTime endDate)
+        {
+            return null;
+        }
+
         private Dictionary<DateTime, StockData> _DailyStocks = new Dictionary<DateTime, StockData>();
 
     }

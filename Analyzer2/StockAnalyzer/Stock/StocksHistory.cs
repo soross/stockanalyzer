@@ -23,6 +23,17 @@ namespace FinanceAnalyzer.Stock
             }            
         }
 
+        public IEnumerable<IStockHistory> GetAllHistories()
+        {
+            return Histories_;
+        }
+
+        public IStockHistory GetHistory(int stockId)
+        {
+            var result = (from item in Histories_ where item.StockId == stockId select item).FirstOrDefault();
+            return result;
+        }
+
         List<IStockHistory> Histories_ = new List<IStockHistory>();
     }
 }

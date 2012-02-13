@@ -57,8 +57,9 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingGroupBox = new System.Windows.Forms.GroupBox();
-            this.groupBoxAction = new System.Windows.Forms.GroupBox();
             this.buttonChart = new System.Windows.Forms.Button();
+            this.groupBoxAction = new System.Windows.Forms.GroupBox();
+            this.buttonHistoryAnalyze = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             this.SettingGroupBox.SuspendLayout();
             this.groupBoxAction.SuspendLayout();
@@ -68,19 +69,17 @@
             // 
             this.listBoxLog.FormattingEnabled = true;
             this.listBoxLog.HorizontalScrollbar = true;
-            this.listBoxLog.ItemHeight = 15;
-            this.listBoxLog.Location = new System.Drawing.Point(15, 337);
-            this.listBoxLog.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxLog.ItemHeight = 12;
+            this.listBoxLog.Location = new System.Drawing.Point(11, 270);
             this.listBoxLog.Name = "listBoxLog";
-            this.listBoxLog.Size = new System.Drawing.Size(697, 229);
+            this.listBoxLog.Size = new System.Drawing.Size(524, 184);
             this.listBoxLog.TabIndex = 1;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(574, 65);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Location = new System.Drawing.Point(402, 52);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(116, 30);
+            this.buttonSave.Size = new System.Drawing.Size(115, 24);
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Save Log";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -88,10 +87,9 @@
             // 
             // buttonCompare
             // 
-            this.buttonCompare.Location = new System.Drawing.Point(16, 63);
-            this.buttonCompare.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCompare.Location = new System.Drawing.Point(12, 50);
             this.buttonCompare.Name = "buttonCompare";
-            this.buttonCompare.Size = new System.Drawing.Size(130, 30);
+            this.buttonCompare.Size = new System.Drawing.Size(98, 24);
             this.buttonCompare.TabIndex = 5;
             this.buttonCompare.Text = "View Result...";
             this.buttonCompare.UseVisualStyleBackColor = true;
@@ -99,10 +97,9 @@
             // 
             // buttonCalc
             // 
-            this.buttonCalc.Location = new System.Drawing.Point(16, 25);
-            this.buttonCalc.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCalc.Location = new System.Drawing.Point(12, 20);
             this.buttonCalc.Name = "buttonCalc";
-            this.buttonCalc.Size = new System.Drawing.Size(130, 30);
+            this.buttonCalc.Size = new System.Drawing.Size(98, 24);
             this.buttonCalc.TabIndex = 8;
             this.buttonCalc.Text = "Calculate...";
             this.buttonCalc.UseVisualStyleBackColor = true;
@@ -111,79 +108,85 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(322, 61);
+            this.label1.Location = new System.Drawing.Point(242, 49);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 9;
             this.label1.Text = "Min Date: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(500, 61);
+            this.label2.Location = new System.Drawing.Point(375, 49);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 15);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 10;
             this.label2.Text = "Max Date: ";
             // 
             // labelMinDate
             // 
             this.labelMinDate.AutoSize = true;
-            this.labelMinDate.Location = new System.Drawing.Point(415, 61);
+            this.labelMinDate.Location = new System.Drawing.Point(311, 49);
+            this.labelMinDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMinDate.Name = "labelMinDate";
-            this.labelMinDate.Size = new System.Drawing.Size(79, 15);
+            this.labelMinDate.Size = new System.Drawing.Size(59, 12);
             this.labelMinDate.TabIndex = 11;
             this.labelMinDate.Text = "(Unknown)";
             // 
             // labelMaxDate
             // 
             this.labelMaxDate.AutoSize = true;
-            this.labelMaxDate.Location = new System.Drawing.Point(593, 60);
+            this.labelMaxDate.Location = new System.Drawing.Point(445, 48);
+            this.labelMaxDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMaxDate.Name = "labelMaxDate";
-            this.labelMaxDate.Size = new System.Drawing.Size(87, 15);
+            this.labelMaxDate.Size = new System.Drawing.Size(65, 12);
             this.labelMaxDate.TabIndex = 12;
             this.labelMaxDate.Text = "(Unknown) ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 35);
+            this.label3.Location = new System.Drawing.Point(10, 28);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 15);
+            this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 13;
             this.label3.Text = "Start Date: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 65);
+            this.label4.Location = new System.Drawing.Point(10, 52);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 15);
+            this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 14;
             this.label4.Text = "End Date: ";
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(136, 28);
-            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(102, 22);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(153, 25);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(116, 21);
             this.dateTimePickerStart.TabIndex = 15;
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(136, 65);
-            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(102, 52);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(153, 25);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(116, 21);
             this.dateTimePickerEnd.TabIndex = 16;
             // 
             // buttonResetStart
             // 
-            this.buttonResetStart.Location = new System.Drawing.Point(310, 28);
-            this.buttonResetStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonResetStart.Location = new System.Drawing.Point(232, 22);
+            this.buttonResetStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonResetStart.Name = "buttonResetStart";
-            this.buttonResetStart.Size = new System.Drawing.Size(79, 25);
+            this.buttonResetStart.Size = new System.Drawing.Size(59, 20);
             this.buttonResetStart.TabIndex = 17;
             this.buttonResetStart.Text = "Reset";
             this.buttonResetStart.UseVisualStyleBackColor = true;
@@ -191,10 +194,10 @@
             // 
             // buttonResetEnd
             // 
-            this.buttonResetEnd.Location = new System.Drawing.Point(310, 62);
-            this.buttonResetEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonResetEnd.Location = new System.Drawing.Point(232, 50);
+            this.buttonResetEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonResetEnd.Name = "buttonResetEnd";
-            this.buttonResetEnd.Size = new System.Drawing.Size(79, 28);
+            this.buttonResetEnd.Size = new System.Drawing.Size(59, 22);
             this.buttonResetEnd.TabIndex = 18;
             this.buttonResetEnd.Text = "Reset";
             this.buttonResetEnd.UseVisualStyleBackColor = true;
@@ -203,9 +206,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 61);
+            this.label5.Location = new System.Drawing.Point(9, 49);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 15);
+            this.label5.Size = new System.Drawing.Size(89, 12);
             this.label5.TabIndex = 20;
             this.label5.Text = "Select Stock: ";
             // 
@@ -213,19 +217,18 @@
             // 
             this.comboBoxStockId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStockId.FormattingEnabled = true;
-            this.comboBoxStockId.Location = new System.Drawing.Point(151, 57);
-            this.comboBoxStockId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxStockId.Location = new System.Drawing.Point(113, 46);
+            this.comboBoxStockId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxStockId.Name = "comboBoxStockId";
-            this.comboBoxStockId.Size = new System.Drawing.Size(153, 23);
+            this.comboBoxStockId.Size = new System.Drawing.Size(116, 20);
             this.comboBoxStockId.TabIndex = 21;
             this.comboBoxStockId.SelectedIndexChanged += new System.EventHandler(this.comboBoxStockId_SelectedIndexChanged);
             // 
             // buttonAutoComp
             // 
-            this.buttonAutoComp.Location = new System.Drawing.Point(154, 63);
-            this.buttonAutoComp.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAutoComp.Location = new System.Drawing.Point(116, 50);
             this.buttonAutoComp.Name = "buttonAutoComp";
-            this.buttonAutoComp.Size = new System.Drawing.Size(116, 30);
+            this.buttonAutoComp.Size = new System.Drawing.Size(87, 24);
             this.buttonAutoComp.TabIndex = 25;
             this.buttonAutoComp.Text = "Auto Compare";
             this.buttonAutoComp.UseVisualStyleBackColor = true;
@@ -233,10 +236,9 @@
             // 
             // buttonCalcAdjust
             // 
-            this.buttonCalcAdjust.Location = new System.Drawing.Point(154, 25);
-            this.buttonCalcAdjust.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCalcAdjust.Location = new System.Drawing.Point(116, 20);
             this.buttonCalcAdjust.Name = "buttonCalcAdjust";
-            this.buttonCalcAdjust.Size = new System.Drawing.Size(116, 30);
+            this.buttonCalcAdjust.Size = new System.Drawing.Size(87, 24);
             this.buttonCalcAdjust.TabIndex = 26;
             this.buttonCalcAdjust.Text = "Adjust Param";
             this.buttonCalcAdjust.UseVisualStyleBackColor = true;
@@ -250,7 +252,8 @@
             this.viewToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(724, 28);
+            this.menuStripMain.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStripMain.Size = new System.Drawing.Size(543, 25);
             this.menuStripMain.TabIndex = 27;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -261,26 +264,26 @@
             this.downloadToolStripMenuItem,
             this.addBounusToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // importYahooToolStripMenuItem
             // 
             this.importYahooToolStripMenuItem.Name = "importYahooToolStripMenuItem";
-            this.importYahooToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.importYahooToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.importYahooToolStripMenuItem.Text = "&Import Yahoo...";
             this.importYahooToolStripMenuItem.Click += new System.EventHandler(this.importYahooToolStripMenuItem_Click);
             // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.downloadToolStripMenuItem.Text = "&Download...";
             // 
             // addBounusToolStripMenuItem
             // 
             this.addBounusToolStripMenuItem.Name = "addBounusToolStripMenuItem";
-            this.addBounusToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.addBounusToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addBounusToolStripMenuItem.Text = "&Add Bonus...";
             this.addBounusToolStripMenuItem.Click += new System.EventHandler(this.addBounusToolStripMenuItem_Click);
             // 
@@ -289,13 +292,13 @@
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkConsistencyToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.dataToolStripMenuItem.Text = "&Data";
             // 
             // checkConsistencyToolStripMenuItem
             // 
             this.checkConsistencyToolStripMenuItem.Name = "checkConsistencyToolStripMenuItem";
-            this.checkConsistencyToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
+            this.checkConsistencyToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.checkConsistencyToolStripMenuItem.Text = "&Check Consistency";
             this.checkConsistencyToolStripMenuItem.Click += new System.EventHandler(this.checkConsistencyToolStripMenuItem_Click);
             // 
@@ -304,13 +307,13 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stockChartToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.viewToolStripMenuItem.Text = "&View";
             // 
             // stockChartToolStripMenuItem
             // 
             this.stockChartToolStripMenuItem.Name = "stockChartToolStripMenuItem";
-            this.stockChartToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.stockChartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stockChartToolStripMenuItem.Text = "&Stock Chart...";
             this.stockChartToolStripMenuItem.Click += new System.EventHandler(this.stockChartToolStripMenuItem_Click);
             // 
@@ -323,43 +326,57 @@
             this.SettingGroupBox.Controls.Add(this.label4);
             this.SettingGroupBox.Controls.Add(this.dateTimePickerEnd);
             this.SettingGroupBox.Controls.Add(this.buttonResetEnd);
-            this.SettingGroupBox.Location = new System.Drawing.Point(15, 106);
+            this.SettingGroupBox.Location = new System.Drawing.Point(11, 85);
+            this.SettingGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SettingGroupBox.Name = "SettingGroupBox";
-            this.SettingGroupBox.Size = new System.Drawing.Size(697, 102);
+            this.SettingGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SettingGroupBox.Size = new System.Drawing.Size(523, 82);
             this.SettingGroupBox.TabIndex = 28;
             this.SettingGroupBox.TabStop = false;
             this.SettingGroupBox.Text = "Setting";
             // 
-            // groupBoxAction
-            // 
-            this.groupBoxAction.Controls.Add(this.buttonAutoComp);
-            this.groupBoxAction.Controls.Add(this.buttonCalcAdjust);
-            this.groupBoxAction.Controls.Add(this.buttonCalc);
-            this.groupBoxAction.Controls.Add(this.buttonCompare);
-            this.groupBoxAction.Controls.Add(this.buttonSave);
-            this.groupBoxAction.Location = new System.Drawing.Point(15, 224);
-            this.groupBoxAction.Name = "groupBoxAction";
-            this.groupBoxAction.Size = new System.Drawing.Size(697, 102);
-            this.groupBoxAction.TabIndex = 29;
-            this.groupBoxAction.TabStop = false;
-            this.groupBoxAction.Text = "Action";
-            // 
             // buttonChart
             // 
-            this.buttonChart.Location = new System.Drawing.Point(574, 62);
-            this.buttonChart.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonChart.Location = new System.Drawing.Point(430, 50);
             this.buttonChart.Name = "buttonChart";
-            this.buttonChart.Size = new System.Drawing.Size(116, 30);
+            this.buttonChart.Size = new System.Drawing.Size(87, 24);
             this.buttonChart.TabIndex = 27;
             this.buttonChart.Text = "Show Chart";
             this.buttonChart.UseVisualStyleBackColor = true;
             this.buttonChart.Click += new System.EventHandler(this.buttonChart_Click);
             // 
+            // groupBoxAction
+            // 
+            this.groupBoxAction.Controls.Add(this.buttonHistoryAnalyze);
+            this.groupBoxAction.Controls.Add(this.buttonAutoComp);
+            this.groupBoxAction.Controls.Add(this.buttonCalcAdjust);
+            this.groupBoxAction.Controls.Add(this.buttonCalc);
+            this.groupBoxAction.Controls.Add(this.buttonCompare);
+            this.groupBoxAction.Controls.Add(this.buttonSave);
+            this.groupBoxAction.Location = new System.Drawing.Point(11, 179);
+            this.groupBoxAction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxAction.Name = "groupBoxAction";
+            this.groupBoxAction.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxAction.Size = new System.Drawing.Size(523, 82);
+            this.groupBoxAction.TabIndex = 29;
+            this.groupBoxAction.TabStop = false;
+            this.groupBoxAction.Text = "Action";
+            // 
+            // buttonHistoryAnalyze
+            // 
+            this.buttonHistoryAnalyze.Location = new System.Drawing.Point(402, 22);
+            this.buttonHistoryAnalyze.Name = "buttonHistoryAnalyze";
+            this.buttonHistoryAnalyze.Size = new System.Drawing.Size(115, 24);
+            this.buttonHistoryAnalyze.TabIndex = 27;
+            this.buttonHistoryAnalyze.Text = "History Analyse";
+            this.buttonHistoryAnalyze.UseVisualStyleBackColor = true;
+            this.buttonHistoryAnalyze.Click += new System.EventHandler(this.buttonHistoryAnalyze_Click);
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 582);
+            this.ClientSize = new System.Drawing.Size(543, 466);
             this.Controls.Add(this.groupBoxAction);
             this.Controls.Add(this.SettingGroupBox);
             this.Controls.Add(this.comboBoxStockId);
@@ -372,12 +389,11 @@
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockAnalyzer";
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.SettingGroupBox.ResumeLayout(false);
@@ -420,6 +436,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockChartToolStripMenuItem;
         private System.Windows.Forms.Button buttonChart;
+        private System.Windows.Forms.Button buttonHistoryAnalyze;
     }
 }
 

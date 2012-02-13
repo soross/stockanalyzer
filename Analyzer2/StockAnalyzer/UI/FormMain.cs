@@ -252,5 +252,40 @@ namespace FinanceAnalyzer
 
             chart.ShowDialog();
         }
+
+        private void buttonHistoryAnalyze_Click(object sender, EventArgs e)
+        {
+            // Load from DB
+            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240};
+
+            StocksHistory histories = new StocksHistory();
+            histories.Load(allStockId);
+
+            StockCharMappingAnalyzer analyzer = new StockCharMappingAnalyzer();
+
+            analyzer.Init(histories);
+
+            int firstId = 0;
+            foreach (int stockId in allStockId)
+            {
+                firstId = stockId;
+                break;
+            }
+
+            IStockHistory history = histories.GetHistory(firstId);
+            if (history == null)
+            {
+                return;
+            }
+
+            IStockHistory oneWeekHistory = history.GetPartStockHistory(history.MaxDate.AddDays(-9),
+                history.MaxDate);
+            if (oneWeekHistory == null)
+            {
+                return;
+            }
+
+            analyzer.FindMatches(oneWeekHistory);
+        }
     }
 }
