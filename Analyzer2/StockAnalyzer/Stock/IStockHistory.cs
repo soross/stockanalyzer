@@ -34,5 +34,7 @@ namespace FinanceAnalyzer.Stock
         bool IsOperSuccess(DateTime dt, StockOper oper);
 
         void AddStock(DateTime dt, IStockData stock);
+
+        IStockHistory GetPartStockHistory(DateTime startDate, DateTime endDate);
     }
 }

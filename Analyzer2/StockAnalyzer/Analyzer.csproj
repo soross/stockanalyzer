@@ -112,6 +112,8 @@
     <Compile Include="Judger\Validation\SignalValidationCalc.cs" />
     <Compile Include="Judger\Validation\ValidationJudger.cs" />
     <Compile Include="Stock\ScoresCalculator.cs" />
+    <Compile Include="Stock\StockCharMappingAnalyzer.cs" />
+    <Compile Include="Stock\StockHistoryCharMapping.cs" />
     <Compile Include="Stock\StocksHistory.cs" />
     <Compile Include="Strategy\Factory\KdAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\RiseDownAdjustFactory.cs" />

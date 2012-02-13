@@ -251,6 +251,28 @@ namespace FinanceAnalyzer.Stock
             return true;
         }
 
+        public IStockHistory GetPartStockHistory(DateTime startDate, DateTime endDate)
+        {
+            if (startDate >= endDate)
+            {
+                throw new ArgumentException();
+            }
+
+            IStockHistory hist = new StockHistory();
+            DateTime currentDate = startDate;
+            while (currentDate < endDate)
+            {
+                IStockData sd = GetStock(currentDate);
+                if (sd != null)
+                {
+                    hist.AddStock(currentDate, sd);
+                }
+                currentDate = DateFunc.GetNextWorkday(currentDate);
+            }
+
+            return hist;
+        }
+
         private const double COMPRATIO = 0.1; // 表示每日上涨或者下跌的最大允许值 
 
         private Dictionary<DateTime, IStockData> _DailyStocks = new Dictionary<DateTime, IStockData>();
