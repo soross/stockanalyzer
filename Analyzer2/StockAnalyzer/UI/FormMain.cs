@@ -14,7 +14,7 @@ using FinanceAnalyzer.UI;
 using Stock.Common.Data;
 
 namespace FinanceAnalyzer
-{ 
+{
     public partial class FormMain : Form
     {
         public FormMain()
@@ -88,7 +88,7 @@ namespace FinanceAnalyzer
         {
             SetUserDefinedDate();
 
-            _log.Info("==>Calculate start. Start Date = " + _History.MinDate.ToLongDateString() 
+            _log.Info("==>Calculate start. Start Date = " + _History.MinDate.ToLongDateString()
                 + ", End Date = " + _History.MaxDate.ToLongDateString());
 
             FormStrategy frm = new FormStrategy();
@@ -98,7 +98,7 @@ namespace FinanceAnalyzer
                 return;
             }
 
-            FinanceRunner runner = new FinanceRunner();            
+            FinanceRunner runner = new FinanceRunner();
             runner.CurrentBonusProcessor = _BonusProcessor;
 
             runner.Go(_History, frm.Factory);
@@ -210,7 +210,7 @@ namespace FinanceAnalyzer
         }
 
         IStockDBReader _DbReader;
-        
+
         BonusProcessor _BonusProcessor = new BonusProcessor();
 
         private void importYahooToolStripMenuItem_Click(object sender, EventArgs e)
@@ -259,7 +259,8 @@ namespace FinanceAnalyzer
             //IEnumerable<int> allStockId = _DbReader.LoadAllIds();
 
             // Load from DB
-            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 600008, 600009, 600010};
+            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 
+                600008, 600009, 600010,600019,600020,600021,600022};
 
             StocksHistory histories = new StocksHistory();
             histories.Load(allStockId);

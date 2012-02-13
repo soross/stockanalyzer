@@ -22,6 +22,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
             for (int i = -101; i < 102; i++)
             {
                 RatioToString_.Add(i, chars[i + 101]);
+                StringToRatio_.Add(chars[i + 101], i);
             }
         }
 
@@ -41,6 +42,16 @@ namespace FinanceAnalyzer.Stock.CharMapping
             {
                 return RatioToString_[r];
             }
+        }
+
+        public override StockRatio ParseRatio(string s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int stockDayStringLength()
+        {
+            return 8;
         }
 
         const int MINRATIO = -101;

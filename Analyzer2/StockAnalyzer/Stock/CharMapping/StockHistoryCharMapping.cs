@@ -22,6 +22,8 @@ namespace FinanceAnalyzer.Stock.CharMapping
 
         protected abstract void Init();
         protected abstract string GetRatioString(double ratio);
+        public abstract StockRatio ParseRatio(string s);
+        public abstract int stockDayStringLength();
         
         public string GetCharMapping(IStockHistory hist)
         {
@@ -76,5 +78,6 @@ namespace FinanceAnalyzer.Stock.CharMapping
         }
 
         protected Dictionary<int, string> RatioToString_ = new Dictionary<int, string>();
+        protected Dictionary<string, int> StringToRatio_ = new Dictionary<string, int>();
     }
 }
