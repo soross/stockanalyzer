@@ -107,6 +107,7 @@
     <Compile Include="Stock\CharMapping\RatioPercentCharMapping.cs" />
     <Compile Include="Stock\CharMapping\RatioQuarterCharMapping.cs" />
     <Compile Include="Stock\CharMapping\RatioTenthCharMapping.cs" />
+    <Compile Include="Stock\CharMapping\StockRatio.cs" />
     <Compile Include="Stock\HolderManager.cs" />
     <Compile Include="Stock\IStockHistory.cs" />
     <Compile Include="Judger\IStrategyJudger.cs" />

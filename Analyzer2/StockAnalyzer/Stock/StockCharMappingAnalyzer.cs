@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FinanceAnalyzer.Stock.CharMapping;
+using FinanceAnalyzer.Log;
 
 namespace FinanceAnalyzer.Stock
 {
@@ -30,6 +31,8 @@ namespace FinanceAnalyzer.Stock
             {
                 AnalyzeNextDay(item, s);
             }
+
+            PrintResult();
         }
 
         void AnalyzeNextDay(string stockHistString, string findStockString)
@@ -40,25 +43,34 @@ namespace FinanceAnalyzer.Stock
 
             while ((pos = stockHistString.IndexOf(findStockString, prevPos)) != -1)
             {
-                posNextDayStart = pos + DAY_STOCK_STR_LENGTH + 1;
+                posNextDayStart = pos + StringMapping_.stockDayStringLength() + 1;
 
-                if (posNextDayStart >= stockHistString.Length)
+                if ((posNextDayStart + StringMapping_.stockDayStringLength()) >= stockHistString.Length)
                 {
                     break;
                 }
 
-                string s = stockHistString.Substring(posNextDayStart, 
-                    posNextDayStart + DAY_STOCK_STR_LENGTH);
+                string s = stockHistString.Substring(posNextDayStart,
+                    StringMapping_.stockDayStringLength());
                 FoundedNextDays_.Add(s);
 
                 prevPos = pos + 1;
             }
         }
 
+        void PrintResult()
+        {
+            foreach (string s in FoundedNextDays_)
+            {
+                StockRatio ratio = StringMapping_.ParseRatio(s);
+
+                string dbgString = ratio.GetDescription();
+                LogMgr.Logger.LogInfo(dbgString);
+            }
+        }
+
         StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping();
         List<string> StockMappings_ = new List<string>();
         List<string> FoundedNextDays_ = new List<string>();
-
-        const int DAY_STOCK_STR_LENGTH = 8;
     }
 }

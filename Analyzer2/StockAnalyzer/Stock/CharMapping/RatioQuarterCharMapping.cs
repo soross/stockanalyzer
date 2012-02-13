@@ -15,6 +15,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
             {
                 string s = Convert.ToChar(i + 41 + 35).ToString(); // Start from ASCII 35 
                 RatioToString_.Add(i, s);
+                StringToRatio_.Add(s, i);
             }
         }
 
@@ -34,6 +35,16 @@ namespace FinanceAnalyzer.Stock.CharMapping
             {
                 return RatioToString_[r];
             }
+        }
+
+        public override StockRatio ParseRatio(string s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int stockDayStringLength()
+        {
+            return 4;
         }
 
         const int MINRATIOQUARTER = -41;
