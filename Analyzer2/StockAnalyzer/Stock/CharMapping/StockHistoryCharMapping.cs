@@ -5,12 +5,12 @@ using System.Text;
 using Stock.Common.Data;
 using FinanceAnalyzer.Utility;
 
-namespace FinanceAnalyzer.Stock
+namespace FinanceAnalyzer.Stock.CharMapping
 {
     /// <summary>
     /// Convert Stock history to a string for find
     /// </summary>
-    class StockHistoryCharMapping
+    abstract class StockHistoryCharMapping
     {
         /// <summary>
         /// Init String map
@@ -20,41 +20,8 @@ namespace FinanceAnalyzer.Stock
             Init();
         }
 
-        void Init()
-        {
-            List<string> chars = new List<string>();
-            for (int i = 0; i < 10; i++)
-            {
-                for (char j = 'a'; j < 'z'; j++)
-                {
-                    string s = string.Format("{0}{1}", j.ToString(), i);
-                    chars.Add(s);
-                }
-            }
-
-            for (int i = -101; i < 102; i++)
-            {
-                RatioToString_.Add(i, chars[i + 101]);
-            }
-        }
-
-        string GetRatioString(double ratio)
-        {
-            int r = (int)(ratio * 1000) + 101;
-
-            if (r > MAXRATIO)
-            {
-                return RatioToString_[MAXRATIO];
-            }
-            else if (r < MINRATIO)
-            {
-                return RatioToString_[MINRATIO];
-            }
-            else
-            {
-                return RatioToString_[r];
-            }
-        }
+        protected abstract void Init();
+        protected abstract string GetRatioString(double ratio);
         
         public string GetCharMapping(IStockHistory hist)
         {
@@ -108,9 +75,6 @@ namespace FinanceAnalyzer.Stock
             return todayMapping;
         }
 
-        const int MINRATIO = -101;
-        const int MAXRATIO = 101;
-
-        Dictionary<int, string> RatioToString_ = new Dictionary<int, string>();
+        protected Dictionary<int, string> RatioToString_ = new Dictionary<int, string>();
     }
 }
