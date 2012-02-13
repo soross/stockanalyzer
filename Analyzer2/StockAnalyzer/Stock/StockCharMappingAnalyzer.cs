@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FinanceAnalyzer.Stock.CharMapping;
 
 namespace FinanceAnalyzer.Stock
 {
@@ -40,6 +41,12 @@ namespace FinanceAnalyzer.Stock
             while ((pos = stockHistString.IndexOf(findStockString, prevPos)) != -1)
             {
                 posNextDayStart = pos + DAY_STOCK_STR_LENGTH + 1;
+
+                if (posNextDayStart >= stockHistString.Length)
+                {
+                    break;
+                }
+
                 string s = stockHistString.Substring(posNextDayStart, 
                     posNextDayStart + DAY_STOCK_STR_LENGTH);
                 FoundedNextDays_.Add(s);
@@ -48,7 +55,7 @@ namespace FinanceAnalyzer.Stock
             }
         }
 
-        StockHistoryCharMapping StringMapping_ = new StockHistoryCharMapping();
+        StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping();
         List<string> StockMappings_ = new List<string>();
         List<string> FoundedNextDays_ = new List<string>();
 

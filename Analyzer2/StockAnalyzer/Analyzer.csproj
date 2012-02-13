@@ -103,6 +103,10 @@
     <Compile Include="DB\StockImporter2.cs" />
     <Compile Include="DB\StockJudger.cs" />
     <Compile Include="Display\StockPoint.cs" />
+    <Compile Include="Stock\CharMapping\RatioHalfCharMapping.cs" />
+    <Compile Include="Stock\CharMapping\RatioPercentCharMapping.cs" />
+    <Compile Include="Stock\CharMapping\RatioQuarterCharMapping.cs" />
+    <Compile Include="Stock\CharMapping\RatioTenthCharMapping.cs" />
     <Compile Include="Stock\HolderManager.cs" />
     <Compile Include="Stock\IStockHistory.cs" />
     <Compile Include="Judger\IStrategyJudger.cs" />
@@ -113,7 +117,7 @@
     <Compile Include="Judger\Validation\ValidationJudger.cs" />
     <Compile Include="Stock\ScoresCalculator.cs" />
     <Compile Include="Stock\StockCharMappingAnalyzer.cs" />
-    <Compile Include="Stock\StockHistoryCharMapping.cs" />
+    <Compile Include="Stock\CharMapping\StockHistoryCharMapping.cs" />
     <Compile Include="Stock\StocksHistory.cs" />
     <Compile Include="Strategy\Factory\KdAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\RiseDownAdjustFactory.cs" />

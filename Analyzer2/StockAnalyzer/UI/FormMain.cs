@@ -256,7 +256,10 @@ namespace FinanceAnalyzer
         private void buttonHistoryAnalyze_Click(object sender, EventArgs e)
         {
             // Load from DB
-            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240};
+            //IEnumerable<int> allStockId = _DbReader.LoadAllIds();
+
+            // Load from DB
+            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 600008, 600009, 600010};
 
             StocksHistory histories = new StocksHistory();
             histories.Load(allStockId);
@@ -278,7 +281,7 @@ namespace FinanceAnalyzer
                 return;
             }
 
-            IStockHistory oneWeekHistory = history.GetPartStockHistory(history.MaxDate.AddDays(-9),
+            IStockHistory oneWeekHistory = history.GetPartStockHistory(history.MaxDate.AddDays(-7),
                 history.MaxDate);
             if (oneWeekHistory == null)
             {
