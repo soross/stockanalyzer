@@ -61,12 +61,19 @@ namespace FinanceAnalyzer.Stock.CharMapping
             {
                 throw new ArgumentNullException();
             }
-
+            
             double priseRatio = 0.0;
             if (prevData != null)
             {
                 priseRatio = (todayData.StartPrice - prevData.EndPrice) / prevData.EndPrice;
             }
+
+            if (todayData.AllPriceSame && (priseRatio < 0.0001))
+            {
+                // 处理停牌的情况
+                return "";
+            }
+
             double upRatio = (todayData.MaxPrice - todayData.StartPrice) / todayData.StartPrice;
             double downRatio = (todayData.MinPrice - todayData.StartPrice) / todayData.StartPrice;
             double endRatio = (todayData.EndPrice - todayData.StartPrice) / todayData.StartPrice;
@@ -76,7 +83,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
 
             return todayMapping;
         }
-
+        
         protected Dictionary<int, string> RatioToString_ = new Dictionary<int, string>();
         protected Dictionary<string, int> StringToRatio_ = new Dictionary<string, int>();
     }

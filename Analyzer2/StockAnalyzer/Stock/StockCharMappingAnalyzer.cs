@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using FinanceAnalyzer.Stock.CharMapping;
 using FinanceAnalyzer.Log;
+using FinanceAnalyzer.Stock.CharMapping;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Stock
 {
@@ -17,6 +16,31 @@ namespace FinanceAnalyzer.Stock
             }
         }
 
+        public void AnalyseOneDayShape()
+        {
+            foreach (string s in StockMappings_)
+            {
+                AnalyseStringHistory(s);
+            }
+        }
+
+        void AnalyseStringHistory(string s)
+        {
+
+        }
+
+        public void FindMaxCommonDays()
+        {
+            string s;
+            MaxCommonString.FindLongestCommonSubstring(StockMappings_[0], StockMappings_[1], out s);
+
+            LogMgr.Logger.LogInfo(s);
+        }
+
+        /// <summary>
+        /// 查看指定的历史的匹配
+        /// </summary>
+        /// <param name="hist">一段时间的股票走势</param>
         public void FindMatches(IStockHistory hist)
         {
             string s = StringMapping_.GetCharMapping(hist);
@@ -69,7 +93,7 @@ namespace FinanceAnalyzer.Stock
             }
         }
 
-        StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping();
+        StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping(2);
         List<string> StockMappings_ = new List<string>();
         List<string> FoundedNextDays_ = new List<string>();
     }

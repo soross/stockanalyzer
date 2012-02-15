@@ -49,5 +49,10 @@ namespace Stock.Common.Data
         {
             get;
         }
+
+        bool AllPriceSame
+        {
+            get;
+        }
     }
 }

@@ -255,6 +255,28 @@ namespace FinanceAnalyzer
 
         private void buttonHistoryAnalyze_Click(object sender, EventArgs e)
         {
+            //FindMaxCommonDays();
+            AnalyseHistory();
+        }
+
+        void FindMaxCommonDays()
+        {
+            // Load from DB
+            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 
+                600008, 600009, 600010,600019,600020,600021,600022};
+
+            StocksHistory histories = new StocksHistory();
+            histories.Load(allStockId);
+
+            StockCharMappingAnalyzer analyzer = new StockCharMappingAnalyzer();
+
+            analyzer.Init(histories);
+
+            analyzer.FindMaxCommonDays();
+        }
+
+        void AnalyseHistory()
+        {
             // Load from DB
             //IEnumerable<int> allStockId = _DbReader.LoadAllIds();
 
