@@ -28,19 +28,19 @@ namespace FinanceAnalyzer.Stock.CharMapping
 
         protected override string GetRatioString(double ratio)
         {
-            int r = (int)(ratio * 1000) + 101;
+            int r = (int)(ratio * 1000);
 
             if (r > MAXRATIO)
             {
-                return RatioToString_[MAXRATIO];
+                return RatioToString_[MAXRATIO + DELTA];
             }
             else if (r < MINRATIO)
             {
-                return RatioToString_[MINRATIO];
+                return RatioToString_[MINRATIO + DELTA];
             }
             else
             {
-                return RatioToString_[r];
+                return RatioToString_[r + DELTA];
             }
         }
 
@@ -54,6 +54,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
             return 8;
         }
 
+        const int DELTA = 101;
         const int MINRATIO = -101;
         const int MAXRATIO = 101;
     }

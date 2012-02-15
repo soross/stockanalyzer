@@ -332,6 +332,7 @@
     <Compile Include="Utility\FixedContainer.cs" />
     <Compile Include="Utility\Holidays.cs" />
     <Compile Include="Business\Shape\ShapeScanner.cs" />
+    <Compile Include="Utility\MaxCommonString.cs" />
     <Compile Include="Utility\MovingAveragePrediction.cs" />
     <Compile Include="Utility\NumbericHelper.cs" />
     <Compile Include="Utility\SimpleAverager.cs" />

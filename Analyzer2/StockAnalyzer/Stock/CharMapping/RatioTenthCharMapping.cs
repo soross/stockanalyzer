@@ -7,25 +7,33 @@ namespace FinanceAnalyzer.Stock.CharMapping
 {
     class RatioTenthCharMapping : StockHistoryCharMapping
     {
+        public RatioTenthCharMapping(double step)
+        {
+            StepChar_ = step;
+        }
+
         protected override void Init()
         {
         }
 
         protected override string GetRatioString(double ratio)
         {
-            int r = (int)(ratio * 100);
+            int r = (int)((ratio * 100) / StepChar_);
+            int maxRatio = (int)(10.0 / StepChar_);
+            int minRatio = -maxRatio;
+            delta_ = maxRatio;
 
-            if (r > MAXRATIO)
+            if (r > maxRatio)
             {
-                return STR_MAPPING.ElementAt(MAXRATIO + DELTA).ToString();
+                return STR_MAPPING.ElementAt(maxRatio + delta_).ToString();
             }
-            else if (r < MINRATIO)
+            else if (r < minRatio)
             {
-                return STR_MAPPING.ElementAt(MINRATIO + DELTA).ToString();
+                return STR_MAPPING.ElementAt(minRatio + delta_).ToString();
             }
             else
             {
-                return STR_MAPPING.ElementAt(r + DELTA).ToString();
+                return STR_MAPPING.ElementAt(r + delta_).ToString();
             }
         }
 
@@ -55,7 +63,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
             int pos = STR_MAPPING.IndexOf(c);
             if (pos != -1)
             {
-                return ((pos - DELTA) / 100.0);
+                return ((pos - delta_) / 100.0) * StepChar_;
             }
             else
             {
@@ -68,10 +76,10 @@ namespace FinanceAnalyzer.Stock.CharMapping
             return 4;
         }
 
-        const int DELTA = 10;
-        const int MINRATIO = -10;
-        const int MAXRATIO = 10;
-
+        int delta_;
         const string STR_MAPPING = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        // 两个字符代表的间隔
+        double StepChar_;
     }
 }
