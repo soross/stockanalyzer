@@ -8,6 +8,16 @@ namespace FinanceAnalyzer
 {
     class FakeStockDataCreator
     {
+        /// <summary>
+        /// 创建假的股票数据供测试
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="startPrice"></param>
+        /// <param name="maxPrice"></param>
+        /// <param name="minPrice"></param>
+        /// <param name="endPrice"></param>
+        /// <param name="volumehand"></param>
+        /// <returns></returns>
         public static StockData Create(DateTime dt, double startPrice, double maxPrice, 
             double minPrice, double endPrice, int volumehand)
         {

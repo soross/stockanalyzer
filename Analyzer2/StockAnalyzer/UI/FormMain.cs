@@ -213,12 +213,6 @@ namespace FinanceAnalyzer
 
         BonusProcessor _BonusProcessor = new BonusProcessor();
 
-        private void importYahooToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormImport frm = new FormImport();
-            frm.ShowDialog();
-        }
-
         private void addBounusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormBonusAdd frm = new FormBonusAdd();

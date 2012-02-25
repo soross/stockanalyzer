@@ -49,7 +49,6 @@
             this.buttonCalcAdjust = new System.Windows.Forms.Button();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importYahooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBounusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -168,7 +167,7 @@
             // dateTimePickerStart
             // 
             this.dateTimePickerStart.Location = new System.Drawing.Point(102, 22);
-            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(116, 21);
             this.dateTimePickerStart.TabIndex = 15;
@@ -176,7 +175,7 @@
             // dateTimePickerEnd
             // 
             this.dateTimePickerEnd.Location = new System.Drawing.Point(102, 52);
-            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Size = new System.Drawing.Size(116, 21);
             this.dateTimePickerEnd.TabIndex = 16;
@@ -184,7 +183,7 @@
             // buttonResetStart
             // 
             this.buttonResetStart.Location = new System.Drawing.Point(232, 22);
-            this.buttonResetStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonResetStart.Margin = new System.Windows.Forms.Padding(2);
             this.buttonResetStart.Name = "buttonResetStart";
             this.buttonResetStart.Size = new System.Drawing.Size(59, 20);
             this.buttonResetStart.TabIndex = 17;
@@ -195,7 +194,7 @@
             // buttonResetEnd
             // 
             this.buttonResetEnd.Location = new System.Drawing.Point(232, 50);
-            this.buttonResetEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonResetEnd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonResetEnd.Name = "buttonResetEnd";
             this.buttonResetEnd.Size = new System.Drawing.Size(59, 22);
             this.buttonResetEnd.TabIndex = 18;
@@ -218,7 +217,7 @@
             this.comboBoxStockId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStockId.FormattingEnabled = true;
             this.comboBoxStockId.Location = new System.Drawing.Point(113, 46);
-            this.comboBoxStockId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxStockId.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxStockId.Name = "comboBoxStockId";
             this.comboBoxStockId.Size = new System.Drawing.Size(116, 20);
             this.comboBoxStockId.TabIndex = 21;
@@ -260,30 +259,22 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importYahooToolStripMenuItem,
             this.downloadToolStripMenuItem,
             this.addBounusToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // importYahooToolStripMenuItem
-            // 
-            this.importYahooToolStripMenuItem.Name = "importYahooToolStripMenuItem";
-            this.importYahooToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.importYahooToolStripMenuItem.Text = "&Import Yahoo...";
-            this.importYahooToolStripMenuItem.Click += new System.EventHandler(this.importYahooToolStripMenuItem_Click);
-            // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.downloadToolStripMenuItem.Text = "&Download...";
             // 
             // addBounusToolStripMenuItem
             // 
             this.addBounusToolStripMenuItem.Name = "addBounusToolStripMenuItem";
-            this.addBounusToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.addBounusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addBounusToolStripMenuItem.Text = "&Add Bonus...";
             this.addBounusToolStripMenuItem.Click += new System.EventHandler(this.addBounusToolStripMenuItem_Click);
             // 
@@ -327,9 +318,9 @@
             this.SettingGroupBox.Controls.Add(this.dateTimePickerEnd);
             this.SettingGroupBox.Controls.Add(this.buttonResetEnd);
             this.SettingGroupBox.Location = new System.Drawing.Point(11, 85);
-            this.SettingGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SettingGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.SettingGroupBox.Name = "SettingGroupBox";
-            this.SettingGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SettingGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.SettingGroupBox.Size = new System.Drawing.Size(523, 82);
             this.SettingGroupBox.TabIndex = 28;
             this.SettingGroupBox.TabStop = false;
@@ -354,9 +345,9 @@
             this.groupBoxAction.Controls.Add(this.buttonCompare);
             this.groupBoxAction.Controls.Add(this.buttonSave);
             this.groupBoxAction.Location = new System.Drawing.Point(11, 179);
-            this.groupBoxAction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxAction.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxAction.Name = "groupBoxAction";
-            this.groupBoxAction.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxAction.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxAction.Size = new System.Drawing.Size(523, 82);
             this.groupBoxAction.TabIndex = 29;
             this.groupBoxAction.TabStop = false;
@@ -426,7 +417,6 @@
         private System.Windows.Forms.Button buttonCalcAdjust;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importYahooToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBounusToolStripMenuItem;
         private System.Windows.Forms.GroupBox SettingGroupBox;

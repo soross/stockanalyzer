@@ -76,6 +76,8 @@
     <Compile Include="ScoresCalculatorTest.cs" />
     <Compile Include="StategyResultsTest.cs" />
     <Compile Include="StockValuesTest.cs" />
+    <Compile Include="Stock\CharMapping\RatioTenthCharMappingTest.cs" />
+    <Compile Include="Stock\SimpleStockHistory.cs" />
     <Compile Include="TransactionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ApplicationHelperTest.cs" />

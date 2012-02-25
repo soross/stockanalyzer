@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinanceAnalyzer.Stock.CharMapping
 {
-    class RatioTenthCharMapping : StockHistoryCharMapping
+    public class RatioTenthCharMapping : StockHistoryCharMapping
     {
         public RatioTenthCharMapping(double step)
         {
@@ -18,7 +18,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
 
         protected override string GetRatioString(double ratio)
         {
-            int r = (int)((ratio * 100) / StepChar_);
+            int r = (int)(((ratio * 100) / StepChar_) + 0.001);
             int maxRatio = (int)(10.0 / StepChar_);
             int minRatio = -maxRatio;
             delta_ = maxRatio;

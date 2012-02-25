@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinanceAnalyzer.Stock.CharMapping
 {
-    class StockRatio
+    public class StockRatio
     {
         public double UpRatio
         {
