@@ -6,8 +6,15 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Stock
 {
+    /// <summary>
+    /// 将股票历史信息转换为字符串，方便匹配等
+    /// </summary>
     class StockCharMappingAnalyzer
     {
+        /// <summary>
+        /// 使用指定的股票历史信息初始化
+        /// </summary>
+        /// <param name="histories">指定的股票历史信息</param>
         public void Init(StocksHistory histories)
         {         
             foreach (IStockHistory hist in histories.GetAllHistories())

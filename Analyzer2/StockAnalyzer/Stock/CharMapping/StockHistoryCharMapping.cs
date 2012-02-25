@@ -10,7 +10,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
     /// <summary>
     /// Convert Stock history to a string for find
     /// </summary>
-    abstract class StockHistoryCharMapping
+    public abstract class StockHistoryCharMapping
     {
         /// <summary>
         /// Init String map
