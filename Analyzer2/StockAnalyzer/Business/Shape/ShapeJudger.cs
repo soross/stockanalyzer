@@ -8,8 +8,15 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Business.Shape
 {
-    class ShapeJudger
+    /// <summary>
+    /// Stock prices shape
+    /// </summary>
+    public class ShapeJudger
     {
+        /// <summary>
+        /// Init using Stock data of one day
+        /// </summary>
+        /// <param name="data">Stock data of one day</param>
         public ShapeJudger(IStockData data)
         {
             _StockData = data;
@@ -23,9 +30,15 @@ namespace FinanceAnalyzer.Business.Shape
         public static bool IsCross(IStockData data)
         {
             double deltapercent = StockDataCalc.GetRisePercent(data);
+
+            double riseRatio = StockDataCalc.GetRisePercent(data.StartPrice, data.MaxPrice);
+            double downRatio = StockDataCalc.GetRisePercent(data.StartPrice, data.MinPrice);
+            double swingRatio = riseRatio      + downRatio;
             return ((Math.Abs(deltapercent) < CROSSDELTAPERCENT)
                 && (data.MaxPrice > data.StartPrice)
-                && (data.MinPrice < data.EndPrice));
+                && (data.MinPrice < data.EndPrice)
+                && (swingRatio < CROSSDELTAPERCENT)
+                && (riseRatio > CROSSSWINGPERCENT));
         }
 
         public static bool IsUpCross(IStockData data)
@@ -50,45 +63,36 @@ namespace FinanceAnalyzer.Business.Shape
 
         public static bool IsT(IStockData data)
         {
-            double deltapercent = (data.EndPrice - data.MinPrice) / data.MinPrice;
-            double deltaMax = (data.MaxPrice - data.EndPrice) / data.EndPrice;
-
-            return ((data.EndPrice >= data.StartPrice)
-                && (deltapercent >= 0.02)
-                && (deltaMax <= 0.005));
-        }
-
-        public static bool IsReverseT(IStockData data)
-        {
-            double deltapercent = (data.MaxPrice - data.EndPrice) / data.EndPrice;
-            double deltaMin = (data.EndPrice - data.MinPrice) / data.MinPrice;
-
-            return ((data.EndPrice <= data.StartPrice)
-                && (deltapercent >= 0.02)
-                && (deltaMin <= 0.005));
+            return IsT2(data, 0.03);
         }
 
         public static bool IsT2(IStockData data, double ratio)
         {
             double deltaEndMin = (data.EndPrice - data.MinPrice) / data.MinPrice;
-            double deltaStartMin = (data.StartPrice - data.MinPrice) / data.MinPrice;
-            double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.MaxPrice;
+            double deltaStartMax = (data.MaxPrice - data.StartPrice) / data.StartPrice;
+            double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.EndPrice;
 
             return ((deltaEndMin >= ratio)
-                && (deltaStartMin >= ratio) && (deltaEndMax <= ratio - 0.005));
+                && (deltaStartMax <= (ratio / 4)) && (deltaEndMax <= (ratio / 4)));
+        }
+
+        public static bool IsReverseT(IStockData data)
+        {
+            return IsReverseT2(data, 0.03);
         }
 
         public static bool IsReverseT2(IStockData data, double ratio)
         {
-            double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.MaxPrice;
-            double deltaStartMax = (data.MaxPrice - data.StartPrice) / data.MaxPrice;
+            double deltaEndMax = (data.MaxPrice - data.EndPrice) / data.EndPrice;
+            double deltaStartMin = (data.StartPrice - data.MinPrice) / data.MinPrice;
             double deltaEndMin = (data.EndPrice - data.MinPrice) / data.MinPrice;
 
             return ((deltaEndMax >= ratio)
-                && (deltaStartMax >= ratio) && (deltaEndMin <= ratio - 0.005));
+                && (deltaStartMin <= ratio / 4) && (deltaEndMin <= ratio / 4));
         }
 
         IStockData _StockData;
         const double CROSSDELTAPERCENT = 0.01;
+        const double CROSSSWINGPERCENT = 0.02;
     }
 }

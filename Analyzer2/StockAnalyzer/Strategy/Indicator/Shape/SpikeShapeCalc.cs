@@ -11,7 +11,9 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {
-    // Spike low means buy, spike high means sell
+    /// <summary>
+    /// Spike low means buy, spike high means sell
+    /// </summary>
     class SpikeShapeCalc : BasicIndicatorCalc
     {
         public SpikeShapeCalc(double deltaratio)

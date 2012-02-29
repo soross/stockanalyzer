@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Stock.Common.Data;
 using FinanceAnalyzer.Utility;
+using FinanceAnalyzer.Log;
 
 namespace FinanceAnalyzer.Stock.CharMapping
 {

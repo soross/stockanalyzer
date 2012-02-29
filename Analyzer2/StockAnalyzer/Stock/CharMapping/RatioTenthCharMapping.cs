@@ -10,6 +10,9 @@ namespace FinanceAnalyzer.Stock.CharMapping
         public RatioTenthCharMapping(double step)
         {
             StepChar_ = step;
+
+            maxRatio_ = (int)(10.0 / StepChar_);
+            minRatio_ = -maxRatio_;
         }
 
         protected override void Init()
@@ -19,17 +22,16 @@ namespace FinanceAnalyzer.Stock.CharMapping
         protected override string GetRatioString(double ratio)
         {
             int r = (int)(((ratio * 100) / StepChar_) + 0.001);
-            int maxRatio = (int)(10.0 / StepChar_);
-            int minRatio = -maxRatio;
-            delta_ = maxRatio;
 
-            if (r > maxRatio)
+            delta_ = maxRatio_;
+
+            if (r > maxRatio_)
             {
-                return STR_MAPPING.ElementAt(maxRatio + delta_).ToString();
+                return STR_MAPPING.ElementAt(maxRatio_ + delta_).ToString();
             }
-            else if (r < minRatio)
+            else if (r < minRatio_)
             {
-                return STR_MAPPING.ElementAt(minRatio + delta_).ToString();
+                return STR_MAPPING.ElementAt(minRatio_ + delta_).ToString();
             }
             else
             {
@@ -76,6 +78,8 @@ namespace FinanceAnalyzer.Stock.CharMapping
             return 4;
         }
 
+        int maxRatio_;
+        int minRatio_;
         int delta_;
         const string STR_MAPPING = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
