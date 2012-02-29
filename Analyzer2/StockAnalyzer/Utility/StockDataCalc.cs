@@ -15,7 +15,12 @@ namespace FinanceAnalyzer.Utility
 
         public static double GetRisePercent(IStockData stock)
         {
-            return (stock.EndPrice - stock.StartPrice) / stock.StartPrice;
+            return GetRisePercent(stock.StartPrice, stock.EndPrice);
+        }
+
+        public static double GetRisePercent(double basePrice, double anotherPrice)
+        {
+            return (anotherPrice - basePrice) / basePrice;
         }
 
         public static bool PriceInRange(IStockData stock, double price)

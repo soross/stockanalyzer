@@ -7,7 +7,7 @@ using FinanceAnalyzer.Utility;
 namespace FinanceAnalyzer.Stock
 {
     /// <summary>
-    /// 将股票历史信息转换为字符串，方便匹配等
+    /// 将股票历史信息转换为字符串，以分析
     /// </summary>
     class StockCharMappingAnalyzer
     {
@@ -100,7 +100,7 @@ namespace FinanceAnalyzer.Stock
             }
         }
 
-        StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping(1);
+        StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping(0.5);
         List<string> StockMappings_ = new List<string>();
         List<string> FoundedNextDays_ = new List<string>();
     }

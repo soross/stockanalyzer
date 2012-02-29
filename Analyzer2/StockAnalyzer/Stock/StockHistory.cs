@@ -205,6 +205,8 @@ namespace FinanceAnalyzer.Stock
                 }
                 startDate = startDate.AddDays(1);
             }
+
+            JudgeShape(log);
         }
 
         public void JudgeShape(ICustomLog log)
