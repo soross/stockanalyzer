@@ -324,7 +324,6 @@
     <Compile Include="Utility\MaxCommonString.cs" />
     <Compile Include="Utility\MovingAveragePrediction.cs" />
     <Compile Include="Utility\NumbericHelper.cs" />
-    <Compile Include="Utility\SimpleAverager.cs" />
     <Compile Include="Utility\SlopeCalculator.cs" />
     <Compile Include="Utility\StockDataCalc.cs" />
     <Compile Include="Utility\ValueAverager.cs" />
@@ -373,7 +372,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\Similiarity\" />
+    <Folder Include="Business\Vertex\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
