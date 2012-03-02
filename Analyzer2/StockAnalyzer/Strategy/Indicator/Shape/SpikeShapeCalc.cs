@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FinanceAnalyzer.DB;
-using FinanceAnalyzer.Business.Shape;
 using System.Globalization;
-using Stock.Common.Data;
+using FinanceAnalyzer.Business.Shape;
 using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Utility;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {

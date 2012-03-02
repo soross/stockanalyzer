@@ -18,16 +18,16 @@ namespace FinanceAnalyzer.Utility
             double valLast = _Values.Last.Value;
             int totalCount = _Values.Count;
 
-            SimpleAverager<double> avgr = new SimpleAverager<double>();
+            List<double> arr = new List<double>(); 
 
             foreach (double val in _Values)
             {
                 double delta = ((valLast - val) / val) / totalCount;
-                avgr.AddVal(delta);
+                arr.Add(delta);
                 totalCount--;
             }
 
-            double result = avgr.GetAverage() / XAxisMultiply;
+            double result = arr.Average() / XAxisMultiply;
             return result;
         }
 
