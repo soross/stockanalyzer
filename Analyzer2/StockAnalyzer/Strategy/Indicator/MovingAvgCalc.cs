@@ -10,6 +10,11 @@ using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
+    /// <summary>
+    /// Calculate MA5 and MA10
+    /// MA5 up cross MA10 -> Buy
+    /// MA5 down cross MA10 -> Sell
+    /// </summary>
     class MovingAvgCalc : BasicIndicatorCalc
     {
         public MovingAvgCalc()
