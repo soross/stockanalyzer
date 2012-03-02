@@ -76,6 +76,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             {
                 if (prediction.CalcNextPredictionValue() > 0)
                 {
+                    // Up cross
                     _DateToOpers.Add(stock.TradeDate, OperType.Buy);
                 }
             }
@@ -84,6 +85,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
             {
                 if (prediction.CalcNextPredictionValue() < 0)
                 {
+                    // Down cross
                     _DateToOpers.Add(stock.TradeDate, OperType.Sell);
                 }
             }
