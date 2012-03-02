@@ -91,8 +91,11 @@ namespace FinanceAnalyzer.UI
             chart1.Series["Price"]["PointWidth"] = "1.5";
 
             chart1.ChartAreas["Price"].AxisX.ScaleView.Zoomable = true;
+            chart1.ChartAreas["Price"].AxisY.ScaleView.Zoomable = true;
             chart1.ChartAreas["Price"].CursorX.IsUserEnabled = true;
             chart1.ChartAreas["Price"].CursorX.IsUserSelectionEnabled = true;
+            chart1.ChartAreas["Price"].CursorY.IsUserEnabled = true;
+            chart1.ChartAreas["Price"].CursorY.IsUserSelectionEnabled = true;
 
             chart1.Series.Add("PriceMA5");
             chart1.Series["PriceMA5"].ChartArea = "Price";
