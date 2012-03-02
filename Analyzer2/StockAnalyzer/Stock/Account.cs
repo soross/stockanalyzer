@@ -46,8 +46,8 @@ namespace FinanceAnalyzer.Stock
             }
             else if (operation.Type == OperType.Sell)
             {
-                this.bankRoll += Holder.SellStock(operation.HandCount, operation.UnitPrice);
-                this._SellTransactionCount++;
+                this.bankRoll_ += Holder.SellStock(operation.HandCount, operation.UnitPrice);
+                this.SellTransactionCount_++;
             }
             else
             {
@@ -80,13 +80,13 @@ namespace FinanceAnalyzer.Stock
 
             if (Processor.IsDividendDate(date))
             {
-                bankRoll += _Bonuses.Dividend; // 现金加上分红
+                bankRoll_ += _Bonuses.Dividend; // 现金加上分红
                 _Bonuses.Dividend = 0;
             }
 
             if (Processor.IsBonusListOnDate(date))
             {
-                _Holder.AddBonusStock(_Bonuses.BonusCount);
+                StockHolder_.AddBonusStock(_Bonuses.BonusCount);
                 _Bonuses.BonusCount = 0;
             }
         }
@@ -94,12 +94,12 @@ namespace FinanceAnalyzer.Stock
         // 买入股票
         private void BuyStocks(StockOper oper)
         {
-            _BuyTransactionCount++;
+            BuyTransactionCount_++;
             double charge = Transaction.GetTotalCharge(oper.UnitPrice * oper.HandCount);
 
-            if (bankRoll >= charge)
+            if (bankRoll_ >= charge)
             {
-                bankRoll -= charge;
+                bankRoll_ -= charge;
                 Holder.BuyStock(oper.HandCount, oper.UnitPrice);
 
                 LogMgr.Logger.LogInfo("Action: Buy Stock Count: {0}, Unit Price: {1}",
@@ -119,35 +119,47 @@ namespace FinanceAnalyzer.Stock
         /// <returns>总市值</returns>
         public double TotalValue(DateTime day)
         {
-            return Holder.MarketValue(day) + bankRoll;
+            return Holder.MarketValue(day) + bankRoll_;
         }
 
+        /// <summary>
+        /// 账户中的现金
+        /// </summary>
         public double BankRoll
         {
             get
             {
-                return bankRoll;
+                return bankRoll_;
             }
             set
             {
-                bankRoll = value;
+                bankRoll_ = value;
             }
         }
 
+        /// <summary>
+        /// buyed stocks and bonuses
+        /// </summary>
         public IStockHolder Holder
         {
-            get { return _Holder; }
-            set { _Holder = value; }
+            get { return StockHolder_; }
+            set { StockHolder_ = value; }
         }
 
+        /// <summary>
+        /// 买入交易次数
+        /// </summary>
         public int BuyTransactionCount
         {
-            get { return _BuyTransactionCount; }
+            get { return BuyTransactionCount_; }
         }
 
+        /// <summary>
+        /// 卖出交易次数
+        /// </summary>
         public int SellTransactionCount
         {
-            get { return _SellTransactionCount; }
+            get { return SellTransactionCount_; }
         }
 
         public IBonusProcessor Processor
@@ -158,11 +170,11 @@ namespace FinanceAnalyzer.Stock
 
         BonusInfo _Bonuses = new BonusInfo();
         
-        double bankRoll; // 现金
+        double bankRoll_; // 现金
 
-        int _BuyTransactionCount; // 交易次数
-        int _SellTransactionCount;
+        int BuyTransactionCount_; // 交易次数
+        int SellTransactionCount_;
 
-        IStockHolder _Holder;
+        IStockHolder StockHolder_;
     }
 }

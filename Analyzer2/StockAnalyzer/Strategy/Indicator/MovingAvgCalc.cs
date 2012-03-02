@@ -74,7 +74,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
             if (prevValue < 0)
             {
-                if (StockDataCalc.PriceInRange(stock, prediction.CalcNextPredictionValue()))
+                if (prediction.CalcNextPredictionValue() > 0)
                 {
                     _DateToOpers.Add(stock.TradeDate, OperType.Buy);
                 }
@@ -82,7 +82,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
             if (prevValue > 0)
             {
-                if (StockDataCalc.PriceInRange(stock, prediction.CalcNextPredictionValue()))
+                if (prediction.CalcNextPredictionValue() < 0)
                 {
                     _DateToOpers.Add(stock.TradeDate, OperType.Sell);
                 }
