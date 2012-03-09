@@ -27,10 +27,8 @@ namespace FinanceAnalyzer.KDJ
                     continue;
                 }
 
-                _MaxPrices.AddLast(stock.MaxPrice);
-                _MinPrices.AddLast(stock.MinPrice);
-                _MaxPriceList.Add(stock.MaxPrice);
-                _MinPriceList.Add(stock.MinPrice);
+                MaxPrices_.AddLast(stock.MaxPrice);
+                MinPrices_.AddLast(stock.MinPrice);
 
                 if (curPos <= _DAYS)
                 {
@@ -39,16 +37,19 @@ namespace FinanceAnalyzer.KDJ
                 }
                 else
                 {
-                    _MaxPriceList.Remove(_MaxPrices.First.Value);
-                    _MinPriceList.Remove(_MinPrices.First.Value);
-                    _MaxPrices.RemoveFirst();
-                    _MinPrices.RemoveFirst();
+                    MaxPrices_.RemoveFirst();
+                    MinPrices_.RemoveFirst();
 
-                    _MinPriceList.Sort();
-                    _MaxPriceList.Sort();
+                    List<double> maxPriceList = new List<double>();
+                    List<double> minPriceList = new List<double>();
+                    maxPriceList.AddRange(MaxPrices_);
+                    minPriceList.AddRange(MinPrices_);
 
-                    double minPriceOfNDays = _MinPriceList[0]; 
-                    double maxPriceOfNDays = _MaxPriceList[_MaxPriceList.Count - 1]; // 最后一个
+                    minPriceList.Sort();
+                    maxPriceList.Sort();
+
+                    double minPriceOfNDays = minPriceList[0]; 
+                    double maxPriceOfNDays = maxPriceList[maxPriceList.Count - 1]; // 最后一个
                     double rsv = (stock.EndPrice - minPriceOfNDays) * 100 / (maxPriceOfNDays - minPriceOfNDays);
 
                     double k = (1.0 / 3) * rsv + (2.0 / 3) * _Storage.GetK(yesterday);
@@ -75,11 +76,8 @@ namespace FinanceAnalyzer.KDJ
         KdjStorage _Storage = new KdjStorage();
 
         private const int _DAYS = 9;
-
-        List<double> _MaxPriceList = new List<double>();
-        List<double> _MinPriceList = new List<double>();
-
-        private LinkedList<double> _MaxPrices = new LinkedList<double>();
-        private LinkedList<double> _MinPrices = new LinkedList<double>();
+        
+        private LinkedList<double> MaxPrices_ = new LinkedList<double>();
+        private LinkedList<double> MinPrices_ = new LinkedList<double>();
     }
 }
