@@ -13,8 +13,8 @@ namespace FinanceAnalyzer.Strategy.Indicator
     {
         public MovingAverageCalc()
         {
-            _Prediction.LongDays = 10;
-            _Prediction.ShortDays = 5;
+            Prediction_.LongDays = 10;
+            Prediction_.ShortDays = 5;
         }
 
         public override string Name
@@ -36,17 +36,17 @@ namespace FinanceAnalyzer.Strategy.Indicator
                     continue;
                 }
 
-                _Prediction.AddPrice(stock.EndPrice);
+                Prediction_.AddPrice(stock.EndPrice);
 
-                if (!_Prediction.IsCountEnough())
+                if (!Prediction_.IsCountEnough())
                 {
                     startDate = DateFunc.GetNextWorkday(startDate);
                     continue;
                 }
 
                 // 长周期日线和短周期日线
-                double longEMA = _Prediction.GetLongAverage();
-                double shortEMA = _Prediction.GetShortAverage();
+                double longEMA = Prediction_.GetLongAverage();
+                double shortEMA = Prediction_.GetShortAverage();
 
                 double diff = shortEMA - longEMA; // 短周期均值-长周期均值
 
@@ -63,19 +63,19 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 return OperType.NoOper;
             }
 
-            if ((_LastOperDate != DateTime.MinValue) && ((dt - _LastOperDate).Days <= IGNOREDAYS))
+            if ((LastOperDate_ != DateTime.MinValue) && ((dt - LastOperDate_).Days <= IGNOREDAYS))
             {
                 return OperType.NoOper;
             }
 
             if ((this.GetIndicatorValue(dt) > 0) && (this.GetIndicatorValue(prev) < 0))
             {
-                _LastOperDate = dt;
+                LastOperDate_ = dt;
                 return OperType.Buy;
             }
             else if ((this.GetIndicatorValue(dt) < 0) && (this.GetIndicatorValue(prev) > 0))
             {
-                _LastOperDate = dt;
+                LastOperDate_ = dt;
                 return OperType.Sell;
             }
             else
@@ -84,8 +84,8 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        DateTime _LastOperDate = DateTime.MinValue;
-        MovingAveragePrediction _Prediction = new MovingAveragePrediction();
-        const int IGNOREDAYS = 3;
+        DateTime LastOperDate_ = DateTime.MinValue;
+        MovingAveragePrediction Prediction_ = new MovingAveragePrediction();
+        const int IGNOREDAYS = 10;
     }
 }

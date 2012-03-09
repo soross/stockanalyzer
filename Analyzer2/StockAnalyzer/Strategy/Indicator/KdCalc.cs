@@ -14,13 +14,13 @@ namespace FinanceAnalyzer.Strategy.Indicator
     {
         public KdCalc(double kdmin, double kdmax)
         {
-            _KdMinMargin = kdmin;
-            _KdMaxMargin = kdmax;
+            KdMinMargin_ = kdmin;
+            KdMaxMargin_ = kdmax;
         }
 
         public override string Name
         {
-            get { return "KD2 " + _KdMinMargin.ToString() + ", " + _KdMaxMargin.ToString(); }
+            get { return "KD2 " + KdMinMargin_.ToString() + ", " + KdMaxMargin_.ToString(); }
         }
 
         public override void Calc(IStockHistory hist)
@@ -61,15 +61,15 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         private bool KUpCrossD(double k, double d, double prevK, double prevD)
         {
-            return (k < _KdMinMargin) && (d < _KdMinMargin) && (k > d) && (prevK < prevD);
+            return (k < KdMinMargin_) && (d < KdMinMargin_) && (k > d) && (prevK < prevD);
         }
 
         private bool KDownCrossD(double k, double d, double prevK, double prevD)
         {
-            return (k > _KdMaxMargin) && (d > _KdMaxMargin) && (k < d) && (prevK > prevD);
+            return (k > KdMaxMargin_) && (d > KdMaxMargin_) && (k < d) && (prevK > prevD);
         }
 
-        double _KdMinMargin; // 低位门限
-        double _KdMaxMargin; // 高位门限
+        double KdMinMargin_; // 低位门限
+        double KdMaxMargin_; // 高位门限
     }
 }
