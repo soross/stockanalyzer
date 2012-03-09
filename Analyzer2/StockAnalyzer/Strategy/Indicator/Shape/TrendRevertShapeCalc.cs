@@ -21,7 +21,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
             get { return "Vertex"; }
         }
 
-        static const int SLOPE_DAYS = 7;
-        static const int SLOPE_OFFSET_DAYS = 3;
+        const int SLOPE_DAYS = 7;
+        const int SLOPE_OFFSET_DAYS = 3;
     }
 }
