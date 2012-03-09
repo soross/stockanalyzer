@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.KDJ
 {
@@ -8,9 +9,15 @@ namespace FinanceAnalyzer.KDJ
     {
         public double GetK(DateTime dt)
         {
-            if (_DateKs.ContainsKey(dt))
+            DateTime currentDate = dt;
+            while ((!DateKs_.ContainsKey(currentDate)) && (currentDate > MinDate))
             {
-                return _DateKs[dt];
+                currentDate = DateFunc.GetPreviousWorkday(currentDate);
+            }
+
+            if (DateKs_.ContainsKey(currentDate))
+            {
+                return DateKs_[currentDate];
             }
             else
             {
@@ -20,9 +27,15 @@ namespace FinanceAnalyzer.KDJ
 
         public double GetD(DateTime dt)
         {
-            if (_DateDs.ContainsKey(dt))
+            DateTime currentDate = dt;
+            while ((!DateDs_.ContainsKey(currentDate)) && (currentDate > MinDate))
             {
-                return _DateDs[dt];
+                currentDate = DateFunc.GetPreviousWorkday(currentDate);
+            }
+
+            if (DateDs_.ContainsKey(currentDate))
+            {
+                return DateDs_[currentDate];
             }
             else
             {
@@ -37,15 +50,27 @@ namespace FinanceAnalyzer.KDJ
 
         public void SetK(DateTime dt, double k)
         {
-            _DateKs.Add(dt, k);
+            DateKs_.Add(dt, k);
         }
 
         public void SetD(DateTime dt, double d)
         {
-            _DateDs.Add(dt, d);
+            DateDs_.Add(dt, d);
         }
 
-        private Dictionary<DateTime, double> _DateKs = new Dictionary<DateTime, double>();
-        private Dictionary<DateTime, double> _DateDs = new Dictionary<DateTime, double>();
+        public DateTime MinDate
+        {
+            get;
+            set;
+        }
+
+        public DateTime MaxDate
+        {
+            get;
+            set;
+        }
+
+        private Dictionary<DateTime, double> DateKs_ = new Dictionary<DateTime, double>();
+        private Dictionary<DateTime, double> DateDs_ = new Dictionary<DateTime, double>();
     }
 }

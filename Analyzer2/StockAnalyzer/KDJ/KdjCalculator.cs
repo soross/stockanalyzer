@@ -14,7 +14,12 @@ namespace FinanceAnalyzer.KDJ
         {
             DateTime startDate = hist.MinDate;
             DateTime endDate = hist.MaxDate;
-            DateTime yesterday = startDate;
+
+            KdStorage_.MinDate = hist.MinDate;
+            KdStorage_.MaxDate = hist.MaxDate;
+
+            double prevK = DEFAULT_KD_VALUE;
+            double prevD = DEFAULT_KD_VALUE;
 
             int curPos = 1;
             while (startDate < endDate)
@@ -22,7 +27,6 @@ namespace FinanceAnalyzer.KDJ
                 IStockData stock = hist.GetStock(startDate);
                 if (stock == null)
                 {
-                    yesterday = startDate;
                     startDate = DateFunc.GetNextWorkday(startDate);
                     continue;
                 }
@@ -30,10 +34,13 @@ namespace FinanceAnalyzer.KDJ
                 MaxPrices_.AddLast(stock.MaxPrice);
                 MinPrices_.AddLast(stock.MinPrice);
 
-                if (curPos <= _DAYS)
+                if (curPos <= KD_CALC_DAYS)
                 {
-                    _Storage.SetD(startDate, 50);
-                    _Storage.SetK(startDate, 50);
+                    KdStorage_.SetD(startDate, DEFAULT_KD_VALUE);
+                    prevD = DEFAULT_KD_VALUE;
+
+                    KdStorage_.SetK(startDate, DEFAULT_KD_VALUE);
+                    prevK = DEFAULT_KD_VALUE;
                 }
                 else
                 {
@@ -52,17 +59,16 @@ namespace FinanceAnalyzer.KDJ
                     double maxPriceOfNDays = maxPriceList[maxPriceList.Count - 1]; // 最后一个
                     double rsv = (stock.EndPrice - minPriceOfNDays) * 100 / (maxPriceOfNDays - minPriceOfNDays);
 
-                    double k = (1.0 / 3) * rsv + (2.0 / 3) * _Storage.GetK(yesterday);
-                    double d = (1.0 / 3) * k + (2.0 / 3) * _Storage.GetD(yesterday);
+                    double k = (1.0 / 3) * rsv + (2.0 / 3) * prevK;
+                    double d = (1.0 / 3) * k + (2.0 / 3) * prevD;
 
-                    _Storage.SetD(startDate, d);
-                    _Storage.SetK(startDate, k);
+                    KdStorage_.SetD(startDate, d);
+                    KdStorage_.SetK(startDate, k);
 
-                    //LogMgr.Logger.LogInfo("Current Day: " + startDate.ToShortDateString() 
-                    //    + ", D = " + d + ", K = " + k);
+                    prevK = k;
+                    prevD = d;
                 }
 
-                yesterday = startDate;
                 startDate = DateFunc.GetNextWorkday(startDate);
                 curPos++;
             }
@@ -70,14 +76,16 @@ namespace FinanceAnalyzer.KDJ
 
         public IKdjStorage GetStorage()
         {
-            return _Storage;
+            return KdStorage_;
         }
 
-        KdjStorage _Storage = new KdjStorage();
+        KdjStorage KdStorage_ = new KdjStorage();
 
-        private const int _DAYS = 9;
+        private const int KD_CALC_DAYS = 9;
         
         private LinkedList<double> MaxPrices_ = new LinkedList<double>();
         private LinkedList<double> MinPrices_ = new LinkedList<double>();
+
+        const double DEFAULT_KD_VALUE = 50;
     }
 }
