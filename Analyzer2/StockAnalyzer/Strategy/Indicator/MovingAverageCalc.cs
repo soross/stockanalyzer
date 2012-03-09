@@ -95,7 +95,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
         DateTime LastOperDate_ = DateTime.MinValue;
         MovingAveragePrediction Prediction_ = new MovingAveragePrediction();
         const int IGNOREDAYS = 3;
-        const double KD_BUY_MARGIN = 20;
-        const double KD_SELL_MARGIN = 70;
+        const double KD_BUY_MARGIN = 40;
+        const double KD_SELL_MARGIN = 60;
     }
 }
