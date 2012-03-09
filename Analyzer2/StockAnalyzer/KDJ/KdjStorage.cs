@@ -14,7 +14,7 @@ namespace FinanceAnalyzer.KDJ
             }
             else
             {
-                return -1; // 无效值
+                return 50; // 无效值
             }
         }
 
@@ -26,7 +26,7 @@ namespace FinanceAnalyzer.KDJ
             }
             else
             {
-                return -1; // 无效值
+                return 50; // 无效值
             }
         }
 

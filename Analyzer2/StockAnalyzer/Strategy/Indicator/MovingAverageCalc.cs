@@ -6,6 +6,7 @@ using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.DB;
 using Stock.Common.Data;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.KDJ;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
@@ -26,6 +27,8 @@ namespace FinanceAnalyzer.Strategy.Indicator
         {
             DateTime startDate = hist.MinDate;
             DateTime endDate = hist.MaxDate;
+
+            kdjCalc_.Calc(hist);
 
             while (startDate < endDate)
             {
@@ -68,12 +71,16 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 return OperType.NoOper;
             }
 
-            if ((this.GetIndicatorValue(dt) > 0) && (this.GetIndicatorValue(prev) < 0))
+            if ((this.GetIndicatorValue(dt) > 0) 
+                && (this.GetIndicatorValue(prev) < 0)
+                && (kdjCalc_.GetStorage().GetD(dt) < KD_BUY_MARGIN))
             {
                 LastOperDate_ = dt;
                 return OperType.Buy;
             }
-            else if ((this.GetIndicatorValue(dt) < 0) && (this.GetIndicatorValue(prev) > 0))
+            else if ((this.GetIndicatorValue(dt) < 0)
+                && (this.GetIndicatorValue(prev) > 0)
+                && (kdjCalc_.GetStorage().GetD(dt) > KD_SELL_MARGIN))
             {
                 LastOperDate_ = dt;
                 return OperType.Sell;
@@ -84,8 +91,11 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
+        IKdjCalculator kdjCalc_ = new KdjCalculator();
         DateTime LastOperDate_ = DateTime.MinValue;
         MovingAveragePrediction Prediction_ = new MovingAveragePrediction();
-        const int IGNOREDAYS = 10;
+        const int IGNOREDAYS = 3;
+        const double KD_BUY_MARGIN = 20;
+        const double KD_SELL_MARGIN = 70;
     }
 }

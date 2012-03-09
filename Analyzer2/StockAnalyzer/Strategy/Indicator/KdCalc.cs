@@ -12,6 +12,11 @@ namespace FinanceAnalyzer.Strategy.Indicator
 {
     class KdCalc : BasicIndicatorCalc
     {
+        /// <summary>
+        /// KD Calculator
+        /// </summary>
+        /// <param name="kdmin">0~100, Normally 0~30</param>
+        /// <param name="kdmax">0~100, Normally 70~100</param>
         public KdCalc(double kdmin, double kdmax)
         {
             KdMinMargin_ = kdmin;
