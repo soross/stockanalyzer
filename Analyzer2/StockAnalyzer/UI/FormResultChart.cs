@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Diagnostics;
 using FinanceAnalyzer.Display;
+using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Utility;
-using FinanceAnalyzer.Stock;
 using Stock.Common.Data;
 
 namespace FinanceAnalyzer.UI
@@ -33,7 +29,7 @@ namespace FinanceAnalyzer.UI
 
             FillData();
 
-            ICollection<string> names = _Results.AllStrategyNames;
+            ICollection<string> names = StrategyResults_.AllStrategyNames;
 
             foreach (string strategyname in names)
             {
@@ -50,7 +46,7 @@ namespace FinanceAnalyzer.UI
             chart1.Series[strategyname].XValueType = ChartValueType.DateTime;
             chart1.Series[strategyname]["PointWidth"] = "1.5";
 
-            IStockValues values = _Results.GetResult(strategyname);
+            IStockValues values = StrategyResults_.GetResult(strategyname);
             if (values == null)
             {
                 return;
@@ -148,10 +144,10 @@ namespace FinanceAnalyzer.UI
 
         public void SetStrategyResults(IStrategyResults results)
         {
-            _Results = results;
+            StrategyResults_ = results;
         }
 
-        IStrategyResults _Results;
+        IStrategyResults StrategyResults_;
 
         public void SetStockDrawer(IStockDrawer stockDrawer)
         {
@@ -163,7 +159,7 @@ namespace FinanceAnalyzer.UI
         private void buttonDetail_Click(object sender, EventArgs e)
         {
             FormStrategyDetail frm = new FormStrategyDetail();
-            frm.Results = _Results;
+            frm.Results = StrategyResults_;
             frm.ShowDialog();
         }
 
