@@ -10,6 +10,9 @@ using FinanceAnalyzer.KDJ;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
+    /// <summary>
+    /// Moving Average and KDJ algorithm
+    /// </summary>
     class MovingAverageCalc : HistoricalValuesCalc
     {
         public MovingAverageCalc()
