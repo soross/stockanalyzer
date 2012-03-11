@@ -60,7 +60,7 @@ namespace FinanceAnalyzer
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             LogMgr.Close();
-            _log.Info("Analyzer Exit.");
+            log_.Info("Analyzer Exit.");
         }
 
         private void buttonCompare_Click(object sender, EventArgs e)
@@ -74,9 +74,9 @@ namespace FinanceAnalyzer
             {
                 FormResultChart frm = new FormResultChart();
 
-                _History.MaxDate = dateTimePickerEnd.Value;
-                _History.MinDate = dateTimePickerStart.Value;
-                frm.SetStockDrawer(_History.GetStockDrawer());
+                History_.MaxDate = dateTimePickerEnd.Value;
+                History_.MinDate = dateTimePickerStart.Value;
+                frm.SetStockDrawer(History_.GetStockDrawer());
 
                 frm.SetStrategyResults(_results);
 
@@ -88,23 +88,23 @@ namespace FinanceAnalyzer
         {
             SetUserDefinedDate();
 
-            _log.Info("==>Calculate start. Start Date = " + _History.MinDate.ToLongDateString()
-                + ", End Date = " + _History.MaxDate.ToLongDateString());
+            log_.Info("==>Calculate start. Start Date = " + History_.MinDate.ToLongDateString()
+                + ", End Date = " + History_.MaxDate.ToLongDateString());
 
             FormStrategy frm = new FormStrategy();
             if (frm.ShowDialog() != DialogResult.OK)
             {
-                _log.Info("<==Calculate end. Not select strategy. ");
+                log_.Info("<==Calculate end. Not select strategy. ");
                 return;
             }
 
             FinanceRunner runner = new FinanceRunner();
-            runner.CurrentBonusProcessor = _BonusProcessor;
+            runner.CurrentBonusProcessor = BonusProcessor_;
 
-            runner.Go(_History, frm.Factory);
+            runner.Go(History_, frm.Factory);
 
             _results = runner.Results;
-            _log.Info("<==Calculate complete. ");
+            log_.Info("<==Calculate complete. ");
 
             ShowCompareResults();
         }
@@ -114,39 +114,38 @@ namespace FinanceAnalyzer
         private void buttonResetStart_Click(object sender, EventArgs e)
         {
             dateTimePickerStart.Value = DateTime.Parse(labelMinDate.Text, CultureInfo.CurrentCulture);
-            _History.MinDate = dateTimePickerStart.Value;
+            History_.MinDate = dateTimePickerStart.Value;
         }
 
         private void buttonResetEnd_Click(object sender, EventArgs e)
         {
             dateTimePickerEnd.Value = DateTime.Parse(labelMaxDate.Text, CultureInfo.CurrentCulture);
-            _History.MaxDate = dateTimePickerEnd.Value;
+            History_.MaxDate = dateTimePickerEnd.Value;
         }
 
         private void ShowStockInfo()
         {
-            labelMaxDate.Text = _History.MaxDate.ToShortDateString();
-            labelMinDate.Text = _History.MinDate.ToShortDateString();
+            labelMaxDate.Text = History_.MaxDate.ToShortDateString();
+            labelMinDate.Text = History_.MinDate.ToShortDateString();
 
-            dateTimePickerStart.MaxDate = _History.MaxDate;
-            dateTimePickerStart.MinDate = _History.MinDate;
-            dateTimePickerStart.Value = _History.MinDate;
+            dateTimePickerStart.MaxDate = History_.MaxDate;
+            dateTimePickerStart.MinDate = History_.MinDate;
+            dateTimePickerStart.Value = History_.MinDate;
 
-            dateTimePickerEnd.MaxDate = _History.MaxDate;
-            dateTimePickerEnd.MinDate = _History.MinDate;
-            dateTimePickerEnd.Value = _History.MaxDate;
+            dateTimePickerEnd.MaxDate = History_.MaxDate;
+            dateTimePickerEnd.MinDate = History_.MinDate;
+            dateTimePickerEnd.Value = History_.MaxDate;
         }
 
         // Create a logger for use in this class
-        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog log_ = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //_DbReader = new StockDBReader(MyBatisDataMapper.GetMapper());
-            _DbReader = new StockMongoDBReader();
+            DbReader_ = new StockMongoDBReader();
 
             // Load from DB
-            IEnumerable<int> allStockId = _DbReader.LoadAllIds();
+            IEnumerable<int> allStockId = DbReader_.LoadAllIds();
 
             int totalStockCount = 0;
             foreach (int id in allStockId)
@@ -154,25 +153,21 @@ namespace FinanceAnalyzer
                 comboBoxStockId.Items.Add(id);
                 totalStockCount++;
             }
-            _log.Info("Form loaded. Stock Count: " + totalStockCount);
-
-            //_BonusProcessor.Load(_History.StockId);
+            log_.Info("Form loaded. Stock Count: " + totalStockCount);
         }
 
         private void comboBoxStockId_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = int.Parse(comboBoxStockId.Text, CultureInfo.CurrentCulture);
-            IEnumerable<StockData> stocks = _DbReader.Load(id);
+            IEnumerable<StockData> stocks = DbReader_.Load(id);
 
-            _History.InitAllStocks(id, stocks);
-
-            //_BonusProcessor.Load(id);
-
+            History_.InitAllStocks(id, stocks);
+            
             // 刷新界面显示
             ShowStockInfo();
         }
 
-        StockHistory _History = new StockHistory();
+        StockHistory History_ = new StockHistory();
 
         private void buttonAutoComp_Click(object sender, EventArgs e)
         {
@@ -187,31 +182,31 @@ namespace FinanceAnalyzer
         private void RunStrategy(StrategyFactory factory)
         {
             SetUserDefinedDate();
-            _log.Info("==>AutoCompare start. Start Date = " + _History.MinDate.ToLongDateString()
-                + ", End Date = " + _History.MaxDate.ToLongDateString());
+            log_.Info("==>AutoCompare start. Start Date = " + History_.MinDate.ToLongDateString()
+                + ", End Date = " + History_.MaxDate.ToLongDateString());
 
-            if (_History.MinDate >= _History.MaxDate)
+            if (History_.MinDate >= History_.MaxDate)
             {
-                _log.Error("Stock histroy not correct!");
+                log_.Error("Stock histroy not correct!");
                 return;
             }
 
             factory.Init();
 
             ScoresCalculator calc = new ScoresCalculator();
-            calc.Calc(_History, factory, _BonusProcessor);
+            calc.Calc(History_, factory, BonusProcessor_);
             calc.ShowResult();
         }
 
         private void SetUserDefinedDate()
         {
-            _History.MaxDate = dateTimePickerEnd.Value;
-            _History.MinDate = dateTimePickerStart.Value;
+            History_.MaxDate = dateTimePickerEnd.Value;
+            History_.MinDate = dateTimePickerStart.Value;
         }
 
-        IStockDBReader _DbReader;
+        IStockDBReader DbReader_;
 
-        BonusProcessor _BonusProcessor = new BonusProcessor();
+        BonusProcessor BonusProcessor_ = new BonusProcessor();
 
         private void addBounusToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -228,7 +223,7 @@ namespace FinanceAnalyzer
         private void checkConsistencyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // 检查数据库中的数据
-            _History.Check(LogMgr.Logger);
+            History_.Check(LogMgr.Logger);
         }
 
         private void buttonChart_Click(object sender, EventArgs e)
@@ -240,9 +235,9 @@ namespace FinanceAnalyzer
         {
             FormMSChart chart = new FormMSChart();
 
-            _History.MaxDate = dateTimePickerEnd.Value;
-            _History.MinDate = dateTimePickerStart.Value;
-            chart.SetStockDrawer(_History.GetStockDrawer());
+            History_.MaxDate = dateTimePickerEnd.Value;
+            History_.MinDate = dateTimePickerStart.Value;
+            chart.SetStockDrawer(History_.GetStockDrawer());
 
             chart.ShowDialog();
         }
