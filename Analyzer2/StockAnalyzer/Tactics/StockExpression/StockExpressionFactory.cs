@@ -6,6 +6,10 @@ using FinanceAnalyzer.Tactics.StockExpression.Implementation;
 
 namespace FinanceAnalyzer.Tactics.StockExpression
 {
+    /// <summary>
+    /// Generate Stock expression
+    /// (Singleton)
+    /// </summary>
     class StockExpressionFactory
     {
         private StockExpressionFactory()
@@ -22,9 +26,15 @@ namespace FinanceAnalyzer.Tactics.StockExpression
 
         void Init()
         {
+            // Add all expressions
             AddExpression(new ThreeDays());
         }
 
+        /// <summary>
+        /// Get expression by it's name
+        /// </summary>
+        /// <param name="expressionName"></param>
+        /// <returns></returns>
         public IStockExpression GetExpression(string expressionName)
         {
             if (AllExpressions_.ContainsKey(expressionName))
