@@ -4,6 +4,9 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Stock
 {
+    /// <summary>
+    /// 保存一只股票的每天的信息
+    /// </summary>
     public interface IStockHistory
     {
         DateTime MaxDate
@@ -15,6 +18,9 @@ namespace FinanceAnalyzer.Stock
             get;
         }
 
+        /// <summary>
+        /// 股票代码
+        /// </summary>
         int StockId
         {
             get;
