@@ -26,6 +26,34 @@ namespace FinanceAnalyzer.Statistics.Weekly
             }
         }
 
+        public void CalcResult()
+        {
+            Dictionary<string, int> templateNumbers = new Dictionary<string, int>();
+            foreach (WeeklyResult res in Results_.Values)
+            {
+                string s = res.CalcUpTemplate();
+
+                if (string.IsNullOrEmpty(s))
+                {
+                    continue;
+                }
+
+                if (templateNumbers.ContainsKey(s))
+                {
+                    templateNumbers[s] = templateNumbers[s] + 1;
+                }
+                else
+                {
+                    templateNumbers.Add(s, 1);
+                }
+            }
+
+            foreach (var item in templateNumbers)
+            {
+                System.Console.WriteLine(item.Key + ": " + item.Value);
+            }
+        }
+
         Dictionary<int, WeeklyResult> Results_ = new Dictionary<int, WeeklyResult>();
 
         Calendar calendar_ = CultureInfo.CurrentCulture.Calendar;
