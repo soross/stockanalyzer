@@ -31,16 +31,39 @@ namespace FinanceAnalyzer.Statistics.Weekly
                 && dayToStocks_.ContainsKey(DayOfWeek.Friday);
         }
 
-        public string CalcTemplate()
+        public string CalcUpTemplate()
         {
             if (!IsWholeWeek())
             {
                 return "";
             }
 
+            string s = "";
 
+            IStockData stock1 = dayToStocks_[DayOfWeek.Monday];
+            s += GetUpDescription(stock1);
+            IStockData stock2 = dayToStocks_[DayOfWeek.Tuesday];
+            s += GetUpDescription(stock2);
+            IStockData stock3 = dayToStocks_[DayOfWeek.Wednesday];
+            s += GetUpDescription(stock3);
+            IStockData stock4 = dayToStocks_[DayOfWeek.Thursday];
+            s += GetUpDescription(stock4);
+            IStockData stock5 = dayToStocks_[DayOfWeek.Friday];
+            s += GetUpDescription(stock5);
 
-            return "";
+            return s;
+        }
+
+        string GetUpDescription(IStockData sd)
+        {
+            if (sd.EndPrice > sd.StartPrice)
+            {
+                return "1";
+            }
+            else
+            {
+                return "0";
+            }
         }
 
         Dictionary<DayOfWeek, IStockData> dayToStocks_ = new Dictionary<DayOfWeek, IStockData>();
