@@ -90,6 +90,9 @@
     <Compile Include="DB\StockMongoDBReader.cs" />
     <Compile Include="Statistics\Shape\IStockShape.cs" />
     <Compile Include="Statistics\Shape\ShapeStatistic.cs" />
+    <Compile Include="Statistics\Weekly\WeeklyResult.cs" />
+    <Compile Include="Statistics\Weekly\WeeklyResults.cs" />
+    <Compile Include="Statistics\Weekly\WeeklyStatistics.cs" />
     <Compile Include="Stock\Account.cs" />
     <Compile Include="Business\BonusInfo.cs" />
     <Compile Include="Business\BonusProcessor.cs" />
