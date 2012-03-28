@@ -12,6 +12,7 @@ using FinanceAnalyzer.Strategy.Factory;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
 using Stock.Common.Data;
+using FinanceAnalyzer.Statistics.Weekly;
 
 namespace FinanceAnalyzer
 {
@@ -223,7 +224,11 @@ namespace FinanceAnalyzer
         private void checkConsistencyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // 检查数据库中的数据
-            History_.Check(LogMgr.Logger);
+            //History_.Check(LogMgr.Logger);
+            WeeklyStatistics stat = new WeeklyStatistics();
+            stat.Calc(History_);
+
+            stat.PrintResult(LogMgr.Logger);
         }
 
         private void buttonChart_Click(object sender, EventArgs e)
