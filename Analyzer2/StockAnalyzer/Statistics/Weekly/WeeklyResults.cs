@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Stock.Common.Data;
 using System.Globalization;
+using FinanceAnalyzer.Log;
 
 namespace FinanceAnalyzer.Statistics.Weekly
 {
@@ -26,7 +27,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
             }
         }
 
-        public void CalcResult()
+        public void CalcResult(ICustomLog log)
         {
             Dictionary<string, int> templateNumbers = new Dictionary<string, int>();
             foreach (WeeklyResult res in Results_.Values)
@@ -50,7 +51,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
 
             foreach (var item in templateNumbers)
             {
-                System.Console.WriteLine(item.Key + ": " + item.Value);
+                log.LogInfo(item.Key + ": " + item.Value);
             }
         }
 

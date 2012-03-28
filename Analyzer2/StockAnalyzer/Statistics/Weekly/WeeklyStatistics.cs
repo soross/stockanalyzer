@@ -5,6 +5,7 @@ using System.Text;
 using FinanceAnalyzer.Stock;
 using Stock.Common.Data;
 using FinanceAnalyzer.Utility;
+using FinanceAnalyzer.Log;
 
 namespace FinanceAnalyzer.Statistics.Weekly
 {
@@ -30,9 +31,9 @@ namespace FinanceAnalyzer.Statistics.Weekly
             }
         }
 
-        public void PrintResult()
+        public void PrintResult(ICustomLog log)
         {
-
+            results_.CalcResult(log);
         }
 
         WeeklyResults results_ = new WeeklyResults();
