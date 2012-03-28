@@ -6,6 +6,9 @@ using Stock.Common.Data;
 
 namespace Stock.Db.IO
 {
+    /// <summary>
+    /// Read stock information from MongoDB
+    /// </summary>
     public class StockMongoReader
     {
         public StockMongoReader()
@@ -27,6 +30,11 @@ namespace Stock.Db.IO
             }
         }
 
+        /// <summary>
+        /// Get stock's information by stock id
+        /// </summary>
+        /// <param name="id">Stock ID, eg. 600012</param>
+        /// <returns>stock's information</returns>
         public IEnumerable<StockData> GetStockData(int id)
         {
             return StockMongoDB.GetInstance().GetStock(id);

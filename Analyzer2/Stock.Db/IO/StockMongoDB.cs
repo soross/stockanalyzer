@@ -34,6 +34,11 @@ namespace Stock.Db.IO
             return AllStock.FindAll();
         }
 
+        /// <summary>
+        /// Get stock's information by stock id
+        /// </summary>
+        /// <param name="stockId">Stock ID, eg. 600012</param>
+        /// <returns>stock's information</returns>
         public IEnumerable<StockData> GetStock(int stockId)
         {
             return AllStock.Find(new QueryDocument("StockId", stockId));

@@ -109,9 +109,12 @@ namespace FinanceAnalyzer.UI
                 chart1.ChartAreas["Price"].AxisY.Minimum = (int)minYValue - 1; // 最小值设置
             }
 
-            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "5", chart1.Series["Price"], chart1.Series["PriceMA5"]);
-            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "10", chart1.Series["Price"], chart1.Series["PriceMA10"]);
-            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, "20", chart1.Series["Price"], chart1.Series["PriceMA20"]);
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, 
+                "5", chart1.Series["Price"], chart1.Series["PriceMA5"]);
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, 
+                "10", chart1.Series["Price"], chart1.Series["PriceMA10"]);
+            chart1.DataManipulator.FinancialFormula(FinancialFormula.MovingAverage, 
+                "20", chart1.Series["Price"], chart1.Series["PriceMA20"]);
         }
 
         public void SetStockDrawer(IStockDrawer stockDrawer)
