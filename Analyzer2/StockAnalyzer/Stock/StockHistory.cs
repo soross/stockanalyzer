@@ -50,7 +50,7 @@ namespace FinanceAnalyzer.Stock
 
             foreach (IStockData val in arr)
             {
-                AddStock(val.TradeDate, val);
+                AddStock(DateFunc.ConvertToLocal(val.TradeDate), val);
             }
         }
 

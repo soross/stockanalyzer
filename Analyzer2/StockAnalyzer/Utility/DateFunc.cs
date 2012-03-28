@@ -7,6 +7,9 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Utility
 {
+    /// <summary>
+    /// Some useful date and time functions
+    /// </summary>
     public sealed class DateFunc
     {
         // 前一个工作日
@@ -39,22 +42,6 @@ namespace FinanceAnalyzer.Utility
         public static bool IsHoliday(DateTime dt)
         {
             return Holidays.Instance().IsHoliday(dt);
-            //// 处理周末
-            //if (IsWeekend(dt))
-            //{
-            //    return true;
-            //}
-
-            //// 处理黄金周
-            //if ((dt.Day >= 1) && (dt.Day <= 7))
-            //{
-            //    if ((dt.Month == 5) || (dt.Month == 10))
-            //    {
-            //        return true;
-            //    }
-            //}
-
-            //return false;
         }
 
         // 处理"20080320"类似的字符串
@@ -78,6 +65,26 @@ namespace FinanceAnalyzer.Utility
         public static DateTime ParseString(object param)
         {
             return ParseString(param.ToString());
+        }
+
+        /// <summary>
+        /// Convert time to UTC time
+        /// </summary>
+        /// <param name="dt">Local time</param>
+        /// <returns>UTC Time</returns>
+        public static DateTime ConvertToUTC(DateTime dt)
+        {
+            return TimeZoneInfo.ConvertTimeToUtc(dt, TimeZoneInfo.Local);
+        }
+
+        /// <summary>
+        /// Convert time to Local time
+        /// </summary>
+        /// <param name="dt">UTC time</param>
+        /// <returns>Local Time</returns>
+        public static DateTime ConvertToLocal(DateTime dt)
+        {
+            return TimeZoneInfo.ConvertTimeFromUtc(dt, TimeZoneInfo.Local);
         }
 
         private DateFunc()
