@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Stock.Common.Data;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Statistics.Weekly
 {
@@ -10,7 +11,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
     {
         public void AddStockData(IStockData dt)
         {
-            DayOfWeek dw = dt.TradeDate.DayOfWeek;
+            DayOfWeek dw = DateFunc.ConvertToLocal(dt.TradeDate).DayOfWeek;
 
             if (dayToStocks_.ContainsKey(dw))
             {
