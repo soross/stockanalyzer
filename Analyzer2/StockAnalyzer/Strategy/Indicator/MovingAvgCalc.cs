@@ -58,7 +58,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
                 double diff = shortEMA - longEMA; // 短周期均值-长周期均值
 
-                _DateIndicators.Add(startDate, diff);
+                DateIndicators_.Add(startDate, diff);
                 
                 CalcIndicators(hist, stock, prediction);
 
@@ -68,7 +68,8 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         void CalcIndicators(IStockHistory hist, IStockData stock, MovingAveragePrediction prediction)
         {
-            DateTime prev = hist.GetPreviousDay(stock.TradeDate);
+            DateTime localDate = DateFunc.ConvertToLocal(stock.TradeDate);
+            DateTime prev = hist.GetPreviousDay(localDate);
 
             double prevValue = GetIndicatorValue(prev);
 
@@ -82,7 +83,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 if (prediction.CalcNextPredictionValue() > 0)
                 {
                     // Up cross
-                    _DateToOpers.Add(stock.TradeDate, OperType.Buy);
+                    _DateToOpers.Add(localDate, OperType.Buy);
                 }
             }
 
@@ -91,7 +92,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 if (prediction.CalcNextPredictionValue() < 0)
                 {
                     // Down cross
-                    _DateToOpers.Add(stock.TradeDate, OperType.Sell);
+                    _DateToOpers.Add(localDate, OperType.Sell);
                 }
             }
         }
@@ -99,9 +100,9 @@ namespace FinanceAnalyzer.Strategy.Indicator
         // 得到某天的指标值
         double GetIndicatorValue(DateTime dt)
         {
-            if (_DateIndicators.ContainsKey(dt))
+            if (DateIndicators_.ContainsKey(dt))
             {
-                return _DateIndicators[dt];
+                return DateIndicators_[dt];
             }
             else
             {
@@ -109,6 +110,6 @@ namespace FinanceAnalyzer.Strategy.Indicator
             }
         }
 
-        Dictionary<DateTime, double> _DateIndicators = new Dictionary<DateTime, double>();
+        Dictionary<DateTime, double> DateIndicators_ = new Dictionary<DateTime, double>();
     }
 }

@@ -7,8 +7,15 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Statistics.Weekly
 {
+    /// <summary>
+    /// Categorize the stock data of one week
+    /// </summary>
     class WeeklyResult
     {
+        /// <summary>
+        /// Add each stock data of a stock history
+        /// </summary>
+        /// <param name="dt">Stock data of one day</param>
         public void AddStockData(IStockData dt)
         {
             DayOfWeek dw = DateFunc.ConvertToLocal(dt.TradeDate).DayOfWeek;
