@@ -10,6 +10,10 @@ namespace FinanceAnalyzer.Statistics.Weekly
 {
     class WeeklyResults
     {
+        /// <summary>
+        /// Add each stock data of a stock history
+        /// </summary>
+        /// <param name="dt">Stock data of one day</param>
         public void AddStockData(IStockData dt)
         {
             int week = calendar_.GetWeekOfYear(dt.TradeDate, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
@@ -27,6 +31,10 @@ namespace FinanceAnalyzer.Statistics.Weekly
             }
         }
 
+        /// <summary>
+        /// Categorize the stock data
+        /// </summary>
+        /// <param name="log">log for output results</param>
         public void CalcResult(ICustomLog log)
         {
             Dictionary<string, int> templateNumbers = new Dictionary<string, int>();
