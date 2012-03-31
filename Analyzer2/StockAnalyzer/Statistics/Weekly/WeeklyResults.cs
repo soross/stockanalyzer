@@ -5,9 +5,13 @@ using System.Text;
 using Stock.Common.Data;
 using System.Globalization;
 using FinanceAnalyzer.Log;
+using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Statistics.Weekly
 {
+    /// <summary>
+    /// Categorize the stock data of each week, and display them to a logger
+    /// </summary>
     class WeeklyResults
     {
         /// <summary>
@@ -16,7 +20,13 @@ namespace FinanceAnalyzer.Statistics.Weekly
         /// <param name="dt">Stock data of one day</param>
         public void AddStockData(IStockData dt)
         {
-            int week = calendar_.GetWeekOfYear(dt.TradeDate, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
+            if (dt == null)
+            {
+                return;
+            }
+
+            DateTime localDate = DateFunc.ConvertToLocal(dt.TradeDate);
+            int week = calendar_.GetWeekOfYear(localDate, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
 
             if (Results_.ContainsKey(week))
             {
@@ -61,6 +71,9 @@ namespace FinanceAnalyzer.Statistics.Weekly
             {
                 log.LogInfo(item.Key + ": " + item.Value);
             }
+
+            log.LogInfo("Complete. Total weeks = " + Results_.Count 
+                + ", categorized weeks = " + templateNumbers.Count);
         }
 
         Dictionary<int, WeeklyResult> Results_ = new Dictionary<int, WeeklyResult>();
