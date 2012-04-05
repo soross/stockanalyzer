@@ -71,10 +71,18 @@ namespace FinanceAnalyzer.Statistics.Weekly
                 }
             }
 
-            foreach (var item in templateNumbers)
+            var keys = templateNumbers.Keys;
+            var query = keys.OrderBy(x => x);
+
+            foreach (string item in query)
             {
-                log.LogInfo(item.Key + ": " + item.Value);
+                log.LogInfo(item + ": " + templateNumbers[item]);
             }
+
+            //foreach (var item in templateNumbers)
+            //{
+            //    log.LogInfo(item.Key + ": " + item.Value);
+            //}
 
             log.LogInfo("Complete. Total weeks = " + Results_.Count 
                 + ", categorized types = " + templateNumbers.Count
@@ -83,7 +91,6 @@ namespace FinanceAnalyzer.Statistics.Weekly
 
         public void AnalyzeEachDay(ICustomLog log)
         {
-
             foreach (WeeklyResult res in Results_.Values)
             {
             }
