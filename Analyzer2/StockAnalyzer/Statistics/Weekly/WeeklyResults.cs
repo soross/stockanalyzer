@@ -28,16 +28,18 @@ namespace FinanceAnalyzer.Statistics.Weekly
             DateTime localDate = DateFunc.ConvertToLocal(dt.TradeDate);
             int week = calendar_.GetWeekOfYear(localDate, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
 
-            if (Results_.ContainsKey(week))
+            int weekId = MakeWeekId(localDate.Year, week);
+
+            if (Results_.ContainsKey(weekId))
             {
-                Results_[week].AddStockData(dt);
+                Results_[weekId].AddStockData(dt);
             }
             else
             {
                 WeeklyResult res = new WeeklyResult();
                 res.AddStockData(dt);
 
-                Results_.Add(week, res);
+                Results_.Add(weekId, res);
             }
         }
 
@@ -47,6 +49,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
         /// <param name="log">log for output results</param>
         public void CalcResult(ICustomLog log)
         {
+            int notCalcWeeks = 0;
             Dictionary<string, int> templateNumbers = new Dictionary<string, int>();
             foreach (WeeklyResult res in Results_.Values)
             {
@@ -54,6 +57,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
 
                 if (string.IsNullOrEmpty(s))
                 {
+                    notCalcWeeks++;
                     continue;
                 }
 
@@ -73,9 +77,26 @@ namespace FinanceAnalyzer.Statistics.Weekly
             }
 
             log.LogInfo("Complete. Total weeks = " + Results_.Count 
-                + ", categorized weeks = " + templateNumbers.Count);
+                + ", categorized types = " + templateNumbers.Count
+                + ", error weeks = " + notCalcWeeks);
         }
 
+        public void AnalyzeEachDay(ICustomLog log)
+        {
+
+            foreach (WeeklyResult res in Results_.Values)
+            {
+            }
+        }
+
+        static int MakeWeekId(int year, int weekinYear)
+        {
+            return (year * 100) + weekinYear;
+        }
+
+        /// <summary>
+        /// Key is WeekId (Year & weekinYear)
+        /// </summary>
         Dictionary<int, WeeklyResult> Results_ = new Dictionary<int, WeeklyResult>();
 
         Calendar calendar_ = CultureInfo.CurrentCulture.Calendar;
