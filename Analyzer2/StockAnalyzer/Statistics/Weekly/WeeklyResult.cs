@@ -30,6 +30,23 @@ namespace FinanceAnalyzer.Statistics.Weekly
             }
         }
 
+        /// <summary>
+        /// Get stock information on specific day of one week
+        /// </summary>
+        /// <param name="dw">Day of week</param>
+        /// <returns>Stock data</returns>
+        public IStockData GetStockData(DayOfWeek dw)
+        {
+            if (dayToStocks_.ContainsKey(dw))
+            {
+                return dayToStocks_[dw];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public bool IsWholeWeek()
         {
             return dayToStocks_.ContainsKey(DayOfWeek.Monday)

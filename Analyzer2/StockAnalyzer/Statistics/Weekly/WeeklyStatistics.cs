@@ -41,6 +41,8 @@ namespace FinanceAnalyzer.Statistics.Weekly
         public void PrintResult(ICustomLog log)
         {
             results_.CalcResult(log);
+
+            results_.AnalyzeEachDay(log);
         }
 
         WeeklyResults results_ = new WeeklyResults();

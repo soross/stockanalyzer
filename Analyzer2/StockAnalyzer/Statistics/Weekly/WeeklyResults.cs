@@ -78,12 +78,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
             {
                 log.LogInfo(item + ": " + templateNumbers[item]);
             }
-
-            //foreach (var item in templateNumbers)
-            //{
-            //    log.LogInfo(item.Key + ": " + item.Value);
-            //}
-
+            
             log.LogInfo("Complete. Total weeks = " + Results_.Count 
                 + ", categorized types = " + templateNumbers.Count
                 + ", error weeks = " + notCalcWeeks);
@@ -91,9 +86,22 @@ namespace FinanceAnalyzer.Statistics.Weekly
 
         public void AnalyzeEachDay(ICustomLog log)
         {
+            StockWeekData fridaydata = new StockWeekData();
+            StockWeekData mondaydata = new StockWeekData();
+            
             foreach (WeeklyResult res in Results_.Values)
             {
+                IStockData sd = res.GetStockData(DayOfWeek.Friday);
+                IStockData sdMonday = res.GetStockData(DayOfWeek.Monday);
+
+                fridaydata.AddStockData(sd);
+                mondaydata.AddStockData(sdMonday);
             }
+
+            log.LogInfo("Monday up percent: " + mondaydata.CalcUpPercent().ToString("F03")
+                + ", Days = " + mondaydata.TotalDays);
+            log.LogInfo("Friday up percent: " + fridaydata.CalcUpPercent().ToString("F03")
+                + ", Days = " + fridaydata.TotalDays);
         }
 
         static int MakeWeekId(int year, int weekinYear)
