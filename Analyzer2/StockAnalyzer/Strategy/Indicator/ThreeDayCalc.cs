@@ -40,11 +40,11 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
                 if (_Judger.FulFil(prev2Stock, prevStock, currentstock))
                 {
-                    _DateToOpers.Add(startDate, OperType.Sell);
+                    DateToOpers_.Add(startDate, OperType.Sell);
                 }
                 else if (_Judger.ReverseFulFil(prev2Stock, prevStock, currentstock))
                 {
-                    _DateToOpers.Add(startDate, OperType.Buy);
+                    DateToOpers_.Add(startDate, OperType.Buy);
                 }
 
                 startDate = DateFunc.GetNextWorkday(startDate);

@@ -36,7 +36,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
                 OperType tp = _Scanner.Analyse(prev2Data, prevData, stock);
                 if (tp != OperType.NoOper)
                 {
-                    _DateToOpers.Add(startDate, tp);
+                    DateToOpers_.Add(startDate, tp);
                 }
 
                 startDate = DateFunc.GetNextWorkday(startDate);

@@ -49,7 +49,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 OperType operType = _Rule.Execute(stock.EndPrice, prevStock.EndPrice);
                 if (operType != OperType.NoOper)
                 {
-                    _DateToOpers.Add(startDate, operType);
+                    DateToOpers_.Add(startDate, operType);
                 }                            
 
                 startDate = DateFunc.GetNextWorkday(startDate);

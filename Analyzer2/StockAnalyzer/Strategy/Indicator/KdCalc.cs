@@ -10,6 +10,9 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
+    /// <summary>
+    /// KD based calculator
+    /// </summary>
     class KdCalc : BasicIndicatorCalc
     {
         /// <summary>
@@ -51,13 +54,13 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 // 低位K上穿D线
                 if (KUpCrossD(k, d, prevK, prevD))
                 {
-                    _DateToOpers.Add(startDate, OperType.Buy);
+                    DateToOpers_.Add(startDate, OperType.Buy);
                 }
 
                 // 高位K下穿D线
                 if (KDownCrossD(k, d, prevK, prevD))
                 {
-                    _DateToOpers.Add(startDate, OperType.Sell);
+                    DateToOpers_.Add(startDate, OperType.Sell);
                 }
 
                 startDate = DateFunc.GetNextWorkday(startDate);

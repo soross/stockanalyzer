@@ -149,6 +149,7 @@
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\VolumeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\WaysShapeCalc.cs" />
+    <Compile Include="Strategy\Indicator\WeeklyCalc.cs" />
     <Compile Include="Strategy\IStrategyFactory.cs" />
     <Compile Include="Strategy\Indicator\MacdCalculator.cs" />
     <Compile Include="Strategy\Result\IStrategyResults.cs" />

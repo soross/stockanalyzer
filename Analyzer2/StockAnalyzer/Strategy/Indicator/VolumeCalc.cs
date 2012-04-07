@@ -52,12 +52,12 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 if (currentstock.Amount < avgMinAmount)
                 {
                     // 成交地量，买入 
-                    _DateToOpers.Add(startDate, OperType.Buy);
+                    DateToOpers_.Add(startDate, OperType.Buy);
                 }
                 else if (currentstock.Amount > avgMaxAmount)
                 {
                     // 成交天量，卖出
-                    _DateToOpers.Add(startDate, OperType.Sell);
+                    DateToOpers_.Add(startDate, OperType.Sell);
                 }
 
                 startDate = DateFunc.GetNextWorkday(startDate);

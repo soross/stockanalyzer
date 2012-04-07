@@ -29,7 +29,6 @@ namespace FinanceAnalyzer.Statistics.Weekly
 
                 results_.AddStockData(stock);
 
-                //startDate = DateFunc.GetNextWorkday(startDate);
                 startDate = startDate.AddDays(1);
             }
         }
@@ -42,7 +41,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
         {
             results_.CalcResult(log);
 
-            results_.AnalyzeEachDay(log);
+            results_.AnalyzeEachDayOfOneWeek(log);
         }
 
         WeeklyResults results_ = new WeeklyResults();
