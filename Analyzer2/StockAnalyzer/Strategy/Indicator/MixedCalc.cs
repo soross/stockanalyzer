@@ -63,9 +63,9 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
                     if (IsSignalValid(calc.Name, tp))
                     {
-                        if (!_DateToOpers.ContainsKey(startDate))
+                        if (!DateToOpers_.ContainsKey(startDate))
                         {
-                            _DateToOpers.Add(startDate, tp);
+                            DateToOpers_.Add(startDate, tp);
                         }
                         else
                         {

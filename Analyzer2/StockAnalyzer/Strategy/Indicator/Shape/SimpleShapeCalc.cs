@@ -43,11 +43,11 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
 
                 if (slopeCalc.IsDownPeriod() && ShapeJudger.IsUpCross(stock))
                 {
-                    _DateToOpers.Add(startDate, OperType.Buy);
+                    DateToOpers_.Add(startDate, OperType.Buy);
                 }
                 else if (slopeCalc.IsRisePeriod() && ShapeJudger.IsDownCross(stock))
                 {
-                    _DateToOpers.Add(startDate, OperType.Sell);
+                    DateToOpers_.Add(startDate, OperType.Sell);
                 }
 
                 startDate = DateFunc.GetNextWorkday(startDate);

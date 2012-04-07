@@ -7,6 +7,9 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
+    /// <summary>
+    /// Calculate all buy and sell signal, and save
+    /// </summary>
     abstract class BasicIndicatorCalc : IIndicatorCalc
     {
         public abstract void Calc(IStockHistory hist);
@@ -16,16 +19,22 @@ namespace FinanceAnalyzer.Strategy.Indicator
             get;
         }
 
+        /// <summary>
+        /// Return the buy or sell signal based on the indicator value
+        /// </summary>
+        /// <param name="dt">Current date</param>
+        /// <param name="prev">Previous date</param>
+        /// <returns>buy or sell signal</returns>
         public OperType MatchSignal(DateTime dt, DateTime prev)
         {
-            if (_DateToOpers.ContainsKey(dt))
+            if (DateToOpers_.ContainsKey(dt))
             {
-                return _DateToOpers[dt];
+                return DateToOpers_[dt];
             }
 
             return OperType.NoOper;
         }
 
-        protected Dictionary<DateTime, OperType> _DateToOpers = new Dictionary<DateTime, OperType>();
+        protected Dictionary<DateTime, OperType> DateToOpers_ = new Dictionary<DateTime, OperType>();
     }
 }

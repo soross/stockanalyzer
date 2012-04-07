@@ -42,11 +42,11 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
 
                 if (ShapeJudger.IsT2(stock, _DeltaRatio) && VolumeHelper.IsLargerThan(stock, prevData, 0.3))
                 {
-                    _DateToOpers.Add(startDate, OperType.Buy);
+                    DateToOpers_.Add(startDate, OperType.Buy);
                 }
                 else if (ShapeJudger.IsReverseT2(stock, _DeltaRatio))
                 {
-                    _DateToOpers.Add(startDate, OperType.Sell);
+                    DateToOpers_.Add(startDate, OperType.Sell);
                 }
 
                 startDate = DateFunc.GetNextWorkday(startDate);

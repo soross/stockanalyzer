@@ -46,7 +46,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
         /// <summary>
         /// Categorize the stock data
         /// </summary>
-        /// <param name="log">log for output results</param>
+        /// <param name="log">logger for output results</param>
         public void CalcResult(ICustomLog log)
         {
             int notCalcWeeks = 0;
@@ -84,22 +84,41 @@ namespace FinanceAnalyzer.Statistics.Weekly
                 + ", error weeks = " + notCalcWeeks);
         }
 
-        public void AnalyzeEachDay(ICustomLog log)
-        {
-            StockWeekData fridaydata = new StockWeekData();
+        /// <summary>
+        /// Categorized stock performance by each day of one week
+        /// </summary>
+        /// <param name="log">logger for output results</param>
+        public void AnalyzeEachDayOfOneWeek(ICustomLog log)
+        {            
             StockWeekData mondaydata = new StockWeekData();
+            StockWeekData tuesdaydata = new StockWeekData();
+            StockWeekData wednesdaydata = new StockWeekData();
+            StockWeekData thursdaydata = new StockWeekData();
+            StockWeekData fridaydata = new StockWeekData();
             
             foreach (WeeklyResult res in Results_.Values)
             {
-                IStockData sd = res.GetStockData(DayOfWeek.Friday);
                 IStockData sdMonday = res.GetStockData(DayOfWeek.Monday);
-
-                fridaydata.AddStockData(sd);
+                IStockData sdTuesday = res.GetStockData(DayOfWeek.Tuesday);
+                IStockData sdWednesday = res.GetStockData(DayOfWeek.Wednesday);
+                IStockData sdThursday = res.GetStockData(DayOfWeek.Thursday);
+                IStockData sdFriday = res.GetStockData(DayOfWeek.Friday);
+                                
                 mondaydata.AddStockData(sdMonday);
+                tuesdaydata.AddStockData(sdTuesday);
+                wednesdaydata.AddStockData(sdWednesday);
+                thursdaydata.AddStockData(sdThursday);
+                fridaydata.AddStockData(sdFriday);
             }
 
             log.LogInfo("Monday up percent: " + mondaydata.CalcUpPercent().ToString("F03")
                 + ", Days = " + mondaydata.TotalDays);
+            log.LogInfo("Tuesday up percent: " + tuesdaydata.CalcUpPercent().ToString("F03")
+                + ", Days = " + tuesdaydata.TotalDays);
+            log.LogInfo("Wednesday up percent: " + wednesdaydata.CalcUpPercent().ToString("F03")
+                + ", Days = " + wednesdaydata.TotalDays);
+            log.LogInfo("Thursday up percent: " + thursdaydata.CalcUpPercent().ToString("F03")
+                + ", Days = " + thursdaydata.TotalDays);
             log.LogInfo("Friday up percent: " + fridaydata.CalcUpPercent().ToString("F03")
                 + ", Days = " + fridaydata.TotalDays);
         }

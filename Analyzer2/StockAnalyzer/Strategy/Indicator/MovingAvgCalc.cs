@@ -83,7 +83,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 if (prediction.CalcNextPredictionValue() > 0)
                 {
                     // Up cross
-                    _DateToOpers.Add(localDate, OperType.Buy);
+                    DateToOpers_.Add(localDate, OperType.Buy);
                 }
             }
 
@@ -92,7 +92,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 if (prediction.CalcNextPredictionValue() < 0)
                 {
                     // Down cross
-                    _DateToOpers.Add(localDate, OperType.Sell);
+                    DateToOpers_.Add(localDate, OperType.Sell);
                 }
             }
         }
