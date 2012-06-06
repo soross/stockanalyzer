@@ -16,13 +16,13 @@ namespace FinanceAnalyzer.Strategy.Impl
         {
             get
             {
-                return "3Day: " + _Judger.Name;
+                return "3Day: " + Judger_.Name;
             }
         }
 
         public StrategyThreeDay(IStockJudger judger)
         {
-            _Judger = judger;
+            Judger_ = judger;
         }
 
         public override ICollection<StockOper> GetOper(DateTime day, IAccount account)
@@ -41,7 +41,7 @@ namespace FinanceAnalyzer.Strategy.Impl
             }
 
             ICollection<StockOper> opers = new List<StockOper>();
-            if (_Judger.FulFil(stockprevProp, stockYesterdayProp, curProp))
+            if (Judger_.FulFil(stockprevProp, stockYesterdayProp, curProp))
             {
                 if (stockHolder.HasStock())
                 {
@@ -50,7 +50,7 @@ namespace FinanceAnalyzer.Strategy.Impl
                     return opers;
                 }
             }
-            else if (_Judger.ReverseFulFil(stockprevProp, stockYesterdayProp, curProp))
+            else if (Judger_.ReverseFulFil(stockprevProp, stockYesterdayProp, curProp))
             {
                 int stockCount = Transaction.GetCanBuyStockCount(account.BankRoll,
                     curProp.EndPrice);
@@ -69,6 +69,6 @@ namespace FinanceAnalyzer.Strategy.Impl
         {
         }
 
-        private IStockJudger _Judger;
+        private IStockJudger Judger_;
     }
 }

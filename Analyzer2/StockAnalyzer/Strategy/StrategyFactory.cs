@@ -33,6 +33,8 @@ namespace FinanceAnalyzer.Strategy
 
             AddStrategyByIndicator(new WeeklyCalc());
 
+            AddStrategyByIndicator(new EngulfingCalc());
+
             AddStrategyByIndicator(new SimpleShapeCalc());
             AddStrategyByIndicator(new SpikeShapeCalc(0.03));
             AddStrategyByIndicator(new SpikeVolumeShapeCalc(0.025));
