@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MyBatis.DataMapper;
 using System.Collections;
 using Stock.Common.Data;
-using MyBatis.DataMapper.Configuration;
 
 namespace FinanceAnalyzer.DB
 {
@@ -18,19 +16,11 @@ namespace FinanceAnalyzer.DB
     {
         public void LoadAll()
         {
-            _mapper = MyBatisDataMapper.GetMapper();
-
-            _bonusList = _mapper.QueryForList<Bonus>("SelectAll", null);
         }
 
         public IList<Bonus> Query(int stockId)
         {
-            if (_mapper == null)
-            {
-                _mapper = MyBatisDataMapper.GetMapper();
-            }
-
-            return _mapper.QueryForList<Bonus>("SelectByStockId", stockId);
+            throw new NotImplementedException();
         }
 
         public int Count()
@@ -40,10 +30,8 @@ namespace FinanceAnalyzer.DB
 
         public static void InsertBonus(Bonus bonus)
         {
-            _mapper.Insert("InsertBonus", bonus);
         }
 
         IList<Bonus> _bonusList;
-        private static IDataMapper _mapper = null; // iBatis数据库操作
     }
 }
