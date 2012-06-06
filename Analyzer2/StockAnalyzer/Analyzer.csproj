@@ -133,6 +133,7 @@
     <Compile Include="Strategy\Indicator\MovingAvgCalc.cs" />
     <Compile Include="Strategy\Indicator\RiseDownCalc.cs" />
     <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
+    <Compile Include="Strategy\Indicator\Shape\EngulfingCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SpikeShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SpikeVolumeShapeCalc.cs" />

@@ -83,6 +83,7 @@
     <Compile Include="Data\IStockSaver.cs" />
     <Compile Include="Data\OperTypeDef.cs" />
     <Compile Include="Data\StockData.cs" />
+    <Compile Include="Data\StockDataCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
