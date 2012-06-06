@@ -62,12 +62,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>External\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MyBatis.Common">
-      <HintPath>External\MyBatis\MyBatis.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="MyBatis.DataMapper">
-      <HintPath>External\MyBatis\MyBatis.DataMapper.dll</HintPath>
-    </Reference>
     <Reference Include="NCalc">
       <HintPath>External\NCalc.dll</HintPath>
     </Reference>
@@ -87,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\IStockDBReader.cs" />
-    <Compile Include="DB\MyBatisDataMapper.cs" />
     <Compile Include="DB\StockMongoDBReader.cs" />
     <Compile Include="Statistics\Shape\IStockShape.cs" />
     <Compile Include="Statistics\Shape\ShapeStatistic.cs" />
@@ -103,8 +96,6 @@
     <Compile Include="Business\VolumeHelper.cs" />
     <Compile Include="DB\BonusReader.cs" />
     <Compile Include="DB\IDataChecker.cs" />
-    <Compile Include="DB\StockDBReader.cs" />
-    <Compile Include="DB\StockDBSaver.cs" />
     <Compile Include="DB\StockJudger.cs" />
     <Compile Include="Display\StockPoint.cs" />
     <Compile Include="Stock\CharMapping\RatioHalfCharMapping.cs" />
@@ -300,10 +291,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
-    <None Include="Config\providers.config" />
-    <None Include="Config\SqlMap.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -337,9 +324,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="01.ico" />
-    <Content Include="Config\Readme.txt" />
-    <Content Include="Config\sqlxml\Bonus.xml" />
-    <Content Include="Config\sqlxml\Stock.xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
