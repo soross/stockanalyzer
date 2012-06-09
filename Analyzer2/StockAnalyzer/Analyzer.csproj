@@ -122,10 +122,12 @@
     <Compile Include="Strategy\Impl\StrategyPriceAmountDeviation.cs" />
     <Compile Include="Strategy\Impl\StrategyTwoDayPlusOne.cs" />
     <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
+    <Compile Include="Strategy\Indicator\BasicSignalCalc.cs" />
     <Compile Include="Strategy\Indicator\FibonacciCalc.cs" />
     <Compile Include="Strategy\Indicator\HistoricalValuesCalc.cs" />
     <Compile Include="Strategy\Indicator\HoldCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
+    <Compile Include="Strategy\Indicator\ISignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\MixedCalc.cs" />
     <Compile Include="Strategy\Indicator\KdCalc.cs" />
     <Compile Include="Strategy\Indicator\MoneyFlowIndexCalc.cs" />
@@ -138,11 +140,13 @@
     <Compile Include="Strategy\Indicator\Shape\SpikeShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SpikeVolumeShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TrendRevertShapeCalc.cs" />
+    <Compile Include="Strategy\Indicator\Signal\KDJAlgorithm.cs" />
+    <Compile Include="Strategy\Indicator\Signal\KDSignal.cs" />
+    <Compile Include="Strategy\Indicator\Signal\MACDAlgorithm.cs" />
     <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\VolumeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\WaysShapeCalc.cs" />
-    <Compile Include="Strategy\Indicator\WeeklyCalc.cs" />
     <Compile Include="Strategy\IStrategyFactory.cs" />
     <Compile Include="Strategy\Indicator\MacdCalculator.cs" />
     <Compile Include="Strategy\Result\IStrategyResults.cs" />
@@ -150,7 +154,6 @@
     <Compile Include="Strategy\Judger\RiseJudgerOptim.cs" />
     <Compile Include="Strategy\Judger\UpJudgerOptim.cs" />
     <Compile Include="Strategy\Judger\VolumeJudger.cs" />
-    <Compile Include="Strategy\Rule\IRule.cs" />
     <Compile Include="Strategy\Impl\StrategyBamboo.cs" />
     <Compile Include="Strategy\StrategyFactory.cs" />
     <Compile Include="Strategy\Impl\StrategyIndicator.cs" />

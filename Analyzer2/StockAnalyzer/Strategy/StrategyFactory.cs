@@ -30,9 +30,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new RiseDownCalc(0.06));
             AddStrategyByIndicator(new HoldCalc());
             AddStrategyByIndicator(new KdCalc(25, 75));
-
-            AddStrategyByIndicator(new WeeklyCalc());
-
+            
             AddStrategyByIndicator(new EngulfingCalc());
 
             AddStrategyByIndicator(new SimpleShapeCalc());

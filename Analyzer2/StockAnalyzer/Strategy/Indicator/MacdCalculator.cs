@@ -42,28 +42,28 @@ namespace FinanceAnalyzer.Strategy.Indicator
                     continue;
                 }
 
-                Debug.Assert(_LongPriceList.Count == LONGDAYS);
-                Debug.Assert(_ShortPriceList.Count == SHORTDAYS);
+                Debug.Assert(LongPrices_.Count == LONGDAYS);
+                Debug.Assert(ShortPrices_.Count == SHORTDAYS);
 
                 // 计算长周期和短周期均值
-                double longEMA = _LongPriceList.Average();
-                double shortEMA = _ShortPriceList.Average();
+                double longEMA = LongPrices_.Average();
+                double shortEMA = ShortPrices_.Average();
 
                 double diff = shortEMA - longEMA; // 短周期均值-长周期均值
 
-                _DiffPriceList.Add(diff);
-                if (_DiffPriceList.Count < MIDDAYS)
+                DiffPrices_.Add(diff);
+                if (DiffPrices_.Count < MIDDAYS)
                 {
                     startDate = DateFunc.GetNextWorkday(startDate);
                     continue;
                 }
-                else if (_DiffPriceList.Count > MIDDAYS)
+                else if (DiffPrices_.Count > MIDDAYS)
                 {
-                    _DiffPriceList.RemoveAt(0);
+                    DiffPrices_.RemoveAt(0);
                 }
-                Debug.Assert(_DiffPriceList.Count == MIDDAYS);
+                Debug.Assert(DiffPrices_.Count == MIDDAYS);
 
-                double dea = _DiffPriceList.Average(); // DIFF 均线
+                double dea = DiffPrices_.Average(); // DIFF 均线
 
                 double macd = diff - dea; // DIFF与均线之差
 
@@ -101,27 +101,27 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 throw new ArgumentOutOfRangeException("MacdCalculator.AddTodayPrice: " + price.ToString());
             }
 
-            _LongPriceList.Add(price);
-            if (_LongPriceList.Count > LONGDAYS)
+            LongPrices_.Add(price);
+            if (LongPrices_.Count > LONGDAYS)
             {
-                _LongPriceList.RemoveAt(0);
+                LongPrices_.RemoveAt(0);
             }
 
-            _ShortPriceList.Add(price);
-            if (_ShortPriceList.Count > SHORTDAYS)
+            ShortPrices_.Add(price);
+            if (ShortPrices_.Count > SHORTDAYS)
             {
-                _ShortPriceList.RemoveAt(0);
+                ShortPrices_.RemoveAt(0);
             }
         }
 
         private bool IsCountEnough()
         {
-            return (_LongPriceList.Count >= LONGDAYS) && (_ShortPriceList.Count >= SHORTDAYS);
+            return (LongPrices_.Count >= LONGDAYS) && (ShortPrices_.Count >= SHORTDAYS);
         }
 
-        List<double> _LongPriceList = new List<double>();
-        List<double> _ShortPriceList = new List<double>();
-        List<double> _DiffPriceList = new List<double>();
+        List<double> LongPrices_ = new List<double>();
+        List<double> ShortPrices_ = new List<double>();
+        List<double> DiffPrices_ = new List<double>();
 
         private const int SHORTDAYS = 12;
         private const int LONGDAYS = 26;
