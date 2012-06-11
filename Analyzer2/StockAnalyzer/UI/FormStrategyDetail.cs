@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using FinanceAnalyzer.Strategy.Result;
-using FinanceAnalyzer.Judger.Validation;
-using FinanceAnalyzer.Judger;
 using System.Globalization;
+using System.Windows.Forms;
+using FinanceAnalyzer.Judger;
+using FinanceAnalyzer.Judger.Validation;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Strategy.Result;
 using Stock.Common.Data;
 
 namespace FinanceAnalyzer.UI

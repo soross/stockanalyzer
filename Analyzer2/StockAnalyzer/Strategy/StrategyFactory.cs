@@ -7,6 +7,7 @@ using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Business.Shape;
 using FinanceAnalyzer.Strategy.Indicator.Shape;
+using FinanceAnalyzer.Strategy.Indicator.Signal;
 
 namespace FinanceAnalyzer.Strategy
 {
@@ -32,6 +33,8 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new KdCalc(25, 75));
             
             AddStrategyByIndicator(new EngulfingCalc());
+
+            AddStrategyByIndicator(new BasicSignalCalc(new MACDSignal()));
 
             AddStrategyByIndicator(new SimpleShapeCalc());
             AddStrategyByIndicator(new SpikeShapeCalc(0.03));

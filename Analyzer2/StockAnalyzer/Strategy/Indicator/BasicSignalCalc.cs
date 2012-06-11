@@ -8,16 +8,19 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
-    abstract class BasicSignalCalc : IIndicatorCalc
+    class BasicSignalCalc : IIndicatorCalc
     {
         public BasicSignalCalc(ISignalCalculator signalCalc)
         {
             signalCalc_ = signalCalc;
         }
 
-        public abstract string Name
+        public string Name
         {
-            get;
+            get
+            {
+                return signalCalc_.GetName();
+            }
         }
 
         public void Calc(IStockHistory hist)
