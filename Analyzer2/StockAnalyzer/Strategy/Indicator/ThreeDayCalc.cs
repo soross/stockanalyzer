@@ -14,7 +14,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
     {
         public override string Name
         {
-            get { return "3Days: " + _Judger.Name; }
+            get { return "3Days: " + Judger_.Name; }
         }
 
         public override void Calc(IStockHistory hist)
@@ -38,11 +38,11 @@ namespace FinanceAnalyzer.Strategy.Indicator
                     continue;
                 }
 
-                if (_Judger.FulFil(prev2Stock, prevStock, currentstock))
+                if (Judger_.FulFil(prev2Stock, prevStock, currentstock))
                 {
                     DateToOpers_.Add(startDate, OperType.Sell);
                 }
-                else if (_Judger.ReverseFulFil(prev2Stock, prevStock, currentstock))
+                else if (Judger_.ReverseFulFil(prev2Stock, prevStock, currentstock))
                 {
                     DateToOpers_.Add(startDate, OperType.Buy);
                 }
@@ -54,9 +54,9 @@ namespace FinanceAnalyzer.Strategy.Indicator
 
         public ThreeDayCalc(IStockJudger judger)
         {
-            _Judger = judger;
+            Judger_ = judger;
         }
 
-        private IStockJudger _Judger;
+        private IStockJudger Judger_;
     }
 }
