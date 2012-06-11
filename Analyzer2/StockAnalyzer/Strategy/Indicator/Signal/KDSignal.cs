@@ -20,6 +20,11 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
             throw new NotImplementedException();
         }
 
+        public string GetName()
+        {
+            return "KDJ";
+        }
+
         #endregion
 
         /// <summary>

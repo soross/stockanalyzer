@@ -143,6 +143,7 @@
     <Compile Include="Strategy\Indicator\Signal\KDJAlgorithm.cs" />
     <Compile Include="Strategy\Indicator\Signal\KDSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MACDAlgorithm.cs" />
+    <Compile Include="Strategy\Indicator\Signal\MACDSignal.cs" />
     <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\VolumeCalc.cs" />

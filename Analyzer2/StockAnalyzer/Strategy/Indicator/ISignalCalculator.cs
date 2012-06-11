@@ -11,5 +11,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
         void AddStock(IStockData sd);
 
         OperType GetSignal();
+
+        string GetName();
     }
 }
