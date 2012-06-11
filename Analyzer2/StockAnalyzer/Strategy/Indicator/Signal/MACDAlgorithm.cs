@@ -6,6 +6,8 @@ using System.Diagnostics;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
+    // 参考：http://en.wikipedia.org/wiki/MACD
+    // 传统MACD计算方式 
     class MACDAlgorithm
     {
         public bool AddValue(double val)

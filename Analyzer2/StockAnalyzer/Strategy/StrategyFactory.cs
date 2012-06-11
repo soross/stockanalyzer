@@ -19,13 +19,11 @@ namespace FinanceAnalyzer.Strategy
             AddStrategy(new StrategyTwoDayPlusOne());
             AddStrategy(new StrategyThreeDay(new RiseJudger()));
             AddStrategy(new StrategyThreeDay(new UpJudger()));
-            //AddStrategy(new StrategyThreeDay(new VolumeJudger()));
             AddMixedIndicators(new ThreeDayCalc(new UpJudger()), new MoneyFlowIndexCalc());
 
             IIndicatorCalc calc = new ThreeDayCalc(new UpJudger());
             AddStrategyByIndicator(calc);
 
-            AddStrategyByIndicator(new MacdCalculator());
             AddStrategyByIndicator(new RsiCalculator());
             AddStrategyByIndicator(new MoneyFlowIndexCalc());
             AddStrategyByIndicator(new RiseDownCalc(0.06));
@@ -44,7 +42,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new MovingAvgCalc());
             AddStrategyByIndicator(new MovingAverageCalc());
 
-            AddMixedIndicators(new SimpleShapeCalc(), new MacdCalculator());
+            AddMixedIndicators(new SimpleShapeCalc(), new BasicSignalCalc(new MACDSignal()));
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
