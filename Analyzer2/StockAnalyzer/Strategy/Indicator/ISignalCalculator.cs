@@ -8,7 +8,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
 {
     interface ISignalCalculator
     {
-        void AddStock(IStockData sd);
+        bool AddStock(IStockData sd);
 
         OperType GetSignal();
 
