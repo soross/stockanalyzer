@@ -11,7 +11,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
         #region ISignalCalculator Members
 
-        public void AddStock(IStockData sd)
+        public bool AddStock(IStockData sd)
         {
             currentStatus_ = Alg_.AddValue(sd.EndPrice);
 
@@ -19,6 +19,8 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
             {
                 macdValues_.AddValue(Alg_.GetMacd());
             }
+
+            return true;
         }
 
         public OperType GetSignal()

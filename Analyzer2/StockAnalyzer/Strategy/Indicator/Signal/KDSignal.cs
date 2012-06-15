@@ -10,9 +10,9 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
     {
         #region ISignalCalculator Members
 
-        public void AddStock(IStockData sd)
+        public bool AddStock(IStockData sd)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public OperType GetSignal()
