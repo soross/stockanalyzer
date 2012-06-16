@@ -19,13 +19,12 @@ namespace FinanceAnalyzer.Strategy
             AddStrategy(new StrategyTwoDayPlusOne());
             AddStrategy(new StrategyThreeDay(new RiseJudger()));
             AddStrategy(new StrategyThreeDay(new UpJudger()));
-            AddMixedIndicators(new ThreeDayCalc(new UpJudger()), new MoneyFlowIndexCalc());
+            AddMixedIndicators(new ThreeDayCalc(new UpJudger()), new BasicSignalCalc(new MoneyFlowIndexSignal()));
 
             IIndicatorCalc calc = new ThreeDayCalc(new UpJudger());
             AddStrategyByIndicator(calc);
 
             AddStrategyByIndicator(new RsiCalculator());
-            AddStrategyByIndicator(new MoneyFlowIndexCalc());
             AddStrategyByIndicator(new RiseDownCalc(0.06));
             AddStrategyByIndicator(new HoldCalc());
             AddStrategyByIndicator(new KdCalc(25, 75));
