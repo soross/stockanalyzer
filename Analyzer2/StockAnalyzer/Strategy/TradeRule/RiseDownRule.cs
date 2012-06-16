@@ -6,14 +6,14 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.TradeRule
 {
-    enum StockDirection
-    {
-        Rise,
-        Down
-    }
-
     class RiseDownRule
     {
+        enum StockDirection
+        {
+            Rise,
+            Down
+        }
+
         public RiseDownRule(double percent)
         {
             _CurMaxPrise = -1;
