@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FinanceAnalyzer.DB;
-using System.Diagnostics;
+using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Utility;
 using Stock.Common.Data;
-using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
