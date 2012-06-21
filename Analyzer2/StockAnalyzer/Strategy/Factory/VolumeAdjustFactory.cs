@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.Strategy.Indicator;
 using FinanceAnalyzer.Strategy.Impl;
+using FinanceAnalyzer.Strategy.Indicator.Signal;
 
 namespace FinanceAnalyzer.Strategy.Factory
 {
@@ -15,7 +16,7 @@ namespace FinanceAnalyzer.Strategy.Factory
             {
                 for (double j = 0.1; j < 1.2; j += 0.1)
                 {
-                    AddStrategy(new StrategyIndicator(new VolumeCalc(i, j)));
+                    AddStrategyByIndicator(new BasicSignalCalc(new VolumeSignal(i, j)));
                 }
             }
 

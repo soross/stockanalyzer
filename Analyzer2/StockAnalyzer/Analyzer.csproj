@@ -148,7 +148,6 @@
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
     <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
-    <Compile Include="Strategy\Indicator\VolumeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\WaysShapeCalc.cs" />
     <Compile Include="Strategy\IStrategyFactory.cs" />
     <Compile Include="Strategy\Result\IStrategyResults.cs" />

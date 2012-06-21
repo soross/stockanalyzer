@@ -46,8 +46,6 @@ namespace FinanceAnalyzer.Strategy
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
-            AddStrategyByIndicator(new VolumeCalc(BUYMARGINPERCENT, SELLMARGINPERCENT));
-
             AddStrategyByIndicator(new BasicSignalCalc(new VolumeSignal(BUYMARGINPERCENT, SELLMARGINPERCENT)));
 
             AddStrategy(new StrategyMinMax());
