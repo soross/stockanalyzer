@@ -31,5 +31,27 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
             Assert.AreEqual(vs.GetSignal(), OperType.Sell);
         }
+
+        [Test]
+        public void RunIncrease()
+        {
+            VolumeSignal vs = new VolumeSignal(0.3, 0.6);
+
+            Assert.IsFalse(vs.AddStock(new StockData { Amount = 90 }));
+            Assert.IsFalse(vs.AddStock(new StockData { Amount = 100.0 }));
+            Assert.IsFalse(vs.AddStock(new StockData { Amount = 110 }));
+
+            Assert.IsTrue(vs.AddStock(new StockData { Amount = 69 }));
+
+            Assert.AreEqual(vs.GetSignal(), OperType.Buy);
+
+            Assert.IsTrue(vs.AddStock(new StockData { Amount = 80.0 }));
+            Assert.IsTrue(vs.AddStock(new StockData { Amount = 100.0 }));
+            Assert.IsTrue(vs.AddStock(new StockData { Amount = 120.0 }));
+
+            Assert.IsTrue(vs.AddStock(new StockData { Amount = 161 }));
+
+            Assert.AreEqual(vs.GetSignal(), OperType.Sell);
+        }
     }
 }
