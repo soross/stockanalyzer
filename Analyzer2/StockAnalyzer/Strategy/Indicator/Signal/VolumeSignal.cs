@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using FinanceAnalyzer.Utility;
 using Stock.Common.Data;
-using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
-    class VolumeSignal : ISignalCalculator
+    public class VolumeSignal : ISignalCalculator
     {
         #region ISignalCalculator Members
 
@@ -15,12 +11,12 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
         {
             if (sd == null)
             {
-                return false ;
+                return false;
             }
-
-            Averager_.AddVal(sd.Amount);
+                        
             if (!Averager_.IsEnough())
             {
+                Averager_.AddVal(sd.Amount);
                 return false;
             }
 
@@ -42,6 +38,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
                 TodayOper_ = OperType.NoOper;
             }
 
+            Averager_.AddVal(sd.Amount);
             return true;
         }
 
