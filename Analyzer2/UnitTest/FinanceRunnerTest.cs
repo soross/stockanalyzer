@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
+﻿using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Log;
+using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Strategy;
+using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.Strategy.Judger;
 using FinanceAnalyzer.Strategy.Result;
-using FinanceAnalyzer.Strategy.Impl;
-using FinanceAnalyzer.DB;
-using FinanceAnalyzer.Business;
-using FinanceAnalyzer.Stock;
+using NUnit.Framework;
 
 namespace FinanceAnalyzer
 {

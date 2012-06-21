@@ -31,21 +31,28 @@ namespace FinanceAnalyzer.Strategy.Indicator
             while (startDate < endDate)
             {
                 IStockData stock = hist.GetStock(startDate);
-                if (stock == null)
-                {
-                    startDate = DateFunc.GetNextWorkday(startDate);
-                    continue;
-                }
-
-                signalCalc_.AddStock(stock);
-
-                OperType ot = signalCalc_.GetSignal();
-                if (ot != OperType.NoOper)
-                {
-                    DateToOpers_.Add(startDate, ot);
-                }
+                CalculateSignal(startDate, stock);
  
                 startDate = DateFunc.GetNextWorkday(startDate);
+            }
+        }
+
+        void CalculateSignal(DateTime dt, IStockData stock)
+        {
+            if (stock == null)
+            {
+                return;
+            }
+
+            if (!signalCalc_.AddStock(stock))
+            {
+                return;
+            }
+
+            OperType ot = signalCalc_.GetSignal();
+            if (ot != OperType.NoOper)
+            {
+                DateToOpers_.Add(dt, ot);
             }
         }
 
