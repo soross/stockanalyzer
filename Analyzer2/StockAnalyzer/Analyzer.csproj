@@ -123,7 +123,6 @@
     <Compile Include="Strategy\Impl\StrategyTwoDayPlusOne.cs" />
     <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\BasicSignalCalc.cs" />
-    <Compile Include="Strategy\Indicator\FibonacciCalc.cs" />
     <Compile Include="Strategy\Indicator\HistoricalValuesCalc.cs" />
     <Compile Include="Strategy\Indicator\HoldCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
@@ -132,7 +131,6 @@
     <Compile Include="Strategy\Indicator\KdCalc.cs" />
     <Compile Include="Strategy\Indicator\MovingAverageCalc.cs" />
     <Compile Include="Strategy\Indicator\MovingAvgCalc.cs" />
-    <Compile Include="Strategy\Indicator\RiseDownCalc.cs" />
     <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
     <Compile Include="Strategy\Indicator\Shape\EngulfingCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
