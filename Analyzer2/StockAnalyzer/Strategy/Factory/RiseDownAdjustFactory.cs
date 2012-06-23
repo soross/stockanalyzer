@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FinanceAnalyzer.Strategy.Indicator;
-using FinanceAnalyzer.Strategy.Impl;
+﻿using FinanceAnalyzer.Strategy.Indicator;
+using FinanceAnalyzer.Strategy.Indicator.Signal;
 
 namespace FinanceAnalyzer.Strategy.Factory
 {
@@ -13,7 +9,7 @@ namespace FinanceAnalyzer.Strategy.Factory
         {
             for (double i = 0.03; i < 0.4; i += 0.01)
             {
-                AddStrategy(new StrategyIndicator(new RiseDownCalc(i)));
+                AddStrategyByIndicator(new BasicSignalCalc(new RiseDownSignal(i)));
             }
 
             AddStrategyByIndicator(new HoldCalc());
