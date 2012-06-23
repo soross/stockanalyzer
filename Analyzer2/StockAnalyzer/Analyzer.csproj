@@ -145,8 +145,8 @@
     <Compile Include="Strategy\Indicator\Signal\MACDSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MoneyFlowIndexSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MovingAverageAlgorithm.cs" />
+    <Compile Include="Strategy\Indicator\Signal\ThreeDaySignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
-    <Compile Include="Strategy\Indicator\ThreeDayCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\WaysShapeCalc.cs" />
     <Compile Include="Strategy\IStrategyFactory.cs" />
@@ -318,6 +318,7 @@
     <Compile Include="Business\Shape\ShapeJudger.cs" />
     <Compile Include="Utility\EMACalculator.cs" />
     <Compile Include="Utility\FixedContainer.cs" />
+    <Compile Include="Utility\FixedSizeContainer.cs" />
     <Compile Include="Utility\Holidays.cs" />
     <Compile Include="Business\Shape\ShapeScanner.cs" />
     <Compile Include="Utility\MaxCommonString.cs" />
