@@ -39,17 +39,17 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
                 return false;
             }
 
-            prevStock = currentStock;
-            currentStock = sd;
+            prevStock_ = currentStock_;
+            currentStock_ = sd;
 
-            if ((prevStock == null) || (currentStock == null))
+            if ((prevStock_ == null) || (currentStock_ == null))
             {
                 return false;
             }
 
-            double typicalPrice = CalcTypicalPrice(currentStock);
-            bool isUp = StockJudger.IsRise(currentStock, prevStock);
-            AddTodayPrice(typicalPrice * currentStock.Amount, isUp); // 直接保存Money Flow, 即Typical Price * Volume 
+            double typicalPrice = CalcTypicalPrice(currentStock_);
+            bool isUp = StockJudger.IsRise(currentStock_, prevStock_);
+            AddTodayPrice(typicalPrice * currentStock_.Amount, isUp); // 直接保存Money Flow, 即Typical Price * Volume 
 
             if (PriceUpDowns_.Count < MFICALCDAYS)
             {
@@ -116,8 +116,8 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
             return (val.MaxPrice + val.MinPrice + val.EndPrice) / 3;
         }
 
-        IStockData prevStock = null;
-        IStockData currentStock = null;
+        IStockData prevStock_ = null;
+        IStockData currentStock_ = null;
         double currentMFI_ = double.NaN;
 
         List<PriceUpDown> PriceUpDowns_ = new List<PriceUpDown>();

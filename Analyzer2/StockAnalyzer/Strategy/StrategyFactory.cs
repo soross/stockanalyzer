@@ -24,8 +24,10 @@ namespace FinanceAnalyzer.Strategy
 
             AddStrategyByIndicator(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())));
 
+            AddStrategyByIndicator(new BasicSignalCalc(new RiseDownSignal(0.06)));
+
             AddStrategyByIndicator(new RsiCalculator());
-            AddStrategyByIndicator(new RiseDownCalc(0.06));
+            //AddStrategyByIndicator(new RiseDownCalc(0.06));
             AddStrategyByIndicator(new HoldCalc());
             AddStrategyByIndicator(new KdCalc(25, 75));
             

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Stock.Common.Data;
-using FinanceAnalyzer.Strategy.Judger;
+﻿using FinanceAnalyzer.Strategy.Judger;
 using FinanceAnalyzer.Utility;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
+    /// <summary>
+    /// Same up or down direction within continuous three days trigger the sell or buy signal
+    /// </summary>
     class ThreeDaySignal : ISignalCalculator
     {
         #region ISignalCalculator Members
