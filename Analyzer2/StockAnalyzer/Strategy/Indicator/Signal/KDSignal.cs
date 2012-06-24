@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
-    class KDSignal : ISignalCalculator
+    class KDSignal : SignalCalculator
     {
         #region ISignalCalculator Members
 
-        public bool AddStock(IStockData sd)
+        public override bool AddStock(IStockData sd)
         {
             if (sd == null)
             {
@@ -29,13 +29,8 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
             return true;
         }
-
-        public OperType GetSignal()
-        {
-            return TodayOper_;
-        }
-
-        public string GetName()
+        
+        public override string GetName()
         {
             return "KDJ Signal";
         }
@@ -115,9 +110,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
         double PreviousD_;
         double CurrentK_;
         double CurrentD_;
-
-        OperType TodayOper_;
-
+        
         private const double DEFAULT_KD_VALUE = 50;
 
         private const int KD_CALC_DAYS = 9;

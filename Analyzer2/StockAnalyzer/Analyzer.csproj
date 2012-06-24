@@ -141,8 +141,9 @@
     <Compile Include="Strategy\Indicator\Signal\MACDAlgorithm.cs" />
     <Compile Include="Strategy\Indicator\Signal\MACDSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MoneyFlowIndexSignal.cs" />
-    <Compile Include="Strategy\Indicator\Signal\MovingAverageAlgorithm.cs" />
+    <Compile Include="Strategy\Indicator\Signal\MovingAverageSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\RiseDownSignal.cs" />
+    <Compile Include="Strategy\Indicator\Signal\SignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\Signal\ThreeDaySignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
@@ -366,9 +367,7 @@
       <Name>Stock.Db</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Strategy\Indicator\Signal\Algorithm\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
