@@ -86,7 +86,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
         public string GetName()
         {
-            return "MFI Signal";
+            return "MFI";
         }
 
         #endregion

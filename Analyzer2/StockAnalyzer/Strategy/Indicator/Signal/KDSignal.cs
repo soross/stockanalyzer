@@ -37,7 +37,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
         
         public string GetName()
         {
-            return "KDJ Signal";
+            return "KDJ";
         }
 
         #endregion

@@ -52,7 +52,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
         public string GetName()
         {
-            return "MACD Signal";
+            return "MACD";
         }
 
         #endregion
