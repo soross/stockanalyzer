@@ -129,7 +129,6 @@
     <Compile Include="Strategy\Indicator\ISignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\MixedCalc.cs" />
     <Compile Include="Strategy\Indicator\MovingAverageCalc.cs" />
-    <Compile Include="Strategy\Indicator\MovingAvgCalc.cs" />
     <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
     <Compile Include="Strategy\Indicator\Shape\EngulfingCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
@@ -143,7 +142,6 @@
     <Compile Include="Strategy\Indicator\Signal\MoneyFlowIndexSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MovingAverageSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\RiseDownSignal.cs" />
-    <Compile Include="Strategy\Indicator\Signal\SignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\Signal\ThreeDaySignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
