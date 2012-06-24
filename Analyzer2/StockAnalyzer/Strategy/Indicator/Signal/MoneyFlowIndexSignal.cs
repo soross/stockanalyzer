@@ -10,26 +10,6 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
     class MoneyFlowIndexSignal : ISignalCalculator
     {
-        class PriceUpDown
-        {
-            public double Price
-            {
-                get;
-                set;
-            }
-            public bool IsUp
-            {
-                get;
-                set;
-            }
-
-            public PriceUpDown(double price, bool isUp)
-            {
-                Price = price;
-                IsUp = isUp;
-            }
-        };
-
         #region ISignalCalculator Members
 
         public bool AddStock(IStockData sd)

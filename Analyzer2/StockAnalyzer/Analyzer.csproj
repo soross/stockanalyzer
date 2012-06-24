@@ -141,7 +141,9 @@
     <Compile Include="Strategy\Indicator\Signal\MACDSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MoneyFlowIndexSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MovingAverageSignal.cs" />
+    <Compile Include="Strategy\Indicator\Signal\PriceUpDown.cs" />
     <Compile Include="Strategy\Indicator\Signal\RiseDownSignal.cs" />
+    <Compile Include="Strategy\Indicator\Signal\RSISignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\ThreeDaySignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />

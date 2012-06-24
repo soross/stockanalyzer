@@ -26,6 +26,7 @@ namespace FinanceAnalyzer.Strategy
 
             AddStrategyByIndicator(new BasicSignalCalc(new RiseDownSignal(0.06)));
 
+            AddStrategyByIndicator(new BasicSignalCalc(new RSISignal()));
             AddStrategyByIndicator(new RsiCalculator());
             AddStrategyByIndicator(new HoldCalc());
 
