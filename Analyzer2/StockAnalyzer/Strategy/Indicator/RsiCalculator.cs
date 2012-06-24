@@ -29,7 +29,7 @@ namespace FinanceAnalyzer.Strategy.Indicator
     {
         public override string Name
         {
-            get { return "RSI"; }
+            get { return "RSI Old"; }
         }
 
         public override void Calc(IStockHistory hist)
