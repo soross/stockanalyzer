@@ -6,15 +6,6 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
     class KDSignal : ISignalCalculator
     {
-        public KDSignal()
-        {
-            prevK = DEFAULT_KD_VALUE;
-            prevD = DEFAULT_KD_VALUE;
-
-            CurrentK = DEFAULT_KD_VALUE;
-            CurrentD = DEFAULT_KD_VALUE;
-        }
-
         #region ISignalCalculator Members
 
         public bool AddStock(IStockData sd)
@@ -26,24 +17,76 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
             MaxPrices_.AddLast(sd.MaxPrice);
             MinPrices_.AddLast(sd.MinPrice);
 
-            if (MaxPrices_.Count < KD_CALC_DAYS)
+            if (MaxPrices_.Count <= KD_CALC_DAYS)
             {
                 return false;
             }
-            return false;
+
+            MaxPrices_.RemoveFirst();
+            MinPrices_.RemoveFirst();
+
+            CalculateKD(sd.EndPrice);
+
+            return true;
         }
 
         public OperType GetSignal()
         {
-            throw new NotImplementedException();
+            return TodayOper_;
         }
 
         public string GetName()
         {
-            return "KDJ";
+            return "KDJ Signal";
         }
 
         #endregion
+
+        private void CalculateKD(double endPrice)
+        {
+            List<double> maxPriceList = new List<double>();
+            List<double> minPriceList = new List<double>();
+            maxPriceList.AddRange(MaxPrices_);
+            minPriceList.AddRange(MinPrices_);
+
+            minPriceList.Sort();
+            maxPriceList.Sort();
+
+            double minPriceOfNDays = minPriceList[0];
+            double maxPriceOfNDays = maxPriceList[maxPriceList.Count - 1]; // 最后一个
+            double rsv = (endPrice - minPriceOfNDays) * 100 / (maxPriceOfNDays - minPriceOfNDays);
+
+            CurrentK_ = (1.0 / 3) * rsv + (2.0 / 3) * PreviousK_;
+            CurrentD_ = (1.0 / 3) * CurrentK_ + (2.0 / 3) * PreviousD_;
+
+            // 低位K上穿D线
+            if (KUpCrossD(CurrentK_, CurrentD_, PreviousK_, PreviousD_))
+            {
+                TodayOper_ = OperType.Buy;
+            }
+            // 高位K下穿D线
+            else if (KDownCrossD(CurrentK_, CurrentD_, PreviousK_, PreviousD_))
+            {
+                TodayOper_ = OperType.Sell;
+            }
+            else
+            {
+                TodayOper_ = OperType.NoOper;
+            }
+
+            PreviousK_ = CurrentK_;
+            PreviousD_ = CurrentD_;
+        }
+
+        private bool KUpCrossD(double k, double d, double prevK, double prevD)
+        {
+            return (k < KdMinMargin_) && (d < KdMinMargin_) && (k > d) && (prevK < prevD);
+        }
+
+        private bool KDownCrossD(double k, double d, double prevK, double prevD)
+        {
+            return (k > KdMaxMargin_) && (d > KdMaxMargin_) && (k < d) && (prevK > prevD);
+        }
 
         /// <summary>
         /// KD Calculator
@@ -54,6 +97,12 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
         {
             KdMinMargin_ = kdmin;
             KdMaxMargin_ = kdmax;
+
+            PreviousK_ = DEFAULT_KD_VALUE;
+            PreviousD_ = DEFAULT_KD_VALUE;
+
+            CurrentK_ = DEFAULT_KD_VALUE;
+            CurrentD_ = DEFAULT_KD_VALUE;
         }
 
         double KdMinMargin_; // 低位门限
@@ -62,10 +111,12 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
         private LinkedList<double> MaxPrices_ = new LinkedList<double>();
         private LinkedList<double> MinPrices_ = new LinkedList<double>();
 
-        double prevK;
-        double prevD;
-        double CurrentK;
-        double CurrentD;
+        double PreviousK_;
+        double PreviousD_;
+        double CurrentK_;
+        double CurrentD_;
+
+        OperType TodayOper_;
 
         private const double DEFAULT_KD_VALUE = 50;
 
