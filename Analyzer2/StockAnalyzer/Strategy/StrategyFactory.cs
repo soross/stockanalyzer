@@ -14,41 +14,35 @@ namespace FinanceAnalyzer.Strategy
     public class StrategyFactory : IStrategyFactory
     {
         public virtual void Init()
-        {            
-            AddStrategy(new StrategyKD(25, 75));
-            AddStrategy(new StrategyTwoDayPlusOne());
-            AddStrategy(new StrategyThreeDay(new RiseJudger()));
-            AddStrategy(new StrategyThreeDay(new UpJudger()));
-            AddMixedIndicators(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())), 
-                new BasicSignalCalc(new MoneyFlowIndexSignal()));
+        {
+            AddStrategyBySignal(new ThreeDaySignal(new UpJudger()));
+            AddStrategyBySignal(new RiseDownSignal(0.06));
+            AddStrategyBySignal(new RSISignal());
+            AddStrategyBySignal(new HoldSignal());
+            AddStrategyBySignal(new KDSignal(25, 75));
+            AddStrategyBySignal(new MACDSignal());
+            AddStrategyBySignal(new MoneyFlowIndexSignal());
+            AddStrategyBySignal(new MovingAverageSignal());
 
-            AddStrategyByIndicator(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())));
+            const double BUYMARGINPERCENT = 0.3; // 门限
+            const double SELLMARGINPERCENT = 0.6;
+            AddStrategyBySignal(new VolumeSignal(BUYMARGINPERCENT, SELLMARGINPERCENT));
 
-            AddStrategyByIndicator(new BasicSignalCalc(new RiseDownSignal(0.06)));
-
-            AddStrategyByIndicator(new BasicSignalCalc(new RSISignal()));
-            AddStrategyByIndicator(new BasicSignalCalc(new HoldSignal()));
-
-            AddStrategyByIndicator(new BasicSignalCalc(new KDSignal(25, 75)));
-            
             AddStrategyByIndicator(new EngulfingCalc());
-
-            AddStrategyByIndicator(new BasicSignalCalc(new MACDSignal()));
-            AddStrategyByIndicator(new BasicSignalCalc(new MoneyFlowIndexSignal()));
-
             AddStrategyByIndicator(new SimpleShapeCalc());
             AddStrategyByIndicator(new SpikeShapeCalc(0.03));
             AddStrategyByIndicator(new SpikeVolumeShapeCalc(0.025));
             AddStrategyByIndicator(new WaysShapeCalc(new ShapeScanner()));
             AddStrategyByIndicator(new TripleShapeCalc(new TripleShapeScanner()));
-            AddStrategyByIndicator(new BasicSignalCalc(new MovingAverageSignal()));
-            
+
+            AddMixedIndicators(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())),
+                new BasicSignalCalc(new MoneyFlowIndexSignal()));
             AddMixedIndicators(new SimpleShapeCalc(), new BasicSignalCalc(new MACDSignal()));
 
-            const double BUYMARGINPERCENT = 0.3; // 门限
-            const double SELLMARGINPERCENT = 0.6;
-            AddStrategyByIndicator(new BasicSignalCalc(new VolumeSignal(BUYMARGINPERCENT, SELLMARGINPERCENT)));
-
+            AddStrategy(new StrategyKD(25, 75));
+            AddStrategy(new StrategyTwoDayPlusOne());
+            AddStrategy(new StrategyThreeDay(new RiseJudger()));
+            AddStrategy(new StrategyThreeDay(new UpJudger()));
             AddStrategy(new StrategyMinMax());
             AddStrategy(new StrategyBamboo());
             AddStrategy(new StrategyVolumeOptim(0.4, 0.3));
@@ -63,12 +57,17 @@ namespace FinanceAnalyzer.Strategy
 
         public void AddStrategy(IFinanceStrategy strategy)
         {
-            _AllStrategies.Add(strategy.Name, strategy);
+            AllStrategies_.Add(strategy.Name, strategy);
         }
 
         protected void AddStrategyByIndicator(IIndicatorCalc calc)
         {
             AddStrategy(new StrategyIndicator(calc));
+        }
+
+        protected void AddStrategyBySignal(ISignalCalculator calc)
+        {
+            AddStrategyByIndicator(new BasicSignalCalc(calc));
         }
 
         private void AddMixedIndicators(IIndicatorCalc calc1, IIndicatorCalc calc2)
@@ -90,9 +89,9 @@ namespace FinanceAnalyzer.Strategy
 
         public IFinanceStrategy GetStrategy(string strategyName)
         {
-            if (_AllStrategies.ContainsKey(strategyName))
+            if (AllStrategies_.ContainsKey(strategyName))
             {
-                return _AllStrategies[strategyName];
+                return AllStrategies_[strategyName];
             }
             else
             {
@@ -104,7 +103,7 @@ namespace FinanceAnalyzer.Strategy
         {
             get
             {
-                return _AllStrategies.Keys;
+                return AllStrategies_.Keys;
             }
         }
 
@@ -112,21 +111,21 @@ namespace FinanceAnalyzer.Strategy
         {
             get
             {
-                return _AllStrategies.Values;
+                return AllStrategies_.Values;
             }
         }
 
         public void Remove(string strategyName)
         {
-            if (_AllStrategies.ContainsKey(strategyName))
+            if (AllStrategies_.ContainsKey(strategyName))
             {
-                _AllStrategies.Remove(strategyName);
+                AllStrategies_.Remove(strategyName);
             }
             else
             {
             }
         }
 
-        private Dictionary<string, IFinanceStrategy> _AllStrategies = new Dictionary<string, IFinanceStrategy>();
+        private Dictionary<string, IFinanceStrategy> AllStrategies_ = new Dictionary<string, IFinanceStrategy>();
     }
 }
