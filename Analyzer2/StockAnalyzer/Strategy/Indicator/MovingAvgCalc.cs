@@ -13,10 +13,6 @@ namespace FinanceAnalyzer.Strategy.Indicator
     /// </summary>
     class MovingAvgCalc : BasicIndicatorCalc
     {
-        public MovingAvgCalc()
-        {
-        }
-
         public override string Name
         {
             get { return "MA"; }
@@ -55,16 +51,16 @@ namespace FinanceAnalyzer.Strategy.Indicator
                 double diff = shortEMA - longEMA; // 短周期均值-长周期均值
 
                 DateIndicators_.Add(startDate, diff);
-                
-                CalcIndicators(hist, stock, prediction);
+
+                CalcIndicators(hist, stock.TradeDate, prediction);
 
                 startDate = DateFunc.GetNextWorkday(startDate);
             }
         }
 
-        void CalcIndicators(IStockHistory hist, IStockData stock, MovingAveragePrediction prediction)
+        void CalcIndicators(IStockHistory hist, DateTime tradeDate, MovingAveragePrediction prediction)
         {
-            DateTime localDate = DateFunc.ConvertToLocal(stock.TradeDate);
+            DateTime localDate = DateFunc.ConvertToLocal(tradeDate);
             DateTime prev = hist.GetPreviousDay(localDate);
 
             double prevValue = GetIndicatorValue(prev);
