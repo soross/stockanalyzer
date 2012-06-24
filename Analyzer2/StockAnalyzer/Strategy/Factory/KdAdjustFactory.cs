@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FinanceAnalyzer.Strategy.Indicator;
 using FinanceAnalyzer.Strategy.Impl;
+using FinanceAnalyzer.Strategy.Indicator.Signal;
 
 namespace FinanceAnalyzer.Strategy.Factory
 {
@@ -19,7 +20,7 @@ namespace FinanceAnalyzer.Strategy.Factory
                 }
             }
 
-            AddStrategyByIndicator(new HoldCalc());
+            AddStrategyByIndicator(new BasicSignalCalc(new HoldSignal()));
         }
     }
 }

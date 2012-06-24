@@ -20,7 +20,7 @@ namespace FinanceAnalyzer.Strategy.Factory
                 }
             }
 
-            AddStrategyByIndicator(new HoldCalc());
+            AddStrategyByIndicator(new BasicSignalCalc(new HoldSignal()));
         }
     }
 }
