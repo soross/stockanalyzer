@@ -123,13 +123,10 @@
     <Compile Include="Strategy\Impl\StrategyTwoDayPlusOne.cs" />
     <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\BasicSignalCalc.cs" />
-    <Compile Include="Strategy\Indicator\HistoricalValuesCalc.cs" />
     <Compile Include="Strategy\Indicator\HoldCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\ISignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\MixedCalc.cs" />
-    <Compile Include="Strategy\Indicator\MovingAverageCalc.cs" />
-    <Compile Include="Strategy\Indicator\RsiCalculator.cs" />
     <Compile Include="Strategy\Indicator\Shape\EngulfingCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SpikeShapeCalc.cs" />

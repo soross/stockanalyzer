@@ -27,7 +27,6 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new BasicSignalCalc(new RiseDownSignal(0.06)));
 
             AddStrategyByIndicator(new BasicSignalCalc(new RSISignal()));
-            AddStrategyByIndicator(new RsiCalculator());
             AddStrategyByIndicator(new HoldCalc());
 
             AddStrategyByIndicator(new BasicSignalCalc(new KDSignal(25, 75)));
@@ -43,9 +42,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new WaysShapeCalc(new ShapeScanner()));
             AddStrategyByIndicator(new TripleShapeCalc(new TripleShapeScanner()));
             AddStrategyByIndicator(new BasicSignalCalc(new MovingAverageSignal()));
-
-            AddStrategyByIndicator(new MovingAverageCalc());
-
+            
             AddMixedIndicators(new SimpleShapeCalc(), new BasicSignalCalc(new MACDSignal()));
 
             const double BUYMARGINPERCENT = 0.3; // 门限
