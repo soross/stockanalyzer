@@ -39,7 +39,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
         public string GetName()
         {
-            return "Rise Down Signal";
+            return "Rise Down";
         }
 
         #endregion
