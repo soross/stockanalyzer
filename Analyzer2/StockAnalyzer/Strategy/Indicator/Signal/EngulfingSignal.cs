@@ -2,54 +2,60 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FinanceAnalyzer.Stock;
 using Stock.Common.Data;
-using FinanceAnalyzer.Utility;
 
-namespace FinanceAnalyzer.Strategy.Indicator.Shape
+namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
     /// <summary>
     /// See: http://www.stockta.com/cgi-bin/school.pl
     /// </summary>
-    class EngulfingCalc : BasicIndicatorCalc
+    class EngulfingSignal : ISignalCalculator
     {
-        public override string Name
+        #region ISignalCalculator Members
+
+        public bool AddStock(IStockData sd)
         {
-            get { return "Engulfing Old"; }
-        }
-
-        public override void Calc(IStockHistory hist)
-        {
-
-            DateTime startDate = hist.MinDate;
-            DateTime endDate = hist.MaxDate;
-
-            while (startDate < endDate)
+            if (sd == null)
             {
-                IStockData stock = hist.GetStock(startDate);
-                if (stock == null)
-                {
-                    startDate = DateFunc.GetNextWorkday(startDate);
-                    continue;
-                }
-
-                DateTime prevDate = DateFunc.GetPreviousWorkday(startDate);
-                IStockData prevStock = hist.GetStock(prevDate);
-
-                EngulfingType et = JudgeEngulfing(prevStock, stock);
-
-                if (et == EngulfingType.RED_ENGULFING)
-                {
-                    DateToOpers_.Add(startDate, OperType.Buy);
-                }
-                else if (et == EngulfingType.GREEN_ENGULFING)
-                {
-                    DateToOpers_.Add(startDate, OperType.Sell);
-                }
-
-                startDate = DateFunc.GetNextWorkday(startDate);
+                return false;
             }
+
+            prevStock_ = currentStock_;
+            currentStock_ = sd;
+
+            if ((prevStock_ == null) || (currentStock_ == null))
+            {
+                return false;
+            }
+
+            EngulfingType et = JudgeEngulfing(prevStock_, currentStock_);
+
+            if (et == EngulfingType.RED_ENGULFING)
+            {
+                TodayOper_ = OperType.Buy;
+            }
+            else if (et == EngulfingType.GREEN_ENGULFING)
+            {
+                TodayOper_ = OperType.Sell;
+            }
+            else
+            {
+                TodayOper_ = OperType.NoOper;
+            }
+            return true;
         }
+
+        public OperType GetSignal()
+        {
+            return TodayOper_; ;
+        }
+
+        public string GetName()
+        {
+            return "Engulfing";
+        }
+
+        #endregion
 
         enum EngulfingType
         {
@@ -69,13 +75,11 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
                 && (todayStock.MaxPrice > prevStock.MaxPrice))
             {
                 if ((StockDataCalculator.GetRiseRatio(todayStock) > 0.01)
-                //&& (todayStock.EndPrice > prevStock.EndPrice)
                     && StockDataCalculator.IsDifferentRiseDown(prevStock, todayStock))
                 {
                     return EngulfingType.RED_ENGULFING;
                 }
                 else if ((StockDataCalculator.GetRiseRatio(todayStock) < -0.01)
-                //&& (todayStock.EndPrice < prevStock.EndPrice)
                     && StockDataCalculator.IsDifferentRiseDown(prevStock, todayStock))
                 {
                     return EngulfingType.GREEN_ENGULFING;
@@ -90,5 +94,10 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
                 return EngulfingType.NOT_ENGULFING;
             }
         }
+
+        IStockData prevStock_ = null;
+        IStockData currentStock_ = null;
+
+        OperType TodayOper_;
     }
 }

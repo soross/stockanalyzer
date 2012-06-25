@@ -23,6 +23,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyBySignal(new MACDSignal());
             AddStrategyBySignal(new MoneyFlowIndexSignal());
             AddStrategyBySignal(new MovingAverageSignal());
+            AddStrategyBySignal(new EngulfingSignal());
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
@@ -41,8 +42,8 @@ namespace FinanceAnalyzer.Strategy
 
             AddStrategy(new StrategyKD(25, 75));
             AddStrategy(new StrategyTwoDayPlusOne());
-            AddStrategy(new StrategyThreeDay(new RiseJudger()));
-            AddStrategy(new StrategyThreeDay(new UpJudger()));
+            //AddStrategy(new StrategyThreeDay(new RiseJudger()));
+            //AddStrategy(new StrategyThreeDay(new UpJudger()));
             AddStrategy(new StrategyMinMax());
             AddStrategy(new StrategyBamboo());
             AddStrategy(new StrategyVolumeOptim(0.4, 0.3));

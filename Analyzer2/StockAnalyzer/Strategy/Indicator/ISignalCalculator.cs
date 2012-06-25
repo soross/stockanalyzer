@@ -6,7 +6,7 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator
 {
-    interface ISignalCalculator
+    public interface ISignalCalculator
     {
         bool AddStock(IStockData sd);
 
