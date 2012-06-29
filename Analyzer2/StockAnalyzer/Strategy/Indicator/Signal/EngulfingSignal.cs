@@ -9,7 +9,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
     /// <summary>
     /// See: http://www.stockta.com/cgi-bin/school.pl
     /// </summary>
-    class EngulfingSignal : ISignalCalculator
+    public class EngulfingSignal : ISignalCalculator
     {
         #region ISignalCalculator Members
 
@@ -47,7 +47,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
         public OperType GetSignal()
         {
-            return TodayOper_; ;
+            return TodayOper_;
         }
 
         public string GetName()
