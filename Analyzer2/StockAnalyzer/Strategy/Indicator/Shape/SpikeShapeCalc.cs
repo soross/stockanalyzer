@@ -19,7 +19,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
 
         public override string Name
         {
-            get { return "SpikeShape " + _DeltaRatio.ToString("F03", CultureInfo.CurrentCulture); }
+            get { return "SpikeShape Old " + _DeltaRatio.ToString("F03", CultureInfo.CurrentCulture); }
         }
 
         public override void Calc(IStockHistory hist)
