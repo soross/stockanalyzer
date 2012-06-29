@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using FinanceAnalyzer.Stock;
-using Stock.Common.Data;
 using FinanceAnalyzer.Utility;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {
@@ -69,13 +66,11 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
                 && (todayStock.MaxPrice > prevStock.MaxPrice))
             {
                 if ((StockDataCalculator.GetRiseRatio(todayStock) > 0.01)
-                //&& (todayStock.EndPrice > prevStock.EndPrice)
                     && StockDataCalculator.IsDifferentRiseDown(prevStock, todayStock))
                 {
                     return EngulfingType.RED_ENGULFING;
                 }
                 else if ((StockDataCalculator.GetRiseRatio(todayStock) < -0.01)
-                //&& (todayStock.EndPrice < prevStock.EndPrice)
                     && StockDataCalculator.IsDifferentRiseDown(prevStock, todayStock))
                 {
                     return EngulfingType.GREEN_ENGULFING;
