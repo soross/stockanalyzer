@@ -28,11 +28,12 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyBySignal(new SpikeVolumeShapeSignal(0.025));
             AddStrategyBySignal(new SimpleShapeSignal());
 
+            AddStrategyBySignal(new WaysShapeSignal(new ShapeScanner()));
+
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
             AddStrategyBySignal(new VolumeSignal(BUYMARGINPERCENT, SELLMARGINPERCENT));
 
-            AddStrategyByIndicator(new WaysShapeCalc(new ShapeScanner()));
             AddStrategyByIndicator(new TripleShapeCalc(new TripleShapeScanner()));
 
             AddMixedIndicators(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())),

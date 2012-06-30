@@ -1,11 +1,9 @@
-﻿using System.Globalization;
-using FinanceAnalyzer.Business;
-using FinanceAnalyzer.Business.Shape;
+﻿using FinanceAnalyzer.Business.Shape;
 using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
-    class SpikeVolumeShapeSignal : ISignalCalculator
+    class WaysShapeSignal : ISignalCalculator
     {
         #region ISignalCalculator Members
 
@@ -23,19 +21,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
                 return false;
             }
 
-            if (ShapeJudger.IsT2(currentStock_, DeltaRatio_) && VolumeHelper.IsLargerThan(currentStock_, prevStock_, 0.3))
-            {
-                TodayOper_ = OperType.Buy;
-            }
-            else if (ShapeJudger.IsReverseT2(currentStock_, DeltaRatio_))
-            {
-                TodayOper_ = OperType.Sell;
-            }
-            else
-            {
-                TodayOper_ = OperType.NoOper;
-            }
-
+            TodayOper_ = Scanner_.Analyse(currentStock_, prevStock_);
             return true;
         }
 
@@ -46,20 +32,21 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
         public string GetName()
         {
-            return "SpikeVolumeShape " + DeltaRatio_.ToString("F03", CultureInfo.CurrentCulture); ;
+            return "WaysShape";
         }
 
         #endregion
 
-        public SpikeVolumeShapeSignal(double deltaratio)
+        public WaysShapeSignal(IShapeScanner scanner)
         {
-            DeltaRatio_ = deltaratio;
+            Scanner_ = scanner;
         }
+
+        IShapeScanner Scanner_;
 
         IStockData prevStock_ = null;
         IStockData currentStock_ = null;
 
         OperType TodayOper_;
-        double DeltaRatio_;
     }
 }
