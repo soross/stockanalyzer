@@ -6,6 +6,14 @@ using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Signal
 {
+    public enum IndicatorMixedType
+    {
+        Buy,
+        Sell,
+        NoOper,
+        BuyAndSell
+    }
+
     class MixMultiSignals : ISignalCalculator
     {
         #region ISignalCalculator Members

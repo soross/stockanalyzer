@@ -57,14 +57,9 @@ namespace FinanceAnalyzer.Strategy
             AllStrategies_.Add(strategy.Name, strategy);
         }
 
-        protected void AddStrategyByIndicator(IIndicatorCalc calc)
-        {
-            AddStrategy(new StrategyIndicator(calc));
-        }
-
         protected void AddStrategyBySignal(ISignalCalculator calc)
         {
-            AddStrategyByIndicator(new BasicSignalCalc(calc));
+            AddStrategy(new StrategyIndicator(new BasicSignalCalc(calc)));
         }
 
         private void AddMixedSignals(ISignalCalculator calc1, ISignalCalculator calc2)

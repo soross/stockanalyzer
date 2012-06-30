@@ -120,11 +120,9 @@
     <Compile Include="Strategy\Factory\VolumeAdjustFactory.cs" />
     <Compile Include="Strategy\Impl\StrategyPriceAmountDeviation.cs" />
     <Compile Include="Strategy\Impl\StrategyTwoDayPlusOne.cs" />
-    <Compile Include="Strategy\Indicator\BasicIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\BasicSignalCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\ISignalCalculator.cs" />
-    <Compile Include="Strategy\Indicator\MixedCalc.cs" />
     <Compile Include="Strategy\Indicator\Signal\EngulfingSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\KDSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MACDAlgorithm.cs" />
