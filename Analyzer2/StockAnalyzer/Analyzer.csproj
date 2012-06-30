@@ -125,7 +125,6 @@
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
     <Compile Include="Strategy\Indicator\ISignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\MixedCalc.cs" />
-    <Compile Include="Strategy\Indicator\Shape\TrendRevertShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Signal\EngulfingSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\KDSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MACDAlgorithm.cs" />
@@ -140,8 +139,8 @@
     <Compile Include="Strategy\Indicator\Signal\SpikeShapeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\SpikeVolumeShapeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\ThreeDaySignal.cs" />
+    <Compile Include="Strategy\Indicator\Signal\TripleShapeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
-    <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Signal\HoldSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\WaysShapeSignal.cs" />
     <Compile Include="Strategy\IStrategyFactory.cs" />
