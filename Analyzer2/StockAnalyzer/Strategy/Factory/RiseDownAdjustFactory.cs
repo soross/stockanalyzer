@@ -9,10 +9,10 @@ namespace FinanceAnalyzer.Strategy.Factory
         {
             for (double i = 0.03; i < 0.4; i += 0.01)
             {
-                AddStrategyByIndicator(new BasicSignalCalc(new RiseDownSignal(i)));
+                AddStrategyBySignal(new RiseDownSignal(i));
             }
 
-            AddStrategyByIndicator(new BasicSignalCalc(new HoldSignal()));
+            AddStrategyBySignal(new HoldSignal());
         }
     }
 }

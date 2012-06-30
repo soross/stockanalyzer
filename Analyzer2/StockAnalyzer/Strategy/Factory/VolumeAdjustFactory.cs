@@ -16,11 +16,11 @@ namespace FinanceAnalyzer.Strategy.Factory
             {
                 for (double j = 0.1; j < 1.2; j += 0.1)
                 {
-                    AddStrategyByIndicator(new BasicSignalCalc(new VolumeSignal(i, j)));
+                    AddStrategyBySignal(new VolumeSignal(i, j));
                 }
             }
 
-            AddStrategyByIndicator(new BasicSignalCalc(new HoldSignal()));
+            AddStrategyBySignal(new HoldSignal());
         }
     }
 }

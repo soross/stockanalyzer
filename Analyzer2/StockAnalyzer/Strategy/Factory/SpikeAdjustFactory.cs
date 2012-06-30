@@ -16,7 +16,7 @@ namespace FinanceAnalyzer.Strategy.Factory
                 AddStrategyBySignal(new SpikeShapeSignal(i));
             }
 
-            AddStrategyByIndicator(new BasicSignalCalc(new HoldSignal()));
+            AddStrategyBySignal(new HoldSignal());
         }
     }
 }
