@@ -126,7 +126,6 @@
     <Compile Include="Strategy\Indicator\ISignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\MixedCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
-    <Compile Include="Strategy\Indicator\Shape\SpikeVolumeShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TrendRevertShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Signal\EngulfingSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\KDSignal.cs" />
@@ -138,6 +137,7 @@
     <Compile Include="Strategy\Indicator\Signal\PriceUpDown.cs" />
     <Compile Include="Strategy\Indicator\Signal\RiseDownSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\RSISignal.cs" />
+    <Compile Include="Strategy\Indicator\Signal\SimpleShapeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\SpikeShapeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\SpikeVolumeShapeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\ThreeDaySignal.cs" />

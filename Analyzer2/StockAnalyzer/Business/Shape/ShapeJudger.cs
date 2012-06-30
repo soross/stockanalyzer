@@ -19,12 +19,12 @@ namespace FinanceAnalyzer.Business.Shape
         /// <param name="data">Stock data of one day</param>
         public ShapeJudger(IStockData data)
         {
-            _StockData = data;
+            StockData_ = data;
         }
 
         public bool IsReverseT()
         {
-            return IsReverseT(_StockData);
+            return IsReverseT(StockData_);
         }
 
         public static bool IsCross(IStockData data)
@@ -91,7 +91,7 @@ namespace FinanceAnalyzer.Business.Shape
                 && (deltaStartMin <= ratio / 4) && (deltaEndMin <= ratio / 4));
         }
 
-        IStockData _StockData;
+        IStockData StockData_;
         const double CROSSDELTAPERCENT = 0.01;
         const double CROSSSWINGPERCENT = 0.02;
     }

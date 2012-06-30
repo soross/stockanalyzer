@@ -20,8 +20,8 @@ namespace Stock.Common.Data
         /// </summary>
         public int StockId
         {
-            get { return _Id; }
-            set { _Id = value; }
+            get { return Id_; }
+            set { Id_ = value; }
         }        
 
         /// <summary>
@@ -29,46 +29,46 @@ namespace Stock.Common.Data
         /// </summary>
         public DateTime TradeDate
         {
-            get { return _TradeDate; }
-            set { _TradeDate = value; }
+            get { return TradeDate_; }
+            set { TradeDate_ = value; }
         }        
 
         public double StartPrice
         {
-            get { return _StartPrice; }
-            set { _StartPrice = value; }
+            get { return StartPrice_; }
+            set { StartPrice_ = value; }
         }        
 
         public double EndPrice
         {
-            get { return _EndPrice; }
-            set { _EndPrice = value; }
+            get { return EndPrice_; }
+            set { EndPrice_ = value; }
         }        
 
         public double MaxPrice
         {
-            get { return _MaxPrice; }
-            set { _MaxPrice = value; }
+            get { return MaxPrice_; }
+            set { MaxPrice_ = value; }
         }        
 
         public double MinPrice
         {
-            get { return _MinPrice; }
-            set { _MinPrice = value; }
+            get { return MinPrice_; }
+            set { MinPrice_ = value; }
         }
 
         // 成交手数
         public int VolumeHand
         {
-            get { return _VolumeHand; }
-            set { _VolumeHand = value; }
+            get { return VolumeHand_; }
+            set { VolumeHand_ = value; }
         }
 
         // 成交额
         public double Amount
         {
-            get { return _Amount; }
-            set { _Amount = value; }
+            get { return Amount_; }
+            set { Amount_ = value; }
         }
 
         public bool AllPriceSame
@@ -86,13 +86,13 @@ namespace Stock.Common.Data
             return Math.Abs(price1 - price2) < 0.01;
         }
 
-        private int _Id;
-        private DateTime _TradeDate;
-        private double _StartPrice;
-        private double _EndPrice;
-        private double _MaxPrice;
-        private double _MinPrice;
-        private int _VolumeHand; // 成交手数
-        private double _Amount; // 成交额
+        private int Id_;
+        private DateTime TradeDate_;
+        private double StartPrice_;
+        private double EndPrice_;
+        private double MaxPrice_;
+        private double MinPrice_;
+        private int VolumeHand_; // 成交手数
+        private double Amount_; // 成交额
     }
 }

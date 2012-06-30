@@ -8,66 +8,66 @@ namespace Stock.Common.Data
     {
         public int BonusYear
         {
-            get { return _BonusYear; }
-            set { _BonusYear = value; }
+            get { return BonusYear_; }
+            set { BonusYear_ = value; }
         }
 
         public int StockId
         {
-            get { return _stockId; }
-            set { _stockId = value; }
+            get { return stockId_; }
+            set { stockId_ = value; }
         }
 
         // 每股送股比例
         public double BonusCount
         {
-            get { return _bonusCount; }
-            set { _bonusCount = value; }
+            get { return bonusCount_; }
+            set { bonusCount_ = value; }
         }
 
         // 每股派现金额
         public double Dividend
         {
-            get { return _dividend; }
-            set { _dividend = value; }
+            get { return dividend_; }
+            set { dividend_ = value; }
         }
 
         // 股权登记日
         public DateTime RegistOn
         {
-            get { return _RegistOn; }
-            set { _RegistOn = value; }
+            get { return RegistOn_; }
+            set { RegistOn_ = value; }
         }
 
         // 除权除息日
         public DateTime ExexDividend
         {
-            get { return _ExexDividend; }
-            set { _ExexDividend = value; }
+            get { return ExexDividend_; }
+            set { ExexDividend_ = value; }
         }
 
         // 派息日
         public DateTime DividendDate
         {
-            get { return _DividendDate; }
-            set { _DividendDate = value; }
+            get { return DividendDate_; }
+            set { DividendDate_ = value; }
         }
 
         // 红股上市日
         public DateTime BonusListOn
         {
-            get { return _BonusListOn; }
-            set { _BonusListOn = value; }
+            get { return BonusListOn_; }
+            set { BonusListOn_ = value; }
         }
 
-        int _stockId;
-        double _bonusCount; // 每股送股比例
-        double _dividend; // 每股派现金额
-        int _BonusYear; // 分红年份
+        int stockId_;
+        double bonusCount_; // 每股送股比例
+        double dividend_; // 每股派现金额
+        int BonusYear_; // 分红年份
                 
-        DateTime _RegistOn; // 股权登记日
-        DateTime _ExexDividend; // 除权除息日
-        DateTime _DividendDate; // 派息日
-        DateTime _BonusListOn; // 红股上市日
+        DateTime RegistOn_; // 股权登记日
+        DateTime ExexDividend_; // 除权除息日
+        DateTime DividendDate_; // 派息日
+        DateTime BonusListOn_; // 红股上市日
     }
 }
