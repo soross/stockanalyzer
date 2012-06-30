@@ -2,7 +2,7 @@
 {
     public enum OperType
     {
-        Buy=1,
+        Buy = 1,
         Sell,
         NoOper
     };

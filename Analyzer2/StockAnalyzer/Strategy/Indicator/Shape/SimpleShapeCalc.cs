@@ -10,7 +10,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
     {
         public override string Name
         {
-            get { return "SimpleShape"; }
+            get { return "SimpleShape Old"; }
         }
 
         public override void Calc(IStockHistory hist)

@@ -26,19 +26,18 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyBySignal(new EngulfingSignal());
             AddStrategyBySignal(new SpikeShapeSignal(0.03));
             AddStrategyBySignal(new SpikeVolumeShapeSignal(0.025));
+            AddStrategyBySignal(new SimpleShapeSignal());
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
             AddStrategyBySignal(new VolumeSignal(BUYMARGINPERCENT, SELLMARGINPERCENT));
 
-            AddStrategyByIndicator(new SimpleShapeCalc());
-            AddStrategyByIndicator(new SpikeVolumeShapeCalc(0.025));
             AddStrategyByIndicator(new WaysShapeCalc(new ShapeScanner()));
             AddStrategyByIndicator(new TripleShapeCalc(new TripleShapeScanner()));
 
             AddMixedIndicators(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())),
                 new BasicSignalCalc(new MoneyFlowIndexSignal()));
-            AddMixedIndicators(new SimpleShapeCalc(), new BasicSignalCalc(new MACDSignal()));
+            AddMixedIndicators(new BasicSignalCalc(new SimpleShapeSignal()), new BasicSignalCalc(new MACDSignal()));
 
             AddStrategy(new StrategyKD(25, 75));
             AddStrategy(new StrategyTwoDayPlusOne());
