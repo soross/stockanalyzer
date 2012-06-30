@@ -83,7 +83,6 @@
     <Compile Include="DB\IStockDBReader.cs" />
     <Compile Include="DB\StockMongoDBReader.cs" />
     <Compile Include="Statistics\Shape\IStockShape.cs" />
-    <Compile Include="Statistics\Shape\ShapeStatistic.cs" />
     <Compile Include="Statistics\Weekly\StockWeekData.cs" />
     <Compile Include="Statistics\Weekly\WeeklyResult.cs" />
     <Compile Include="Statistics\Weekly\WeeklyResults.cs" />
@@ -127,11 +126,9 @@
     <Compile Include="Strategy\Indicator\ISignalCalculator.cs" />
     <Compile Include="Strategy\Indicator\MixedCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SimpleShapeCalc.cs" />
-    <Compile Include="Strategy\Indicator\Shape\SpikeShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\SpikeVolumeShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Shape\TrendRevertShapeCalc.cs" />
     <Compile Include="Strategy\Indicator\Signal\EngulfingSignal.cs" />
-    <Compile Include="Strategy\Indicator\Signal\KDJAlgorithm.cs" />
     <Compile Include="Strategy\Indicator\Signal\KDSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\MACDAlgorithm.cs" />
     <Compile Include="Strategy\Indicator\Signal\MACDSignal.cs" />
@@ -142,6 +139,7 @@
     <Compile Include="Strategy\Indicator\Signal\RiseDownSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\RSISignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\SpikeShapeSignal.cs" />
+    <Compile Include="Strategy\Indicator\Signal\SpikeVolumeShapeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\ThreeDaySignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
     <Compile Include="Strategy\Indicator\Shape\TripleShapeCalc.cs" />
@@ -162,7 +160,6 @@
     <Compile Include="Strategy\TradeRule\RiseDownRule.cs" />
     <Compile Include="Tactics\Implementation\CommonTactics.cs" />
     <Compile Include="Tactics\Implementation\TacticsFactory.cs" />
-    <Compile Include="Tactics\StockExpression\Implementation\BuySellExpression.cs" />
     <Compile Include="Tactics\StockExpression\Implementation\ThreeDays.cs" />
     <Compile Include="Tactics\StockExpression\IStockExpression.cs" />
     <Compile Include="Tactics\ITactics.cs" />

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Globalization;
-using FinanceAnalyzer.DB;
-using FinanceAnalyzer.Business.Shape;
 using FinanceAnalyzer.Business;
-using Stock.Common.Data;
+using FinanceAnalyzer.Business.Shape;
 using FinanceAnalyzer.Stock;
 using FinanceAnalyzer.Utility;
+using Stock.Common.Data;
 
 namespace FinanceAnalyzer.Strategy.Indicator.Shape
 {
@@ -21,7 +17,7 @@ namespace FinanceAnalyzer.Strategy.Indicator.Shape
 
         public override string Name
         {
-            get { return "SpikeVolumeShape " + _DeltaRatio.ToString("F03", CultureInfo.CurrentCulture); }
+            get { return "SpikeVolumeShape Old " + _DeltaRatio.ToString("F03", CultureInfo.CurrentCulture); }
         }
 
         public override void Calc(IStockHistory hist)
