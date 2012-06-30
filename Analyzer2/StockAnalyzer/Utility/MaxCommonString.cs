@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinanceAnalyzer.Utility
 {
-    // 来自： http://en.wikibooks.org/wiki/Algorithm_implementation/Strings/Longest_common_substring
+    // From: http://en.wikibooks.org/wiki/Algorithm_implementation/Strings/Longest_common_substring
     class MaxCommonString
     {
         public static int LongestCommonSubstring(string str1, string str2)

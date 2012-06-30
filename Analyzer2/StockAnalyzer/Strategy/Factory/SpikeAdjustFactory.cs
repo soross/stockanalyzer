@@ -14,7 +14,7 @@ namespace FinanceAnalyzer.Strategy.Factory
         {
             for (double i = 0.005; i < 0.06; i += 0.005)
             {
-                AddStrategyByIndicator(new SpikeShapeCalc(i)); 
+                AddStrategyBySignal(new SpikeShapeSignal(i));
             }
 
             AddStrategyByIndicator(new BasicSignalCalc(new HoldSignal()));

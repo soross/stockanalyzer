@@ -25,6 +25,7 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyBySignal(new MovingAverageSignal());
             AddStrategyBySignal(new EngulfingSignal());
             AddStrategyBySignal(new SpikeShapeSignal(0.03));
+            AddStrategyBySignal(new SpikeVolumeShapeSignal(0.025));
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
