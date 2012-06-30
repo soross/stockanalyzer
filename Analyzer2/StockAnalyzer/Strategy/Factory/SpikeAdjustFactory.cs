@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FinanceAnalyzer.Strategy.Indicator.Shape;
 using FinanceAnalyzer.Strategy.Indicator;
 using FinanceAnalyzer.Strategy.Indicator.Signal;
 

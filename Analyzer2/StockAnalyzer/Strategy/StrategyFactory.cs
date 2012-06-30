@@ -6,7 +6,6 @@ using FinanceAnalyzer.Strategy.Indicator;
 using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Business.Shape;
-using FinanceAnalyzer.Strategy.Indicator.Shape;
 using FinanceAnalyzer.Strategy.Indicator.Signal;
 
 namespace FinanceAnalyzer.Strategy
@@ -27,14 +26,13 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyBySignal(new SpikeShapeSignal(0.03));
             AddStrategyBySignal(new SpikeVolumeShapeSignal(0.025));
             AddStrategyBySignal(new SimpleShapeSignal());
+            AddStrategyBySignal(new TripleShapeSignal(new TripleShapeScanner()));
 
             AddStrategyBySignal(new WaysShapeSignal(new ShapeScanner()));
 
             const double BUYMARGINPERCENT = 0.3; // 门限
             const double SELLMARGINPERCENT = 0.6;
             AddStrategyBySignal(new VolumeSignal(BUYMARGINPERCENT, SELLMARGINPERCENT));
-
-            AddStrategyByIndicator(new TripleShapeCalc(new TripleShapeScanner()));
 
             AddMixedIndicators(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())),
                 new BasicSignalCalc(new MoneyFlowIndexSignal()));
