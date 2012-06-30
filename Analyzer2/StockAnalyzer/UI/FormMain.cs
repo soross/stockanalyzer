@@ -307,5 +307,10 @@ namespace FinanceAnalyzer
 
             analyzer.FindMatches(oneWeekHistory);
         }
+
+        private void synchronizeIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StockIDSynchronization.Run();
+        }
     }
 }

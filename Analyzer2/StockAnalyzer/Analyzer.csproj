@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\IStockDBReader.cs" />
+    <Compile Include="DB\StockIDSynchronization.cs" />
     <Compile Include="DB\StockMongoDBReader.cs" />
     <Compile Include="Statistics\Shape\IStockShape.cs" />
     <Compile Include="Statistics\Weekly\StockWeekData.cs" />

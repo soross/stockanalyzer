@@ -9,7 +9,7 @@ using MongoDB.Driver.Builders;
 
 namespace Stock.Db.IO
 {
-    class StockMongoDB
+    public class StockMongoDB
     {
         private StockMongoDB()
         {
@@ -68,6 +68,17 @@ namespace Stock.Db.IO
             return arr;
         }
 
+        public void SynchronizeId()
+        {
+            DB_.DropCollection(DB_ID_COLLECTION);
+            var allStockIds = StockMongoDB.GetInstance().GetAllStockIDs();
+            var idColl = DB_.GetCollection(DB_ID_COLLECTION);
+
+            StockIds ids = new StockIds();
+            ids.BatchAddStockIDs(allStockIds);
+            idColl.Insert(ids);
+        }
+
         public bool FindStockInDB(StockData dt)
         {
             var query = Query.And(
@@ -103,5 +114,7 @@ namespace Stock.Db.IO
         MongoDatabase DB_;
 
         StockFindHelper FindHelper_ = new StockFindHelper();
+
+        const string DB_ID_COLLECTION = "ShanghaiID";
     }
 }
