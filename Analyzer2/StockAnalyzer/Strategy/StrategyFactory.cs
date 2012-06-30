@@ -34,9 +34,9 @@ namespace FinanceAnalyzer.Strategy
             const double SELLMARGINPERCENT = 0.6;
             AddStrategyBySignal(new VolumeSignal(BUYMARGINPERCENT, SELLMARGINPERCENT));
 
-            AddMixedIndicators(new BasicSignalCalc(new ThreeDaySignal(new UpJudger())),
-                new BasicSignalCalc(new MoneyFlowIndexSignal()));
-            AddMixedIndicators(new BasicSignalCalc(new SimpleShapeSignal()), new BasicSignalCalc(new MACDSignal()));
+            AddMixedSignals(new ThreeDaySignal(new UpJudger()),
+                new MoneyFlowIndexSignal());
+            AddMixedSignals(new SimpleShapeSignal(), new MACDSignal());
 
             AddStrategy(new StrategyKD(25, 75));
             AddStrategy(new StrategyTwoDayPlusOne());
@@ -67,21 +67,13 @@ namespace FinanceAnalyzer.Strategy
             AddStrategyByIndicator(new BasicSignalCalc(calc));
         }
 
-        private void AddMixedIndicators(IIndicatorCalc calc1, IIndicatorCalc calc2)
+        private void AddMixedSignals(ISignalCalculator calc1, ISignalCalculator calc2)
         {
-            MixedCalc mixedCalc = new MixedCalc();
-            mixedCalc.AddIndicator(calc1, IndicatorMixedType.BuyAndSell);
-            mixedCalc.AddIndicator(calc2, IndicatorMixedType.BuyAndSell);
-            AddStrategyByIndicator(mixedCalc);
-        }
+            MixMultiSignals signals = new MixMultiSignals();
+            signals.AddIndicator(calc1, IndicatorMixedType.BuyAndSell);
+            signals.AddIndicator(calc2, IndicatorMixedType.BuyAndSell);
 
-        private void AddMixedIndicators(IIndicatorCalc calc1, IndicatorMixedType type1,
-            IIndicatorCalc calc2, IndicatorMixedType type2)
-        {
-            MixedCalc mixedCalc = new MixedCalc();
-            mixedCalc.AddIndicator(calc1, type1);
-            mixedCalc.AddIndicator(calc2, type2);
-            AddStrategyByIndicator(mixedCalc);
+            AddStrategyBySignal(signals);
         }
 
         public IFinanceStrategy GetStrategy(string strategyName)
