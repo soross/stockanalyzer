@@ -59,6 +59,7 @@
             this.buttonChart = new System.Windows.Forms.Button();
             this.groupBoxAction = new System.Windows.Forms.GroupBox();
             this.buttonHistoryAnalyze = new System.Windows.Forms.Button();
+            this.synchronizeIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SettingGroupBox.SuspendLayout();
             this.groupBoxAction.SuspendLayout();
@@ -268,20 +269,21 @@
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.downloadToolStripMenuItem.Text = "&Download...";
             // 
             // addBounusToolStripMenuItem
             // 
             this.addBounusToolStripMenuItem.Name = "addBounusToolStripMenuItem";
-            this.addBounusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addBounusToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.addBounusToolStripMenuItem.Text = "&Add Bonus...";
             this.addBounusToolStripMenuItem.Click += new System.EventHandler(this.addBounusToolStripMenuItem_Click);
             // 
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkConsistencyToolStripMenuItem});
+            this.checkConsistencyToolStripMenuItem,
+            this.synchronizeIDToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.dataToolStripMenuItem.Text = "&Data";
@@ -363,6 +365,13 @@
             this.buttonHistoryAnalyze.UseVisualStyleBackColor = true;
             this.buttonHistoryAnalyze.Click += new System.EventHandler(this.buttonHistoryAnalyze_Click);
             // 
+            // synchronizeIDToolStripMenuItem
+            // 
+            this.synchronizeIDToolStripMenuItem.Name = "synchronizeIDToolStripMenuItem";
+            this.synchronizeIDToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.synchronizeIDToolStripMenuItem.Text = "Synchronize ID";
+            this.synchronizeIDToolStripMenuItem.Click += new System.EventHandler(this.synchronizeIDToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -427,6 +436,7 @@
         private System.Windows.Forms.ToolStripMenuItem stockChartToolStripMenuItem;
         private System.Windows.Forms.Button buttonChart;
         private System.Windows.Forms.Button buttonHistoryAnalyze;
+        private System.Windows.Forms.ToolStripMenuItem synchronizeIDToolStripMenuItem;
     }
 }
 
