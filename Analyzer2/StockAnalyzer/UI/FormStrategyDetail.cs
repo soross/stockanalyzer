@@ -68,27 +68,27 @@ namespace FinanceAnalyzer.UI
 
         void InitScoresMapping(IStrategyJudger judger, IStrategyJudger judger2)
         {
-            _ScoresMapping = new Dictionary<string, IStrategyScores>();
+            ScoresMapping_ = new Dictionary<string, IStrategyScores>();
 
             foreach (var item in judger.ScoresArr)
             {
-                _ScoresMapping.Add(item.Name, item);
+                ScoresMapping_.Add(item.Name, item);
             }
 
             foreach (var item in judger2.ScoresArr)
             {
-                _ScoresMapping.Add(item.Name, item);
+                ScoresMapping_.Add(item.Name, item);
             }
         }
 
         string FindScore(string scoresType, string strategyName)
         {
-            if (!_ScoresMapping.ContainsKey(scoresType))
+            if (!ScoresMapping_.ContainsKey(scoresType))
             {
                 return "-";
             }
 
-            IStrategyScores scores = _ScoresMapping[scoresType];
+            IStrategyScores scores = ScoresMapping_[scoresType];
             if (scores == null)
             {
                 return "-";
@@ -97,7 +97,7 @@ namespace FinanceAnalyzer.UI
             return scores.GetScore(strategyName).ToString("F02", CultureInfo.CurrentCulture);
         }
 
-        Dictionary<string, IStrategyScores> _ScoresMapping;
+        Dictionary<string, IStrategyScores> ScoresMapping_;
 
         private void buttonOk_Click(object sender, EventArgs e)
         {

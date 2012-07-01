@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FinanceAnalyzer.Strategy.Result;
 using System.Diagnostics;
+using System.Linq;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Utility;
 using Stock.Common.Data;
 
