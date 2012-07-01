@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FinanceAnalyzer.Strategy;
+﻿using System.Collections.Generic;
+using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Judger;
 using FinanceAnalyzer.Judger.Validation;
+using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.UI;
-using FinanceAnalyzer.DB;
-using FinanceAnalyzer.Business;
 
 namespace FinanceAnalyzer.Stock
 {
@@ -35,11 +31,11 @@ namespace FinanceAnalyzer.Stock
             IStrategyJudger judger2 = new ValidationJudger();
             judger2.Judge(runner.Results);
 
-            allScores = judger.ScoresArr;
+            AllScores_ = judger.ScoresArr;
 
             foreach (IStrategyScores scores in judger2.ScoresArr)
             {
-                allScores.Add(scores);
+                AllScores_.Add(scores);
             }            
         }
 
@@ -47,10 +43,10 @@ namespace FinanceAnalyzer.Stock
         {
             FormScores scoresForm = new FormScores();
 
-            scoresForm.ScoresArr = allScores;
+            scoresForm.ScoresArr = AllScores_;
             scoresForm.ShowDialog();
         }
 
-        ICollection<IStrategyScores> allScores;
+        ICollection<IStrategyScores> AllScores_;
     }
 }

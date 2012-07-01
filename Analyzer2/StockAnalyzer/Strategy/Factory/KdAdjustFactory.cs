@@ -16,7 +16,7 @@ namespace FinanceAnalyzer.Strategy.Factory
             {
                 for (double j = 65; j < 85; j += 2)
                 {
-                    AddStrategy(new StrategyKD(i, j));
+                    AddStrategyBySignal(new KDSignal(i, j));
                 }
             }
 

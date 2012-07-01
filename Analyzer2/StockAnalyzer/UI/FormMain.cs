@@ -205,6 +205,18 @@ namespace FinanceAnalyzer
             History_.MinDate = dateTimePickerStart.Value;
         }
 
+        private void RunStrategyOnMultiStocks(StrategyFactory factory)
+        {
+            // Load from DB
+            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 
+                600008, 600009, 600010,600019,600020,600021,600022};
+
+            StocksHistory histories = new StocksHistory();
+            histories.Load(allStockId);
+
+
+        }
+
         IStockDBReader DbReader_;
 
         BonusProcessor BonusProcessor_ = new BonusProcessor();
@@ -223,8 +235,7 @@ namespace FinanceAnalyzer
 
         private void checkConsistencyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // 检查数据库中的数据
-            //History_.Check(LogMgr.Logger);
+            // Check stocks in Database
             WeeklyStatistics stat = new WeeklyStatistics();
             stat.Calc(History_);
 
@@ -249,31 +260,11 @@ namespace FinanceAnalyzer
 
         private void buttonHistoryAnalyze_Click(object sender, EventArgs e)
         {
-            //FindMaxCommonDays();
             AnalyseHistory();
-        }
-
-        void FindMaxCommonDays()
-        {
-            // Load from DB
-            IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 
-                600008, 600009, 600010,600019,600020,600021,600022};
-
-            StocksHistory histories = new StocksHistory();
-            histories.Load(allStockId);
-
-            StockCharMappingAnalyzer analyzer = new StockCharMappingAnalyzer();
-
-            analyzer.Init(histories);
-
-            analyzer.FindMaxCommonDays();
         }
 
         void AnalyseHistory()
         {
-            // Load from DB
-            //IEnumerable<int> allStockId = _DbReader.LoadAllIds();
-
             // Load from DB
             IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 
                 600008, 600009, 600010,600019,600020,600021,600022};

@@ -224,7 +224,6 @@
     <Compile Include="Strategy\Judger\RiseJudger.cs" />
     <Compile Include="Strategy\Judger\UpJudger.cs" />
     <Compile Include="Strategy\Impl\StrategyBear.cs" />
-    <Compile Include="Strategy\Impl\StrategyKd.cs" />
     <Compile Include="Strategy\Impl\StrategyThreeDay.cs" />
     <Compile Include="UI\FormMain.cs">
       <SubType>Form</SubType>
