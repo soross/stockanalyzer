@@ -44,6 +44,11 @@ namespace Stock.Db.IO
             return AllStock.Find(new QueryDocument("StockId", stockId));
         }
 
+        public void InitFindHelper()
+        {
+            FindHelper_.Init(Collection_);
+        }
+
         public void AddStockData(StockData sd)
         {
             if (FindHelper_.FindStock(sd.StockId, sd.TradeDate))
@@ -71,7 +76,7 @@ namespace Stock.Db.IO
         public void SynchronizeId()
         {
             DB_.DropCollection(DB_ID_COLLECTION);
-            var allStockIds = StockMongoDB.GetInstance().GetAllStockIDs();
+            var allStockIds = GetAllStockIDs();
             var idColl = DB_.GetCollection(DB_ID_COLLECTION);
 
             StockIds ids = new StockIds();
@@ -91,12 +96,8 @@ namespace Stock.Db.IO
 
         public IEnumerable<int> GetAllStockIDs()
         {
-            return FindHelper_.GetAllStockIDs();
-        }
-
-        public bool FindStock(StockData dt)
-        {
-            return FindHelper_.FindStock(dt.StockId, dt.TradeDate);
+            var idColl = DB_.GetCollection(DB_ID_COLLECTION);
+            return idColl.FindOneAs<StockIds>().AllStockID;
         }
 
         void Init()
@@ -104,8 +105,6 @@ namespace Stock.Db.IO
             MongoServer server = MongoServer.Create(); // connect to localhost
             DB_ = server.GetDatabase("ChineseStock");
             Collection_ = DB_.GetCollection<StockData>("Shanghai");
-
-            FindHelper_.Init(Collection_);
         }
 
         static StockMongoDB instance_ = new StockMongoDB();

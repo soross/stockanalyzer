@@ -19,6 +19,7 @@ namespace Stock.Db.IO
             IDailyDownloader downloader = new ShDailyDownloader();
 
             StockMongoDBSaver dbsaver = new StockMongoDBSaver();
+            dbsaver.BeforeAdd();
 
             foreach (int id in stockIds)
             {
