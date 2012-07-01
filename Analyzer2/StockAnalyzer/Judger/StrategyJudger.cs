@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FinanceAnalyzer.Strategy.Result;
 using System.Diagnostics;
+using System.Linq;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Judger
@@ -35,7 +34,7 @@ namespace FinanceAnalyzer.Judger
 
                     double strategyTotalValue = values.GetTotalValue(curDate);
 
-                    _Scores.AddScore(name, CalcSimpleScore(holderTotalValue, strategyTotalValue));
+                    Scores_.AddScore(name, CalcSimpleScore(holderTotalValue, strategyTotalValue));
                 }
 
                 curDate = DateFunc.GetNextWorkday(curDate);
@@ -47,7 +46,7 @@ namespace FinanceAnalyzer.Judger
             get
             {
                 ICollection<IStrategyScores> arr = new List<IStrategyScores>();
-                arr.Add(_Scores);
+                arr.Add(Scores_);
                 return arr;
             }
         }
@@ -59,6 +58,6 @@ namespace FinanceAnalyzer.Judger
             return delta;
         }
 
-        IStrategyScores _Scores = new StrategyScores("Daily Prices Sigma");
+        IStrategyScores Scores_ = new StrategyScores("Daily Prices Sigma");
     }
 }
