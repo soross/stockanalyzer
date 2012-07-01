@@ -214,10 +214,6 @@
     <Compile Include="Utility\ApplicationHelper.cs" />
     <Compile Include="Utility\DateFunc.cs" />
     <Compile Include="Stock\FinanceRunner.cs" />
-    <Compile Include="KDJ\IKdjCalculator.cs" />
-    <Compile Include="KDJ\IKdjStorage.cs" />
-    <Compile Include="KDJ\KdjCalculator.cs" />
-    <Compile Include="KDJ\KdjStorage.cs" />
     <Compile Include="Log\DummyLog.cs" />
     <Compile Include="Log\ILog.cs" />
     <Compile Include="Log\UITraceLog.cs" />
