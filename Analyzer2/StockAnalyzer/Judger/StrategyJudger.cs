@@ -8,7 +8,9 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.Judger
 {
-    // Compare stock total value of each days to the hold strategy, and accumulate it to the total score. 
+    /// <summary>
+    /// Compare stock total value of each days to the hold strategy, and accumulate it to the total score. 
+    /// </summary>
     class StrategyJudger : IStrategyJudger
     {
         public void Judge(IStrategyResults res)

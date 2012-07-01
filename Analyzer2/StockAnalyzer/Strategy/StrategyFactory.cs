@@ -38,7 +38,6 @@ namespace FinanceAnalyzer.Strategy
                 new MoneyFlowIndexSignal());
             AddMixedSignals(new SimpleShapeSignal(), new MACDSignal());
 
-            AddStrategy(new StrategyKD(25, 75));
             AddStrategy(new StrategyTwoDayPlusOne());
             AddStrategy(new StrategyMinMax());
             AddStrategy(new StrategyBamboo());

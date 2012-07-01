@@ -14,36 +14,36 @@ namespace FinanceAnalyzer.Judger
 
         public void AddScore(string strategyName, double score)
         {
-            if (_StrategyToScore.ContainsKey(strategyName))
+            if (StrategyNameToScore_.ContainsKey(strategyName))
             {
-                double curScore = _StrategyToScore[strategyName];
+                double curScore = StrategyNameToScore_[strategyName];
                 curScore += score;
 
-                _StrategyToScore[strategyName] = curScore;
+                StrategyNameToScore_[strategyName] = curScore;
             }
             else
             {
-                _StrategyToScore.Add(strategyName, score);
+                StrategyNameToScore_.Add(strategyName, score);
             }
         }
 
         public void SetScore(string strategyName, double score)
         {
-            if (!_StrategyToScore.ContainsKey(strategyName))
+            if (!StrategyNameToScore_.ContainsKey(strategyName))
             {
-                _StrategyToScore.Add(strategyName, score);
+                StrategyNameToScore_.Add(strategyName, score);
             }
             else
             {
-                _StrategyToScore[strategyName] = score;
+                StrategyNameToScore_[strategyName] = score;
             }
         }
 
         public double GetScore(string strategyName)
         {
-            if (_StrategyToScore.ContainsKey(strategyName))
+            if (StrategyNameToScore_.ContainsKey(strategyName))
             {
-                return _StrategyToScore[strategyName];
+                return StrategyNameToScore_[strategyName];
             }
             else
             {
@@ -55,7 +55,7 @@ namespace FinanceAnalyzer.Judger
         {
             get
             {
-                return _StrategyToScore.Keys;
+                return StrategyNameToScore_.Keys;
             }
         }
 
@@ -68,7 +68,7 @@ namespace FinanceAnalyzer.Judger
         public ICollection<string> GetTopStrategyNames(int itemCount)
         {
             //sort with value
-            var result = from item in _StrategyToScore
+            var result = from item in StrategyNameToScore_
                          orderby item.Value descending
                          select item;
 
@@ -86,6 +86,6 @@ namespace FinanceAnalyzer.Judger
             return names;
         }
 
-        private Dictionary<string, double> _StrategyToScore = new Dictionary<string, double>();
+        private Dictionary<string, double> StrategyNameToScore_ = new Dictionary<string, double>();
     }
 }
