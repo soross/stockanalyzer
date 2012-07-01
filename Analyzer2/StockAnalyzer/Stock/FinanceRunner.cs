@@ -63,7 +63,7 @@ namespace FinanceAnalyzer.Stock
                 double totalvalue = acc.TotalValue(startDate);
                 values.SetTotalValue(startDate, totalvalue);
                 
-                acc.ProcessBonus(startDate);
+                //acc.ProcessBonus(startDate);
 
                 ICollection<StockOper> opers = strategy.GetOper(startDate, acc);
 

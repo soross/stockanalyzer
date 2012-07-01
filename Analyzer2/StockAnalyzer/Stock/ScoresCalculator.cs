@@ -31,12 +31,8 @@ namespace FinanceAnalyzer.Stock
             IStrategyJudger judger2 = new ValidationJudger();
             judger2.Judge(runner.Results);
 
-            AllScores_ = judger.ScoresArr;
-
-            foreach (IStrategyScores scores in judger2.ScoresArr)
-            {
-                AllScores_.Add(scores);
-            }            
+            AllScores_.AddRange(judger.ScoresArr);
+            AllScores_.AddRange(judger2.ScoresArr);
         }
 
         public void ShowResult()
@@ -47,6 +43,6 @@ namespace FinanceAnalyzer.Stock
             scoresForm.ShowDialog();
         }
 
-        ICollection<IStrategyScores> AllScores_;
+        List<IStrategyScores> AllScores_ = new List<IStrategyScores>();
     }
 }
