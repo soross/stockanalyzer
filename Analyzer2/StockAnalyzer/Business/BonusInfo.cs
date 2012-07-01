@@ -4,16 +4,23 @@ using System.Text;
 
 namespace FinanceAnalyzer.Business
 {
+    /// <summary>
+    /// Bonuses properties of one stock
+    /// </summary>
     class BonusInfo
     {
-        // 分红金额
+        /// <summary>
+        /// Dividend cash
+        /// </summary>
         public double Dividend
         {
             get;
             set;
         }
 
-        // 送股数目
+        /// <summary>
+        /// Bonus stock hand count
+        /// </summary>
         public int BonusCount
         {
             get;
