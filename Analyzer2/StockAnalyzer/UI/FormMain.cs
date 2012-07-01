@@ -172,15 +172,16 @@ namespace FinanceAnalyzer
 
         private void buttonAutoComp_Click(object sender, EventArgs e)
         {
-            RunStrategy(new StrategyFactory());
+            RunStrategy();
         }
 
         private void buttonCalcAdjust_Click(object sender, EventArgs e)
         {
-            RunStrategy(new SpikeAdjustFactory());
+            RunStrategyOnMultiStocks();
+            //RunStrategy(new SpikeAdjustFactory());
         }
 
-        private void RunStrategy(StrategyFactory factory)
+        private void RunStrategy()
         {
             SetUserDefinedDate();
             log_.Info("==>AutoCompare start. Start Date = " + History_.MinDate.ToLongDateString()
@@ -192,6 +193,7 @@ namespace FinanceAnalyzer
                 return;
             }
 
+            StrategyFactory factory = new StrategyFactory();
             factory.Init();
 
             ScoresCalculator calc = new ScoresCalculator();
@@ -205,7 +207,7 @@ namespace FinanceAnalyzer
             History_.MinDate = dateTimePickerStart.Value;
         }
 
-        private void RunStrategyOnMultiStocks(StrategyFactory factory)
+        private void RunStrategyOnMultiStocks()
         {
             // Load from DB
             IEnumerable<int> allStockId = new List<int> { 600238, 600239, 600240, 600007, 
@@ -214,7 +216,17 @@ namespace FinanceAnalyzer
             StocksHistory histories = new StocksHistory();
             histories.Load(allStockId);
 
+            StrategyFactory factory = new StrategyFactory();
+            factory.Init();
 
+            ScoresCalculator calc = new ScoresCalculator();
+
+            foreach (IStockHistory hist in histories.GetAllHistories())
+            {                
+                calc.Calc(hist, factory, null);
+            }
+
+            calc.ShowResult();
         }
 
         IStockDBReader DbReader_;
