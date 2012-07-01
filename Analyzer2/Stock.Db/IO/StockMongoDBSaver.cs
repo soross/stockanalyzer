@@ -13,6 +13,7 @@ namespace Stock.Db.IO
 
         public void BeforeAdd()
         {
+            StockMongoDB.GetInstance().InitFindHelper();
         }
 
         public void Add(StockData data)

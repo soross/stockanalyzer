@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Stock.Common.Data;
 using DotNetStock.Engine;
+using Stock.Common.Data;
 
 namespace Stock.Common.DataAcquisition
 {
@@ -11,7 +9,6 @@ namespace Stock.Common.DataAcquisition
     {
         public void DownloadData(IStockSaver saver, List<int> stockIds)
         {
-            //_stockIds = stockIds;
             StockSaver_ = saver;
 
             List<StockServerFactory> facts = Factories.GetInstance().getStockServerFactories(Country.China);
