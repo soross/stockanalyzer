@@ -20,7 +20,7 @@ namespace FinanceAnalyzer.Stock
 
         public void Go(IStockHistory history, IStrategyFactory strategies)
         {
-            _History = history;
+            History_ = history;
 
             foreach (IFinanceStrategy strategy in strategies.AllStrategies)
             {
@@ -45,15 +45,15 @@ namespace FinanceAnalyzer.Stock
             acc.BankRoll = INITCASH;
 
             IStockHolder holder = new StockHolder();            
-            holder.History = _History;
+            holder.History = History_;
             acc.Holder = holder;
             strategy.Holder = holder;
             HolderManager.Instance().Holder = holder;
             
             acc.Processor = CurrentBonusProcessor;
 
-            DateTime startDate = _History.MinDate;
-            DateTime endDate = _History.MaxDate;
+            DateTime startDate = History_.MinDate;
+            DateTime endDate = History_.MaxDate;
 
             LogMgr.Logger.LogInfo("Min Date = {0}, Max Date = {1}", startDate, endDate);
             Debug.Assert(endDate > startDate);
@@ -71,7 +71,7 @@ namespace FinanceAnalyzer.Stock
                 {
                     foreach (StockOper oper in opers)
                     {
-                        if (_History.IsOperSuccess(startDate, oper))
+                        if (History_.IsOperSuccess(startDate, oper))
                         {
                             acc.DoBusiness(oper);
                             values.SetOperationSignal(startDate, oper.Type);
@@ -96,7 +96,7 @@ namespace FinanceAnalyzer.Stock
         }
 
         StrategyResults _results = new StrategyResults();
-        IStockHistory _History;
+        IStockHistory History_;
 
         public IBonusProcessor CurrentBonusProcessor
         {

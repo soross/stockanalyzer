@@ -5,18 +5,20 @@ using FinanceAnalyzer.Stock;
 
 namespace FinanceAnalyzer.Strategy.Result
 {
-    // 保存策略名称以及对应的结果 
+    /// <summary>
+    /// Save the strategy name and the total value of each day
+    /// </summary>
     public class StrategyResults : IStrategyResults
     {
         public void AddResult(string strategyName, IStockValues vals)
         {
-            _NameToValues.Add(strategyName, vals);
+            NameToValues_.Add(strategyName, vals);
         }
 
         public IStockValues GetResult(string strategyName)
         {
             IStockValues values = null;
-            if (!_NameToValues.TryGetValue(strategyName, out values))
+            if (!NameToValues_.TryGetValue(strategyName, out values))
             {
                 return null;
             }
@@ -30,10 +32,10 @@ namespace FinanceAnalyzer.Strategy.Result
         {
             get
             {
-                return _NameToValues.Keys;
+                return NameToValues_.Keys;
             }
         }
 
-        private SortedDictionary<string, IStockValues> _NameToValues = new SortedDictionary<string, IStockValues>();
+        private SortedDictionary<string, IStockValues> NameToValues_ = new SortedDictionary<string, IStockValues>();
     }
 }
