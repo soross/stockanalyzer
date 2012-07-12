@@ -20,7 +20,9 @@ namespace FinanceAnalyzer
             StrategyFactory factory = new StrategyFactory();
             factory.Init();
 
-            calc.Calc(new FakeStockHistory(), factory, new FakeIBonusProcessor());
+            FakeStockHistory fsh = new FakeStockHistory();
+            fsh.Init();
+            calc.Calc(fsh, factory, new FakeIBonusProcessor());
         }
     }
 }
