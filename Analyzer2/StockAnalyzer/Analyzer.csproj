@@ -119,7 +119,6 @@
     <Compile Include="Strategy\Factory\RiseDownAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\SpikeAdjustFactory.cs" />
     <Compile Include="Strategy\Factory\VolumeAdjustFactory.cs" />
-    <Compile Include="Strategy\Impl\StrategyPriceAmountDeviation.cs" />
     <Compile Include="Strategy\Impl\StrategyTwoDayPlusOne.cs" />
     <Compile Include="Strategy\Indicator\BasicSignalCalc.cs" />
     <Compile Include="Strategy\Indicator\IIndicatorCalc.cs" />
@@ -151,8 +150,6 @@
     <Compile Include="Strategy\Impl\StrategyBamboo.cs" />
     <Compile Include="Strategy\StrategyFactory.cs" />
     <Compile Include="Strategy\Impl\StrategyIndicator.cs" />
-    <Compile Include="Strategy\Impl\StrategyPeriodicity.cs" />
-    <Compile Include="Strategy\Impl\StrategyRandom.cs" />
     <Compile Include="Strategy\Impl\StrategyVolumeOptim.cs" />
     <Compile Include="Strategy\TradeRule\RiseDownRule.cs" />
     <Compile Include="Tactics\Implementation\CommonTactics.cs" />
