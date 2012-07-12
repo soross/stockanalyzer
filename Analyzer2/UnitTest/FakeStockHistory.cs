@@ -13,14 +13,14 @@ namespace FinanceAnalyzer
         {
             get
             {
-                return new DateTime(2009, 10, 26);
+                return AllDates_[AllDates_.Count - 1];
             }
         }
         public DateTime MinDate
         {
             get
             {
-                return new DateTime(2009, 10, 12);
+                return AllDates_[0];
             }
         }
 
@@ -100,6 +100,52 @@ namespace FinanceAnalyzer
 
         public void Init()
         {
+            InitStocks();
+        }
+
+        public void AddStock(DateTime dt, IStockData stock)
+        {
+        }
+
+        public IStockHistory GetPartStockHistory(DateTime startDate, DateTime endDate)
+        {
+            return null;
+        }
+
+        private void InitStocks()
+        {
+            int currentDate = 1;
+            AddDateStock(currentDate, 100, 100, 105, 95, 1000); currentDate++;
+            AddDateStock(currentDate, 102, 103, 105, 95, 1200); currentDate++;
+            AddDateStock(currentDate, 105, 108, 108, 99, 1400); currentDate++;
+            AddDateStock(currentDate, 100, 100, 105, 95, 800); currentDate++;
+            AddDateStock(currentDate, 100, 90, 100, 90, 1000); currentDate++;
+            AddDateStock(currentDate, 95, 103, 105, 95, 1000); currentDate++;
+            AddDateStock(currentDate, 100, 97, 101, 96, 1000); currentDate++;
+            AddDateStock(currentDate, 97, 93, 98, 90, 900); currentDate++;
+            AddDateStock(currentDate, 93, 89, 94, 89, 800); currentDate++;
+            AddDateStock(currentDate, 100, 101, 102, 99, 3000); currentDate++;
+            AddDateStock(currentDate, 97, 100, 105, 97, 1000); currentDate++;
+            AddDateStock(currentDate, 96, 97, 98, 95, 1000); currentDate++;
+            AddDateStock(currentDate, 100, 102, 102, 91, 1000); currentDate++;
+            AddDateStock(currentDate, 91, 89, 93, 87, 4000); currentDate++;
+            AddDateStock(currentDate, 93, 95, 97, 91, 1000); currentDate++;
+            AddDateStock(currentDate, 95, 97, 97, 95, 2000); currentDate++;
+            AddDateStock(currentDate, 99, 100, 105, 95, 1000); currentDate++;
+            AddDateStock(currentDate, 100, 101, 105, 95, 1000); currentDate++;
+            AddDateStock(currentDate, 101, 100, 105, 95, 1000); currentDate++;
+            AddDateStock(currentDate, 96, 100, 105, 95, 1000); currentDate++;
+            AddDateStock(currentDate, 100, 98, 105, 95, 3000); currentDate++;
+            AddDateStock(currentDate, 94, 98, 100, 95, 500); currentDate++;
+            AddDateStock(currentDate, 100, 100, 105, 95, 1000); currentDate++;
+
+            AllDates_.Clear();
+            AllDates_.AddRange(DailyStocks_.Keys);
+            AllDates_.Sort();
+        }
+
+        private void InitSTocks2()
+        {
             DateTime startTime = new DateTime(2009, 10, 12);
             DailyStocks_.Add(startTime,
                 FakeStockDataCreator.Create(startTime, 100, 103, 99, 99, 1000));
@@ -134,18 +180,19 @@ namespace FinanceAnalyzer
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 25), 102, 106, 101, 105, 600));
             DailyStocks_.Add(new DateTime(2009, 10, 26),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 26), 101, 108, 100, 102, 1000));
+
+            AllDates_.Clear();
+            AllDates_.AddRange(DailyStocks_.Keys);
+            AllDates_.Sort();
         }
 
-        public void AddStock(DateTime dt, IStockData stock)
+        private void AddDateStock(int date, double startPrice, double endPrice, double maxPrice, double minPrice, int volumehand)
         {
+            DateTime dt = new DateTime(2009, 10, date);
+            DailyStocks_.Add(dt, FakeStockDataCreator.Create(dt, startPrice, maxPrice, minPrice, endPrice, volumehand));
         }
-
-        public IStockHistory GetPartStockHistory(DateTime startDate, DateTime endDate)
-        {
-            return null;
-        }
-
         private Dictionary<DateTime, StockData> DailyStocks_ = new Dictionary<DateTime, StockData>();
+        private List<DateTime> AllDates_ = new List<DateTime>();
 
     }
 }
