@@ -28,12 +28,7 @@ namespace FinanceAnalyzer
 
             StrategyResults results = runner.Results;
             Assert.IsTrue(results.AllStrategyNames.Count > 0);
-
-            IFinanceStrategy strategy = new StrategyThreeDay(new UpJudger());
-            IStockValues values = results.GetResult(strategy.Name);
-
-            Assert.IsNotNull(values);
-
+            
             LogMgr.Logger.Close();
         }
     }

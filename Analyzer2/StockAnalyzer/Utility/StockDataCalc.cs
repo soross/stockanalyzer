@@ -22,10 +22,5 @@ namespace FinanceAnalyzer.Utility
         {
             return (anotherPrice - basePrice) / basePrice;
         }
-
-        public static bool PriceInRange(IStockData stock, double price)
-        {
-            return (price >= stock.MinPrice) && (price <= stock.MaxPrice);
-        }
     }
 }

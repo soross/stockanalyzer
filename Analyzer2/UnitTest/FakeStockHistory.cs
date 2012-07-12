@@ -41,9 +41,9 @@ namespace FinanceAnalyzer
         // 得到某一天的股票属性
         public IStockData GetStock(DateTime dt)
         {
-            if (_DailyStocks.ContainsKey(dt))
+            if (DailyStocks_.ContainsKey(dt))
             {
-                return _DailyStocks[dt];
+                return DailyStocks_[dt];
             }
             return null;
         }
@@ -62,7 +62,7 @@ namespace FinanceAnalyzer
 
         public bool IsOperSuccess(DateTime dt, StockOper oper)
         {
-            if (!_DailyStocks.ContainsKey(dt))
+            if (!DailyStocks_.ContainsKey(dt))
             {
                 return false;
             }
@@ -76,7 +76,7 @@ namespace FinanceAnalyzer
                 return true;
             }
 
-            StockData stock = _DailyStocks[dt];
+            StockData stock = DailyStocks_[dt];
             switch (oper.Type)
             {
                 case OperType.Buy:
@@ -101,38 +101,38 @@ namespace FinanceAnalyzer
         public void Init()
         {
             DateTime startTime = new DateTime(2009, 10, 12);
-            _DailyStocks.Add(startTime,
+            DailyStocks_.Add(startTime,
                 FakeStockDataCreator.Create(startTime, 100, 103, 99, 99, 1000));
-            _DailyStocks.Add(new DateTime(2009, 10, 13),
+            DailyStocks_.Add(new DateTime(2009, 10, 13),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 13), 102, 106, 101, 105, 1500));
-            _DailyStocks.Add(new DateTime(2009, 10, 14),
+            DailyStocks_.Add(new DateTime(2009, 10, 14),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 14), 101, 108, 100, 102, 800));
-            _DailyStocks.Add(new DateTime(2009, 10, 15),
+            DailyStocks_.Add(new DateTime(2009, 10, 15),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 15), 104, 109, 102, 105, 1100));
-            _DailyStocks.Add(new DateTime(2009, 10, 16),
+            DailyStocks_.Add(new DateTime(2009, 10, 16),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 16), 103, 106, 100, 104, 900));
 
-            _DailyStocks.Add(new DateTime(2009, 10, 17),
+            DailyStocks_.Add(new DateTime(2009, 10, 17),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 17), 102, 106, 101, 105, 2000));
-            _DailyStocks.Add(new DateTime(2009, 10, 18),
+            DailyStocks_.Add(new DateTime(2009, 10, 18),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 18), 101, 108, 100, 102, 1000));
-            _DailyStocks.Add(new DateTime(2009, 10, 19),
+            DailyStocks_.Add(new DateTime(2009, 10, 19),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 19), 104, 109, 102, 105, 1000));
-            _DailyStocks.Add(new DateTime(2009, 10, 20),
+            DailyStocks_.Add(new DateTime(2009, 10, 20),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 20), 103, 106, 100, 104, 1000));
 
-            _DailyStocks.Add(new DateTime(2009, 10, 21),
+            DailyStocks_.Add(new DateTime(2009, 10, 21),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 21), 102, 106, 101, 105, 1300));
-            _DailyStocks.Add(new DateTime(2009, 10, 22),
+            DailyStocks_.Add(new DateTime(2009, 10, 22),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 22), 101, 108, 100, 102, 1000));
-            _DailyStocks.Add(new DateTime(2009, 10, 23),
+            DailyStocks_.Add(new DateTime(2009, 10, 23),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 23), 104, 109, 102, 105, 1600));
-            _DailyStocks.Add(new DateTime(2009, 10, 24),
+            DailyStocks_.Add(new DateTime(2009, 10, 24),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 24), 103, 106, 100, 104, 1000));
 
-            _DailyStocks.Add(new DateTime(2009, 10, 25),
+            DailyStocks_.Add(new DateTime(2009, 10, 25),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 25), 102, 106, 101, 105, 600));
-            _DailyStocks.Add(new DateTime(2009, 10, 26),
+            DailyStocks_.Add(new DateTime(2009, 10, 26),
                 FakeStockDataCreator.Create(new DateTime(2009, 10, 26), 101, 108, 100, 102, 1000));
         }
 
@@ -145,7 +145,7 @@ namespace FinanceAnalyzer
             return null;
         }
 
-        private Dictionary<DateTime, StockData> _DailyStocks = new Dictionary<DateTime, StockData>();
+        private Dictionary<DateTime, StockData> DailyStocks_ = new Dictionary<DateTime, StockData>();
 
     }
 }
