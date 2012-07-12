@@ -76,6 +76,7 @@
     <Compile Include="FinanceRunnerTest.cs" />
     <Compile Include="ScoresCalculatorTest.cs" />
     <Compile Include="StategyResultsTest.cs" />
+    <Compile Include="Statistics\Weekly\WeeklyStatisticsTest.cs" />
     <Compile Include="StockValuesTest.cs" />
     <Compile Include="Stock\CharMapping\RatioTenthCharMappingTest.cs" />
     <Compile Include="Stock\SimpleStockHistory.cs" />

@@ -12,7 +12,7 @@ namespace FinanceAnalyzer.Statistics.Weekly
     /// <summary>
     /// Categorize the stock data of each week, and display them to a logger
     /// </summary>
-    class WeeklyStatistics
+    public class WeeklyStatistics
     {
         /// <summary>
         /// Add stock data from a stock history
