@@ -11,9 +11,9 @@ namespace FinanceAnalyzer.Log
     {
         public override void Log(string val)
         {
-            _logListBox.Items.Add(val);
+            logListBox_.Items.Add(val);
 
-            _log.Debug(val);
+            log_.Debug(val);
         }
 
         public override void Close()
@@ -21,6 +21,6 @@ namespace FinanceAnalyzer.Log
         }
 
         // Create a logger for use in this class
-        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog log_ = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
     }
 }

@@ -9,7 +9,7 @@ namespace FinanceAnalyzer.Log
     {
         public override void Log(string val)
         {
-            _logListBox.Items.Add(val);
+            logListBox_.Items.Add(val);
 
             Debug.WriteLine(val);
         }
