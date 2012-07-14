@@ -16,19 +16,19 @@ namespace FinanceAnalyzer.Log
         {
             get
             {
-                return m_Log;
+                return Log_;
             }
             set
             {
-                m_Log = value;
+                Log_ = value;
             }
         }
 
         public static void Close()
         {
-            m_Log.Close();
+            Log_.Close();
         }
 
-        static ICustomLog m_Log;
+        static ICustomLog Log_;
     }
 }

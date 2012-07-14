@@ -12,7 +12,7 @@ namespace FinanceAnalyzer.Log
     {
         public virtual void Log(string val)
         {
-            _logListBox.Items.Add(val);
+            logListBox_.Items.Add(val);
         }
 
         public void LogInfo(string msg)
@@ -46,7 +46,7 @@ namespace FinanceAnalyzer.Log
         {
             set
             {
-                _logListBox = value;
+                logListBox_ = value;
             }
         }
 
@@ -55,6 +55,6 @@ namespace FinanceAnalyzer.Log
 
         }
 
-        protected ListBox _logListBox;
+        protected ListBox logListBox_;
     }
 }
