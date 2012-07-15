@@ -32,12 +32,6 @@ namespace FinanceAnalyzer
             }
         }
 
-        // 得到第一天的股票属性
-        public IStockData GetFirstStock()
-        {
-            return GetStock(MinDate);
-        }
-
         // 得到某一天的股票属性
         public IStockData GetStock(DateTime dt)
         {

@@ -93,22 +93,6 @@ namespace FinanceAnalyzer.Stock
             }
         }
 
-        // 得到第一天的股票属性
-        public IStockData GetFirstStock()
-        {
-            DateTime firstDate = MinDate;
-            IStockData val = GetStock(firstDate);
-
-            while (val == null)
-            {
-                firstDate = DateFunc.GetNextWorkday(firstDate);
-
-                val = GetStock(firstDate);
-            }
-
-            return val;
-        }
-
         public IStockData GetPrevDayStock(DateTime dt)
         {
             return GetStock(GetPreviousDay(dt));
