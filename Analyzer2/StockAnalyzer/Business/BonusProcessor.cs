@@ -8,13 +8,6 @@ namespace FinanceAnalyzer.Business
 {
     public class BonusProcessor : IBonusProcessor
     {
-        public void Load(int stockId)
-        {
-            IBonusReader reader = new BonusReader();
-
-            Load(stockId, reader);
-        }
-
         public void Load(int stockId, IBonusReader reader)
         {
             Clear();

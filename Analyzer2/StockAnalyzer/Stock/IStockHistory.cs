@@ -25,10 +25,7 @@ namespace FinanceAnalyzer.Stock
         {
             get;
         }
-
-        // 得到第一天的股票属性
-        IStockData GetFirstStock();
-
+        
         // 得到某一天的股票属性
         IStockData GetStock(DateTime dt);
 

@@ -28,17 +28,12 @@ namespace FinanceAnalyzer.Stock
             get { return 900000; }
         }
 
-        public global::Stock.Common.Data.IStockData GetFirstStock()
-        {
-            return stocks_[startDate_];
-        }
-
-        public global::Stock.Common.Data.IStockData GetStock(DateTime dt)
+        public IStockData GetStock(DateTime dt)
         {
             return stocks_[dt];
         }
 
-        public global::Stock.Common.Data.IStockData GetPrevDayStock(DateTime dt)
+        public IStockData GetPrevDayStock(DateTime dt)
         {
             dt = dt.AddDays(-1);
 
@@ -62,7 +57,7 @@ namespace FinanceAnalyzer.Stock
             throw new NotImplementedException();
         }
 
-        public void AddStock(DateTime dt, global::Stock.Common.Data.IStockData stock)
+        public void AddStock(DateTime dt, IStockData stock)
         {
             throw new NotImplementedException();
         }
