@@ -15,10 +15,38 @@ namespace FinanceAnalyzer
         [Test]
         public void Test()
         {
+            TestFactory(StrategyFactoryType.Normal);
+        }
+
+        [Test]
+        public void TestKd()
+        {
+            TestFactory(StrategyFactoryType.Kd);
+        }
+
+        [Test]
+        public void TestRiseDown()
+        {
+            TestFactory(StrategyFactoryType.RiseDown);
+        }
+
+        [Test]
+        public void TestSpike()
+        {
+            TestFactory(StrategyFactoryType.Spike);
+        }
+
+        [Test]
+        public void TestVolume()
+        {
+            TestFactory(StrategyFactoryType.Volume);
+        }
+
+        void TestFactory(StrategyFactoryType tp)
+        {
             ScoresCalculator calc = new ScoresCalculator();
 
-            StrategyFactory factory = new StrategyFactory();
-            factory.Init();
+            IStrategyFactory factory = StrategyFactoryCreater.Instance().CreateFactory(tp);
 
             FakeStockHistory fsh = new FakeStockHistory();
             fsh.Init();

@@ -39,7 +39,7 @@ namespace FinanceAnalyzer.UI
 
         private void FormStrategy_Load(object sender, EventArgs e)
         {
-            _Factory.Init();
+            _Factory = StrategyFactoryCreater.Instance().CreateFactory(StrategyFactoryType.Normal);
 
             foreach (string val in _Factory.AllStrategyNames)
             {
@@ -47,7 +47,7 @@ namespace FinanceAnalyzer.UI
             }
         }
 
-        public StrategyFactory Factory
+        public IStrategyFactory Factory
         {
             get
             {
@@ -55,7 +55,7 @@ namespace FinanceAnalyzer.UI
             }
         }
 
-        StrategyFactory _Factory = new StrategyFactory();
+        IStrategyFactory _Factory;
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
