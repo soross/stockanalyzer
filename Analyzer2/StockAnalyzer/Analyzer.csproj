@@ -146,11 +146,11 @@
     <Compile Include="Strategy\Judger\IStockJudger.cs" />
     <Compile Include="Strategy\Judger\RiseJudgerOptim.cs" />
     <Compile Include="Strategy\Judger\UpJudgerOptim.cs" />
-    <Compile Include="Strategy\Judger\VolumeJudger.cs" />
     <Compile Include="Strategy\Impl\StrategyBamboo.cs" />
     <Compile Include="Strategy\StrategyFactory.cs" />
     <Compile Include="Strategy\Impl\StrategyIndicator.cs" />
     <Compile Include="Strategy\Impl\StrategyVolumeOptim.cs" />
+    <Compile Include="Strategy\StrategyFactoryCreater.cs" />
     <Compile Include="Strategy\TradeRule\RiseDownRule.cs" />
     <Compile Include="Trace\ITracer.cs" />
     <Compile Include="UI\FormBonus.cs">

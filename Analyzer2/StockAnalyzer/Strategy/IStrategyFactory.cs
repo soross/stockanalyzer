@@ -17,5 +17,7 @@ namespace FinanceAnalyzer.Strategy
         {
             get;
         }
+
+        void Remove(string strategyName);
     }
 }
