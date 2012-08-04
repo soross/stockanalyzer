@@ -46,11 +46,6 @@ namespace FinanceAnalyzer.Strategy.Indicator.Signal
 
         #endregion
 
-        public static bool IsValidPrice(double price)
-        {
-            return price > 0;
-        }
-
         IStockData PreviousStock_ = null;
         bool FirstDaySetted = false;
     }
