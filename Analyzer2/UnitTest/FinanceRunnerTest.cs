@@ -22,8 +22,7 @@ namespace FinanceAnalyzer
 
             FinanceRunner runner = new FinanceRunner();
             runner.CurrentBonusProcessor = new FakeIBonusProcessor();
-            StrategyFactory factory = new StrategyFactory();
-            factory.Init();
+            IStrategyFactory factory = StrategyFactoryCreater.Instance().CreateFactory(StrategyFactoryType.Normal);
             runner.Go(hist, factory);
 
             StrategyResults results = runner.Results;

@@ -193,8 +193,7 @@ namespace FinanceAnalyzer
                 return;
             }
 
-            StrategyFactory factory = new StrategyFactory();
-            factory.Init();
+            IStrategyFactory factory = StrategyFactoryCreater.Instance().CreateFactory(StrategyFactoryType.Normal);
 
             ScoresCalculator calc = new ScoresCalculator();
             calc.Calc(History_, factory, BonusProcessor_);
@@ -216,8 +215,7 @@ namespace FinanceAnalyzer
             StocksHistory histories = new StocksHistory();
             histories.Load(allStockId);
 
-            StrategyFactory factory = new StrategyFactory();
-            factory.Init();
+            IStrategyFactory factory = StrategyFactoryCreater.Instance().CreateFactory(StrategyFactoryType.Normal);
 
             ScoresCalculator calc = new ScoresCalculator();
 
