@@ -9,8 +9,6 @@ namespace FinanceAnalyzer.Stock.CharMapping
     {
         protected override void Init()
         {
-            List<string> chars = new List<string>();
-
             for (int i = -41; i < 42; i++)
             {
                 string s = Convert.ToChar(i + 41 + 35).ToString(); // Start from ASCII 35 
