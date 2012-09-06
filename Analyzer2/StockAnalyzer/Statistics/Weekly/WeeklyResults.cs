@@ -25,7 +25,8 @@ namespace FinanceAnalyzer.Statistics.Weekly
                 return;
             }
 
-            DateTime localDate = DateFunc.ConvertToLocal(dt.TradeDate);
+            DateTime dtFromBinary = DateTime.FromBinary(dt.TradeDateBinary);
+            DateTime localDate = DateFunc.ConvertToLocal(dtFromBinary);
             int week = calendar_.GetWeekOfYear(localDate, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
 
             int weekId = MakeWeekId(localDate.Year, week);

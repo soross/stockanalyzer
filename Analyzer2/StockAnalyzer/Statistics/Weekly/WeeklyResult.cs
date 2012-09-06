@@ -18,7 +18,8 @@ namespace FinanceAnalyzer.Statistics.Weekly
         /// <param name="dt">Stock data of one day</param>
         public void AddStockData(IStockData dt)
         {
-            DayOfWeek dw = DateFunc.ConvertToLocal(dt.TradeDate).DayOfWeek;
+            DateTime dtFromBinary = DateTime.FromBinary(dt.TradeDateBinary);
+            DayOfWeek dw = DateFunc.ConvertToLocal(dtFromBinary).DayOfWeek;
 
             if (dayToStocks_.ContainsKey(dw))
             {

@@ -15,7 +15,7 @@ namespace Stock.Common.Data
             get;
         }
 
-        DateTime TradeDate
+        long TradeDateBinary
         {
             get;
         }

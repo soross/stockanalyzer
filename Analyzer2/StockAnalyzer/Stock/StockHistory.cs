@@ -48,7 +48,7 @@ namespace FinanceAnalyzer.Stock
 
             StockId = stockId;
 
-            foreach (IStockData val in arr)
+            foreach (StockData val in arr)
             {
                 AddStock(DateFunc.ConvertToLocal(val.TradeDate), val);
             }
