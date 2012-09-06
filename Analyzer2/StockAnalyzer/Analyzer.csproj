@@ -141,13 +141,13 @@
     <Compile Include="Strategy\Indicator\Signal\VolumeSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\HoldSignal.cs" />
     <Compile Include="Strategy\Indicator\Signal\WaysShapeSignal.cs" />
-    <Compile Include="Strategy\IStrategyFactory.cs" />
+    <Compile Include="Strategy\Factory\IStrategyFactory.cs" />
     <Compile Include="Strategy\Result\IStrategyResults.cs" />
     <Compile Include="Strategy\Judger\IStockJudger.cs" />
     <Compile Include="Strategy\Judger\RiseJudgerOptim.cs" />
     <Compile Include="Strategy\Judger\UpJudgerOptim.cs" />
     <Compile Include="Strategy\Impl\StrategyBamboo.cs" />
-    <Compile Include="Strategy\StrategyFactory.cs" />
+    <Compile Include="Strategy\Factory\StrategyFactory.cs" />
     <Compile Include="Strategy\Impl\StrategyIndicator.cs" />
     <Compile Include="Strategy\Impl\StrategyVolumeOptim.cs" />
     <Compile Include="Strategy\StrategyFactoryCreater.cs" />
@@ -271,7 +271,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

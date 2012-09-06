@@ -6,6 +6,7 @@ using FinanceAnalyzer.Strategy.Impl;
 using FinanceAnalyzer.Strategy.Judger;
 using FinanceAnalyzer.Strategy.Result;
 using NUnit.Framework;
+using FinanceAnalyzer.Strategy.Factory;
 
 namespace FinanceAnalyzer
 {
