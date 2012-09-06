@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FinanceAnalyzer.Strategy
+namespace FinanceAnalyzer.Strategy.Factory
 {
     public interface IStrategyFactory
     {

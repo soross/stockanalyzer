@@ -4,6 +4,7 @@ using FinanceAnalyzer.Judger;
 using FinanceAnalyzer.Judger.Validation;
 using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.UI;
+using FinanceAnalyzer.Strategy.Factory;
 
 namespace FinanceAnalyzer.Stock
 {

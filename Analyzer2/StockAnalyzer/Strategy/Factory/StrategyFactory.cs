@@ -8,7 +8,7 @@ using FinanceAnalyzer.Utility;
 using FinanceAnalyzer.Business.Shape;
 using FinanceAnalyzer.Strategy.Indicator.Signal;
 
-namespace FinanceAnalyzer.Strategy
+namespace FinanceAnalyzer.Strategy.Factory
 {
     public class StrategyFactory : IStrategyFactory
     {

@@ -6,6 +6,7 @@ using NUnit.Framework;
 using FinanceAnalyzer.Business;
 using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.Stock;
+using FinanceAnalyzer.Strategy.Factory;
 
 namespace FinanceAnalyzer
 {

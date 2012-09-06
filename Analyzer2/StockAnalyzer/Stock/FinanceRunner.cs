@@ -8,6 +8,7 @@ using FinanceAnalyzer.Log;
 using FinanceAnalyzer.Strategy;
 using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.Utility;
+using FinanceAnalyzer.Strategy.Factory;
 
 namespace FinanceAnalyzer.Stock
 {

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using FinanceAnalyzer.Strategy;
+using FinanceAnalyzer.Strategy.Factory;
 
 namespace FinanceAnalyzer.UI
 {
