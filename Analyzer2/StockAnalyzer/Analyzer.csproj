@@ -152,7 +152,6 @@
     <Compile Include="Strategy\Impl\StrategyVolumeOptim.cs" />
     <Compile Include="Strategy\StrategyFactoryCreater.cs" />
     <Compile Include="Strategy\TradeRule\RiseDownRule.cs" />
-    <Compile Include="Trace\ITracer.cs" />
     <Compile Include="UI\FormBonus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +271,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

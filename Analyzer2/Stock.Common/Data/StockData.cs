@@ -31,7 +31,15 @@ namespace Stock.Common.Data
         {
             get { return TradeDate_; }
             set { TradeDate_ = value; }
-        }        
+        }
+
+        public Int64 TradeDateBinary
+        {
+            get
+            {
+                return TradeDate_.ToBinary();
+            }
+        }
 
         public double StartPrice
         {
