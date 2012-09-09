@@ -19,9 +19,10 @@ namespace FinanceAnalyzer.Stock.CharMapping
         {
         }
 
-        protected override string GetRatioString(double ratio)
+        public override string GetRatioString(double ratio)
         {
-            int r = (int)(((ratio * 100) / StepChar_) + 0.001);
+            double val = ((ratio * 100) / StepChar_);
+            int r = (int)Math.Round(val);            
 
             delta_ = maxRatio_;
 
@@ -81,7 +82,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
         int maxRatio_;
         int minRatio_;
         int delta_;
-        const string STR_MAPPING = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string STR_MAPPING = "KJIHGFEDCBAabcdefghijk";
 
         // 两个字符代表的间隔
         double StepChar_;

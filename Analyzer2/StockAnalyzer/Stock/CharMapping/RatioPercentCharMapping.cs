@@ -26,7 +26,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
             }
         }
 
-        protected override string GetRatioString(double ratio)
+        public override string GetRatioString(double ratio)
         {
             int r = (int)(ratio * 1000);
 
