@@ -22,7 +22,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
         }
 
         protected abstract void Init();
-        protected abstract string GetRatioString(double ratio);
+        public abstract string GetRatioString(double ratio);
         public abstract StockRatio ParseRatio(string s);
         public abstract int stockDayStringLength();
         
@@ -69,7 +69,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
                 priseRatio = (todayData.StartPrice - prevData.EndPrice) / prevData.EndPrice;
             }
 
-            if (todayData.AllPriceSame && (priseRatio < 0.0001))
+            if (todayData.AllPriceSame && (priseRatio < MINIMUM_RATIO))
             {
                 // 处理停牌的情况
                 return "";
@@ -87,5 +87,7 @@ namespace FinanceAnalyzer.Stock.CharMapping
         
         protected Dictionary<int, string> RatioToString_ = new Dictionary<int, string>();
         protected Dictionary<string, int> StringToRatio_ = new Dictionary<string, int>();
+
+        const double MINIMUM_RATIO = 0.0001;
     }
 }
