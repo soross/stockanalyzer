@@ -100,7 +100,7 @@ namespace FinanceAnalyzer.Stock
             }
         }
 
-        StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping(0.5);
+        StockHistoryCharMapping StringMapping_ = new RatioTenthCharMapping(1);
         List<string> StockMappings_ = new List<string>();
         List<string> FoundedNextDays_ = new List<string>();
     }

@@ -20,6 +20,11 @@ namespace Stock.Common.Data
             get;
         }
 
+        DateTime TradeDate
+        {
+            get;
+        }
+
         double StartPrice
         {
             get;
