@@ -84,6 +84,9 @@
     <Compile Include="DB\StockIDSynchronization.cs" />
     <Compile Include="DB\StockMongoDBReader.cs" />
     <Compile Include="Statistics\Shape\IStockShape.cs" />
+    <Compile Include="Statistics\Vertex\StockVertex.cs" />
+    <Compile Include="Statistics\Vertex\Vertexes.cs" />
+    <Compile Include="Statistics\Vertex\VertexJudger.cs" />
     <Compile Include="Statistics\Weekly\StockWeekData.cs" />
     <Compile Include="Statistics\Weekly\WeeklyResult.cs" />
     <Compile Include="Statistics\Weekly\WeeklyResults.cs" />
@@ -294,6 +297,7 @@
     <Compile Include="Utility\EMACalculator.cs" />
     <Compile Include="Utility\FixedContainer.cs" />
     <Compile Include="Utility\FixedSizeContainer.cs" />
+    <Compile Include="Utility\FixedSizeLinkedList.cs" />
     <Compile Include="Utility\Holidays.cs" />
     <Compile Include="Business\Shape\ShapeScanner.cs" />
     <Compile Include="Utility\MaxCommonString.cs" />

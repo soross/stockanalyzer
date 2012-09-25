@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using FinanceAnalyzer.Display;
@@ -11,6 +6,9 @@ using FinanceAnalyzer.Utility;
 
 namespace FinanceAnalyzer.UI
 {
+    /// <summary>
+    /// Show the chart of one stock in specified period
+    /// </summary>
     public partial class FormMSChart : Form
     {
         public FormMSChart()
