@@ -16,7 +16,9 @@ namespace FinanceAnalyzer.Statistics.Vertex
             //List<StockVertex> vertexes = new List<StockVertex>();
             Vertexes vertexes = new Vertexes();
 
-            FixedSizeLinkedList<IStockData> fixedvertexes = new FixedSizeLinkedList<IStockData>(TIME_WINDOW_MARGIN);
+            //FixedSizeLinkedList<IStockData> fixedvertexes = new FixedSizeLinkedList<IStockData>(TIME_WINDOW_MARGIN);
+            FixedSizeLinkedList<SortStock> fixedvertexes = new FixedSizeLinkedList<SortStock>(TIME_WINDOW_MARGIN);
+            FixedSizeLinkedList<SortStock> fixedvertexesmin = new FixedSizeLinkedList<SortStock>(TIME_WINDOW_MARGIN);
 
             DateTime startDate = hist.MinDate;
             DateTime endDate = hist.MaxDate;
@@ -29,13 +31,14 @@ namespace FinanceAnalyzer.Statistics.Vertex
 
                 if (stock != null)
                 {
-                    fixedvertexes.AddLast(stock);
+                    fixedvertexes.AddLast(new SortStock(currentIdx, startDate, stock.MaxPrice));
+                    fixedvertexesmin.AddLast(new SortStock(currentIdx, startDate, stock.MinPrice));
                 }
 
                 if (fixedvertexes.IsEnough())
                 {
-                    IStockData stockMax = fixedvertexes.FindMax();
-                    IStockData stockMin = fixedvertexes.FindMin();
+                    SortStock stockMax = fixedvertexes.FindMax();
+                    SortStock stockMin = fixedvertexesmin.FindMin();
 
                     vertexes.Add(CreateVertex(stockMax, VertexType.Max));
                     vertexes.Add(CreateVertex(stockMin, VertexType.Min));
@@ -48,7 +51,7 @@ namespace FinanceAnalyzer.Statistics.Vertex
             return vertexes.GetAll();
         }
 
-        static StockVertex CreateVertex(IStockData sd, VertexType vtp)
+        static StockVertex CreateVertex(SortStock sd, VertexType vtp)
         {
             if (sd == null)
             {
@@ -58,7 +61,7 @@ namespace FinanceAnalyzer.Statistics.Vertex
             StockVertex sv = new StockVertex();
             sv.FindType = VertexFindType.Automatic;
             sv.VertType = vtp;
-            sv.VertexDate = sd.TradeDate;
+            sv.VertexDate = sd.CurrentDate;
 
             return sv;
         }
