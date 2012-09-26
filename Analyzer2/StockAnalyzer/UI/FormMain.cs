@@ -13,6 +13,7 @@ using FinanceAnalyzer.Strategy.Result;
 using FinanceAnalyzer.UI;
 using Stock.Common.Data;
 using FinanceAnalyzer.Statistics.Weekly;
+using FinanceAnalyzer.Statistics.Vertex;
 
 namespace FinanceAnalyzer
 {
@@ -270,7 +271,23 @@ namespace FinanceAnalyzer
 
         private void buttonHistoryAnalyze_Click(object sender, EventArgs e)
         {
-            AnalyseHistory();
+            FindVertex();
+
+            //AnalyseHistory();
+        }
+
+        void FindVertex()
+        {
+            History_.MaxDate = dateTimePickerEnd.Value;
+            History_.MinDate = dateTimePickerStart.Value;
+
+            VertexJudger judger = new VertexJudger();
+            var res = judger.FindVertex(History_);
+
+            foreach (var item in res)
+            {
+                LogMgr.Logger.LogInfo(item.ToString());
+            }
         }
 
         void AnalyseHistory()

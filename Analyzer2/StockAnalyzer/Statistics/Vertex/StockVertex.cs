@@ -37,6 +37,9 @@ namespace FinanceAnalyzer.Statistics.Vertex
             set;
         }
 
-
+        public string ToString()
+        {
+            return "Date: " + VertexDate.ToShortDateString() + ", Type: " + VertType;
+        }
     }
 }

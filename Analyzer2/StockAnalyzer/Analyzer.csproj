@@ -84,6 +84,7 @@
     <Compile Include="DB\StockIDSynchronization.cs" />
     <Compile Include="DB\StockMongoDBReader.cs" />
     <Compile Include="Statistics\Shape\IStockShape.cs" />
+    <Compile Include="Statistics\Vertex\SortStock.cs" />
     <Compile Include="Statistics\Vertex\StockVertex.cs" />
     <Compile Include="Statistics\Vertex\Vertexes.cs" />
     <Compile Include="Statistics\Vertex\VertexJudger.cs" />
