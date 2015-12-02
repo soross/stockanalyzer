@@ -1,0 +1,1 @@
+a general stock trend finder based on daily stock chart, MACD, etc.
